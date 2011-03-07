@@ -1,0 +1,56 @@
+<project name="TwitterApp" basedir="./">
+	<description>
+	    Build file for Twitter App
+	</description>
+	<property name="src" location="./js"/>
+	<property name="build" location="./build"/>
+	<property name="dist"  location="../deploy/js"/>
+	<property name="deploy"  location="../deploy"/>
+	<property name="lib.dir" location="./bin/closure-compiler" />
+	<property name="user.name" location="david" />
+	<property name="jscompjar" location="${lib.dir}/compiler.jar" />
+	
+	<taskdef name="jscomp" 
+		classname="com.google.javascript.jscomp.ant.CompileTask"
+		classpath="${jscompjar}"/>
+		
+	<concat destfile="${build}/js/project.js">
+	  <filelist dir="${src}">
+		
+		<!-- Utils -->
+		<file name="utils/utils.js"/>
+		<file name="utils/log.js"/>
+		<file name="utils/event.js"/>
+		<file name="utils/eventmanager.js"/>
+		<file name="utils/eventdispatcher.js"/>
+		<file name="utils/tweetparser.js"/>
+		<file name="utils/mediaparser.js"/>
+		
+		<!-- Application -->
+		
+	  </filelist>
+	</concat>
+
+
+	<echo message="Init..." />
+	<tstamp/>
+	<mkdir dir="${build}"/>
+	
+	<echo message="compressing / minifying javaScript..." />
+	<jscomp compilationLevel="simple" warning="quiet"
+	  debug="true" output="${dist}/application.min.js">
+	  <sources dir="${build}/js">
+	    <file name="project.js" />
+	  </sources>
+	</jscomp>
+
+	
+	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
+		<arg line="rsync -vur --stats css/ ${deploy}/css/" />
+		<arg line="rsync -vur --stats img/ ${deploy}/img/" />
+		<arg line="rsync -vur --stats js/thirdparty/ ${deploy}/js/thirdparty/" />
+	</exec>
+	
+	<delete dir="${build}"/>
+	
+</project>
