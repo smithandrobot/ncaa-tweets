@@ -28,11 +28,15 @@ function MediaParser()
 	{
 		var slug;
 		var imgData;
-		
+
 		for(var i in domains)
 		{
 			slug = t.match(domains[i].domain);
-			if(slug) imgData = domains[i].process(slug[0], slug[1]);
+			if(slug) 
+			{
+				imgData = domains[i].process(slug[0], slug[1]);
+
+			}
 		}
 	};
 	
@@ -100,7 +104,7 @@ function MediaParser()
 			dataType: 'jsonp',
 			data : 'method=flickr.photos.getInfo&api_key='+key+'&photo_id='+id+'&format=json&jsoncallback=?',
 			success: onFlickrImgURL, 
-			error: function(){Log('error conencting to twitter')} 
+			error: function(){Log('error conencting to flickr')} 
 			});	
 
 		self.thumb = "http://flic.kr/p/img/"+fid+"_s.jpg";
@@ -121,10 +125,11 @@ function MediaParser()
 	    var alphabet = '123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ' ;
 	    var num = id.length ;
 	    var decoded = 0 ;
+		var idArr = id.split('');
 	    var multi = 1 ;
 	    for ( var i = (num-1) ; i >= 0 ; i-- )
 	    {
-	        decoded = decoded + multi * alphabet.indexOf( id[i] ) ;
+	        decoded = decoded + multi * alphabet.indexOf( idArr[i] ) ;
 	        multi = multi * alphabet.length ;
 	    }
 	    return decoded;

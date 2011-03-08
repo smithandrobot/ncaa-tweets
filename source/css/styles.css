@@ -1,0 +1,150 @@
+html {
+	background: #333;
+	color: #FFF;
+}
+
+html *:focus {
+	outline: 0;
+}
+
+body, div {
+	font-family: "Helvetica Neue", "Helvetica", Arial, sans;
+	font-size: 13px;
+	line-height: 1.4;
+	text-shadow: #000000 0px 0px 3px;
+	}
+	
+.warning a {
+	color: #74000e;
+	text-decoration: underline;
+}
+
+noscript div, .warning {
+	line-height: 50px;
+	background: #CAA642;
+	color: #333;
+	text-shadow: none;
+	font-size: 16px;
+	text-align: center;
+}
+
+#content
+{
+	width: 924px;
+	height: 973px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #333 url("../img/bkg.jpg") no-repeat;
+	background-position: center top;
+}
+
+#content h1
+{
+	text-indent:-999px;
+}
+#column-left, #column-right
+{
+	display:inline;
+	float: left;	
+}
+
+#column-left{
+	margin-left: 10px;
+	width: 530px;
+}
+
+#column-right {
+	margin-left: 0px;
+	width: 370px;
+}
+
+#tournament_nav ul
+{
+	margin-top:210px;
+	width:508px;
+	border:1px solid black;
+}
+#tournament_nav li
+{
+	display:inline;
+	font-size:12px;
+	margin-left:16px;
+}
+
+.tournament_selected
+{
+	font-size:36px;
+}
+.red{
+	color:#ED1F24;
+}
+
+
+.gray{
+	color:#999;
+}
+
+
+/* scedule list*/
+#schedule_list
+{
+	margin-top:40px;
+}
+
+
+.quarter
+{
+	font-size:18px;
+	margin-left:30px;
+	width:60px;
+	height:22px;
+	text-align:center;
+/*	border:solid black 1px;*/
+}
+
+.ranking
+{
+	font-size:11px;
+	margin-top:-15px;
+}
+
+.game_current, .game_final
+{
+	margin-bottom:20px;
+}
+
+.game_current
+{
+	width:398px;
+	height:103px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-76px -132px;
+}
+
+.game_final
+{
+	width:398px;
+	height:103px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-87px -5px;	
+}
+
+.visiting, .home
+{
+	margin-left:40px;
+}
+.visiting
+{
+	margin-top:10px;
+}
+
+.home
+{
+	margin-top:25px;
+	display:block;
+}
+
+.score
+{
+	margin-left:83px;
+}
