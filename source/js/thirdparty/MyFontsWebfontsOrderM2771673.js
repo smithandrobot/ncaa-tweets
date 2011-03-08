@@ -146,8 +146,11 @@ else if (/Opera\/(\d+\.\d+)/.test(navigator.userAgent))
 if (webfontTypeOverride)
 	webfontType = webfontTypeOverride;
 
+
+
 switch (webfontType)
 {
+	
 		case 'eot':
 		document.write("<style>\n");
 				document.write("@font-face {font-family:\"UnicodSans-CondensedBold\";src:url(\"" + path + "/webfonts/eot/style_190743.eot\");}\n");

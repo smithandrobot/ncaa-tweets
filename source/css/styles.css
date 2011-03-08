@@ -8,7 +8,7 @@ html *:focus {
 }
 
 body, div {
-	font-family: "Helvetica Neue", "Helvetica", Arial, sans;
+	font-family: UnicodSans-CondensedBold, "Helvetica Neue", "Helvetica", Arial, sans;
 	font-size: 13px;
 	line-height: 1.4;
 	text-shadow: #000000 0px 0px 3px;
@@ -19,6 +19,13 @@ body, div {
 	text-decoration: underline;
 }
 
+a
+{
+	text-decoration:none;
+}
+
+.clear { clear:both;}
+
 noscript div, .warning {
 	line-height: 50px;
 	background: #CAA642;
@@ -27,6 +34,21 @@ noscript div, .warning {
 	font-size: 16px;
 	text-align: center;
 }
+
+
+/* Begin Common */
+
+.red
+{
+	color:#ED1F24;
+}
+
+.gray
+{
+	color:#999;
+}
+
+/* End Common */
 
 #content
 {
@@ -62,8 +84,8 @@ noscript div, .warning {
 {
 	margin-top:210px;
 	width:508px;
-	border:1px solid black;
 }
+
 #tournament_nav li
 {
 	display:inline;
@@ -71,80 +93,134 @@ noscript div, .warning {
 	margin-left:16px;
 }
 
-.tournament_selected
+#tournament_nav .tournament-selected 
 {
 	font-size:36px;
-}
-.red{
-	color:#ED1F24;
-}
-
-
-.gray{
-	color:#999;
+	color:#FFF;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-49px -494px;
 }
 
 
 /* scedule list*/
+
 #schedule_list
 {
-	margin-top:40px;
+	margin-top:10px;	
 }
 
-
-.quarter
+.game
 {
-	font-size:18px;
-	margin-left:30px;
-	width:60px;
-	height:22px;
-	text-align:center;
-/*	border:solid black 1px;*/
-}
-
-.ranking
-{
-	font-size:11px;
-	margin-top:-15px;
-}
-
-.game_current, .game_final
-{
-	margin-bottom:20px;
-}
-
-.game_current
-{
-	width:398px;
-	height:103px;
+	text-align:right;
+	width:468px;
+	height:108px;
 	background: url("../img/sprites.png") no-repeat;
-	background-position:-76px -132px;
 }
 
-.game_final
+.game-current
 {
-	width:398px;
-	height:103px;
-	background: url("../img/sprites.png") no-repeat;
-	background-position:-87px -5px;	
+	background-position:-46px 0px;
 }
 
-.visiting, .home
+.game-final
 {
-	margin-left:40px;
+	background-position:-46px -123px;	
 }
-.visiting
+
+.team-visiting
+{
+	margin-top:20px;
+	height:25px;
+/*	border:1px solid;*/
+}
+
+.team-home
 {
 	margin-top:10px;
+	height:25px;
+/*	border:1px solid;*/
 }
 
-.home
+/* Begin Game Module Text Formatting and layout*/
+
+.team-ranking
 {
-	margin-top:25px;
-	display:block;
+	font-size:12px;
+	width:20px;
+	margin-left:19px;
+	text-align:right;
+	float:left;
 }
 
-.score
+
+.team-score, .team-name
 {
-	margin-left:83px;
+	font-size:18px;
+	float:left;
 }
+
+
+.team-score
+{
+	margin:0px 0px 0px 55px;
+	width:30px;
+	text-align:right;
+	border:1px solid red;
+}
+
+
+.team-hashtag
+{
+
+	font-size:10px;
+	font-family:arial;
+	font-weight:bold;
+	margin:0px 0px 0px 70px;
+	position:relative;
+	padding:0px;
+	width:100px;
+	border:1px solid;
+	float:left;
+	text-align:center;
+	color:#000;
+	text-shadow: #FFF 0px 1px 0px;
+	line-height:22px;
+}
+
+.team-visiting .team-hashtag
+{
+	margin-top : -11px;
+}
+
+
+.team-home .team-hashtag
+{
+	margin-top : 11px;
+}
+
+
+.team-mentions-small
+{
+	font-size:10px;
+	margin:0px 0px 0px 61px;
+	float:left;
+}
+
+
+.team-mentions-large
+{
+	font-size:14px;
+}
+
+
+.team-tweets-cta
+{
+	text-indent:-9999px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-572px -112px;
+	width:22px;
+	height:22px;
+	float:left;
+}
+
+/* End Game Module Text Formatting and layout*/

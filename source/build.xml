@@ -1,7 +1,5 @@
 <project name="TwitterApp" basedir="./">
-	<description>
-	    Build file for Twitter App
-	</description>
+	<description>Build file for Twitter App</description>
 	<property name="src" location="./js"/>
 	<property name="build" location="./build"/>
 	<property name="dist"  location="../deploy/js"/>
