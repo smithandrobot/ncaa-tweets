@@ -400,7 +400,7 @@ noscript div, .warning {
 
 #stream-header {
     padding:12px;
-    background: #000 url('../img/sprites.png') no-repeat -50px -223px;
+    background: #000 url('../img/sprites.png') no-repeat -50px -610px;
 }
 
 #stream-header h2 {
@@ -412,6 +412,7 @@ noscript div, .warning {
 
 #stream-header .spirit-bubble{
     float:right;
+    margin-top:3px;
 }
 .spirit-bubble {
     background: #CC5500 url('../img/bubble-mask.png') no-repeat;
