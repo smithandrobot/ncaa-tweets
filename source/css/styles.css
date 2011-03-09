@@ -511,6 +511,22 @@ noscript div, .warning {
 	background-position: -520px -42px;
 }
 
+#atanywhere-container .action-follow span i {
+	background-position: -522px -91px;
+}
+
+#atanywhere-container .action-retweet span i {
+	background-position: -551px -70px;
+}
+
+#atanywhere-container .action-favorite span i {
+	background-position: -522px -70px;
+}
+
+#atanywhere-container .action-reply span i {
+	background-position: -550px -90px;
+}
+
 .action-follow span i {
 	width: 20px;
 	background-position: -550px -42px;
