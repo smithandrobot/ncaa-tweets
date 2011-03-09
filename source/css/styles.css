@@ -563,7 +563,7 @@ noscript div, .warning {
     float:left;
     
     text-align:center;
-    font-size:18px;
+    font-size:17px;
     background-color:#232323;
     margin-right:2px;
     -moz-border-radius: 5px 5px 0px 0px; 
@@ -577,6 +577,7 @@ noscript div, .warning {
 
 .tabbed-nav .active {
     background-color:#000;
+    background: #000 url(../img/sprites.png) no-repeat  -80px -523px;
 }
 
 
@@ -604,4 +605,22 @@ noscript div, .warning {
     text-align:center;
     padding:3px;
     text-shadow:none;
+}
+
+/* tweet box styling */
+
+#tbox {
+    margin-top:10px;
+}
+#tweet-box-container label{
+    color:#fff;
+}
+
+#tweet-box-header{
+    position:relative;
+}
+
+span#counter {
+    position:absolute;
+    top:30px;
 }

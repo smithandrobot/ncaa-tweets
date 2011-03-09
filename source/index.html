@@ -12,6 +12,9 @@
 				<!-- Third Party -->
         
         <script src="http://platform.twitter.com/anywhere.js?id=c8SeHx18RWl3bmFfWoyw&amp;v=1"></script>
+        <script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/utils/log.js" type="text/javascript" charset="utf-8"></script>
+        
 		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery.scroll.js" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -22,6 +25,8 @@
 			$(document).ready (function(){
 				$('.schedule-scrollbar').scrollbar({handleHeight:151, arrows:false});
 			});
+			
+			
 		//]]>
 		</script>
 		<script type="text/javascript" src="js/thirdparty/MyFontsWebfontsOrderM2771673.js"></script>
@@ -420,7 +425,9 @@
         					    T("#tbox").tweetBox({
         					      height: 90,
         					      width: 340,
-        						  
+        						  defaultContent: "#ncaatourney",
+          						  label: "Answer for a chance to win an iPad 2!",
+          						  complete: styleTweetBox
         					    });
 
         					  });
@@ -433,7 +440,7 @@
 				        <div class="tabbed-nav">
 				            <ul>
 				                <li class="tab active"><a href="#">ALL TEAMS</a></li>
-				                <li class="tab last"><a href="#">MY TEAMS</a></li>
+				                <li class="tab last"><a href="#">MY TEAM</a></li>
 				            </ul>
 				            <div class="clear"></div>
 				        </div>
