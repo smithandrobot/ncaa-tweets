@@ -106,6 +106,14 @@ noscript div, .warning {
 	background-position:-49px -494px;
 }
 
+/* loaders */
+.please-wait {
+    width:120px;
+    margin:20px auto;
+    text-align:center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+/* end loaders */
 
 /* scedule list*/
 
@@ -282,22 +290,179 @@ noscript div, .warning {
 
 #atanywhere-container{
     height:230px;
-    margin:20px 0;
+    margin:30px 0 0 0;
     padding:10px;
+}
+
+#atanywhere-container a{
+    color:#ED1F24;
+}
+
+#atanywhere-container .tweet-text{
+    font-size:16px;
+    font-weight:bold;
 }
 
 /* end @anywhere module */
 
 /* tabbed tweet box */
 
+#tweet-streams {
+    width:362px;
+    margin:0px auto;
+}
+#timeline *, .tweet *{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#timeline {
+    background-color:#000;
+    padding:10px 0;
+    
+}
+
+#timeline .tweet-bg {
+	padding: 20px 0px 20px 0px;
+	background: url("../img/tweet-divider-hr.png") no-repeat;
+	background-position: bottom;
+
+}
+
+#viewer-timeline .tweet-bg {
+	width: 290px;
+	padding: 10px 0px 10px 0px;
+	border-bottom: 1px solid #333;
+}
+
+#viewer-timeline .tweet {
+	width: 290px;
+}
+
+.tweet-profile-image {
+	padding: 3px 10px;
+	float: left;
+	width: 48px;
+	height: 48px;
+}
+
+#viewer-timeline .tweet-profile-image img {
+	width: 32px;
+	height: 32px;
+}
+
+#viewer-timeline .tweet-profile-image {
+	padding: 0px;
+	background: none;
+	width: 32px;
+	height: 32px;
+}
+
+.tweet-copy-block {
+	display: block;
+	margin-left: 80px;
+}
+
+.tweet-name {
+	font-weight: bold;	
+}
+
+.tweet-timestamp a {
+    color:#666;
+}
+.tweet-name a {
+    color:#ED1F24;
+}
+
+.tweet-name-screen {
+	font-size: 16px;
+}
+
+.tweet-name-full {
+	color: #666666;
+	font-size: 13px;
+	font-weight:normal;
+}
+
+#viewer-timeline .tweet-copy-block {
+	margin-left: 40px;
+}
+
+#viewer-timeline * {
+	font-size: 11px;
+}
+
+/* TWEET UTILITY */
+
+/* adding bg so IE behaves on fade
+
+#timeline .tweet-utility, #timeline .tweet {
+	background: #242424;
+} */
+
+.tweet-utility {
+	margin-top: 10px;
+	font-size: 11px;
+	display: inline-block;
+}
+
+.tweet-utility * {
+	display: inline-block;
+	vertical-align: bottom;
+	line-height: 20px;
+}
+
+.tweet-utility i {
+	background: url("../img/sprites.png");
+	height: 20px;
+}
+
+.tweet-utility b {
+	font-weight: normal;
+}
+
+.tweet-actions a {
+	margin-right: 8px;
+}
+
+.tweet-attachment {
+    float:right;
+    margin:0 20px 10px 10px;
+    
+}
+
+.tweet-attachment img {
+    border: 1px solid #333;
+}
+.tweet-utility a {
+	color: #666;
+}
+
+.action-favorite span i {
+	width: 18px;
+	background-position: -522px -12px;
+}
+
+.action-reply span i {
+	width: 24px;
+	background-position: -520px -42px;
+}
+
+.action-follow span i {
+	width: 20px;
+	background-position: -550px -42px;
+}
+
+.action-retweet span i {
+	width: 24px;
+	background-position: -550px -12px;
+}
 
 .tab {
     float:left;
-    width:180px;
+    
     text-align:center;
     font-size:18px;
     background-color:#232323;
-    padding:10px 0;
     margin-right:2px;
     -moz-border-radius: 5px 5px 0px 0px; 
     -webkit-border-radius: 5px 5px 0px 0px;
@@ -312,15 +477,24 @@ noscript div, .warning {
     background-color:#000;
 }
 
+.active a {
+}
+
 .tab a {
     color:#EC1F24;
-    
+    width:180px;
+    display:block;
+    padding:10px 0;
 }
 
 .active a {
     color:#fff;
 }
 
+#loadmore {
+    width:95%;
+    margin:0px auto;
+}
 #loadmore a{
     background-color:#fff;
     display:block;
