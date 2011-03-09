@@ -17,6 +17,6 @@ function Application()
 
 	};
 
-
+	
 	function toString() { return "Application"; };
 };
