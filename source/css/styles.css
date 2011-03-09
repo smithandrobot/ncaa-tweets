@@ -399,13 +399,34 @@ noscript div, .warning {
 }
 
 #stream-header {
-    padding:5px;
+    padding:12px;
+    background: #000 url('../img/sprites.png') no-repeat -50px -223px;
 }
+
 #stream-header h2 {
     font-size:25px;
     color:#ED1F24;
     float:left;
+    width:200px;
 }
+
+#stream-header .spirit-bubble{
+    float:right;
+}
+.spirit-bubble {
+    background: #CC5500 url('../img/bubble-mask.png') no-repeat;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:10px;
+    color:#000;
+    font-weight:bold;
+    text-shadow:none;
+    text-align:center;
+    line-height:20px;
+    width:107px;
+    height:29px;
+    overflow:hidden;
+}
+
 #timeline *, .tweet *{
     font-family: Helvetica, Arial, sans-serif;
 }
