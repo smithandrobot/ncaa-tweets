@@ -93,14 +93,23 @@ noscript div, .warning {
 	margin-top:210px;
 	margin-left:-10px;
 	width:508px;
-	border:1px solid red;
+	vertical-align:bottom;
+	text-align:center;
+	white-space:nowrap;
+	overflow:hidden;
+}
 
+#tournament_nav *
+{
+	font-style:normal;
 }
 
 #tournament_nav ul
 {
-	text-align:center;
+/*	text-align:center;*/
+	width:508px;
 }
+
 #tournament_nav li
 {
 	float:left;
@@ -108,36 +117,48 @@ noscript div, .warning {
 	margin-left:10px;
 }
 
-#tournament_nav .inactive a
+#tournament_nav .inactive
 {
-	display:block;
 	color:#999;
-	margin-top:27px;
+	margin-left:10px;
+	display:inline-block;
+	vertical-align:bottom;
+/*	border:1px red solid;*/
+	line-height:28px;
 }
 
-#tournament_nav .active a
+#tournament_nav .active
+{
+	display:inline-block;
+	margin-left:10px;
+	color:#ED1F24;
+	vertical-align:bottom;
+/*	border:1px red solid;*/
+	line-height:28px;
+}
+
+#tournament_nav .tournament-selected
+{
+	font-size:28px;
+	margin-left:10px;
+	color:#FFF;
+	display:inline-block;
+}
+
+.active-under 
 {
 	display:block;
-	color:#ED1F24;
-	margin-top:27px;
-}
-
-#tournament_nav .tournament-selected a
-{
-	font-size:36px;
-	color:#FFF;
-}
-
-.active-under
-{
-	display:inline;
-	background : url('../img/sprites.png') repeat-x;
-	background-position:-49px -494px;
+	position:relative;
+	top:-5px;
 	width:100%;
 	height:6px;
 }
 
-
+.tournament-selected .active-under
+{
+	background : url('../img/sprites.png') repeat-x;
+	background-position:-49px -494px;
+}
 /* end left column nav */
 
 /* loaders */
@@ -227,7 +248,7 @@ noscript div, .warning {
 
 .team-visiting
 {
-	margin-top:9px;
+	margin-top:7px;
 	height:25px;
 /*	border:1px solid;*/
 }
@@ -253,7 +274,7 @@ noscript div, .warning {
 
 .team-score, .team-name
 {
-	font-size:18px;
+	font-size:17px;
 	float:left;
 }
 
@@ -283,11 +304,12 @@ noscript div, .warning {
 	color:#000;
 	text-shadow: #FFF 0px 1px 0px;
 	line-height:22px;
+	display:block;
 }
 
 .team-visiting .team-hashtag
 {
-	margin-top : -13px;
+	margin-top : -11px;
 }
 
 .team-name
@@ -296,7 +318,7 @@ noscript div, .warning {
 }
 .team-home .team-hashtag
 {
-	margin-top : 7px;
+	margin-top : 9px;
 }
 
 
