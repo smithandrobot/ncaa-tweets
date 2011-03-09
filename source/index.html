@@ -7,7 +7,9 @@
 			Verizon Tournament of Tweets
 		</title>
 		<link rel="stylesheet" href="http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css" type="text/css" />
-		<link rel="stylesheet" href="css/styles.css" type="text/css" /><!-- Third Party -->
+		<link rel="stylesheet" href="css/styles.css" type="text/css" />
+		<link rel="stylesheet" href="css/scrollbar.css" type="text/css" />
+				<!-- Third Party -->
 
 		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery.scroll.js" charset="utf-8"></script>
@@ -17,7 +19,7 @@
 			var woffEnabled = false;
 			var customPath = "http://smithandrobot.com/df/toftweets";
 			$(document).ready (function(){
-			$('.schedule-scrollbar').scrollbar();
+				$('.schedule-scrollbar').scrollbar({handleHeight:151, arrows:false});
 			});
 		//]]>
 		</script>
@@ -48,25 +50,32 @@
 				<div id="column-left">
 					<div id="tournament_nav">
 						<ul>
-							<li>
-								<a class="tournament-selected" href="play-ins">1st ROUND</a>
+							<li class="tournament-selected" >
+								<a href="play-ins">1st ROUND</a>
+								<div class="active-under"></div>
 							</li>
-							<li>
-								<a class="red" href="#round1">2nd ROUND</a>
+							<li class="active" >
+								<a href="#round1">2nd ROUND</a>
+								<div class="active-under"></div>
 							</li>
-							<li>
-								<a class="red" href="">3rd ROUND</a>
+							<li class="active" >
+								<a href="">3rd ROUND</a>
+								<div class="active-under"></div>
 							</li>
-							<li>
-								<a class="red" href=""></a><a class="red" href=""></a><a class="gray" href="#">REGIONALS</a>
+							<li class="active" >
+								<a href=""></a><a class="red" href=""></a><a class="gray" href="#">REGIONALS</a>
+								<div class="active-under"></div>
 							</li>
-							<li>
-								<a class="gray" href="#">FINALS</a>
+							<li class="inactive" >
+								<a href="#">FINALS</a>
+								<div class="active-under"></div>
 							</li>
-							<li>
-								<a class="gray" href="#">CHAMPIONSHIP</a>
+							<li class="inactive" >
+								<a href="#">CHAMPIONSHIP</a>
+								<div class="active-under"></div>
 							</li>
 						</ul>
+						<div class="clear"></div>
 					</div>
 					<div id="schedule_list">
 						<div id="schedule-container" class="schedule-scrollbar">
@@ -372,6 +381,8 @@
 								</div>
 							</div>
 						</div>
+						<div id="schedule-container-top-shadow"></div>
+						<div id="schedule-container-bottom-shadow"></div>
 					</div>
 				</div>
 				

@@ -6,21 +6,18 @@
 }
 
 .scrollbar-handle-container {
-    background: transparent;
+/*    background: transparent;*/
+	margin-left:30px;
     width: 30px;
+	background: url("../img/sprites.png");
+	background-position:-4px -4px;
 }
 
 .scrollbar-handle {
-    width: 16px;
+    width: 20px;
 	margin-right: 10px;
-	background: #666666 url("../img/scroller-handle.png");
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	-moz-box-shadow: 0px 0px 4px #000;
-	-webkit-box-shadow: 0px 0px 4px #000;
-	box-shadow: 0px 0px 4px #000;
-	filter:progid:DXImageTransform.Microsoft.Glow(Color=#000000,Strength=3);
-	
+	background: url("../img/sprites.png");
+	background-position:-49px -514px;
 }
 
 
@@ -39,7 +36,7 @@
 
 /* --------- */
 
-#schedule_list .scrollbar-pane {
+/*#schedule_list .scrollbar-pane {
     margin-right: 30px;
 }
 
@@ -68,5 +65,5 @@
     width: 24px;
     height: 6px;
     background: transparent;
-}
+}*/
 
