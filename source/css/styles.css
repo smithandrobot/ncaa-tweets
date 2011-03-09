@@ -100,7 +100,9 @@ noscript div, .warning {
 #tournament_nav ul
 {
 	text-align:center;
+	width:508px;
 }
+
 #tournament_nav li
 {
 	float:left;
