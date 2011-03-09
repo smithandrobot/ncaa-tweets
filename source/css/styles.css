@@ -539,12 +539,11 @@ noscript div, .warning {
     margin:0px;
 }
 
-.active {
+.tabbed-nav .active {
     background-color:#000;
 }
 
-.active a {
-}
+
 
 .tab a {
     color:#EC1F24;
@@ -553,7 +552,7 @@ noscript div, .warning {
     padding:10px 0;
 }
 
-.active a {
+.tabbed-nav .active a {
     color:#fff;
 }
 
