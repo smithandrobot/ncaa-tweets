@@ -397,6 +397,15 @@ noscript div, .warning {
     width:362px;
     margin:0px auto;
 }
+
+#stream-header {
+    padding:5px;
+}
+#stream-header h2 {
+    font-size:25px;
+    color:#ED1F24;
+    float:left;
+}
 #timeline *, .tweet *{
     font-family: Helvetica, Arial, sans-serif;
 }
