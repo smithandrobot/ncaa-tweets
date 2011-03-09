@@ -20,7 +20,7 @@ function styleTweetBox()
 	counter.css('font-size', 12);
 	box.css('background', 'transparent');
 	box.css('color', '#fff');
-	button.css('background-color', '#000')
+	button.css('background-color', '#000');
 	
 	box.focus(function() {
 		Log('focus')
