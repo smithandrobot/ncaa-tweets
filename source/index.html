@@ -10,7 +10,8 @@
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 		<link rel="stylesheet" href="css/scrollbar.css" type="text/css" />
 				<!-- Third Party -->
-
+        
+        <script src="http://platform.twitter.com/anywhere.js?id=c8SeHx18RWl3bmFfWoyw&amp;v=1"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery.scroll.js" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -408,6 +409,25 @@
                         </div>
                         
                         <!-- end canned tweet -->
+                        
+                        <div id="share">
+        					<!-- <p style="line-height:220px; text-align:center; vertical-align:bottom;">Tweet box will go here on live version.</p> -->
+        					<div id="tbox"></div>
+        					<script type="text/javascript">
+
+        					  twttr.anywhere(function (T) {
+
+        					    T("#tbox").tweetBox({
+        					      height: 90,
+        					      width: 340,
+        						  
+        					    });
+
+        					  });
+
+        					</script>
+        				</div>
+        				
 					</div>
 					<div id="tweet-streams">
 				        <div class="tabbed-nav">
