@@ -48,6 +48,11 @@ noscript div, .warning {
 	color:#999;
 }
 
+.rounded {
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
 /* End Common */
 
 #content
@@ -285,6 +290,7 @@ noscript div, .warning {
 
 /* tabbed tweet box */
 
+
 .tab {
     float:left;
     width:180px;
@@ -298,14 +304,29 @@ noscript div, .warning {
     border-radius: 5px 5px 0px 0px;
 }
 
+.last {
+    margin:0px;
+}
+
 .active {
     background-color:#000;
 }
 
 .tab a {
     color:#EC1F24;
+    
 }
 
 .active a {
     color:#fff;
+}
+
+#loadmore a{
+    background-color:#fff;
+    display:block;
+    color:#000;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align:center;
+    padding:3px;
+    text-shadow:none;
 }
