@@ -289,4 +289,23 @@ noscript div, .warning {
     float:left;
     width:180px;
     text-align:center;
+    font-size:18px;
+    background-color:#232323;
+    padding:10px 0;
+    margin-right:2px;
+    -moz-border-radius: 5px 5px 0px 0px; 
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.active {
+    background-color:#000;
+}
+
+.tab a {
+    color:#EC1F24;
+}
+
+.active a {
+    color:#fff;
 }
