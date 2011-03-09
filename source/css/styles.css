@@ -109,34 +109,55 @@ noscript div, .warning {
 	margin-top:10px;	
 }
 
+#schedule-container
+{
+	width:504px;
+	height:600px;
+	position:relative;
+	overflow:auto;
+}
 .game
 {
-	text-align:right;
 	width:468px;
 	height:108px;
 	background: url("../img/sprites.png") no-repeat;
+	clear:both;
+	margin-bottom:20px;
 }
 
 .game-current
 {
-	background-position:-46px 0px;
+	background-position:-46px -1px;
 }
 
 .game-final
 {
-	background-position:-46px -123px;	
+	background-position:-46px -126px;	
 }
+
+.game-quarter
+{
+	font-family:arial;
+	font-weight:bold;
+	font-size:16px;
+/*	border:1px solid green;*/
+	margin-left:35px;
+	line-height:28px;
+	width:57px;
+	text-align:center;
+}
+
 
 .team-visiting
 {
-	margin-top:20px;
+	margin-top:9px;
 	height:25px;
 /*	border:1px solid;*/
 }
 
 .team-home
 {
-	margin-top:10px;
+	margin-top:13px;
 	height:25px;
 /*	border:1px solid;*/
 }
@@ -162,10 +183,10 @@ noscript div, .warning {
 
 .team-score
 {
-	margin:0px 0px 0px 55px;
+	margin:0px 0px 0px 70px;
 	width:30px;
 	text-align:right;
-	border:1px solid red;
+/*	border:1px solid red;*/
 }
 
 
@@ -175,11 +196,11 @@ noscript div, .warning {
 	font-size:10px;
 	font-family:arial;
 	font-weight:bold;
-	margin:0px 0px 0px 70px;
+	margin:0px 0px 0px 50px;
 	position:relative;
 	padding:0px;
-	width:100px;
-	border:1px solid;
+	width:101px;
+/*	border:1px solid;*/
 	float:left;
 	text-align:center;
 	color:#000;
@@ -189,38 +210,83 @@ noscript div, .warning {
 
 .team-visiting .team-hashtag
 {
-	margin-top : -11px;
+	margin-top : -13px;
 }
 
-
+.team-name
+{
+	margin-left:5px;
+}
 .team-home .team-hashtag
 {
-	margin-top : 11px;
+	margin-top : 7px;
 }
 
 
-.team-mentions-small
+.team-mentions-small, .team-mentions-large
 {
-	font-size:10px;
-	margin:0px 0px 0px 61px;
+	width:63px;
+	margin:0px 0px 0px 5px;
 	float:left;
+	text-align:center;
+/*	border:1px solid red;*/
+	line-height:28px;
 }
 
 
 .team-mentions-large
 {
-	font-size:14px;
+	font-size:17px;
 }
 
+.team-home .team-mentions-large
+{
+	font-size:17px;
+	margin-left:3px;
+/*	border:1px red solid;*/
+	margin-top:-4px;
+	line-height:28px;
+}
+
+.team-mentions-small
+{
+	font-size:13px;
+}
+
+.team-visiting .team-mentions-small
+{
+	margin-top:-7px;
+/*	border:1px red solid;*/
+}
 
 .team-tweets-cta
 {
-	text-indent:-9999px;
+	margin-right:5px;
+	margin-top:-4px;
 	background: url("../img/sprites.png") no-repeat;
 	background-position:-572px -112px;
 	width:22px;
 	height:22px;
-	float:left;
+	float:right;
 }
 
 /* End Game Module Text Formatting and layout*/
+
+
+/* @anywhere module */
+
+#atanywhere-container{
+    height:230px;
+    margin:20px 0;
+    padding:10px;
+}
+
+/* end @anywhere module */
+
+/* tabbed tweet box */
+
+.tab {
+    float:left;
+    width:180px;
+    text-align:center;
+}

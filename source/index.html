@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -25,61 +26,370 @@
 	<script type="text/javascript"> 
 		document.write("<div class='warning'><b>This page cannot load properly because your browser (version 6) needs to be <a href='http://www.microsoft.com/windows/internet-explorer' target='_top'>updated</a>.</b></div>");</script>
 	<![endif]-->
-	<div id="container">
-		
-		<!-- BEGIN CONTENT -->
-		<div id="content">
-			<!-- No javaScript -->
-			<noscript><div><b>This page cannot load properly because JavaScript is turned off.</b> Try turning it on and reloading</div></noscript>
-			<h1>Verizon Tournament of Tweets</h1>
-			<!-- BEGIN COLUMN LEFT -->
-			<div id="column-left">
-				<div id="tournament_nav">
-					<ul>
-						<li><a class="red" href="play-ins">PLAY-INS</a></li>
-						<li><a class="red" href="#round1">ROUND 1</a></li>
-						<li><a class="tournament-selected" href="">ROUND 2</li>
-						<li><a class="gray" href="#">REGIONALS</a></li>
-						<li><a class="gray" href="#">FINALS</a></li>
-						<li><a class="gray" href="#">CHAMPIONSHIP</a></li>
-					</ul>
+		<div id="container">
+			<!-- BEGIN CONTENT -->
+			<div id="content">
+				<!-- No javaScript -->
+				<noscript>
+					<div>
+						<b>This page cannot load properly because JavaScript is turned off.</b> Try turning it on and reloading
+					</div>
+				</noscript>
+				<h1>
+					Verizon Tournament of Tweets
+				</h1>
+				
+				<!-- BEGIN COLUMN LEFT -->
+				
+				<div id="column-left">
+					<div id="tournament_nav">
+						<ul>
+							<li>
+								<a class="tournament-selected" href="play-ins">1st ROUND</a>
+							</li>
+							<li>
+								<a class="red" href="#round1">2nd ROUND</a>
+							</li>
+							<li>
+								<a class="red" href="">3rd ROUND</a>
+							</li>
+							<li>
+								<a class="red" href=""></a><a class="red" href=""></a><a class="gray" href="#">REGIONALS</a>
+							</li>
+							<li>
+								<a class="gray" href="#">FINALS</a>
+							</li>
+							<li>
+								<a class="gray" href="#">CHAMPIONSHIP</a>
+							</li>
+						</ul>
+					</div>
 					<div id="schedule_list">
-						<div class="game game-final">
-							<div class="quarter">&nbsp;</div>
-							<div class="team-visiting">
-								<div class="gray team-ranking">1</div>
-								<div class="team-name">KENTUCKY</div>
-								<div class="team-score">102</div>
-								<div class="team-hashtag">Go #Wildcats</div>
-								<div class="team-mentions">2,035</div>
-								<!-- <a href="#viewTweets" class="team-tweets-cta" title="Click to see tweets for this team">Click to see tweets for this team</a> -->
-								<div class="clear"></div>
+						<div id="schedule-container" class="schedule-scrollbar">
+							<div class="game game-final">
+								<div class="game-quarter">
+									&nbsp;
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
 							</div>
-							<div class="team-home">
-								<div class="gray team-ranking">21</div>
-								<div class="team-name">KENTUCKY</div>
-								<div class="gray team-score">98</div>
-								<div class="team-hashtag">Go #BlueDevils</div>
-								<div class="team-mentions">2,035</div>
-								<!-- <a href="#viewTweets" class="team-tweets-cta" title="Click to see tweets for this team">Click to see tweets for this team</a> -->
-								<div class="clear"></div>
+							<div class="game game-final">
+								<div class="game-quarter">
+									&nbsp;
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<div class="game game-final">
+								<div class="game-quarter">
+									&nbsp;
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<div class="game game-current">
+								<div class="game-quarter">
+									4th
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<div class="game game-current">
+								<div class="game-quarter">
+									3rd
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<div class="game game-current">
+								<div class="game-quarter">
+									2nd
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<div class="game game-current">
+								<div class="game-quarter">
+									1st
+								</div>
+								<div class="team-visiting">
+									<div class="gray team-ranking">
+										1
+									</div>
+									<div class="team-name">
+										KENTUCKY
+									</div>
+									<div class="team-score">
+										102
+									</div>
+									<div class="team-hashtag">
+										Go #Wildcats
+									</div>
+									<div class="team-mentions-small">
+										2,035
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
+								<div class="team-home">
+									<div class="gray team-ranking">
+										21
+									</div>
+									<div class="team-name">
+										E TENN ST.
+									</div>
+									<div class="gray team-score">
+										98
+									</div>
+									<div class="team-hashtag">
+										Go #BlueDevils
+									</div>
+									<div class="team-mentions-large">
+										35,673
+									</div>
+									<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+									<div class="clear"></div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!-- END COLUMN LEFT -->
-			
-			<!-- BEGIN COLUMN RIGHT -->
-			<div id="colum-right">
-				<p>Col Right</p>
-			</div>
-			<!-- END COLUMN RIGHT -->
+				
+				<!-- END COLUMN LEFT -->
+				
+				<!-- BEGIN COLUMN RIGHT -->
+				
+				<div id="column-right">
+					<div id="atanywhere-container">
+					    @anywhere
+					</div>
+					<div id="tweet-streams">
+				        <div class="tabbed-nav">
+				            <ul>
+				                <li class="tab active"><a href="#">ALL TEAMS</a></li>
+				                <li class="tab"><a href="#">MY TEAMS</a></li>
+				            </ul>
+				        </div>
+				    </div>
+				</div><!-- END COLUMN RIGHT -->
+			</div><!-- END CONTENT -->
+			<div id="map"></div>
 		</div>
-		<!-- END CONTENT -->
-		
-		<div id="map">
-		</div>
-	</div>
-</body>
+	</body>
 </html>
