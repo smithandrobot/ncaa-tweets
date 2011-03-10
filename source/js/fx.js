@@ -4,7 +4,9 @@ function styleTweetBox()
 {
 	Log('styleTweetBox');
 	var box = $("#tbox iframe").contents().find("textarea");
-	var button = $("#tbox iframe").contents().find(".btn");
+
+	var button = $("#tbox iframe").contents().find("button").parent();
+	var formButton = $("#tbox iframe").contents().find("button");
 	populateTweetBox();
 	label = $("#tbox iframe").contents().find("label");
 	counter = $("#tbox iframe").contents().find("#counter");
@@ -20,7 +22,13 @@ function styleTweetBox()
 	counter.css('font-size', 12);
 	box.css('background', 'transparent');
 	box.css('color', '#fff');
-	button.css('background-color', '#000');
+	button.css('background', '#D53D36');
+	button.css('border', 'none');
+	formButton.css('color', '#000');
+	formButton.css('text-shadow', 'none');
+	formButton.css('font-size', '12px');
+	// button.removeClass('btn-m');
+	//button.addClass('tweetBoxCustomButton');
 	
 	box.focus(function() {
 		Log('focus')

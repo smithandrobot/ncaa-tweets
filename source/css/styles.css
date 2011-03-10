@@ -195,10 +195,9 @@ noscript div, .warning {
 	width:480px;
 	height:20px;
 	background: url("../img/sprites.png") no-repeat;
-	background-position:-42px -283px;
+	background-position:-42px -673px;
 	top:0px;
-/*	z-index:999;*/
-/*	border:1px solid red;*/
+	pointer-events: none;
 }
 
 #schedule-container-bottom-shadow
@@ -207,10 +206,9 @@ noscript div, .warning {
 	width:480px;
 	height:20px;
 	background: url("../img/sprites.png") no-repeat;
-	background-position:-42px -262px;
+	background-position:-42px -652px;
 	top:-20px;
-/*	z-index:999;*/
-/*	border:1px solid red;*/
+	pointer-events: none;
 }
 
 .game
@@ -520,6 +518,15 @@ noscript div, .warning {
 #timeline .tweet-utility, #timeline .tweet {
 	background: #242424;
 } */
+.tweetBoxCustomButton
+{
+	width:64px;
+	height:21px;
+	background:url('../img/sprites.png');
+	background-position : -287px -317px;
+	text-indent:-9999px;
+}
+
 
 .tweet-utility {
 	margin-top: 10px;
