@@ -197,19 +197,19 @@
 			<div class="clear"></div>
 		</div>
 		<script id="gameTemplate" type="text/x-jquery-tmpl">
-          <div class="game game-final">
+          <div class="game game-${game.status}">
 				<div class="game-quarter">
-					&nbsp;
+					${game.period}
 				</div>
 				<div class="team-visiting">
 					<div class="gray team-ranking">
-						1
+						${visitingTeam.rank}
 					</div>
 					<div class="team-name">
 						KENTUCKY
 					</div>
 					<div class="team-score">
-						${visitor.score}
+						${visitingTeam.score}
 					</div>
 					<div class="team-hashtag">
 						Go #Wildcats

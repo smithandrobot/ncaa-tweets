@@ -12,11 +12,35 @@ function ScheduleController()
     function onDataChange( e )
 	{
 		var data = e.target.getData()
-		Log(data[0].competitors[0]);
+		$(data).each(function(){
+		    renderScore($(this)[0])
+		})
 		
-		$("#gameTemplate").tmpl({'visitor':data[0].competitors[0]}).appendTo("#schedule-container");
 	}
 	
+	function renderScore(data){
+	    Log(data);
+	    
+	    var templateData = {game:{}}
+	    
+	    if(data.competitors[0].homeaway == "home"){
+	        templateData.homeTeam = data.competitors[0]
+	        templateData.visitingTeam = data.competitors[1]
+	    } else {
+	        templateData.homeTeam = data.competitors[1]
+	        templateData.visitingTeam = data.competitors[0]
+	    }
+	    
+	    if(data.eventStatus.status == "FINAL"){
+	        templateData.game.status = "final"
+	        templateData.game.period = "final"
+	    } else {
+	        templateData.game.status = "current"
+	        templateData.game.period = Utils.ordinal(data.eventStatus.curPeriod)
+	    }
+	    
+	    $("#gameTemplate").tmpl(templateData).appendTo("#schedule-container");
+	}
 	function loadFeed(  )
 	{
 		model.setStream( feedURL );
