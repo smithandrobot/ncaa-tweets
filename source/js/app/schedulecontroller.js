@@ -17,7 +17,7 @@ function ScheduleController()
 	function loadFeed(  )
 	{
 		model.setStream( feedURL );
-		model.load();
+		model.loadJSON();
 	}
     
 	return this;

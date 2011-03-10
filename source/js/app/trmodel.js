@@ -16,6 +16,7 @@ function TRModel( URL )
 	var attemptInterval = 1000*1;
 	var errorPoll;
 	var error = false;
+	var loadCallback;
 	
 	this.name  = 'model'
 	this.id = "TR_MODEL_"+(++TRModel.constructor.id);
@@ -44,7 +45,7 @@ function TRModel( URL )
 		
 		Log('unable to load stream attempt: '+attempt)
 		dispatchEvent("onModelError", self);
-		setTimeout(loadCustomCallBack, attemptInterval);
+		setTimeout(loadCallback, attemptInterval);
 	};
 
 	function onStreamLoaded(d)
@@ -60,7 +61,7 @@ function TRModel( URL )
 		var aObj = {};
 		var callbackName = 'trCallback_'+String(self.id)+'_x';
 		var since = ( sinceID ) ? '?since_id='+sinceID : '';
-
+        loadCallback = loadCustomCallBack
 		window[callbackName] = self.trCallback;
 		
 		aObj.url 		= stream+since;
@@ -78,6 +79,8 @@ function TRModel( URL )
 	
 	function loadJSON()
 	{
+
+	    loadCallback = loadJSON
 		var aObj 		= {};		
 		aObj.url 		= stream
 		aObj.cache 		= true;
