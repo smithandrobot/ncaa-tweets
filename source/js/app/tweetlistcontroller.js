@@ -89,7 +89,7 @@ function TweetListController()
 		};
 		
 		element.find('.tweet')
-		updateColors();
+		// updateColors();
 		removeScrollbar();
 		addScrollbar();
 		
