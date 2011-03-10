@@ -12,6 +12,7 @@ function TweetListController()
 	var feedServer 	= 'http://tweetriver.com/smithandrobot/';
 	var currentFeed	= null;
 	var rendered 	= false;
+	var loader		= $('#tweet-team-loader');
 	var element 	= $('#main-timeline');
 	var feeds 		= [
 			  		   {id:'all', color: '#ED1F24', url : feedServer + 'javascript.json'},
@@ -22,7 +23,7 @@ function TweetListController()
 	
 	model.addEventListener('onDataChange', onDataChange);
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
-	element.empty();
+	$('#template-tweet').remove();
 	
 	setFeed( 'all' );
 	
@@ -38,6 +39,7 @@ function TweetListController()
 		rendered = false;
 		model.setStream( feedURL );
 		model.load();
+		loader.show();
 	}
 	
 	
@@ -64,6 +66,7 @@ function TweetListController()
 	{
 		if(!rendered)
 		{
+			loader.hide();
 			writeList( e );
 		}else{
 			
@@ -89,14 +92,23 @@ function TweetListController()
 		};
 		
 		element.find('.tweet')
-		// updateColors();
+
 		removeScrollbar();
 		addScrollbar();
+		updateColors();
 		
 		dispatchEvent('tweetListLoaded', self);
 		
 		lastID = data[0].order_id;	
 		rendered = true;
+	}
+	
+	function updateColors()
+	{
+		$('.team-tweets-css-scrollbar .scrollbar-handle').css('background-color', feedColor);
+		$('#timeline .tweet-bg a -.tweet-utility').css('color', feedColor);
+		$('.spirit-bubble').css('background-color', feedColor);
+		$('#loadmore a').css('background-color', feedColor);
 	}
 	
 	
@@ -114,5 +126,6 @@ function TweetListController()
 		$("#timeline .scrollbar-handle-down").remove();
 		$("#timeline").prepend(l);	
 	}
+	
 	return this;
 };

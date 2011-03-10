@@ -27,6 +27,7 @@ function TRModel( URL )
 	this.getType = function() { return type; };
 	
 	this.load = loadCustomCallBack;
+	this.loadJSON = loadJSON;
 	this.toString = function() { return "TRModel: "+this.id};
 	this.poll = poll;
 	this.trCallback = trCallback;
@@ -71,6 +72,18 @@ function TRModel( URL )
 		aObj.error 		= onStreamError;
 		aObj.jsonpCallback  = callbackName;
 		
+ 		$.ajax(aObj); 
+	}
+	
+	
+	function loadJSON()
+	{
+		var aObj 		= {};		
+		aObj.url 		= stream
+		aObj.cache 		= true;
+		aObj.dataType 	= 'json';
+		aObj.success 	= onStreamLoaded;
+		aObj.error 		= onStreamError;		
  		$.ajax(aObj); 
 	}
 
