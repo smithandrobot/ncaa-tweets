@@ -11,7 +11,10 @@ function ScheduleController()
     
     function onDataChange( e )
 	{
-		Log('New Data');
+		var data = e.target.getData()
+		Log(data[0].competitors[0]);
+		
+		$("#gameTemplate").tmpl({'visitor':data[0].competitors[0]}).appendTo("#schedule-container");
 	}
 	
 	function loadFeed(  )
