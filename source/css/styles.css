@@ -197,8 +197,7 @@ noscript div, .warning {
 	background: url("../img/sprites.png") no-repeat;
 	background-position:-42px -283px;
 	top:0px;
-/*	z-index:999;*/
-/*	border:1px solid red;*/
+	pointer-events: none;
 }
 
 #schedule-container-bottom-shadow
@@ -209,8 +208,7 @@ noscript div, .warning {
 	background: url("../img/sprites.png") no-repeat;
 	background-position:-42px -262px;
 	top:-20px;
-/*	z-index:999;*/
-/*	border:1px solid red;*/
+	pointer-events: none;
 }
 
 .game
