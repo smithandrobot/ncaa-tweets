@@ -9,7 +9,7 @@
 		"status": "FINAL"
 	},
 	"competitors": [{
-		"id": 12234,
+		"id": 194,
 		"homeaway": "home",
 		"score": 81,
 		"name": "Western Kentucky Hilltoppers",
@@ -17,7 +17,7 @@
 		"rank": 12
 	},
 	{
-		"id": 1234,
+		"id": 2377,
 		"homeaway": "away",
 		"score": 62,
 		"name": "North Texas Mean Green",
@@ -36,7 +36,7 @@
 		"status": "IN PROGRESS"
 	},
 	"competitors": [{
-		"id": 123,
+		"id": 2244,
 		"homeaway": "home",
 		"score": 75,
 		"name": "Arizona Wildcats",
@@ -44,7 +44,7 @@
 		"rank": 12
 	},
 	{
-		"id": 12345,
+		"id": 52,
 		"homeaway": "away",
 		"score": 69,
 		"name": "UCLA Bruins",
