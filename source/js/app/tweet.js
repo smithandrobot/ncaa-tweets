@@ -49,7 +49,7 @@ function Tweet()
 	this.followers;
 	this.following;
 	this.tweets;
-	this.hasqTip = false;
+
 	
 	function setData(d)
 	{
@@ -73,25 +73,39 @@ function Tweet()
 	
 	function getHTML()
 	{
-		var bioButton;
-		
-		element = $(render());
-		if( isNominee(self.screenName)) 
-		{
-			$('<span class="badge-nominee">Nominee</span>').insertAfter(element.find('.tweet-name-full'));
-		}
-		if(verified) $('<span class="badge-celebrity">Celeb</span>').insertAfter(element.find('.tweet-name-full'));
-		
-
-		
-		if(self.type == 'viewer')
-		{
-			bioButton = element.find('.expert-bio');
-			bioButton.remove();
-		}
+		/*
+		<div id="template-tweet" class="tweet">
+		   <div class="tweet-bg">
+		       <div class="tweet-profile-image">
+				      <a href="http://www.twitter.com/#!/_tommyk'" target="_blank" ><img src="http://a0.twimg.com/profile_images/1124059934/41368_500041832_3555_n_normal.jpg" alt="self.userName+'" /></a>
+		 	  </div>
+		       <div class="tweet-copy-block">
+		 	      <div class="tweet-name">
+			              <a class="tweet-name-screen" target="_blank" href="http://www.twitter.com/#!/self.screenName+'" title="self.userName+'">_tommyk</a> <span class="tweet-name-full">Tomas Klumker</span>
+		           </div>
+		           <div class="tweet-attachment"><img src="http://s3.amazonaws.com/twitpic/photos/mini/255067131.jpg?AWSAccessKeyId=0ZRYP5X5F6FSMBCCSE82&Expires=1299694785&Signature=mxY0Z2J2BUP1iNbtCmkuJUetdB0%3D"></div>
+		 	      <div class="tweet-text">this is a tweet this is a tweet this is a tweet this is a tweet</div>
+			          <div class="tweet-timestamp">
+			           <a target="_blank" href=""  title="">Mar 10, 2011</a></div>
+				      <div class="tweet-utility">
+				          <span class="tweet-actions"><a href="#favorite" class="action-favorite" title="Retweet"><span><i><!--icon--></i><b>Favorite</b></span></a><a href="#retweet" class="action-retweet" title="Retweet"><span><i><!--icon--></i><b>Retweet</b></span></a><a href="#reply" class="action-reply" title="Reply"><span><i><!--icon--></i><b>Reply</b></span></a><a href="#follow" class="action-follow" title="Follow"><span><i><!--icon--></i><b>Follow</b></span></a></span>
+				      </div>
+			      </div>
+		   </div>
+		</div>
+		*/
+		element = $(Tweet.constructor.tweetTemplate);
+		element.attr('id', 'tweet-'+self.tweetID+'-'+new Date().getTime())
+		element.find('.tweet-name a').attr('href', 'http://www.twitter.com/#!/'+self.screenName);
+		element.find('.tweet-name a').attr('title', self.userName);
+		element.find('.tweet-name-full').text(self.userName);
+		element.find('.tweet-name a').text(self.screenName);
+		element.find('.tweet-profile-image a').attr('href', 'http://www.twitter.com/#!/'+self.screenName);
+		element.find('.tweet-profile-image a img').attr('src', profileImg);
+		element.find('.tweet-text').html(self.htmlText);
 		decorate(element);
-		element.css({position:"relative"});
-		element.css({opacity:0, top:-10});
+		// element.css({position:"relative"});
+		// element.css({opacity:0, top:-10});
 
 		return element;
 	}
@@ -150,26 +164,26 @@ function Tweet()
 	function decorate(e)
 	{			
 		e.find('.action-follow').click(onClickFollow);
-		e.find('.tweet-utility').fadeTo('fast', .2);
+		//e.find('.tweet-utility').fadeTo('fast', .2);
 		
-		e.hover(
-			function(){$(this).find('.tweet-utility').stop().fadeTo('slow', 1) } , 
-			function(){$(this).find('.tweet-utility').stop().fadeTo('slow', .2) }
-			);
+		//e.hover(
+		//	function(){$(this).find('.tweet-utility').stop().fadeTo('slow', 1) } , 
+		//	function(){$(this).find('.tweet-utility').stop().fadeTo('slow', .2) }
+		//	);
 		
 		/*
 			qTip Modals
 		*/
 		
-		if(self.type != 'viewer') bioModal = new TweetUtilsWindows().bioModal( self, e );
-		reTweetModal = new TweetUtilsWindows()
-		reTweetModal.reTweetModal( self, e );
-		
-		followModal	 = new TweetUtilsWindows()
-		followModal.followModal( self, e );
-		
-		replyModal   = new TweetUtilsWindows()
-		replyModal.replyModal( self, e );
+		// if(self.type != 'viewer') bioModal = new TweetUtilsWindows().bioModal( self, e );
+		// reTweetModal = new TweetUtilsWindows()
+		// reTweetModal.reTweetModal( self, e );
+		// 
+		// followModal	 = new TweetUtilsWindows()
+		// followModal.followModal( self, e );
+		// 
+		// replyModal   = new TweetUtilsWindows()
+		// replyModal.replyModal( self, e );
 	}
 	
 	function parseDate( d )

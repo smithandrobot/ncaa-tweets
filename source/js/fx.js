@@ -27,8 +27,8 @@ function styleTweetBox()
 	formButton.css('color', '#000');
 	formButton.css('text-shadow', 'none');
 	formButton.css('font-size', '12px');
-	// button.removeClass('btn-m');
-	//button.addClass('tweetBoxCustomButton');
+	formButton.css('font-weight', 'bold');
+	formButton.css('text-transform', 'uppercase');
 	
 	box.focus(function() {
 		Log('focus')

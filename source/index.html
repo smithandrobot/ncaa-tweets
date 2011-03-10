@@ -9,12 +9,8 @@
 		<link rel="stylesheet" href="http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css" type="text/css" />
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 		<link rel="stylesheet" href="css/scrollbar.css" type="text/css" />
-				<!-- Third Party -->
-        
+				<!-- Third Party -->        
         <script src="http://platform.twitter.com/anywhere.js?id=c8SeHx18RWl3bmFfWoyw&amp;v=1"></script>
-        <script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
-        <script src="js/utils/log.js" type="text/javascript" charset="utf-8"></script>
-        
 		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery.scroll.js" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -25,13 +21,27 @@
 			$(document).ready (function(){
 				$('.schedule-scrollbar').scrollbar({handleHeight:151, arrows:false});
 			});
-			
-			
 		//]]>
 		</script>
 		<script type="text/javascript" src="js/thirdparty/MyFontsWebfontsOrderM2771673.js"></script>
 		
+		<!-- Utilities -->
+		<script type="text/javascript" src="js/utils/utils.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/log.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/event.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/eventmanager.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/eventdispatcher.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/tweetparser.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/mediaparser.js" charset="utf-8"></script>
+		
 		<!-- Application -->
+        <script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/trmodel.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/tweet.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/application.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/tweetlistcontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/schedulecontroller.js" type="text/javascript" charset="utf-8"></script>
+
 	</head>
 	<body>
 		<!--[if IE 6]>
@@ -416,7 +426,6 @@
                         <!-- end canned tweet -->
                         
                         <div id="share">
-        					<!-- <p style="line-height:220px; text-align:center; vertical-align:bottom;">Tweet box will go here on live version.</p> -->
         					<div id="tbox"></div>
         					<script type="text/javascript">
 
@@ -444,14 +453,14 @@
 				        </div>
 				        <div id="timeline-container">
         					<!-- START TIMELINE -->
-        					<div id="timeline" class="css-scrollbar">
+        					<div id="timeline" class="team-tweets-css-scrollbar">
         						<div id="loadmore">
         							<a id="loadmore-count" class="rounded" href="#null">3 New Tweets</a>
         						</div>
         						<div id="main-timeline" class="timeline-all">
         						    
         						    <!-- start canned tweet -->
-        						    <div class="tweet">
+        						    <div id="template-tweet" class="tweet">
                                        <div class="tweet-bg">
                                            <div class="tweet-profile-image">
                                     		      <a href="http://www.twitter.com/#!/_tommyk'" target="_blank" ><img src="http://a0.twimg.com/profile_images/1124059934/41368_500041832_3555_n_normal.jpg" alt="self.userName+'" /></a>
@@ -463,7 +472,7 @@
                                                <div class="tweet-attachment"><img src="http://s3.amazonaws.com/twitpic/photos/mini/255067131.jpg?AWSAccessKeyId=0ZRYP5X5F6FSMBCCSE82&Expires=1299694785&Signature=mxY0Z2J2BUP1iNbtCmkuJUetdB0%3D"></div>
                                      	      <div class="tweet-text">this is a tweet this is a tweet this is a tweet this is a tweet</div>
                                     	          <div class="tweet-timestamp">
-                                    	           <a target="_blank" href="http://www.twitter.com/#!/self.screenName+'/status/self.tweetID+'"  title="self.time+'">Mar 10, 2011</a></div>
+                                    	           <a target="_blank" href=""  title="">Mar 10, 2011</a></div>
                                     		      <div class="tweet-utility">
                                     		          <span class="tweet-actions"><a href="#favorite" class="action-favorite" title="Retweet"><span><i><!--icon--></i><b>Favorite</b></span></a><a href="#retweet" class="action-retweet" title="Retweet"><span><i><!--icon--></i><b>Retweet</b></span></a><a href="#reply" class="action-reply" title="Reply"><span><i><!--icon--></i><b>Reply</b></span></a><a href="#follow" class="action-follow" title="Follow"><span><i><!--icon--></i><b>Follow</b></span></a></span>
                                     		      </div>

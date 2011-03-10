@@ -433,13 +433,14 @@ noscript div, .warning {
 #timeline {
     background-color:#000;
     padding:10px 0;
-    
+    height:580px;
+	overflow:auto;
 }
 
 #timeline .tweet-bg {
 	padding: 20px 0px 20px 0px;
-	background: url("../img/tweet-divider-hr.png") no-repeat;
-	background-position: bottom;
+/*	background: url("../img/tweet-divider-hr.png") no-repeat;
+	background-position: bottom;*/
 
 }
 

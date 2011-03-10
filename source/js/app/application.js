@@ -6,7 +6,7 @@ function Application()
 {
 	var server 		    = 'http://tr-cache-2.appspot.com/massrelevance/';
 	var schedules 		= new ScheduleController();
-	var schedules 		= new TweetlistController();
+	var schedules 		= new TweetListController();
 
 	var tweetBox		= $('#tbox');
 	
