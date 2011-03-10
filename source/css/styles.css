@@ -246,6 +246,13 @@ noscript div, .warning {
 	text-align:center;
 }
 
+.game-final .game-quarter
+{
+	color:#000;
+	text-shadow: #FFF 0px 1px 0px;
+	text-transform:capitalize;	
+}
+
 
 .team-visiting
 {
@@ -279,10 +286,16 @@ noscript div, .warning {
 	float:left;
 }
 
+.team-name
+{
+	width:160px;
+	overflow:hidden;
+}
+
 
 .team-score
 {
-	margin:0px 0px 0px 70px;
+	margin:0px 0px 0px 0px;
 	width:30px;
 	text-align:right;
 /*	border:1px solid red;*/
@@ -295,7 +308,7 @@ noscript div, .warning {
 	font-size:10px;
 	font-family:arial;
 	font-weight:bold;
-	margin:0px 0px 0px 50px;
+	margin:0px 0px 0px 33px;
 	position:relative;
 	padding:0px;
 	width:101px;

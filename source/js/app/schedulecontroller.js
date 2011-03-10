@@ -20,15 +20,20 @@ function ScheduleController()
 	
 	function renderScore(data){
 	    Log(data);
-	    
 	    var templateData = {game:{}}
 	    
-	    if(data.competitors[0].homeaway == "home"){
-	        templateData.homeTeam = data.competitors[0]
-	        templateData.visitingTeam = data.competitors[1]
-	    } else {
-	        templateData.homeTeam = data.competitors[1]
-	        templateData.visitingTeam = data.competitors[0]
+	    for(cid in data.competitors){
+	        var c = data.competitors[cid]
+	        
+	        if(c.homeaway == "home"){
+	            templateData.homeTeam = c
+	        } else {
+	            templateData.visitingTeam = c
+	        }
+	        c.customData = Teams.getTeam(c.id)
+	        if(c.name.length > 22){
+                c.name = c.shortName
+            }
 	    }
 	    
 	    if(data.eventStatus.status == "FINAL"){
@@ -38,6 +43,8 @@ function ScheduleController()
 	        templateData.game.status = "current"
 	        templateData.game.period = Utils.ordinal(data.eventStatus.curPeriod)
 	    }
+	    
+	    
 	    
 	    $("#gameTemplate").tmpl(templateData).appendTo("#schedule-container");
 	}
