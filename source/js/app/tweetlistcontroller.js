@@ -15,7 +15,7 @@ function TweetListController()
 	var loader		= $('#tweet-team-loader');
 	var element 	= $('#main-timeline');
 	var feeds 		= [
-			  		   {id:'all', color: '#ED1F24', url : feedServer + 'javascript.json'},
+			  		   {id:'all', color: '#ED1F24', url : feedServer + 'photos.json'},
 			  		   {id: 99, url : feedServer + 'actionscript.json'}
 			  		  ];
 	
