@@ -20,7 +20,7 @@ function ScheduleController()
 	
 	function renderScore(data){
 	    Log(data);
-	    
+	    Log(Teams.getTeam('1234'))
 	    var templateData = {game:{}}
 	    
 	    if(data.competitors[0].homeaway == "home"){
