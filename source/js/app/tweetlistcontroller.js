@@ -5,6 +5,8 @@ TweetListController.constructor = TweetListController;
 function TweetListController() 
 {
 	var feed		= null;
+	var feedURL		= null;
+	var feedColor	= null;
 	var tweets		= null;
 	var model 		= new TRModel();
 	var feedServer 	= 'http://tweetriver.com/smithandrobot/';
@@ -12,7 +14,7 @@ function TweetListController()
 	var rendered 	= false;
 	var element 	= $('#main-timeline');
 	var feeds 		= [
-			  		   {id:'all', url : feedServer + 'javascript.json'},
+			  		   {id:'all', color: '#ED1F24', url : feedServer + 'javascript.json'},
 			  		   {id: 99, url : feedServer + 'actionscript.json'}
 			  		  ];
 	
@@ -26,19 +28,20 @@ function TweetListController()
 	
 	function setFeed( id )
 	{
-		var f = getFeedURL( id );
+		var f = getFeedData( id );
 		if(!f) 
 		{
 			Log('** FEED NOT FOUND **') ;
 			return;
 		}
+		currentFeed = id;
 		rendered = false;
-		model.setStream( f );
+		model.setStream( feedURL );
 		model.load();
 	}
 	
 	
-	function getFeedURL( id )
+	function getFeedData( id )
 	{
 		var i;
 		var feed;
@@ -46,7 +49,12 @@ function TweetListController()
 		for(i in feeds)
 		{
 			feed = feeds[i];
-			if(feed.id === id) return feed.url
+			if(feed.id === id) 
+			{
+				feedURL = feed.url;
+				feedColor = feed.color;
+				return feedURL;
+			}
 		}
 		return false;
 	}
@@ -78,9 +86,10 @@ function TweetListController()
 			t = new Tweet();
 			t.setData(data[i]);
 			element.append(t.getHTML());
-			tweets.push({tweet:t, id:i})
 		};
 		
+		element.find('.tweet')
+		updateColors();
 		removeScrollbar();
 		addScrollbar();
 		
@@ -88,17 +97,6 @@ function TweetListController()
 		
 		lastID = data[0].order_id;	
 		rendered = true;
-	}
-	
-	function renderTweet( t )
-	{
-		for(i;i<=total;i++)	
-		{
-			tweet 	 = tweets[i].tweet;
-			tweetObj = tweet.getHTML();
-			tweetObj.stop().delay(delay*i).animate( {opacity:1, top:0}, { duration:500, complete: function(){ $(this).css('filter', '');} } );
-			self.element.append(tweetObj);
-		};	
 	}
 	
 	
