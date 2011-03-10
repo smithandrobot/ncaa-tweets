@@ -1,0 +1,75 @@
+.modal
+{
+	width:235px;
+	background:url('../img/modal-glare.png') #000 no-repeat;
+	min-height:200px;
+	padding:15px 15px 0px 15px;
+}
+
+.modal h2
+{
+	float:left;
+	font-size: 23px;
+	text-shadow:none;
+	margin-bottom:10px;
+}
+
+.modal-dialog
+{
+	font-family:Arial;
+	font-weight:bold;
+	font-size:14px;
+	text-shadow:none;
+}
+
+.modal-tweet-container
+{
+	margin-top:10px;
+}
+
+.modal-tweet-container *
+{
+	font-family:Arial;
+	font-size:12px;
+}
+
+.modal-shadow 
+{
+	-moz-box-shadow: 3px 3px 4px #ED1F24;
+	-webkit-box-shadow: 3px 3px 4px #ED1F24;
+	box-shadow: 3px 3px 4px #ED1F24;
+	/* For IE 8 */	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ED1F24')";	
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ED1F24');
+}
+
+.close-botton
+{
+	background : url('../img/sprites.png');
+	background-position:-575px -149px;
+	width:15px;
+	height:17px;
+	text-indent:-9999px;
+	float:right;
+	margin-bottom:10px;
+}
+
+.modal-cancel-button
+{
+	background : url('../img/sprites.png');
+	background-position:-385px -330px;
+	width:64px;
+	height:21px;
+	text-indent:-9999px;
+}
+
+.modal-photo
+{
+	width : 640px;
+/*	height : 570px;*/
+	background-color : #000;
+	padding:15px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}

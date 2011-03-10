@@ -72,7 +72,7 @@ function Tweet()
 		thumb.onload 	= decorateImg;
 		thumb.onerror	= removeImg
 		thumb.src 	 	= e.target.thumb;
-		this.largeImage	= e.target.largeImage;
+		self.largeImage	= e.target.largeImage;
 		
 		element.find('.tweet-attachment').css('background-image','url('+thumb.src+')');
 	}
@@ -106,7 +106,15 @@ function Tweet()
 	
 	function onPhotoClick()
 	{
-		Log('image: ');
+		Log('image: '+self.largeImage);
+		var html = element.clone();
+		html.find('.tweet-profile-image').remove();
+		html.find('.tweet-utility').remove();
+		html.find('.tweet-attachment').remove();
+		html.find('.tweet-copy-block').css('margin-left', '0px');
+		html.find('.tweet-copy-block').css('font-family', 'arial');
+		html.find('.tweet-copy-block').css('font-size', '11px');
+		$(".modal-tweet-container").html(html);
 	}
 	
 	

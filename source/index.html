@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css" type="text/css" />
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 		<link rel="stylesheet" href="css/scrollbar.css" type="text/css" />
+		<link rel="stylesheet" href="css/modals.css" type="text/css" />
 				<!-- Third Party -->        
         <script src="http://platform.twitter.com/anywhere.js?id=c8SeHx18RWl3bmFfWoyw&amp;v=1"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
@@ -196,6 +197,23 @@
 			</div><!-- END CONTENT -->
 			<div id="map"></div>
 			<div class="clear"></div>
+			<div id="modal-photo-template" class="modal-photo modal-shadow">
+				<div class="photo-tweet">
+					<div class="close-botton">close</div>
+				</div>
+				<div class="photo-tweet-image"><img src="" /></div>
+			</div>
+			<div id="modal-retweet-template" class="modal modal-shadow">
+					<h2>RETWEET</h2>
+					<div class="close-botton">close</div>
+					<div class="clear"></div>
+					<div class="gray modal-dialog">Retweet this from rajmanaik</div>
+					<div class="modal-tweet-container"></div>
+					<div class="button-group">
+						<div class="modal-cancel-button">RETWEET</div>
+						<div class="modal-cancel-button">CANCEL</div>
+					</div>
+			</div>
 		</div>
 		<script id="gameTemplate" type="text/x-jquery-tmpl">
           <div class="game game-${game.status}">
