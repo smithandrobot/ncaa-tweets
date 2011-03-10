@@ -397,6 +397,7 @@ noscript div, .warning {
 #tweet-streams {
     width:362px;
     margin:0px auto;
+    margin-top:50px;
 }
 
 #stream-header {
@@ -436,18 +437,21 @@ noscript div, .warning {
 #timeline-container {
     background-color:#000;
     padding-top:10px;
+    -moz-border-radius:0px 0px 5px 5px; 
+    -webkit-border-radius: 0px 0px 5px 5px; 
+    border-radius: 0px 0px 5px 5px;
 }
 #timeline {
     padding:10px 0;
-    height:585px;
+    height:535px;
 	position:relative;
-	overflow:auto;
+	
 }
 
 #timeline .tweet-bg {
-	padding: 20px 0px 20px 0px;
-	background: url("../img/tweet-divider-hr.png") no-repeat;
-	background-position: bottom;
+	padding: 5px 0px 5px 0px;
+/*	background: url("../img/tweet-divider-hr.png") no-repeat;
+	background-position: bottom;*/
 
 }
 
@@ -482,7 +486,11 @@ noscript div, .warning {
 
 .tweet-copy-block {
 	display: block;
-	margin-left: 80px;
+	margin-left: 68px;
+}
+
+.tweet-copy-block a{
+	color:#ED1F24;
 }
 
 .tweet-name {
@@ -534,7 +542,8 @@ noscript div, .warning {
 .tweet-utility {
 	margin-top: 10px;
 	font-size: 11px;
-	display: inline-block;
+	display: block;
+	width:270px;
 }
 
 .tweet-utility * {
@@ -558,7 +567,7 @@ noscript div, .warning {
 
 .tweet-attachment {
     float:right;
-    margin:0 20px 10px 10px;
+    margin:0 20px 0px 10px;
     
 }
 
@@ -640,8 +649,8 @@ noscript div, .warning {
 }
 
 #loadmore {
-    width:95%;
-    margin:0px auto;
+    width:330px;
+    margin:3px 10px;
 }
 #loadmore a{
     background-color:#fff;

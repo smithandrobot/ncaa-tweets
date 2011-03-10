@@ -36,34 +36,34 @@
 
 /* --------- */
 
-/*#schedule_list .scrollbar-pane {
-    margin-right: 30px;
+.team-tweets-css-scrollbar .scrollbar-pane {
+    margin-right: 15px;
 }
 
-#schedule_list .scrollbar-handle-container {
+.team-tweets-css-scrollbar .scrollbar-handle-container {
     background: transparent;
     width: 30px;
 }
 
-#schedule_list .scrollbar-handle {
+.team-tweets-css-scrollbar .scrollbar-handle {
     width: 8px;
-	margin-right: 2px;
-	background: #5D5235;
+	margin-right: 7px;
+	background: #ED1F24;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 }
 
 
-#schedule_list .scrollbar-handle-up {
+.team-tweets-css-scrollbar .scrollbar-handle-up {
     width: 24px;
     height: 6px;
     background: transparent;
 }
 
 
-#schedule_list .scrollbar-handle-down {
+.team-tweets-css-scrollbar .scrollbar-handle-down {
     width: 24px;
     height: 6px;
     background: transparent;
-}*/
+}
 
