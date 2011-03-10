@@ -11,7 +11,7 @@
 	"competitors": [{
 		"id": 194,
 		"homeaway": "home",
-		"score": 81,
+		"score": 65,
 		"name": "Western Kentucky Hilltoppers",
 		"shortName": "WKU",
 		"rank": 12
@@ -19,7 +19,7 @@
 	{
 		"id": 2377,
 		"homeaway": "away",
-		"score": 62,
+		"score": 69,
 		"name": "North Texas Mean Green",
 		"shortName": "NTX",
 		"rank": 3
@@ -38,7 +38,7 @@
 	"competitors": [{
 		"id": 2244,
 		"homeaway": "home",
-		"score": 75,
+		"score": 78,
 		"name": "Arizona Wildcats",
 		"shortName": "ARZ",
 		"rank": 12
@@ -46,7 +46,7 @@
 	{
 		"id": 52,
 		"homeaway": "away",
-		"score": 69,
+		"score": 71,
 		"name": "UCLA Bruins",
 		"shortName": "UCLA",
 		"rank": 3

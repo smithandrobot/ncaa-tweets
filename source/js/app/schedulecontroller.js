@@ -21,23 +21,35 @@ function ScheduleController()
 	
     function onDataChange( e )
 	{
+	    var data = e.target.getData()
+	    
 	    if(games.length == 0){
-	        Log('Rendering Games')
 	        $("#schedule-container").empty();
-    		var data = e.target.getData()
+    		
     		$(data).each(function(){
     		    renderGame($(this)[0])
     		})
 	    } else {
-	        Log('Scoring Update')
+	        $(data).each(function(){
+    		    updateGame($(this)[0])
+    		})
 	    }
 	    
 	}
 	
 	function renderGame(data){
-	    
 	    var game = new GameController(data);
+	    games.push(game)
 	    game.addEventListener("onTeamSelect", teamClick)
+	    
+	}
+	
+	function updateGame(data){
+	    for(game in games){
+	        if(games[game].id == data.gameid){
+	            games[game].update(data)
+	        }
+	    }
 	    
 	}
 	
