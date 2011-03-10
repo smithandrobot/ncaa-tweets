@@ -25,6 +25,7 @@ function Tweet()
 	this.followers;
 	this.following;
 	this.tweets;
+	this.largeImage;
 	
 	mediaParser.addEventListener('onImageData', onImageData);
 	
@@ -67,19 +68,28 @@ function Tweet()
 	
 	function onImageData( e )
 	{
- 	 	var thumb		 	= new Image();
-		// thumb.onload 	= function(){alert('loaded')};//getImageOffsets;
-		thumb.onerror	= function(){Log('*** ---|> error loading imge: src = '+this.src)}; //onImageError
+ 	 	var thumb		= new Image();
+		thumb.onload 	= decorateImg;
+		thumb.onerror	= removeImg
 		thumb.src 	 	= e.target.thumb;
-                     	
-		             	
-		var source   	 	= e.target.source;
-		var thumbURL 	 	= e.target.thumb;
-		var img   	 	= e.target.largeImage;
+		self.largeImage	= e.target.largeImage;
 		
-		element.find('.tweet-attachment').append('<img src="'+thumb.src+'" />');
+		element.find('.tweet-attachment').css('background-image','url('+thumb.src+')');
 	}
 	
+	
+	function decorateImg()
+	{
+		var photo = element.find('.tweet-attachment');
+		photo.click(onPhotoClick);
+		photo.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+	}
+	
+	
+	function removeImg( )
+	{
+		element.find('.tweet-attachment').remove();
+	}
 	
 	function onClickRetweet()
 	{
@@ -93,6 +103,20 @@ function Tweet()
 	function onClickFollow()
 	{
 	}	
+	
+	function onPhotoClick()
+	{
+		Log('image: '+self.largeImage);
+		var html = element.clone();
+		html.find('.tweet-profile-image').remove();
+		html.find('.tweet-utility').remove();
+		html.find('.tweet-attachment').remove();
+		html.find('.tweet-copy-block').css('margin-left', '0px');
+		html.find('.tweet-copy-block').css('font-family', 'arial');
+		html.find('.tweet-copy-block').css('font-size', '11px');
+		$(".modal-tweet-container").html(html);
+	}
+	
 	
 	function onTweetOver() {e.find('.tweet-utility').fadeTo('fast', 1); };
 	function onTweetOut() { e.find('.tweet-utility').fadeTo('fast', .2); };
@@ -115,5 +139,6 @@ function Tweet()
 		var date = d.slice(0,-19);
 		return date;
 	}
+	
 	return this;
 };

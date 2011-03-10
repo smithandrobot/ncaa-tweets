@@ -582,7 +582,10 @@ noscript div, .warning {
 .tweet-attachment {
     float:right;
     margin:0 20px 0px 10px;
-    
+    overflow : hidden;
+	width:75px;
+	height:75px;
+	background-position: center center;
 }
 
 .tweet-attachment img {
