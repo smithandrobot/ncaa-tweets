@@ -3,55 +3,56 @@ ScheduleController.prototype = new EventDispatcher();
 ScheduleController.constructor = ScheduleController;
 function ScheduleController() 
 {
-    var model 		= new TRModel();
-    var feedURL  = 'mock/schedule.json'
+    var self            = this;
+    var selected        = null;
+    var model 		    = new TRModel();
+    var feedURL         = 'mock/schedule.json'
+    var INTERVAL		= 1000*5;
+    var games           = []
     
     model.addEventListener('onDataChange', onDataChange);
+    
     loadFeed();
     
-    function onDataChange( e )
-	{
-		var data = e.target.getData()
-		$(data).each(function(){
-		    renderScore($(this)[0])
-		})
-		
+    function poll()
+	{	
+		model.loadJSON();
 	}
 	
-	function renderScore(data){
-	    Log(data);
-	    var templateData = {game:{}}
-	    
-	    for(cid in data.competitors){
-	        var c = data.competitors[cid]
-	        
-	        if(c.homeaway == "home"){
-	            templateData.homeTeam = c
-	        } else {
-	            templateData.visitingTeam = c
-	        }
-	        c.customData = Teams.getTeam(c.id)
-	        if(c.name.length > 22){
-                c.name = c.shortName
-            }
-	    }
-	    
-	    if(data.eventStatus.status == "FINAL"){
-	        templateData.game.status = "final"
-	        templateData.game.period = "final"
+    function onDataChange( e )
+	{
+	    if(games.length == 0){
+	        Log('Rendering Games')
+	        $("#schedule-container").empty();
+    		var data = e.target.getData()
+    		$(data).each(function(){
+    		    renderGame($(this)[0])
+    		})
 	    } else {
-	        templateData.game.status = "current"
-	        templateData.game.period = Utils.ordinal(data.eventStatus.curPeriod)
+	        Log('Scoring Update')
 	    }
 	    
-	    
-	    
-	    $("#gameTemplate").tmpl(templateData).appendTo("#schedule-container");
 	}
+	
+	function renderGame(data){
+	    
+	    var game = new GameController(data);
+	    game.addEventListener("onTeamSelect", teamClick)
+	    
+	}
+	
+	function teamClick(obj){
+	    self.selected = {'team':obj.target.selected}
+	    dispatchEvent("onTeamSelect", self);
+	}
+	
+	
+	
 	function loadFeed(  )
 	{
 		model.setStream( feedURL );
 		model.loadJSON();
+		setInterval(poll, INTERVAL);
 	}
     
 	return this;

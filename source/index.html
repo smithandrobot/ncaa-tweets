@@ -44,6 +44,8 @@
         <script src="js/app/application.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/tweetlistcontroller.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/schedulecontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/gamecontroller.js" type="text/javascript" charset="utf-8"></script>
+        
 
 	</head>
 	<body>
@@ -208,7 +210,7 @@
 					<div class="team-score">${visitingTeam.score}</div>
 					<div class="team-hashtag">Go ${visitingTeam.customData.hashTag}</div>
 					<div class="team-mentions-small">2,035</div>
-					<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+					<div class="team-tweets-cta visiting-tweet-cta" title="Click to see tweets for this team"></div>
 					<div class="clear"></div>
 				</div>
 				<div class="team-home">
@@ -217,7 +219,7 @@
 					<div class="team-score">${homeTeam.score}</div>
 					<div class="team-hashtag">Go ${homeTeam.customData.hashTag}</div>
 					<div class="team-mentions-small">2,035</div>
-					<div class="team-tweets-cta" title="Click to see tweets for this team"></div>
+					<div class="team-tweets-cta home-tweet-cta" title="Click to see tweets for this team"></div>
 					<div class="clear"></div>
 				</div>
 			</div>
