@@ -1,0 +1,54 @@
+[{
+	"gameid": 12345,
+	"statSource": "postGame",
+	"venue":"Madison Square Garden",
+	"eventStatus": {
+		"clock": "0:00",
+		"curPeriod": 2,
+		"statusText": "FINAL",
+		"status": "FINAL"
+	},
+	"competitors": [{
+		"id": 123,
+		"homeaway": "home",
+		"score": 81,
+		"name": "Western Kentucky Hilltoppers",
+		"shortName": "WKU",
+		"rank": 12
+	},
+	{
+		"id": 1234,
+		"homeaway": "away",
+		"score": 62,
+		"name": "North Texas Mean Green",
+		"shortName": "NTX",
+		"rank": 3
+	}]
+},
+{
+	"gameid": 12346,
+	"statSource": "pbp",
+	"venue":"Madison Square Garden",
+	"eventStatus": {
+		"clock": "6:34",
+		"curPeriod": 1,
+		"statusText": "IN PROGRESS: 13:09 1ST",
+		"status": "IN PROGRESS"
+	},
+	"competitors": [{
+		"id": 123,
+		"homeaway": "home",
+		"score": 75,
+		"name": "Arizona Wildcats",
+		"shortName": "ARZ",
+		"rank": 12
+	},
+	{
+		"id": 1234,
+		"homeaway": "away",
+		"score": 69,
+		"name": "UCLA Bruins",
+		"shortName": "UCLA",
+		"rank": 3
+	}]
+}]
