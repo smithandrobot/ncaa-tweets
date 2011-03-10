@@ -65,7 +65,7 @@ function setCarotPos()
 function populateTweetBox()
 {
 	var textarea = $("#tbox iframe").contents().find("textarea");
-	textarea.val('#oscars  http://eonli.ne/rcoscars');
+	textarea.val('#ncaatourney http://es.pn/eCYCAh');
 }
 
 function setSelectionRange(input, selectionStart, selectionEnd) {
