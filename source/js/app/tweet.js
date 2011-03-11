@@ -1,3 +1,5 @@
+Tweet.prototype = new EventDispatcher();
+Tweet.constructor = Tweet;
 function Tweet()
 {
 	// Private
@@ -26,6 +28,7 @@ function Tweet()
 	this.following;
 	this.tweets;
 	this.largeImage;
+	this.getElement	= function () { return element; };
 	
 	mediaParser.addEventListener('onImageData', onImageData);
 	
@@ -104,17 +107,14 @@ function Tweet()
 	{
 	}	
 	
+	function onClickReTweet()
+	{
+		dispatchEvent('onReTweet', self);
+	}
+	
 	function onPhotoClick()
 	{
 		Log('image: '+self.largeImage);
-		var html = element.clone();
-		html.find('.tweet-profile-image').remove();
-		html.find('.tweet-utility').remove();
-		html.find('.tweet-attachment').remove();
-		html.find('.tweet-copy-block').css('margin-left', '0px');
-		html.find('.tweet-copy-block').css('font-family', 'arial');
-		html.find('.tweet-copy-block').css('font-size', '11px');
-		$(".modal-tweet-container").html(html);
 	}
 	
 	
@@ -126,6 +126,7 @@ function Tweet()
 	function decorate(e)
 	{			
 		e.find('.action-follow').click(onClickFollow);
+		e.find('.action-retweet').click(onClickReTweet);
 		e.find('.tweet-utility').fadeTo('fast', .5);
 		
 		e.hover(

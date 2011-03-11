@@ -39,6 +39,8 @@
 		
 		<!-- Application -->
         <script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modal.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/retweetmodal.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/trmodel.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/teammodel.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/tweet.js" type="text/javascript" charset="utf-8"></script>
@@ -180,7 +182,7 @@
                                     	          <div class="tweet-timestamp">
                                     	           <a target="_blank" href=""  title="">Mar 10, 2011</a></div>
                                     		      <div class="tweet-utility">
-                                    		          <span class="tweet-actions"><a href="#favorite" class="action-favorite" title="Retweet"><span><i><!--icon--></i><b>Favorite</b></span></a><a href="#retweet" class="action-retweet" title="Retweet"><span><i><!--icon--></i><b>Retweet</b></span></a><a href="#reply" class="action-reply" title="Reply"><span><i><!--icon--></i><b>Reply</b></span></a><a href="#follow" class="action-follow" title="Follow"><span><i><!--icon--></i><b>Follow</b></span></a></span>
+                                    		          <span class="tweet-actions"><a href="#favorite" class="action-favorite" title="Favorite"><span><i><!--icon--></i><b>Favorite</b></span></a><a href="#retweet" class="action-retweet" title="Retweet"><span><i><!--icon--></i><b>Retweet</b></span></a><a href="#reply" class="action-reply" title="Reply"><span><i><!--icon--></i><b>Reply</b></span></a><a href="#follow" class="action-follow" title="Follow"><span><i><!--icon--></i><b>Follow</b></span></a></span>
                                     		      </div>
                                     	      </div>
                                        </div>
@@ -202,19 +204,20 @@
 			<div class="clear"></div>
 			<div id="modal-photo-template" class="modal-photo modal-shadow">
 				<div class="photo-tweet">
-					<div class="close-botton">close</div>
+					<div class="close-button">close</div>
 				</div>
 				<div class="photo-tweet-image"><img src="" /></div>
 			</div>
 			<div id="modal-retweet-template" class="modal modal-shadow">
 					<h2>RETWEET</h2>
-					<div class="close-botton">close</div>
+					<div class="close-button">close</div>
 					<div class="clear"></div>
 					<div class="gray modal-dialog">Retweet this from rajmanaik</div>
 					<div class="modal-tweet-container"></div>
-					<div class="button-group">
-						<div class="modal-cancel-button">RETWEET</div>
+					<div class="modal-retweet-button-group">
+						<div class="modal-retweet-button">RETWEET</div>
 						<div class="modal-cancel-button">CANCEL</div>
+						<div class="clear"></div>
 					</div>
 			</div>
 		</div>
