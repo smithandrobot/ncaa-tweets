@@ -1,6 +1,6 @@
 function ReTweetModal() 
 {
-	var element 	= $('#modal-retweet-template');
+	var element 	= $('#modal-retweet-template').clone();
 	var img			= null;
 	var rendered	= false;
 	var state		= 'closed';
@@ -23,7 +23,8 @@ function ReTweetModal()
 	
 	function open( tweet )
 	{
-		setContent( tweet )
+		if( tweet ) setContent( tweet );
+		
 		Log('opening retweet');
 		if( state == 'closed') 
 		{
@@ -79,6 +80,13 @@ function ReTweetModal()
 	}
 
 	
+	function initPosition()
+	{
+		element.css('position', 'fixed');
+		element.css('top', top );
+		element.css('left', left );
+		element.css('z-index', ++Modal.constructor.z)
+	}
 	
 	return this;
 };

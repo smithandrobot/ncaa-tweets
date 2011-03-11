@@ -8,7 +8,8 @@ function TweetListController()
 	var feedColor	= null;
 	var tweets		= null;
 	var model 		= new TRModel();
-	var feedServer 	= 'http://tweetriver.com/smithandrobot/';
+	// http://tr-cache-2.appspot.com/massrelevance/oscars-all/meta.json
+	var feedServer 	= 'http://tr-cache-2.appspot.com/smithandrobot/';
 	var currentFeed	= null;
 	var rendered 	= false;
 	var loader		= $('#tweet-team-loader');

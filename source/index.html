@@ -202,78 +202,88 @@
 			</div><!-- END CONTENT -->
 			<div id="map"></div>
 			<div class="clear"></div>
-			<div id="modal-photo-template" class="modal-photo modal-shadow">
-				<div class="photo-tweet">
-					<div class="close-button">close</div>
+
+			<div id="modal-templates">
+				
+				<div id="modal-photo-template" class="modal-photo modal-shadow">
+					<div class="photo-tweet">
+						<div class="close-button">close</div>
+					</div>
+					<div class="photo-tweet-image"><img src="" /></div>
 				</div>
-				<div class="photo-tweet-image"><img src="" /></div>
-			</div>
-			<div id="modal-retweet-template" class="modal modal-shadow">
-					<h2>RETWEET</h2>
-					<div class="close-button">close</div>
-					<div class="clear"></div>
-					<div class="action-screen">
-						<div class="gray modal-dialog">Retweet this from rajmanaik</div>
-						<div class="modal-tweet-container"></div>
-						<div class="modal-retweet-button-group">
-							<div class="modal-retweet-button">RETWEET</div>
-							<div class="modal-cancel-button">CANCEL</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="confirmation-screen">
-						<div class="gray confirmation">You retweeted<br/>rajmanaik's tweet.</div>
-						<div class="modal-confirm-button">OKAY</div>
-					</div>
-			</div>
-			<div id="modal-favorite-template" class="modal modal-shadow">
-					<h2>FAVORITE</h2>
-					<div class="close-button">close</div>
-					<div class="clear"></div>
-					<div class="action-screen favorite-tweet">
-						<div class="gray modal-dialog">Favorite this tweet?</div>
-						<div class="modal-tweet-container"></div>
-						<div class="modal-favorite-button-group">
-							<div class="modal-favorite-button">FAVORITE</div>
-							<div class="modal-cancel-button">CANCEL</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="confirmation-screen">
-						<div class="gray confirmation">You favorited this tweet</div>
-						<div class="modal-confirm-button">OKAY</div>
-					</div>
-			</div>
-			<div id="modal-reply-template" class="modal modal-shadow">
-					<h2>REPLY</h2>
-					<div class="close-button">close</div>
-					<div class="clear"></div>
-					<div class="gray modal-dialog">Retweet this from rajmanaik</div>
-					<div class="modal-tweet-container"></div>
-					<div class="modal-retweet-button-group">
-						<div class="modal-retweet-button">RETWEET</div>
-						<div class="modal-cancel-button">CANCEL</div>
+				
+				<div id="modal-retweet-template" class="modal modal-shadow">
+						<h2>RETWEET</h2>
+						<div class="close-button">close</div>
 						<div class="clear"></div>
-					</div>
-			</div>
-			<div id="modal-follow-template" class="modal modal-shadow">
-					<h2>FOLLOW</h2>
-					<div class="close-button">close</div>
-					<div class="clear"></div>
-					<div class="action-screen favorite-tweet">
-						<div class="gray modal-dialog">Start following<br />name?</div>
-						<div class="modal-tweet-container"></div>
-						<div class="modal-favorite-button-group">
-							<div class="modal-follow-button">FOLLOW</div>
-							<div class="modal-cancel-button">CANCEL</div>
+						<div class="action-screen">
+							<div class="gray modal-dialog">Retweet this from rajmanaik</div>
+							<div class="modal-tweet-container"></div>
+							<div class="modal-button-group-right">
+								<div class="modal-button modal-retweet-button">RETWEET</div>
+								<div class="modal-button modal-cancel-button">CANCEL</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="confirmation-screen">
+							<div class="gray confirmation">You retweeted<br/>rajmanaik's tweet.</div>
+							<div class="modal-button modal-confirm-button">OKAY</div>
+						</div>
+				</div>
+				
+				<div id="modal-favorite-template" class="modal modal-shadow">
+						<h2>FAVORITE</h2>
+						<div class="close-button">close</div>
+						<div class="clear"></div>
+						<div class="action-screen favorite-tweet">
+							<div class="gray modal-dialog">Favorite this tweet?</div>
+							<div class="modal-favorite-button-centered">
+								<div class="modal-button modal-favorite-button">FAVORITE</div>
+								<div class="modal-button modal-cancel-button">CANCEL</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="confirmation-screen centered-screen">
+							<div class="gray confirmation">You favorited this tweet</div>
+							<div class="modal-button modal-confirm-button">OKAY</div>
+						</div>
+				</div>
+				
+				<div id="modal-reply-template" class="modal modal-shadow">
+						<h2>REPLY</h2>
+						<div class="close-button">close</div>
+						<div class="clear"></div>
+						<div class="gray modal-dialog">Retweet this from rajmanaik</div>
+						<div class="modal-retweet-button-group">
+							<div class="modal-button modal-retweet-button">RETWEET</div>
+							<div class="modal-button modal-cancel-button">CANCEL</div>
 							<div class="clear"></div>
 						</div>
-					</div>
-					<div class="confirmation-screen">
-						<div class="gray confirmation">You are now following<br />NAME</div>
-						<div class="modal-confirm-button">OKAY</div>
-					</div>
-			</div>
+						<div class="confirmation-screen">
+							<div class="gray confirmation">You are now following<br />NAME</div>
+							<div class="modal-button modal-confirm-button">OKAY</div>
+						</div>
+				</div>
+				
+				<div id="modal-follow-template" class="modal modal-shadow">
+						<h2>FOLLOW</h2>
+						<div class="close-button">close</div>
+						<div class="clear"></div>
+						<div class="action-screen favorite-tweet">
+							<div class="gray modal-dialog">Start following<br />name?</div>
+							<div class="modal-tweet-container"></div>
+							<div class="modal-favorite-button-centered">
+								<div class="modal-button modal-follow-button">FOLLOW</div>
+								<div class="modal-button modal-cancel-button">CANCEL</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<div class="confirmation-screen">
+							<div class="gray confirmation">You are now following<br />NAME</div>
+							<div class="modal-button modal-confirm-button">OKAY</div>
+						</div>
+				</div>
+			</div>	
 		</div>
 		<script id="gameTemplate" type="text/x-jquery-tmpl">
           <div id="game-${game.gameid}" class="game game-${game.status}">
