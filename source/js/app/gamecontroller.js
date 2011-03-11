@@ -23,6 +23,8 @@ function GameController(gameData)
     
     function createView(viewData){
          var template = $("#gameTemplate").tmpl(viewData);
+         template.css('opacity', 0);
+         template.animate({'opacity':1}, 500);
          self.visitorScore = template.find('.team-visiting .team-score')
          self.homeScore = template.find('.team-home .team-score')
          self.period = template.find('.game-period')
