@@ -739,3 +739,9 @@ span#counter {
     margin-right:10px;
     width:100px;
 }
+
+#show-all  {
+    font-family:Helvetica, Arial, sans-serif;
+    margin:0 0 10px 10px;
+    display:none;
+}

@@ -40,7 +40,6 @@ function TeamSelectorController()
         $('#team-selector a').qtip({
             content: teamListView,
             show: 'mouseover',
-
             hide: {
                 fixed: true
             },
