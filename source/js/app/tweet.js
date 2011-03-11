@@ -119,6 +119,7 @@ function Tweet()
 	function onPhotoClick()
 	{
 		Log('image: '+self.largeImage);
+		dispatchEvent('onPhotoClick' , self);
 	}
 	
 	
