@@ -161,27 +161,27 @@ function ScheduleController()
         rounds = {
             'round1': {
                 'start': new Date(2011, 2, 15, 0, 0, 0),
-                'end': new Date(2011, 2, 16, 23, 59, 0),
+                'end': new Date(2011, 2, 16, 23, 59, 0)
             },
             'round2': {
                 'start': new Date(2011, 2, 17, 0, 0, 0),
-                'end': new Date(2011, 2, 19, 23, 59, 0),
+                'end': new Date(2011, 2, 19, 23, 59, 0)
             },
             'round3': {
                 'start': new Date(2011, 2, 18, 0, 0, 0),
-                'end': new Date(2011, 2, 20, 23, 59, 0),
+                'end': new Date(2011, 2, 20, 23, 59, 0)
             },
             'regionals': {
                 'start': new Date(2011, 2, 24, 0, 0, 0),
-                'end': new Date(2011, 2, 27, 23, 59, 0),
+                'end': new Date(2011, 2, 27, 23, 59, 0)
             },
             'finals': {
                 'start': new Date(2011, 3, 2, 0, 0, 0),
-                'end': new Date(2011, 3, 2, 23, 59, 0),
+                'end': new Date(2011, 3, 2, 23, 59, 0)
             },
             'championship': {
                 'start': new Date(2011, 3, 4, 0, 0, 0),
-                'end': new Date(2011, 3, 4, 23, 59, 0),
+                'end': new Date(2011, 3, 4, 23, 59, 0)
             }
             
         }
