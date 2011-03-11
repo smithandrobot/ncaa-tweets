@@ -2,7 +2,8 @@ TeamSelectorController.prototype = new EventDispatcher();
 TeamSelectorController.constructor = TeamSelectorController;
 function TeamSelectorController()
  {
-    var self = this;
+    var self     = this;
+    var selected = null;
 
     buildList();
 
@@ -43,6 +44,9 @@ function TeamSelectorController()
             hide: {
                 fixed: true
             },
+            api : {
+                onRender:activateLinks
+            },
             style: {
                 tip: 'bottomRight',
                 width: 700,
@@ -58,6 +62,18 @@ function TeamSelectorController()
                     tooltip: 'bottomRight'
                 }
             }
+        })
+        
+        
+    }
+    
+    function activateLinks(){
+        $('.team-column a').each(function(){
+            $(this).click(function(){
+                self.selected = {'team':{shortName:$(this).attr('id')}}
+        	    dispatchEvent("onTeamSelect", self);
+                return false;
+            })
         })
     }
     return self
