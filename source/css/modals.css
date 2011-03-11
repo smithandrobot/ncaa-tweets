@@ -1,11 +1,21 @@
+#modal-templates
+{
+	/*display:none;*/
+}
+
 .modal
 {
 	width:235px;
 	background:url('../img/modal-glare.png') #000 no-repeat;
-	min-height:200px;
+/*	min-height:200px;*/
 	padding:15px 15px 15px 15px;
+	display:none;
 }
 
+.modal .confirmation-screen
+{
+	display:none;
+}
 .modal h2
 {
 	float:left;
@@ -43,6 +53,15 @@
 	font-size:12px;
 }
 
+.modal-button
+{
+	float:left;
+	background : url('../img/sprites.png');
+	width:64px;
+	height:21px;
+	text-indent:-9999px;
+}
+
 .favorite-tweet
 {
 	width:100%;
@@ -50,6 +69,12 @@
 	font-family:Arial;
 	font-size:14px;
 	font-weight:bold;
+}
+
+.centered-screen
+{
+	width:100%;
+	text-align:center;
 	margin-top:30px;
 }
 
@@ -77,90 +102,54 @@
 
 .modal-cancel-button
 {
-	background : url('../img/sprites.png');
 	background-position:-385px -330px;
-	width:64px;
-	height:21px;
-	text-indent:-9999px;
 }
 
 .modal-confirm-button
 {
-	background : url('../img/sprites.png');
 	background-position:-305px -398px;
-	width:64px;
-	height:21px;
-	text-indent:-9999px;
 	margin:0px 0px 0px 87px;
+	float:none;	
 }
 
 .modal-favorite-button
 {
-	background:url('../img/sprites.png');
 	background-position:-305px -431px;
-	width:64px;
-	height:21px;
-	text-indent:-9999px;	
 }
 
 .modal-follow-button
 {
-	background:url('../img/sprites.png');
 	background-position:-305px -365px;
-	width:64px;
-	height:21px;
-	text-indent:-9999px;
 	float:left;	
 }
 
 .modal-retweet-button
 {
-	background : url('../img/sprites.png');
+
 	background-position:-305px -330px;
-	width:64px;
-	height:21px;
-	text-indent:-9999px;
 }
 
-.modal-retweet-button-group
+.modal-button-group-right
 {
-	margin:20px 0px 20px 80px;
+	margin:20px 0px 20px 80px;	
 }
 
-.modal-favorite-button-group
+.modal-favorite-button-centered
 {
 	margin:20px 0px 20px 45px;	
 }
 
-.modal-follow-button-group
-{
-	margin:20px 0px 20px 55px;	
-}
 
-.modal-retweet-button-group .modal-cancel-button
+.modal-cancel-button
 {
 	float:left;
 	margin-left:15px;
 }
 
-.modal-retweet-button-group .modal-retweet-button
-{
-	float:left;
-}
-
-.modal-favorite-button-group .modal-favorite-button
-{
-	float:left;
-}
-
-.modal-favorite-button-group .modal-cancel-button
-{
-	float:left;
-	margin-left:15px;
-}
 
 .modal-photo
 {
+	display:none;
 	width : 640px;
 /*	height : 570px;*/
 	background-color : #000;

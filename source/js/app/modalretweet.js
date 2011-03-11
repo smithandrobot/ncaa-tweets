@@ -1,44 +1,40 @@
-function ReTweetModal() 
+function ReTweetModal( overlay ) 
 {
 	var element 	= $('#modal-retweet-template');
+	var overlay		= overlay;
 	var img			= null;
 	var rendered	= false;
 	var state		= 'closed';
 	
 	this.tweet		= null;
 	this.open 	 	= open;
-	//Log('retweet modal instance: '+this.prototype);
 	
-	decorateCloseBtn( element );
-	
-	function decorateCloseBtn( e )
-	{
-
-		var cBtn = e.find('.close-button');
-		Log('finding close btn: '+e.find('.close-button').text());
-		cBtn.click(onClose);
-		cBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
-	}
+	overlay.addEventListener('onModalOverlayClose', onClose)
+	decorateBTNS();
+	initCSS();
 	
 	
 	function open( tweet )
 	{
-		setContent( tweet )
-		Log('opening retweet');
+		if( tweet ) setContent( tweet );
+		
 		if( state == 'closed') 
 		{
+			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
-			Modal.constructor.overlay.fadeIn(250);
+			overlay.open();
 		}
 		
+		position();
 		state = 'open';
 	}
 	
 	
 	function onClose()
 	{
-		Modal.constructor.modal.fadeOut(250);
-		Modal.constructor.overlay.fadeOut(250);
+		element.fadeOut(250);
+		overlay.close();
+		state = 'closed';
 	}
 	
 	function setContent( t )
@@ -55,30 +51,44 @@ function ReTweetModal()
 		$(".modal-tweet-container").html(html);
 	}
 	
-	function onImageLoad(i)
-	{		
-		var padding = 15;
-		element.find('img').hide();
-		element.find('img').attr( 'src', this.src );
-		element.find('img').attr( 'width', this.width );
-		element.find('img').attr( 'height', this.height );
-		element.find('img').fadeIn('slow');
-		
+	function position( animate )
+	{				
     	var docY = ($(window).height() / 2) - 100;
     	var docX = $(document).width() / 2;	
 		var height = element.height() / 2;
-		var width = img.width / 2;
+		var width = element.width() / 2;
 		var top = (docY - height < 0) ? 10 : docY - height;
 		var left = docX - width;
 		
 		var propObject = {};
-		propObject.width = img.width;
 		propObject.left = left;
 		propObject.top = top;
-		element.animate(propObject, 250);
+		if(animate)
+		{ 
+			element.animate(propObject, 250);
+		}else{
+			element.css(propObject);
+		}
 	}
 
+	function decorateBTNS()
+	{
+		
+		var cBtn = element.find('.close-button');
+		cBtn.click(onClose);
+		cBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+		
+		var cancelBtn = element.find('.modal-cancel-button');
+		cancelBtn.click(onClose);
+		cancelBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+		
+	}
 	
+	function initCSS()
+	{
+		element.css('position', 'absolute');
+		position( false );
+	}
 	
 	return this;
 };
