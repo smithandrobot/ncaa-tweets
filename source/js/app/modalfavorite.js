@@ -44,7 +44,7 @@ function FavoriteModal( overlay )
 	{
 		var html = t.getElement().clone();
 
-		element.find('.modal-dialog').append().html('Favorite this tweet from<br />'+t.screenName)
+		element.find('.modal-dialog').append().html('Favorite this tweet from<br /><span class="red">'+t.screenName+'</span>')
 	}
 	
 	function position( animate )

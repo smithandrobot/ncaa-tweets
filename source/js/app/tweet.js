@@ -94,17 +94,15 @@ function Tweet()
 		element.find('.tweet-attachment').remove();
 	}
 	
-	function onClickRetweet()
-	{
-	}
-	
 	
 	function onClickReply()
 	{
+		dispatchEvent('onReply', self);
 	}
 	
 	function onClickFollow()
 	{
+		dispatchEvent('onFollow', self);
 	}	
 	
 	function onClickReTweet()
