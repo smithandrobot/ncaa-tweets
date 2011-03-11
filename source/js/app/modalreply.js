@@ -25,6 +25,7 @@ function ModalReply( overlay )
 		
 		if( state == 'closed') 
 		{
+			$('#reply-box').empty();
 			writeTweetBox( tweet )
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
@@ -109,22 +110,23 @@ function ModalReply( overlay )
 	function writeTweetBox( t )
 	{
 		twttr.anywhere
-				(
-					function (T) 
-					{
-					  T('.action-screen').tweetBox
-						(
-							{
-					    		height: 70,
-					    		width: 230,
-					    		defaultContent: '@'+t.screenName,
-								complete: onTweetBoxLoaded,
-					    		label: "",
-								data:{ 'in_reply_to_status_id' : t.tweetID } 
-					  		}
-						);
-					}
-				);
+ 		(
+ 			function (T) 
+ 			{
+ 			  T('#reply-box').tweetBox
+ 				(
+ 					{
+ 			    		height: 70,
+ 			    		width: 230,
+ 			    		defaultContent: '@'+t.screenName,
+ 						complete: styleTweetBox,
+ 			    		label: "",
+						onTweet : showConfirmScreen,
+ 						data:{ 'in_reply_to_status_id' : t.tweetID } 
+ 			  		}
+ 				);
+ 			}
+ 		);
 	}
 	
 	
