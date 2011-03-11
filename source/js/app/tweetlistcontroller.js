@@ -1,4 +1,3 @@
-// inherits from
 TweetListController.prototype = new EventDispatcher();
 TweetListController.constructor = TweetListController;
 
@@ -14,6 +13,8 @@ function TweetListController()
 	var rendered 	= false;
 	var loader		= $('#tweet-team-loader');
 	var element 	= $('#main-timeline');
+	var retweetModal= new ReTweetModal();
+
 	var feeds 		= [
 			  		   {id:'all', color: '#ED1F24', url : feedServer + 'photos.json'},
 			  		   {id: 99, url : feedServer + 'actionscript.json'}
@@ -87,6 +88,7 @@ function TweetListController()
 		for(i;i<=total;i++)	
 		{
 			t = new Tweet();
+			t.addEventListener('onReTweet', onReTweet);
 			t.setData(data[i]);
 			element.append(t.getHTML());
 		};
@@ -102,6 +104,13 @@ function TweetListController()
 		lastID = data[0].order_id;	
 		rendered = true;
 	}
+	
+	function onReTweet( e )
+	{
+		Log('retweeting');
+		retweetModal.open(e.target);
+	}
+	
 	
 	function updateColors()
 	{

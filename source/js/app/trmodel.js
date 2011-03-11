@@ -39,7 +39,7 @@ function TRModel( URL )
 		++attempt;
 		if(attempt == maxAttempts) 
 		{
-			Log('attempt: '+attempt+' stopping further attempts');
+			//Log('attempt: '+attempt+' stopping further attempts');
 			return;
 		}
 		

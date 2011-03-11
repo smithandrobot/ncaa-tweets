@@ -3,7 +3,7 @@
 	width:235px;
 	background:url('../img/modal-glare.png') #000 no-repeat;
 	min-height:200px;
-	padding:15px 15px 0px 15px;
+	padding:15px 15px 15px 15px;
 }
 
 .modal h2
@@ -12,6 +12,7 @@
 	font-size: 23px;
 	text-shadow:none;
 	margin-bottom:10px;
+	font-weight:normal;
 }
 
 .modal-dialog
@@ -44,7 +45,7 @@
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ED1F24');
 }
 
-.close-botton
+.close-button
 {
 	background : url('../img/sprites.png');
 	background-position:-575px -149px;
@@ -62,6 +63,31 @@
 	width:64px;
 	height:21px;
 	text-indent:-9999px;
+}
+
+.modal-retweet-button
+{
+	background : url('../img/sprites.png');
+	background-position:-305px -330px;
+	width:64px;
+	height:21px;
+	text-indent:-9999px;
+}
+
+.modal-retweet-button-group
+{
+	margin:20px 0px 20px 80px;
+}
+
+.modal-retweet-button-group .modal-cancel-button
+{
+	float:left;
+	margin-left:15px;
+}
+
+.modal-retweet-button-group .modal-retweet-button
+{
+	float:left;
 }
 
 .modal-photo
