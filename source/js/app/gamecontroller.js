@@ -15,7 +15,7 @@ function GameController(gameData)
     
     function init(data){
         
-        self.id = data.gameid
+        self.id = data.id
         var viewData = sanitizeData(data)
         self.view = createView(viewData)
 	    self.view.appendTo("#schedule-container");
@@ -47,28 +47,35 @@ function GameController(gameData)
     }
     
     function sanitizeData(data){
-        var templateData = {'game':{'gameid':data.gameid}}
+        var templateData = {'game':{'id':data.id}}
         
-        for(cid in data.competitors){
-	        var c = data.competitors[cid]
+        templateData.date = new Date(data.date)
+        
+        for(cid in data.competitor){
+	        var c = data.competitor[cid]
 	        
 	        if(c.homeaway == "home"){
 	            templateData.homeTeam = c
 	        } else {
 	            templateData.visitingTeam = c
 	        }
-	        c.customData = Teams.getTeam(c.id)
+	        //c.customData = Teams.getTeam(c.id)
+	        c.customData = {}
+	        c.customData.hashTag = "#team"
 	        if(c.name.length > 22){
                 c.name = c.shortName
             }
 	    }
 	    
-	    if(data.eventStatus.status == "FINAL"){
+	    if(data.eventstatus.status == "FINAL"){
 	        templateData.game.status = "final"
 	        templateData.game.period = "final"
+	    } else if(data.eventstatus.status == "SCHEDULED") {
+	        templateData.game.status = "current"
+	        templateData.game.period = templateData.date.getMonth()+1 + '/' + templateData.date.getDate()
 	    } else {
 	        templateData.game.status = "current"
-	        templateData.game.period = Utils.ordinal(data.eventStatus.curPeriod)
+	        templateData.game.period = Utils.ordinal(data.eventstatus.curPeriod)
 	    }
 	    
 	    self.templateData = templateData 

@@ -1,0 +1,716 @@
+{
+    "events": {
+        "event": [{
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "CONN",
+                "name": "Connecticut Huskies",
+                "homeaway": "home",
+                "rank": "19",
+                "color": "#001D40",
+                "id": "41",
+                "score": "13",
+                "linescore": {
+                    "period": "13"
+                }
+            },
+            {
+                "shortName": "DEP",
+                "name": "DePaul Blue Demons",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#2D649C",
+                "id": "305",
+                "score": "8",
+                "linescore": {
+                    "period": "8"
+                }
+            }],
+            "eventstatus": {
+                "statusText": "IN PROGRESS: 13:09 1ST",
+                "curPeriod": "1",
+                "clock": "13:09",
+                "status": "IN PROGRESS"
+            },
+            "season": "2011",
+            "date": "2011-03-15T17:00:00Z",
+            "id": "310670041",
+            "statSource": "pbp",
+            "note": "BIG EAST MEN'S CHAMPIONSHIP - 1st ROUND AT NEW YORK NY",
+            "venue": "Madison Square Garden",
+            "source": "pbp",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "HALL",
+                "name": "Seton Hall Pirates",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#3142AD",
+                "id": "2550",
+                "score": "0"
+            },
+            {
+                "shortName": "RUTG",
+                "name": "Rutgers Scarlet Knights",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#B70005",
+                "id": "164",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 2:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-08T19:00:00Z",
+            "id": "310672550",
+            "statSource": "null",
+            "note": "BIG EAST MEN'S CHAMPIONSHIP - 1st ROUND AT NEW YORK NY",
+            "venue": "Madison Square Garden",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "SBON",
+                "name": "St. Bonaventure Bonnies",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#712A1B",
+                "id": "179",
+                "score": "0"
+            },
+            {
+                "shortName": "LAS",
+                "name": "La Salle Explorers",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#000063",
+                "id": "2325",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 5:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-17T22:00:00Z",
+            "id": "310670179",
+            "statSource": "null",
+            "note": "ATLANTIC 10 MEN'S CHAMPIONSHIP - 1st ROUND ",
+            "venue": "Reilly Center",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "FAMU",
+                "name": "Florida A&M Rattlers",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#F89728",
+                "id": "50",
+                "score": "0"
+            },
+            {
+                "shortName": "UMES",
+                "name": "Maryland-Eastern Shore Hawks",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#5C2301",
+                "id": "2379",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 6:30 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-08T23:30:00Z",
+            "id": "310670050",
+            "statSource": "null",
+            "note": "MEAC MEN'S TOURNAMENT - 1st ROUND AT WINSTON-SALEM NC",
+            "venue": "Lawrence Joel Veterans Memorial Coliseum",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "GW",
+                "name": "George Washington Colonials",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#002843",
+                "id": "45",
+                "score": "0"
+            },
+            {
+                "shortName": "JOES",
+                "name": "Saint Joseph's Hawks",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#BB003A",
+                "id": "2603",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670045",
+            "statSource": "null",
+            "note": "ATLANTIC 10 MEN'S CHAMPIONSHIP - 1st ROUND ",
+            "venue": "Charles E. Smith Center",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "BGSU",
+                "name": "Bowling Green Falcons",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#2B1000",
+                "id": "189",
+                "score": "0"
+            },
+            {
+                "shortName": "NIU",
+                "name": "Northern Illinois Huskies",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#E73139",
+                "id": "2459",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670189",
+            "statSource": "null",
+            "note": "MAC MEN'S TOURNAMENT - 1st ROUND ",
+            "venue": "Anderson Arena",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "OHIO",
+                "name": "Ohio Bobcats",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#006342",
+                "id": "195",
+                "score": "0"
+            },
+            {
+                "shortName": "TOL",
+                "name": "Toledo Rockets",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#00275D",
+                "id": "2649",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670195",
+            "statSource": "null",
+            "note": "MAC MEN'S TOURNAMENT - 1st ROUND ",
+            "venue": "Convocation Center",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "PENN",
+                "name": "Pennsylvania Quakers",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#05295E",
+                "id": "219",
+                "score": "0"
+            },
+            {
+                "shortName": "PRIN",
+                "name": "Princeton Tigers",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#FF9408",
+                "id": "163",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670219",
+            "statSource": "null",
+            "venue": "Palestra",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "VILL",
+                "name": "Villanova Wildcats",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#002D5B",
+                "id": "222",
+                "score": "0"
+            },
+            {
+                "shortName": "USF",
+                "name": "South Florida Bulls",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#003829",
+                "id": "58",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670222",
+            "statSource": "null",
+            "note": "BIG EAST MEN'S CHAMPIONSHIP - 1st ROUND AT NEW YORK NY",
+            "venue": "Madison Square Garden",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "URI",
+                "name": "Rhode Island Rams",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#2C88BE",
+                "id": "227",
+                "score": "0"
+            },
+            {
+                "shortName": "SLU",
+                "name": "Saint Louis Billikens",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#00428C",
+                "id": "139",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670227",
+            "statSource": "null",
+            "note": "ATLANTIC 10 MEN'S CHAMPIONSHIP - 1st ROUND ",
+            "venue": "Thomas M. Ryan Center",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "UNT",
+                "name": "North Texas Mean Green",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#006342",
+                "id": "249",
+                "score": "0"
+            },
+            {
+                "shortName": "UALR",
+                "name": "Arkansas-Little Rock Trojans",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#AD0000",
+                "id": "2031",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310670249",
+            "statSource": "null",
+            "note": "SUN BELT MEN'S CHAMPIONSHIP - FINAL AT HOT SPRINGS AR",
+            "venue": "Summit Arena",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "AKR",
+                "name": "Akron Zips",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#001D44",
+                "id": "2006",
+                "score": "0"
+            },
+            {
+                "shortName": "EMU",
+                "name": "Eastern Michigan Eagles",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#00331B",
+                "id": "2199",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310672006",
+            "statSource": "null",
+            "note": "MAC MEN'S TOURNAMENT - 1st ROUND ",
+            "venue": "James A. Rhodes H&PE Building",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "BUFF",
+                "name": "Buffalo Bulls",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#004373",
+                "id": "2084",
+                "score": "0"
+            },
+            {
+                "shortName": "CMU",
+                "name": "Central Michigan Chippewas",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#680011",
+                "id": "2117",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:00:00Z",
+            "id": "310672084",
+            "statSource": "null",
+            "note": "MAC MEN'S TOURNAMENT - 1st ROUND ",
+            "venue": "Alumni Arena",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "MONT",
+                "name": "Montana Grizzlies",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#63104A",
+                "id": "149",
+                "score": "0"
+            },
+            {
+                "shortName": "WEB",
+                "name": "Weber State Wildcats",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#18005A",
+                "id": "2692",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 7:30 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T00:30:00Z",
+            "id": "310670149",
+            "statSource": "null",
+            "note": "BIG SKY MEN'S CHAMPIONSHIP - SEMIFINALS AT GREELY CO",
+            "venue": "Butler-Hancock Hall",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "MASS",
+                "name": "Massachusetts Minutemen",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#880007",
+                "id": "113",
+                "score": "0"
+            },
+            {
+                "shortName": "DAY",
+                "name": "Dayton Flyers",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#1D236A",
+                "id": "2168",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 9:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T02:00:00Z",
+            "id": "310670113",
+            "statSource": "null",
+            "note": "ATLANTIC 10 MEN'S CHAMPIONSHIP - 1st ROUND ",
+            "venue": "William D. Mullins Center",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "MARQ",
+                "name": "Marquette Golden Eagles",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#083963",
+                "id": "269",
+                "score": "0"
+            },
+            {
+                "shortName": "PROV",
+                "name": "Providence Friars",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#000000",
+                "id": "2507",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 9:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T02:00:00Z",
+            "id": "310670269",
+            "statSource": "null",
+            "note": "BIG EAST MEN'S CHAMPIONSHIP - 1st ROUND AT NEW YORK NY",
+            "venue": "Madison Square Garden",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "MILW",
+                "name": "Milwaukee Panthers",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#000000",
+                "id": "270",
+                "score": "0"
+            },
+            {
+                "shortName": "BUT",
+                "name": "Butler Bulldogs",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#0D1361",
+                "id": "2086",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 9:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T02:00:00Z",
+            "id": "310670270",
+            "statSource": "null",
+            "note": "HORIZON LEAGUE MEN'S CHAMPIONSHIP - FINAL ",
+            "venue": "US Cellular Arena",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "DSU",
+                "name": "Delaware State Hornets",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#FF3630",
+                "id": "2169",
+                "score": "0"
+            },
+            {
+                "shortName": "SCST",
+                "name": "South Carolina State Bulldogs",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#7D1315",
+                "id": "2569",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 9:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T02:00:00Z",
+            "id": "310672169",
+            "statSource": "null",
+            "note": "MEAC MEN'S TOURNAMENT - 1st ROUND AT WINSTON-SALEM NC",
+            "venue": "Lawrence Joel Veterans Memorial Coliseum",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "OAK",
+                "name": "Oakland Golden Grizzlies",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#04091C",
+                "id": "2473",
+                "score": "0"
+            },
+            {
+                "shortName": "ORU",
+                "name": "Oral Roberts Golden Eagles",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#002955",
+                "id": "198",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 9:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T02:00:00Z",
+            "id": "310672473",
+            "statSource": "null",
+            "note": "SUMMIT LEAGUE MEN'S CHAMPIONSHIP - FINALS AT SIOUX FALLS SD",
+            "venue": "Sioux Falls Arena",
+            "source": "basic",
+            "seasonType": "2"
+        },
+        {
+            "eventType": "Regular Season",
+            "competitor": [{
+                "shortName": "UNCO",
+                "name": "Northern Colorado Bears",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#0E1831",
+                "id": "2458",
+                "score": "0"
+            },
+            {
+                "shortName": "NAU",
+                "name": "Northern Arizona Lumberjacks",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#002757",
+                "id": "2464",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 08, 2011, 10:00 PM EST",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-09T03:00:00Z",
+            "id": "310672458",
+            "statSource": "null",
+            "note": "BIG SKY MEN'S CHAMPIONSHIP - SEMIFINALS ",
+            "venue": "Butler-Hancock Hall",
+            "source": "basic",
+            "seasonType": "2"
+        }],
+        "xsi:noNamespaceSchemaLocation": "http://a.espncdn.com/xsd/Events.xsd",
+        "links": {
+            "link": ["http://scores.espn.go.com/ncb/recap?gameId=", "http://sports.espn.go.com/ncb/clubhouse?teamId="]
+        },
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "league": "NCAA",
+        "sport": "Basketball"
+    }
+}
