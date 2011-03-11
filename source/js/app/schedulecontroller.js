@@ -35,7 +35,9 @@ function ScheduleController()
         var roundDates = getRoundDates(round)
         for(var g in self.scheduleData){
             var game = self.scheduleData[g]
-            if(dates.inRange(new Date(game.date), roundDates.start, roundDates.end)){
+            var gDate = new Date(game.date)
+            Log(game.date)
+            if(dates.inRange(gDate, roundDates.start, roundDates.end)){
                 eligibleGames.push(game)
             }
         }
