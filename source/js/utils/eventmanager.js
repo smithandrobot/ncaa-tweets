@@ -20,7 +20,7 @@ EventManager = (function ()
 			if(eType == eventType && target == b) 
 			{
 				method.call(observer, new Event(eType, target));
-				return true;
+				// return true;
 			};
     	};
 	};

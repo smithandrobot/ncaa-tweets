@@ -1,16 +1,21 @@
 #modal-templates
 {
-/*	display:none;*/
+	/*display:none;*/
 }
 
 .modal
 {
 	width:235px;
 	background:url('../img/modal-glare.png') #000 no-repeat;
-	min-height:200px;
+/*	min-height:200px;*/
 	padding:15px 15px 15px 15px;
+	display:none;
 }
 
+.modal .confirmation-screen
+{
+	display:none;
+}
 .modal h2
 {
 	float:left;
@@ -144,6 +149,7 @@
 
 .modal-photo
 {
+	display:none;
 	width : 640px;
 /*	height : 570px;*/
 	background-color : #000;

@@ -14,7 +14,11 @@ function TweetListController()
 	var rendered 	= false;
 	var loader		= $('#tweet-team-loader');
 	var element 	= $('#main-timeline');
-	var retweetModal= new ReTweetModal();
+	
+	/* Tweet Modals */
+	var modalOverlay  = new ModalOverlay();
+	var retweetModal  = new ReTweetModal( modalOverlay );
+	var favoriteModal = new FavoriteModal( modalOverlay );
 
 	var feeds 		= [
 			  		   {id:'all', color: '#ED1F24', url : feedServer + 'photos.json'},
@@ -89,6 +93,7 @@ function TweetListController()
 		for(i;i<=total;i++)	
 		{
 			t = new Tweet();
+			addListeners( t );
 			t.addEventListener('onReTweet', onReTweet);
 			t.setData(data[i]);
 			element.append(t.getHTML());
@@ -112,6 +117,18 @@ function TweetListController()
 		retweetModal.open(e.target);
 	}
 	
+	function onFavorite( e )
+	{
+		Log('favoriting');
+		favoriteModal.open(e.target);
+	}
+	
+	
+	function addListeners( t )
+	{
+		t.addEventListener('onReTweet', onReTweet);
+		t.addEventListener('onFavorite', onFavorite);
+	}
 	
 	function updateColors()
 	{

@@ -112,6 +112,12 @@ function Tweet()
 		dispatchEvent('onReTweet', self);
 	}
 	
+	function onClickFavorite()
+	{
+		dispatchEvent('onFavorite', self);
+	}
+	
+	
 	function onPhotoClick()
 	{
 		Log('image: '+self.largeImage);
@@ -126,6 +132,7 @@ function Tweet()
 	function decorate(e)
 	{			
 		e.find('.action-follow').click(onClickFollow);
+		e.find('.action-favorite').click(onClickFavorite);
 		e.find('.action-retweet').click(onClickReTweet);
 		e.find('.tweet-utility').fadeTo('fast', .5);
 		
