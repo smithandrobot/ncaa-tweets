@@ -7,7 +7,8 @@ function ScheduleController()
     var selected        = null;
     var model 		    = new TRModel();
     var feedURL         = null;
-    var INTERVAL		= 1000*5;
+    var INTERVAL_TIME	= 1000*5;
+    var interval        = null;
     var games           = []
     
     model.addEventListener('onDataChange', onDataChange);
@@ -18,7 +19,9 @@ function ScheduleController()
         Log('Loading round: ' + round)
         games = []
         self.feedURL = 'mock/' + round + '.json';
+        removeScrollbar();
         loadFeed();
+        $('#scoreboard-loader').show();
     }
     
     function poll()
@@ -31,17 +34,20 @@ function ScheduleController()
 	    var data = e.target.getData()
 	    
 	    if(games.length == 0){
-	        $("#schedule-container").empty();
-    		
+	        $('#scoreboard-loader').hide();
     		$(data).each(function(){
     		    renderGame($(this)[0])
     		})
+    		addScrollbar()
+    		
 	    } else {
 	        $(data).each(function(){
     		    updateGame($(this)[0])
     		})
 	    }
 	    
+	    clearInterval(self.interval)
+	    self.interval = setInterval(poll, INTERVAL_TIME);
 	}
 	
 	function renderGame(data){
@@ -69,9 +75,24 @@ function ScheduleController()
 	
 	function loadFeed(  )
 	{
+	    
 		model.setStream( self.feedURL );
 		model.loadJSON();
-		setInterval(poll, INTERVAL);
+		
+	}
+	
+	function addScrollbar(){
+	    $('.schedule-scrollbar').scrollbar({handleHeight:151, arrows:false});
+	}
+	
+	function removeScrollbar(){
+	    var l = $('#scoreboard-loader').detach();
+	    $("#schedule-container").empty();
+		$("#schedule_list .scrollbar-pane").remove();
+		$("#schedule_list .scrollbar-handle-container").remove();
+		$("#schedule_list .scrollbar-handle-up").remove();
+		$("#schedule_list .scrollbar-handle-down").remove();
+		$("#schedule-container").prepend(l);
 	}
     
 	return this;

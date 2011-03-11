@@ -14,7 +14,7 @@ function Application()
 	this.toString	   	= toString;
 	
 	nav.addEventListener('onRoundSelect', roundSelect);
-	nav.setAvailableRounds(['round1', 'round2'])
+	nav.setAvailableRounds(['round1', 'round2', 'round3'])
 	nav.activateRound('round1');
 	
 	function onScheduleChange( e )
