@@ -20,10 +20,12 @@ function ModalReply( overlay )
 	
 	function open( tweet )
 	{
+		Log('reply open!')
 		if( tweet ) setContent( tweet );
 		
 		if( state == 'closed') 
 		{
+			writeTweetBox( tweet )
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
@@ -43,16 +45,7 @@ function ModalReply( overlay )
 	
 	function setContent( t )
 	{
-		var html = t.getElement().clone();
-
-		element.find('.modal-dialog').text('Retweet this from '+t.screenName)
-		html.find('.tweet-profile-image').remove();
-		html.find('.tweet-utility').remove();
-		html.find('.tweet-attachment').remove();
-		html.find('.tweet-copy-block').css('margin-left', '0px');
-		html.find('.tweet-copy-block').css('font-family', 'arial');
-		html.find('.tweet-copy-block').css('font-size', '11px');
-		$(".modal-tweet-container").html(html);
+		Log('status id')
 	}
 	
 	function position( animate )
@@ -88,12 +81,83 @@ function ModalReply( overlay )
 		
 	}
 	
+	function showConfirmScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		
+		as.hide();
+		cs.show();
+	}
+	
+	function showActionScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');	
+		cs.hide();
+		as.show();
+	}
+	
+	
 	function initCSS()
 	{
 		element.css('position', 'absolute');
 		position( false );
 	}
 	
-	return this;
+	
+	function writeTweetBox( t )
+	{
+		twttr.anywhere
+				(
+					function (T) 
+					{
+					  T('.action-screen').tweetBox
+						(
+							{
+					    		height: 70,
+					    		width: 230,
+					    		defaultContent: '@'+t.screenName,
+								complete: onTweetBoxLoaded,
+					    		label: "",
+								data:{ 'in_reply_to_status_id' : t.tweetID } 
+					  		}
+						);
+					}
+				);
+	}
+	
+	
+	function styleTweetBox()
+	{
+		Log('styleTweetBox');
+		var box = $(".action-screen iframe").contents().find("textarea");
+		
+		var button = $(".action-screen iframe").contents().find("button").parent();
+		var formButton = $(".action-screen iframe").contents().find("button");
+		populateTweetBox();
+		label = $(".action-screen iframe").contents().find("label");
+		counter = $(".action-screen iframe").contents().find("#counter");
+		var fontSize = label.css('fontSize');	
+		label.css('font-size', 12);
+		label.css('color', "#fff");
+		counter.css('position', 'absolute');
+		counter.css('color', "#fff");
+		counter.css('left', '260px');
+		counter.css('top', '5px');
+		counter.css('text-align', 'right');
+		counter.css('width', 80);
+		counter.css('font-size', 12);
+		box.css('background', 'transparent');
+		box.css('color', '#fff');
+		button.css('background', '#D53D36');
+		button.css('border', 'none');
+		formButton.css('color', '#000');
+		formButton.css('text-shadow', 'none');
+		formButton.css('font-size', '12px');
+		formButton.css('font-weight', 'bold');
+		formButton.css('text-transform', 'uppercase');
+	};
+	
 	return this;
 };
