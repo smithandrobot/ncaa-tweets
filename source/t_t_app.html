@@ -6,12 +6,55 @@
 		<title>
 			Verizon Tournament of Tweets
 		</title>
-		<script type="text/javascript" charset="utf-8">
-			window.location="http://espn.com/";
+		<link rel="stylesheet" href="http://yui.yahooapis.com/2.8.1/build/reset/reset-min.css" type="text/css" />
+		<link rel="stylesheet" href="css/styles.css" type="text/css" />
+		<link rel="stylesheet" href="css/scrollbar.css" type="text/css" />
+		<link rel="stylesheet" href="css/modals.css" type="text/css" />
+				<!-- Third Party -->        
+        <script src="http://platform.twitter.com/anywhere.js?id=bP6BLolQNtOorD6JNa8fQ&amp;v=1"></script>
+		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/thirdparty/jquery.scroll.js" charset="utf-8"></script>
+		<script src="js/thirdparty/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/thirdparty/jquery.qtip-1.0.0-rc3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+			var myfont_webfont_test = false;
+			var woffEnabled = false;
+			var customPath = "http://smithandrobot.com/df/toftweets";
+
+		//]]>
 		</script>
+		<script type="text/javascript" src="js/thirdparty/MyFontsWebfontsOrderM2771673.js"></script>
+		
+		<!-- Utilities -->
+		<script type="text/javascript" src="js/utils/utils.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/log.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/event.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/eventmanager.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/eventdispatcher.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/tweetparser.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/mediaparser.js" charset="utf-8"></script>
+		
+		<!-- Application -->
+        <script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modaloverlay.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modalretweet.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modalreply.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modalfollow.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modalfavorite.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/trmodel.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/teammodel.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/tweet.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/application.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/tweetlistcontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/schedulecontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/gamecontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/navcontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/teamselectorcontroller.js" type="text/javascript" charset="utf-8"></script>
+        
+
 	</head>
 	<body>
-
 		<!--[if IE 6]>
 	<script type="text/javascript"> 
 		document.write("<div class='warning'><b>This page cannot load properly because your browser (version 6) needs to be <a href='http://www.microsoft.com/windows/internet-explorer' target='_top'>updated</a>.</b></div>");</script>
@@ -113,7 +156,6 @@
         				
 					</div>
 					<div id="tweet-streams">
-					    <div id="show-all"><a href="#">Show all teams</a></div>
 				        <div id="stream-header">
 				            <h2>ALL TEAMS</h2>
 				            <div id="team-selector"><a href="#">MY TEAM</a></div>
@@ -232,7 +274,6 @@
 						<div class="clear"></div>
 						<div class="action-screen favorite-tweet">
 							<div class="gray modal-dialog">Start following<br />name?</div>
-							<div class="modal-tweet-container"></div>
 							<div class="modal-favorite-button-centered">
 								<div class="modal-button modal-follow-button">FOLLOW</div>
 								<div class="modal-button modal-cancel-button">CANCEL</div>
@@ -271,5 +312,8 @@
 				</div>
 			</div>
         </script>
+        
+       
+        
 	</body>
 </html>

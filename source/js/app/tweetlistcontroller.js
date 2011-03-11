@@ -19,6 +19,8 @@ function TweetListController()
 	var modalOverlay  = new ModalOverlay();
 	var retweetModal  = new ReTweetModal( modalOverlay );
 	var favoriteModal = new FavoriteModal( modalOverlay );
+	var replayModal   = new ModalReply( modalOverlay );
+	var followModal   = new ModalFollow( modalOverlay );
 
 	var feeds 		= [
 			  		   {id:'all', color: '#ED1F24', url : feedServer + 'photos.json'},
@@ -123,11 +125,25 @@ function TweetListController()
 		favoriteModal.open(e.target);
 	}
 	
+	function onReply( e )
+	{
+		Log('favoriting');
+		replyModal.open(e.target);
+	}
+	
+	function onFollow( e )
+	{
+		Log('favoriting');
+		followModal.open(e.target);
+	}
+	
 	
 	function addListeners( t )
 	{
 		t.addEventListener('onReTweet', onReTweet);
 		t.addEventListener('onFavorite', onFavorite);
+		t.addEventListener('onReplay', onReply);
+		t.addEventListener('onFollow', onFollow);
 	}
 	
 	function updateColors()

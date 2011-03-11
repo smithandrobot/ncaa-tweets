@@ -1,9 +1,10 @@
-FavoriteModal.prototype 	= new EventDispatcher();
-FavoriteModal.constructor 	= FavoriteModal;
+// inherits from
+ModalReply.prototype = new EventDispatcher();
+ModalReply.constructor = ModalReply;
 
-function FavoriteModal( overlay ) 
+function ModalReply( overlay ) 
 {
-	var element 	= $('#modal-favorite-template');
+	var element 	= $('#modal-reply-template');
 	var overlay		= overlay;
 	var img			= null;
 	var rendered	= false;
@@ -44,7 +45,14 @@ function FavoriteModal( overlay )
 	{
 		var html = t.getElement().clone();
 
-		element.find('.modal-dialog').append().html('Favorite this tweet from<br /><span class="red">'+t.screenName+'</span>')
+		element.find('.modal-dialog').text('Retweet this from '+t.screenName)
+		html.find('.tweet-profile-image').remove();
+		html.find('.tweet-utility').remove();
+		html.find('.tweet-attachment').remove();
+		html.find('.tweet-copy-block').css('margin-left', '0px');
+		html.find('.tweet-copy-block').css('font-family', 'arial');
+		html.find('.tweet-copy-block').css('font-size', '11px');
+		$(".modal-tweet-container").html(html);
 	}
 	
 	function position( animate )
@@ -86,5 +94,6 @@ function FavoriteModal( overlay )
 		position( false );
 	}
 	
+	return this;
 	return this;
 };

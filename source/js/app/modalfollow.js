@@ -1,9 +1,9 @@
-FavoriteModal.prototype 	= new EventDispatcher();
-FavoriteModal.constructor 	= FavoriteModal;
+ModalFollow.prototype 	= new EventDispatcher();
+ModalFollow.constructor 	= ModalFollow;
 
-function FavoriteModal( overlay ) 
+function ModalFollow( overlay ) 
 {
-	var element 	= $('#modal-favorite-template');
+	var element 	= $('#modal-follow-template');
 	var overlay		= overlay;
 	var img			= null;
 	var rendered	= false;
@@ -44,7 +44,7 @@ function FavoriteModal( overlay )
 	{
 		var html = t.getElement().clone();
 
-		element.find('.modal-dialog').append().html('Favorite this tweet from<br /><span class="red">'+t.screenName+'</span>')
+		element.find('.modal-dialog').append().html('Start following<br /><span class="red">'+t.screenName+'</span>')
 	}
 	
 	function position( animate )

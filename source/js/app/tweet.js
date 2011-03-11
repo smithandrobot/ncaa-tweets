@@ -94,17 +94,15 @@ function Tweet()
 		element.find('.tweet-attachment').remove();
 	}
 	
-	function onClickRetweet()
-	{
-	}
-	
 	
 	function onClickReply()
 	{
+		dispatchEvent('onReply', self);
 	}
 	
 	function onClickFollow()
 	{
+		dispatchEvent('onFollow', self);
 	}	
 	
 	function onClickReTweet()
@@ -134,6 +132,7 @@ function Tweet()
 		e.find('.action-follow').click(onClickFollow);
 		e.find('.action-favorite').click(onClickFavorite);
 		e.find('.action-retweet').click(onClickReTweet);
+		e.find('.action-reply').click(onClickReply);
 		e.find('.tweet-utility').fadeTo('fast', .5);
 		
 		e.hover(
