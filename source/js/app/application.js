@@ -12,12 +12,16 @@ function Application()
 	
 	this.toString	   	= toString;
 	
+	schedules.addEventListener('onTeamSelect', teamClick)
 	function onScheduleChange( e )
 	{
 
 	};
 	
-	
+	function teamClick(e){
+	    Log(e.target.selected)
+	}
+
 	
 	function toString() { return "Application"; };
 };

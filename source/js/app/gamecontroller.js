@@ -2,15 +2,45 @@ GameController.prototype = new EventDispatcher();
 GameController.constructor = GameController;
 function GameController(gameData) 
 {
-    var self      = this;
-    var selected  = null;
+    var self          = this;
+    var selected      = null;
+    var id            = null;
+    var view          = null;
+    var visitorScore  = 0;
+    var homeScore     = 0;
     
+    self.update = update
     init(gameData);
     
     function init(data){
-        var templateData = {game:{}}
-	    
-	    for(cid in data.competitors){
+        
+        self.id = data.gameid
+        var viewData = sanitizeData(data)
+        self.view = createView(viewData)
+	    self.view.appendTo("#schedule-container");
+    }
+    
+    function createView(viewData){
+         var template = $("#gameTemplate").tmpl(viewData);
+         self.visitorScore = template.find('.team-visiting .team-score')
+         self.homeScore = template.find('.team-home .team-score')
+         var cta = template.find('.home-tweet-cta').click({'teamId':viewData.homeTeam},teamClick)
+    	 var cta = template.find('.visiting-tweet-cta').click({'teamId':viewData.visitingTeam},teamClick)
+    	 return template
+    }
+    
+    function update(data){
+        var viewData = sanitizeData(data)
+        self.visitorScore.text(viewData.visitingTeam.score)
+        self.homeScore.text(viewData.homeTeam.score)
+        self.view.data(viewData)
+        
+    }
+    
+    function sanitizeData(data){
+        var templateData = {'game':{'gameid':data.gameid}}
+        
+        for(cid in data.competitors){
 	        var c = data.competitors[cid]
 	        
 	        if(c.homeaway == "home"){
@@ -32,12 +62,8 @@ function GameController(gameData)
 	        templateData.game.period = Utils.ordinal(data.eventStatus.curPeriod)
 	    }
 	    
-	    var template = $("#gameTemplate").tmpl(templateData);
-	    
-	    var cta = template.find('.home-tweet-cta').click({'teamId':templateData.homeTeam},teamClick)
-	    var cta = template.find('.visiting-tweet-cta').click({'teamId':templateData.visitingTeam},teamClick)
-	    
-	    template.appendTo("#schedule-container");
+	    self.templateData = templateData 
+	    return templateData
     }
     
     function teamClick(obj){

@@ -83,7 +83,7 @@ function TRModel( URL )
 	    loadCallback = loadJSON
 		var aObj 		= {};		
 		aObj.url 		= stream
-		aObj.cache 		= true;
+		aObj.cache 		= false;
 		aObj.dataType 	= 'json';
 		aObj.success 	= onStreamLoaded;
 		aObj.error 		= onStreamError;		
