@@ -436,9 +436,24 @@ noscript div, .warning {
     width:200px;
 }
 
+#team-selector {
+    float:right;
+    font-size:16px;
+    margin-top:3px;
+}
+
+#team-selector a{
+    color:#fff;
+    display:block;
+    padding:3px 0;
+    padding-right:25px;
+    background: transparent url('../img/sprites.png') no-repeat -193px -370px;
+}
+
 #stream-header .spirit-bubble{
     float:right;
     margin-top:3px;
+    display:none;
 }
 .spirit-bubble {
     background: #CC5500 url('../img/bubble-mask.png') no-repeat;
@@ -706,4 +721,21 @@ noscript div, .warning {
 span#counter {
     position:absolute;
     top:30px;
+}
+
+/* qtip */
+
+.qtip-content {
+    text-shadow:none;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.qtip-content a:hover{
+    color:#000;
+}
+
+.team-column {
+    float:left;
+    margin-right:10px;
+    width:100px;
 }

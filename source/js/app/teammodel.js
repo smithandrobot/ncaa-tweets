@@ -260,10 +260,19 @@ Teams = (function Teams()
     }
     
 	this.getTeam = getTeam;
+	this.getAll = getAll;
 	
 	function getTeam(id)
 	{
 		return team_schema[id]
+	}
+	
+	function getAll(){
+	    var sortable = [];
+	    for (var t in team_schema){
+	        sortable.push(team_schema[t])
+	    }
+	    return sortable.sort(function(a,b){return a.displayName - b.displayName})
 	}
 	
 	
