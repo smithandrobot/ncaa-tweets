@@ -17,6 +17,7 @@ function TweetListController()
 	
 	/* Tweet Modals */
 	
+	var twitterProxy  = new TwitterProxy();
 	var modalOverlay  = new ModalOverlay();
 	var retweetModal  = new ReTweetModal( modalOverlay );
 	var favoriteModal = new FavoriteModal( modalOverlay );
