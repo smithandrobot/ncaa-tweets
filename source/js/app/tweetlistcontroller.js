@@ -17,11 +17,10 @@ function TweetListController()
 	
 	/* Tweet Modals */
 	
-	var twitterProxy  = new TwitterProxy();
 	var modalOverlay  = new ModalOverlay();
 	var retweetModal  = new ReTweetModal( modalOverlay );
 	var favoriteModal = new FavoriteModal( modalOverlay );
-	var replayModal   = new ModalReply( modalOverlay );
+	var replyModal   = new ModalReply( modalOverlay );
 	var followModal   = new ModalFollow( modalOverlay );
 	var photoModal	  = new ModalPhoto( modalOverlay );
 
@@ -130,7 +129,7 @@ function TweetListController()
 	
 	function onReply( e )
 	{
-		Log('favoriting');
+		Log('onReply');
 		replyModal.open(e.target);
 	}
 	
@@ -149,7 +148,7 @@ function TweetListController()
 	{
 		t.addEventListener('onReTweet', onReTweet);
 		t.addEventListener('onFavorite', onFavorite);
-		t.addEventListener('onReplay', onReply);
+		t.addEventListener('onReply', onReply);
 		t.addEventListener('onFollow', onFollow);
 		t.addEventListener('onPhotoClick', onPhotoClick);
 	}
