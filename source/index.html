@@ -48,6 +48,7 @@
         <script src="js/app/tweetlistcontroller.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/schedulecontroller.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/gamecontroller.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/navcontroller.js" type="text/javascript" charset="utf-8"></script>
         
 
 	</head>
@@ -73,28 +74,28 @@
 				
 				<div id="column-left">
 					<div id="tournament_nav">
-							<span class="active" >
-								1st ROUND
-								<div class="active-under"></div>
-							</span>
-							<span class="active" >
-								2nd ROUND
-								<div class="active-under"></div>
-							</span>
-							<span class="tournament-selected" >
-								3rd ROUND
-								<div class="active-under"></div>
-							</span>
-							<span class="active" >
-								REGIONALS
+							<span class="inactive" >
+								<a href="#" id="round1">1st ROUND</a>
 								<div class="active-under"></div>
 							</span>
 							<span class="inactive" >
-								FINALS
+								<a href="#" id="round2">2nd ROUND</a>
 								<div class="active-under"></div>
 							</span>
-							<span class="active" >
-								CHAMPIONSHIP
+							<span class="inactive" >
+								<a href="#" id="round3">3rd ROUND</a>
+								<div class="active-under"></div>
+							</span>
+							<span class="inactive" >
+								<a href="#" id="regionals">REGIONALS</a>
+								<div class="active-under"></div>
+							</span>
+							<span class="inactive" >
+								<a href="#" id="finals">FINALS</a>
+								<div class="active-under"></div>
+							</span>
+							<span class="inactive" >
+								<a href="#" id="championship">CHAMPIONSHIP</a>
 								<div class="active-under"></div>
 							</span>
 						<div class="clear"></div>
@@ -276,7 +277,7 @@
 		</div>
 		<script id="gameTemplate" type="text/x-jquery-tmpl">
           <div id="game-${game.gameid}" class="game game-${game.status}">
-				<div class="game-quarter">
+				<div class="game-period">
 					${game.period}
 				</div>
 				<div class="team-visiting">

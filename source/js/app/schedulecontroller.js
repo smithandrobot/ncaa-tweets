@@ -6,13 +6,20 @@ function ScheduleController()
     var self            = this;
     var selected        = null;
     var model 		    = new TRModel();
-    var feedURL         = 'mock/schedule.json'
+    var feedURL         = null;
     var INTERVAL		= 1000*5;
     var games           = []
     
     model.addEventListener('onDataChange', onDataChange);
     
-    loadFeed();
+    self.loadRound = loadRound;
+    
+    function loadRound(round){
+        Log('Loading round: ' + round)
+        games = []
+        self.feedURL = 'mock/' + round + '.json';
+        loadFeed();
+    }
     
     function poll()
 	{	
@@ -62,7 +69,7 @@ function ScheduleController()
 	
 	function loadFeed(  )
 	{
-		model.setStream( feedURL );
+		model.setStream( self.feedURL );
 		model.loadJSON();
 		setInterval(poll, INTERVAL);
 	}

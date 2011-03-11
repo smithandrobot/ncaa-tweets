@@ -22,6 +22,7 @@ body, div {
 a
 {
 	text-decoration:none;
+	color:#ED1F24;
 }
 
 .clear { clear:both;}
@@ -130,6 +131,12 @@ noscript div, .warning {
 	line-height:28px;
 }
 
+#tournament_nav .inactive a
+{
+	color:#999;
+	cursor:default;
+}
+
 #tournament_nav .active
 {
 	display:inline-block;
@@ -144,8 +151,12 @@ noscript div, .warning {
 {
 	font-size:28px;
 	margin-left:10px;
-	color:#FFF;
 	display:inline-block;
+}
+
+#tournament_nav .tournament-selected a
+{
+	color:#FFF;
 }
 
 .active-under 
@@ -234,7 +245,7 @@ noscript div, .warning {
 	background-position:-46px -126px;	
 }
 
-.game-quarter
+.game-period
 {
 	font-family:arial;
 	font-weight:bold;
@@ -246,7 +257,7 @@ noscript div, .warning {
 	text-align:center;
 }
 
-.game-final .game-quarter
+.game-final .game-period
 {
 	color:#000;
 	text-shadow: #FFF 0px 1px 0px;
