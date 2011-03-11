@@ -16,11 +16,14 @@ function TweetListController()
 	var element 	= $('#main-timeline');
 	
 	/* Tweet Modals */
+	
+	var twitterProxy  = new TwitterProxy();
 	var modalOverlay  = new ModalOverlay();
 	var retweetModal  = new ReTweetModal( modalOverlay );
 	var favoriteModal = new FavoriteModal( modalOverlay );
 	var replayModal   = new ModalReply( modalOverlay );
 	var followModal   = new ModalFollow( modalOverlay );
+	var photoModal	  = new ModalPhoto( modalOverlay );
 
 	var feeds 		= [
 			  		   {id:'all', color: '#ED1F24', url : feedServer + 'photos.json'},
@@ -137,6 +140,10 @@ function TweetListController()
 		followModal.open(e.target);
 	}
 	
+	function onPhotoClick( e )
+	{
+		photoModal.open( e.target );
+	}
 	
 	function addListeners( t )
 	{
@@ -144,6 +151,7 @@ function TweetListController()
 		t.addEventListener('onFavorite', onFavorite);
 		t.addEventListener('onReplay', onReply);
 		t.addEventListener('onFollow', onFollow);
+		t.addEventListener('onPhotoClick', onPhotoClick);
 	}
 	
 	function updateColors()

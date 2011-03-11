@@ -8,7 +8,7 @@ function ModalFollow( overlay )
 	var img			= null;
 	var rendered	= false;
 	var state		= 'closed';
-	
+	var user		= null;
 	this.tweet		= null;
 	this.open 	 	= open;
 	
@@ -20,9 +20,11 @@ function ModalFollow( overlay )
 	function open( tweet )
 	{
 		if( tweet ) setContent( tweet );
+		user = tweet.screenName;
 		
 		if( state == 'closed') 
 		{
+			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
@@ -44,8 +46,27 @@ function ModalFollow( overlay )
 	{
 		var html = t.getElement().clone();
 
-		element.find('.modal-dialog').append().html('Start following<br /><span class="red">'+t.screenName+'</span>')
+		element.find('.modal-dialog').append().html('Start following<br /><span class="red">'+t.screenName+'</span>');
+		element.find('.confirmation').append().html('You are now following<br /><span class="red">'+t.screenName+'</span>');
 	}
+	
+	function showConfirmScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		
+		as.hide();
+		cs.show();
+	}
+	
+	function showActionScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');	
+		cs.hide();
+		as.show();
+	}
+	
 	
 	function position( animate )
 	{				
@@ -67,6 +88,22 @@ function ModalFollow( overlay )
 		}
 	}
 
+
+	function onFollow()
+	{
+		if( !canFollow( user ) ) return;
+		twttr.anywhere
+		(
+			function (T) 
+			{
+				var user = T.User.find( user );
+				user.follow();
+				showConfirmScreen();
+			}
+		);
+	}
+	
+	
 	function decorateBTNS()
 	{
 		
@@ -78,6 +115,13 @@ function ModalFollow( overlay )
 		cancelBtn.click(onClose);
 		cancelBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 		
+		var fBtn = element.find('.modal-follow-button');
+		fBtn.click(onFollow);
+		fBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+		
+		var okBtn = element.find('.modal-confirm-button');
+		okBtn.click(onClose);
+		okBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 	}
 	
 	function initCSS()
@@ -85,6 +129,30 @@ function ModalFollow( overlay )
 		element.css('position', 'absolute');
 		position( false );
 	}
+	
+	
+	function canFollow( userID )
+	{
+		var validUser = false;
+		
+		twttr.anywhere(function (T) 
+		{  
+ 			if (!T.isConnected()) {
+				T.bind("authComplete", function (e, user) {
+					var user = T.User.find( userID );
+					user.follow();
+					showConfirmScreen();
+  		 		});
+
+				T.signIn();
+				Log('user is not logged in and cannot follow, opened connect dialog');
+			}else{
+				validUser = true;
+			}
+		})
+		
+		return validUser;
+	};
 	
 	return this;
 };
