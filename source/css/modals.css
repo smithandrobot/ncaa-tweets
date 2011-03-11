@@ -23,6 +23,15 @@
 	text-shadow:none;
 }
 
+.modal .confirmation-screen *
+{
+	width:100%;
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	margin-top:20px;
+}
 .modal-tweet-container
 {
 	margin-top:10px;
@@ -32,6 +41,16 @@
 {
 	font-family:Arial;
 	font-size:12px;
+}
+
+.favorite-tweet
+{
+	width:100%;
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	margin-top:30px;
 }
 
 .modal-shadow 
@@ -65,6 +84,35 @@
 	text-indent:-9999px;
 }
 
+.modal-confirm-button
+{
+	background : url('../img/sprites.png');
+	background-position:-305px -398px;
+	width:64px;
+	height:21px;
+	text-indent:-9999px;
+	margin:0px 0px 0px 87px;
+}
+
+.modal-favorite-button
+{
+	background:url('../img/sprites.png');
+	background-position:-305px -431px;
+	width:64px;
+	height:21px;
+	text-indent:-9999px;	
+}
+
+.modal-follow-button
+{
+	background:url('../img/sprites.png');
+	background-position:-305px -365px;
+	width:64px;
+	height:21px;
+	text-indent:-9999px;
+	float:left;	
+}
+
 .modal-retweet-button
 {
 	background : url('../img/sprites.png');
@@ -79,6 +127,16 @@
 	margin:20px 0px 20px 80px;
 }
 
+.modal-favorite-button-group
+{
+	margin:20px 0px 20px 45px;	
+}
+
+.modal-follow-button-group
+{
+	margin:20px 0px 20px 55px;	
+}
+
 .modal-retweet-button-group .modal-cancel-button
 {
 	float:left;
@@ -88,6 +146,17 @@
 .modal-retweet-button-group .modal-retweet-button
 {
 	float:left;
+}
+
+.modal-favorite-button-group .modal-favorite-button
+{
+	float:left;
+}
+
+.modal-favorite-button-group .modal-cancel-button
+{
+	float:left;
+	margin-left:15px;
 }
 
 .modal-photo
