@@ -8,6 +8,7 @@ function GameController(gameData)
     var view          = null;
     var visitorScore  = 0;
     var homeScore     = 0;
+    var period        = null;
     
     self.update = update
     init(gameData);
@@ -24,8 +25,9 @@ function GameController(gameData)
          var template = $("#gameTemplate").tmpl(viewData);
          self.visitorScore = template.find('.team-visiting .team-score')
          self.homeScore = template.find('.team-home .team-score')
-         var cta = template.find('.home-tweet-cta').click({'teamId':viewData.homeTeam},teamClick)
-    	 var cta = template.find('.visiting-tweet-cta').click({'teamId':viewData.visitingTeam},teamClick)
+         self.period = template.find('.game-period')
+         template.find('.home-tweet-cta').click({'teamId':viewData.homeTeam},teamClick)
+    	 template.find('.visiting-tweet-cta').click({'teamId':viewData.visitingTeam},teamClick)
     	 return template
     }
     
@@ -33,7 +35,12 @@ function GameController(gameData)
         var viewData = sanitizeData(data)
         self.visitorScore.text(viewData.visitingTeam.score)
         self.homeScore.text(viewData.homeTeam.score)
+        self.period.text(viewData.game.period)
         self.view.data(viewData)
+        
+        if(viewData.game.status == "final"){
+            self.view.addClass('game-final')
+        }
         
     }
     

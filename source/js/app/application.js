@@ -7,19 +7,23 @@ function Application()
 	var server 		    = 'http://tr-cache-2.appspot.com/massrelevance/';
 	var schedules 		= new ScheduleController();
 	var tweetlist 		= new TweetListController();
+	var nav      		= new NavController();
 
 	var tweetBox		= $('#tbox');
 	
 	this.toString	   	= toString;
 	
-	schedules.addEventListener('onTeamSelect', teamClick)
+	nav.addEventListener('onRoundSelect', roundSelect);
+	nav.setAvailableRounds(['round1', 'round2'])
+	nav.activateRound('round1');
+	
 	function onScheduleChange( e )
 	{
 
 	};
 	
-	function teamClick(e){
-	    Log(e.target.selected)
+	function roundSelect(e){
+	    schedules.loadRound(e.target.selected)
 	}
 
 	

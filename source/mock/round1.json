@@ -31,7 +31,7 @@
 	"venue":"Madison Square Garden",
 	"eventStatus": {
 		"clock": "6:34",
-		"curPeriod": 1,
+		"curPeriod": 2,
 		"statusText": "IN PROGRESS: 13:09 1ST",
 		"status": "IN PROGRESS"
 	},
