@@ -463,6 +463,18 @@ noscript div, .warning {
     background: transparent url('../img/sprites.png') no-repeat -193px -370px;
 }
 
+#show-all-streams
+{
+/*	width:345px;*/
+	margin-top:-40px;
+	margin-bottom:20px;
+/*	padding-right:15px;*/
+	text-align:right;
+	font-family:arial ;
+	font-weight:bold;
+	text-shadow:none;
+}
+
 #stream-header .spirit-bubble{
     float:right;
     margin-top:3px;

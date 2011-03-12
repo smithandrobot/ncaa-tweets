@@ -49,20 +49,24 @@ function TweetListController()
 	addListeners( verizonModule );
 	
 	model.addEventListener('onDataChange', onDataChange);
+	enableShowAllTeams();
+	
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
 
 	selectTeam( {team:{shortName:'ALL TEAMS', name:'ALL TEAMS', color:'#ED1F24'}} );
 	
-	
 	function selectTeam( team )
 	{
-		var obj = team.team;
-		var f = 'http://tweetriver.com/mm-2011-'+obj.shortName+'-curated.json';
-		f = 'http://tweetriver.com/smithandrobot/photos.json';
-		feedColor = obj.color;
+		var obj 	= team.team;
+		var hState 	= (obj.name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
+		var f 		= 'http://tweetriver.com/mm-2011-'+obj.shortName+'-curated.json';
+		f 			= 'http://tweetriver.com/smithandrobot/photos.json';
+		feedColor 	= obj.color;
+		
 		setFeed( f );
 		updateColors();
+		toggleStreamHeader( hState, obj.name);
 		setTeamName( obj.name );
 	} 
 	
@@ -192,6 +196,15 @@ function TweetListController()
 		photoModal.open( e.target );
 	}
 	
+	
+	function enableShowAllTeams()
+	{
+		var s = $('#show-all-streams');
+		s.click( function(){ 	selectTeam( {team:{shortName:'ALL TEAMS', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
+		s.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+	}
+	
+	
 	function addListeners( t )
 	{
 		t.addEventListener('onReTweet', onReTweet);
@@ -200,6 +213,23 @@ function TweetListController()
 		t.addEventListener('onFollow', onFollow);
 		t.addEventListener('onPhotoClick', onPhotoClick);
 	}
+	
+	
+	function toggleStreamHeader( state, t )
+	{
+		if( state == 'show' )
+		{
+			$('.spirit-bubble').text('go #'+t)
+			$('#team-selector').hide();
+			$('.spirit-bubble').show();	
+			$('#show-all-streams').show();
+		}else{
+			$('.spirit-bubble').hide();
+			$('#team-selector').show();
+			$('#show-all-streams').hide();
+		}
+	}
+	
 	
 	function updateColors()
 	{

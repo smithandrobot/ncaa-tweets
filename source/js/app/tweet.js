@@ -98,6 +98,8 @@ function Tweet()
 	
 	function removeImg( )
 	{
+		var height = element.height();
+		element.css('height', height);
 		element.find('.tweet-attachment').remove();
 	}
 	
