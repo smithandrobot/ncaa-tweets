@@ -1,8 +1,9 @@
 ModalTweetBox.prototype = new EventDispatcher();
 ModalTweetBox.constructor = ModalTweetBox;
+
 function ModalTweetBox( overlay ) 
 {
-	var element 		= $('#modal-reply-template');
+	var element 		= $('#modal-tweetbox-template');
 	var overlay			= overlay;
 	var img				= null;
 	var rendered		= false;

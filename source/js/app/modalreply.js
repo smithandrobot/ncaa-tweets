@@ -133,7 +133,6 @@ function ModalReply( overlay )
 	
 	function styleTweetBox()
 	{
-		Log('styleTweetBox');
 		var box = $(".action-screen iframe").contents().find("textarea");
 		
 		var button = $(".action-screen iframe").contents().find("button").parent();
