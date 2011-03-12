@@ -26,7 +26,8 @@ function ModalReply( overlay )
 		if( state == 'closed') 
 		{
 			$('#reply-box').empty();
-			writeTweetBox( tweet )
+			writeTweetBox( tweet );
+			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
@@ -47,6 +48,7 @@ function ModalReply( overlay )
 	function setContent( t )
 	{
 		Log('status id')
+		element.find('.confirmation').html('Your reply to @'+t.screenName+'<br />was sent to twitter.')
 	}
 	
 	function position( animate )
@@ -79,6 +81,10 @@ function ModalReply( overlay )
 		var cancelBtn = element.find('.modal-cancel-button');
 		cancelBtn.click(onClose);
 		cancelBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+		
+		var okBtn = element.find('.modal-confirm-button');
+		okBtn.click(onClose);
+		okBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 		
 	}
 	

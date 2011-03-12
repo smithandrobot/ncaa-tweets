@@ -27,6 +27,7 @@ function Application()
     
     function onTeamSelect(e){
         Log(e.target.selected)
+		tweetlist.selectTeam( e.target.selected );
     }
 
     function toString() {

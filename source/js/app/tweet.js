@@ -37,6 +37,7 @@ function Tweet()
 		self.tweetText	= d.text;
 		self.htmlText 	= TweetParser.parse(d.text);
 		self.tweetID 	= d.id_str;
+		// Log(d.created_at);
 		self.time		= parseDate(d.created_at);
 		verified 	 	= d.user.verified;
 		self.screenName	= d.user.screen_name;

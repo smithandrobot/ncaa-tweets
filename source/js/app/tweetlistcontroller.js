@@ -29,13 +29,26 @@ function TweetListController()
 			  		   {id: 99, url : feedServer + 'actionscript.json'}
 			  		  ];
 	
-	this.setFeed = setFeed;
+	this.setFeed 	= setFeed;
+	this.selectTeam = selectTeam;
+	this.toString	= toString;
 	
 	model.addEventListener('onDataChange', onDataChange);
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
 	
 	setFeed( 'all' );
+	
+	
+	function selectTeam( team )
+	{
+		Log(self+' got new team data: ')
+		for(var i in team.team)
+		{
+			Log('team.'+i+' = '+team.team[i]);
+		}
+	} 
+	
 	
 	function setFeed( id )
 	{
@@ -176,6 +189,12 @@ function TweetListController()
 		$("#timeline .scrollbar-handle-down").remove();
 		$("#timeline").prepend(l);	
 	}
+	
+	function toString()
+	{
+		return 'TweetListController';
+	}
+	
 	
 	return this;
 };

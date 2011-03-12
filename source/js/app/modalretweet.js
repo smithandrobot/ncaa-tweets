@@ -5,7 +5,7 @@ function ReTweetModal( overlay )
 	var img			= null;
 	var rendered	= false;
 	var state		= 'closed';
-	
+	var tweetID		= null;
 	this.tweet		= null;
 	this.open 	 	= open;
 	
@@ -16,10 +16,12 @@ function ReTweetModal( overlay )
 	
 	function open( tweet )
 	{
-		if( tweet ) setContent( tweet );
+		setContent( tweet );
+		self.tweetID = tweet;
 		
 		if( state == 'closed') 
 		{
+			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
@@ -42,6 +44,7 @@ function ReTweetModal( overlay )
 		var html = t.getElement().clone();
 
 		element.find('.modal-dialog').text('Retweet this from '+t.screenName)
+		element.find('.confirmation').html('You retweeted<br/>'+t.screenName+'\'s tweet.')
 		html.find('.tweet-profile-image').remove();
 		html.find('.tweet-utility').remove();
 		html.find('.tweet-attachment').remove();
@@ -50,6 +53,26 @@ function ReTweetModal( overlay )
 		html.find('.tweet-copy-block').css('font-size', '11px');
 		$(".modal-tweet-container").html(html);
 	}
+	
+	
+	function showConfirmScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		
+		as.hide();
+		cs.show();
+	}
+	
+	
+	function showActionScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');	
+		cs.hide();
+		as.show();
+	}
+	
 	
 	function position( animate )
 	{				
@@ -81,7 +104,57 @@ function ReTweetModal( overlay )
 		var cancelBtn = element.find('.modal-cancel-button');
 		cancelBtn.click(onClose);
 		cancelBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+		// 
+		var rtBtn = element.find('.modal-retweet-button');
+		rtBtn.click(onRetweet);
+		rtBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 		
+		var okBtn = element.find('.modal-confirm-button');
+		okBtn.click(onClose);
+		okBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+	}
+	
+	
+	function onRetweet()
+	{
+		if( !canRetweet( tweetID ) ) 
+		{
+			Log('user did not validate, authorizing...');
+			return;
+		}
+		
+		twttr.anywhere
+		(		
+			function (T) 
+			{
+				var status = T.Status.retweet( tweetID );
+				showConfirmScreen();
+			}
+		);
+	}
+	
+	
+	function canRetweet()
+	{
+		
+		var validUser = false;
+
+		twttr.anywhere(function (T) 
+		{  
+ 			if (!T.isConnected()) {
+	
+				T.bind("authComplete", function (e, user) {
+					Log('sending retweet id: '+ tweetID );
+					var status = T.Status.retweet(tweetID);
+  		 		});
+
+				T.signIn();
+			}else{
+				validUser = true;
+			}
+		})
+		
+		return validUser;
 	}
 	
 	function initCSS()
