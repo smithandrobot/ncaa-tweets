@@ -4,14 +4,16 @@ ModalReply.constructor = ModalReply;
 
 function ModalReply( overlay ) 
 {
-	var element 	= $('#modal-reply-template');
-	var overlay		= overlay;
-	var img			= null;
-	var rendered	= false;
-	var state		= 'closed';
-	
-	this.tweet		= null;
-	this.open 	 	= open;
+	var element 		= $('#modal-reply-template');
+	var overlay			= overlay;
+	var img				= null;
+	var rendered		= false;
+	var state			= 'closed';
+	var self			= this;
+	                	
+	this.tweet			= null;
+	this.open 	 		= open;
+	this.twitterProxy 	= null;
 	
 	overlay.addEventListener('onModalOverlayClose', onClose)
 	decorateBTNS();
@@ -20,7 +22,6 @@ function ModalReply( overlay )
 	
 	function open( tweet )
 	{
-		Log('reply open!')
 		if( tweet ) setContent( tweet );
 		
 		if( state == 'closed') 
@@ -115,13 +116,8 @@ function ModalReply( overlay )
 	
 	function writeTweetBox( t )
 	{
-		twttr.anywhere
- 		(
- 			function (T) 
- 			{
- 			  T('#reply-box').tweetBox
- 				(
- 					{
+		
+		var tObj =	{
  			    		height: 70,
  			    		width: 230,
  			    		defaultContent: '@'+t.screenName,
@@ -129,10 +125,9 @@ function ModalReply( overlay )
  			    		label: "",
 						onTweet : showConfirmScreen,
  						data:{ 'in_reply_to_status_id' : t.tweetID } 
- 			  		}
- 				);
- 			}
- 		);
+ 			  		};
+
+		self.twitterProxy.getTweetBox('#reply-box', tObj);
 	}
 	
 	

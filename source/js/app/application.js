@@ -33,6 +33,7 @@ function Application()
     
     function onHashTagClick(e){
         Log(e.target.hashTag)
+		tweetlist.hashTagClick( e.target.hashTag );
     }
 
     function toString() {

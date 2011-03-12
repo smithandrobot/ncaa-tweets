@@ -28,6 +28,8 @@ function Tweet()
 	this.following;
 	this.tweets;
 	this.largeImage;
+	this.remove = remove;
+	
 	this.getElement	= function () { return element; };
 	
 	mediaParser.addEventListener('onImageData', onImageData);
@@ -89,6 +91,10 @@ function Tweet()
 		photo.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 	}
 	
+	function remove()
+	{
+		element.remove();
+	}
 	
 	function removeImg( )
 	{
@@ -108,6 +114,7 @@ function Tweet()
 	
 	function onClickReTweet()
 	{
+		Log('onClickReTweet');
 		dispatchEvent('onReTweet', self);
 	}
 	

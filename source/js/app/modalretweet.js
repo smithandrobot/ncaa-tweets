@@ -1,13 +1,16 @@
 function ReTweetModal( overlay ) 
 {
-	var element 	= $('#modal-retweet-template');
-	var overlay		= overlay;
-	var img			= null;
-	var rendered	= false;
-	var state		= 'closed';
-	var tweetID		= null;
-	this.tweet		= null;
-	this.open 	 	= open;
+	var element 		= $('#modal-retweet-template');
+	var overlay			= overlay;
+	var img				= null;
+	var rendered		= false;
+	var state			= 'closed';
+	var tweetID			= null;
+	var self			= this;
+	
+	this.twitterProxy 	= null;
+	this.tweet			= null;
+	this.open 	 		= open;
 	
 	overlay.addEventListener('onModalOverlayClose', onClose)
 	decorateBTNS();
@@ -17,7 +20,7 @@ function ReTweetModal( overlay )
 	function open( tweet )
 	{
 		setContent( tweet );
-		self.tweetID = tweet;
+		tweetID = tweet.tweetID;
 		
 		if( state == 'closed') 
 		{
@@ -25,8 +28,7 @@ function ReTweetModal( overlay )
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
-		}
-		
+		}		
 		position();
 		state = 'open';
 	}
@@ -38,6 +40,7 @@ function ReTweetModal( overlay )
 		overlay.close();
 		state = 'closed';
 	}
+	
 	
 	function setContent( t )
 	{
@@ -94,9 +97,9 @@ function ReTweetModal( overlay )
 		}
 	}
 
+
 	function decorateBTNS()
-	{
-		
+	{		
 		var cBtn = element.find('.close-button');
 		cBtn.click(onClose);
 		cBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
@@ -123,45 +126,35 @@ function ReTweetModal( overlay )
 			return;
 		}
 		
-		twttr.anywhere
-		(		
-			function (T) 
-			{
-				var status = T.Status.retweet( tweetID );
-				showConfirmScreen();
-			}
-		);
+		var t = self.twitterProxy.twitterOBJ;
+		t.Status.retweet( tweetID );
+		showConfirmScreen();
 	}
 	
 	
 	function canRetweet()
 	{
-		
 		var validUser = false;
-
-		twttr.anywhere(function (T) 
-		{  
- 			if (!T.isConnected()) {
-	
-				T.bind("authComplete", function (e, user) {
-					Log('sending retweet id: '+ tweetID );
-					var status = T.Status.retweet( tweetID );
-  		 		});
-
-				T.signIn();
-			}else{
-				validUser = true;
-			}
-		})
+		var t = self.twitterProxy.twitterOBJ;
+		
+		if(t.isConnected())
+		{
+			validUser = true;
+		}else{		
+			t.bind("authComplete", onRetweet);
+			t.signIn();
+		}	
 		
 		return validUser;
 	}
+	
 	
 	function initCSS()
 	{
 		element.css('position', 'absolute');
 		position( false );
 	}
+	
 	
 	return this;
 };
