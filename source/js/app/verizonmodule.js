@@ -6,13 +6,17 @@ function VerizonModule()
 {
 
 	/* PRIVATE */
-	
-	var element 	= $('#atanywhere-container');
-	var self 		= this;
-	var model 		= new TRModel();
-	var feedServer 	= 'http://tr-cache-2.appspot.com/smithandrobot/';
-	var tweet		= null;
-
+	var UPDATE			= 1000;
+	var element 		= $('#atanywhere-container');
+	var self 			= this;
+	var model 			= new TRModel();
+	var questionModel 	= new TRModel();
+	var questionSinceID = null;
+	var sinceID			= null;
+	var feedServer 		= 'http://tr-cache-2.appspot.com/smithandrobot/';
+	var tweet			= null;
+	var qInterval		= null;
+	var tInterval		= null;
 	/* PUBLIC */
 
 	this.twitterProxy 	  = null;
@@ -24,6 +28,10 @@ function VerizonModule()
 	model.setStream( feedServer + 'actionscript.json' );
 	model.load();
 	
+	questionModel.addEventListener('onDataChange', onQuestionData);
+	questionModel.setStream( feedServer + 'questions.json' );
+	questionModel.load();
+	
 
 	function twitterReady( )
 	{
@@ -34,7 +42,17 @@ function VerizonModule()
 	function onDataChange( e )
 	{
 		var data = e.target.getData();
-		setData(data[0])
+		setData(data[3])
+	}
+	
+	
+	function onQuestionData( e )
+	{
+		var data = e.target.getData();
+		var label = $("#tbox iframe").contents().find("label");
+		label.text(data[0].text);
+		clearInterval(qInterval);
+		qInterval = setTimeout(questionModel.load, UPDATE)
 	}
 	
 	
@@ -57,12 +75,17 @@ function VerizonModule()
 					  width: 340,
 					  defaultContent: "#ncaatourney http://es.pn/eCYCAh",
 					  label: "Add your own Tournament Tweet.",
-					  complete: styleTweetBox
+					  complete: updateTweetBox
 				    };
 
 		self.twitterProxy.getTweetBox('#tbox', tObj);
 	}
 	
+	
+	function updateTweetBox()
+	{
+		styleTweetBox();
+	}
 	
 	function onClickReply()
 	{

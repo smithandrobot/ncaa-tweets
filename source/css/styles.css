@@ -556,6 +556,7 @@ noscript div, .warning {
 
 .tweet-copy-block a{
 	color:#ED1F24;
+	word-wrap: break-word;
 }
 
 .tweet-name {

@@ -3,18 +3,22 @@ TweetListController.constructor = TweetListController;
 
 function TweetListController() 
 {
+	var UPDATE		= 1000;
 	var feed		= null;
 	var feedURL		= null;
 	var feedColor	= null;
 	var tweets		= null;
+	var newTweets	= null;
 	var model 		= new TRModel();
+	var updateModel = new TRModel();
 	// http://tr-cache-2.appspot.com/massrelevance/oscars-all/meta.json
 	var feedServer 	= 'http://tr-cache-2.appspot.com/smithandrobot/';
 	var currentFeed	= null;
 	var rendered 	= false;
+	var updateInt	= null;
 	var loader		= $('#tweet-team-loader');
 	var element 	= $('#main-timeline');
-	
+	var lastID
 	var verizonModule = new VerizonModule();
 	
 	/* Tweet Modals */
@@ -49,7 +53,10 @@ function TweetListController()
 	addListeners( verizonModule );
 	
 	model.addEventListener('onDataChange', onDataChange);
+	updateModel.addEventListener('onDataChange', onDataUpdate);
+	
 	enableShowAllTeams();
+	enableLoadMore();
 	
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
@@ -61,7 +68,7 @@ function TweetListController()
 		var obj 	= team.team;
 		var hState 	= (obj.name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
 		var f 		= 'http://tweetriver.com/mm-2011-'+obj.shortName+'-curated.json';
-		f 			= 'http://tweetriver.com/smithandrobot/photos.json';
+		f 			= 'http://tweetriver.com/smithandrobot/promoted.json';
 		feedColor 	= obj.color;
 		
 		setFeed( f );
@@ -75,9 +82,15 @@ function TweetListController()
 	{
 	   	removeScrollbar();
 		model.setStream( feedURL );
+		updateModel.setStream( feedURL );
 		model.load();
 		removeTweets();
 		loader.show();
+	}
+	
+	function poll()
+	{
+		updateModel.poll(lastID);
 	}
 	
 	
@@ -100,16 +113,37 @@ function TweetListController()
 	}
 	
 	
-	function onDataChange( e )
+	function onDataUpdate( e )
 	{
-		if(!rendered)
+		Log('updating new tweets: '+e.target.getData().length);
+		var data = e.target.getData();
+		var total = data.length-1;
+		var i = 0;
+		var t;
+		
+		if(total >= 0)
 		{
-			loader.hide();
-			writeList( e );
+			$('#loadmore-count').text((total+1)+' New Tweets');
+			$('#loadmore-count').fadeIn(300);
+			newTweets = new Array();
+			i = 0;
+			for(i;i<=total;i++)	
+			{
+				t = new Tweet();
+				t.setData(data[i]);
+				newTweets.push(t)
+			}
 		}else{
-			loader.hide();
-			writeList( e );
+			$('#loadmore-count').fadeOut(300);
 		}
+		clearInterval(updateInt);
+		updateInt = setTimeout(poll, UPDATE);
+	}
+	
+	function onDataChange( e )
+	{	
+		loader.hide();
+		writeList( e );
 	}
 	
 	
@@ -132,8 +166,6 @@ function TweetListController()
 			t.setData(data[i]);
 			element.append(t.getHTML());
 		};
-		
-		// element.find('.tweet')
 
 	   addScrollbar();
 	   updateColors();
@@ -142,6 +174,37 @@ function TweetListController()
 	   
 	   lastID = data[0].order_id;	
 	   rendered = true;
+
+		clearInterval(updateInt);
+		updateInt = setTimeout(poll, UPDATE);
+	}
+	
+	
+	function updateList()
+	{
+		clearInterval(updateInt);
+		removeScrollbar();
+		$('#loadmore-count').hide();
+		var total = newTweets.length-1;
+		var t	  = null;
+		var i     = 0;
+		
+	   	lastID = newTweets[0].orderID;
+		Log('last id: '+lastID);
+		newTweets.reverse();
+		
+		for(i;i<=total;i++)	
+		{
+			t = newTweets[i];
+			tweets.unshift(t)
+			addListeners( t );
+			element.prepend(t.getHTML());
+		};
+
+	   	addScrollbar();
+		updateColors();
+		clearInterval(updateInt);
+		updateInt = setTimeout(poll, UPDATE);
 	}
 	
 	
@@ -202,6 +265,12 @@ function TweetListController()
 		var s = $('#show-all-streams');
 		s.click( function(){ 	selectTeam( {team:{shortName:'ALL TEAMS', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
 		s.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+	}
+	
+	function enableLoadMore()
+	{
+		var s = $('#loadmore-count');
+		s.click( updateList );
 	}
 	
 	

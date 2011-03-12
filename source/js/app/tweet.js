@@ -76,7 +76,7 @@ function Tweet()
 	{
  	 	var thumb		= new Image();
 		thumb.onload 	= decorateImg;
-		thumb.onerror	= removeImg
+		// thumb.onerror	= removeImg
 		thumb.src 	 	= e.target.thumb;
 		self.largeImage	= e.target.largeImage;
 		
