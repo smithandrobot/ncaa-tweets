@@ -25,6 +25,16 @@ a
 	color:#ED1F24;
 }
 
+a.hashtag {
+    color:#000;
+    display:block;
+    width:100px;
+}
+
+a.hashtag:hover {
+    color:#ED1F24;
+}
+
 .clear { clear:both;}
 
 noscript div, .warning {

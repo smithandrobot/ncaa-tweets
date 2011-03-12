@@ -5,6 +5,7 @@ function ScheduleController()
  {
     var self = this;
     var selected = null;
+    var hashTag = null;
     var model = new TRModel();
     var feedURL = 'mock/full.json';
     var INTERVAL_TIME = 1000 * 5;
@@ -76,6 +77,7 @@ function ScheduleController()
         var game = new GameController(data);
         games.push(game)
         game.addEventListener("onTeamSelect", teamClick)
+        game.addEventListener('onHashTagClick', onHashTagClick)
 
     }
 
@@ -95,6 +97,11 @@ function ScheduleController()
         dispatchEvent("onTeamSelect", self);
     }
 
+    function onHashTagClick(obj){
+	    self.hashTag = obj.target.hashTag
+	    dispatchEvent("onHashTagClick", self);
+	    return false;
+	}
 
 
     function loadFeed()
@@ -130,7 +137,7 @@ function ScheduleController()
         
         rounds = {
             'round1': {
-                'start': new Date(2011, 2, 15, 0, 0, 0),
+                'start': new Date(2011, 2, 12, 0, 0, 0),
                 'end': new Date(2011, 2, 16, 23, 59, 0)
             },
             'round2': {

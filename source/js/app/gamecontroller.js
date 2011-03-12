@@ -9,6 +9,7 @@ function GameController(gameData)
     var visitorScore  = 0;
     var homeScore     = 0;
     var period        = null;
+    var hashTag       = null;
     
     self.update = update
     init(gameData);
@@ -30,6 +31,7 @@ function GameController(gameData)
          self.period = template.find('.game-period')
          template.find('.home-tweet-cta').click({'teamId':viewData.homeTeam},teamClick)
     	 template.find('.visiting-tweet-cta').click({'teamId':viewData.visitingTeam},teamClick)
+    	 template.find('.hashtag').click(hashTagClick)
     	 return template
     }
     
@@ -85,6 +87,12 @@ function GameController(gameData)
     function teamClick(obj){
 	    self.selected = obj.data.teamId
 	    dispatchEvent("onTeamSelect", self);
+	}
+	
+	function hashTagClick(obj){
+	    self.hashTag = $(this).text();
+	    dispatchEvent("onHashTagClick", self);
+	    return false;
 	}
 	
     return self;
