@@ -49,7 +49,7 @@ function GameController(gameData)
     function sanitizeData(data){
         var templateData = {'game':{'id':data.id}}
         
-        templateData.date = new Date(data.date)
+        templateData.date = Date.parse(data.date)
         
         for(cid in data.competitor){
 	        var c = data.competitor[cid]
@@ -72,7 +72,7 @@ function GameController(gameData)
 	        templateData.game.period = "final"
 	    } else if(data.eventstatus.status == "SCHEDULED") {
 	        templateData.game.status = "current"
-	        templateData.game.period = templateData.date.getMonth()+1 + '/' + templateData.date.getDate()
+	        templateData.game.period = templateData.date.toString("M/d");
 	    } else {
 	        templateData.game.status = "current"
 	        templateData.game.period = Utils.ordinal(data.eventstatus.curPeriod)
