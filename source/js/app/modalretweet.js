@@ -145,7 +145,7 @@ function ReTweetModal( overlay )
 	
 				T.bind("authComplete", function (e, user) {
 					Log('sending retweet id: '+ tweetID );
-					var status = T.Status.retweet(tweetID);
+					var status = T.Status.retweet( tweetID );
   		 		});
 
 				T.signIn();
