@@ -20,6 +20,7 @@ function Application()
     
     selector.addEventListener('onTeamSelect', onTeamSelect)
     schedules.addEventListener('onTeamSelect', onTeamSelect)
+    schedules.addEventListener('onHashTagClick', onHashTagClick)
 
     function onRoundSelect(e) {
         schedules.loadRound(e.target.selected)
@@ -27,6 +28,10 @@ function Application()
     
     function onTeamSelect(e){
         Log(e.target.selected)
+    }
+    
+    function onHashTagClick(e){
+        Log(e.target.hashTag)
     }
 
     function toString() {
