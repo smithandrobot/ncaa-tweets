@@ -109,7 +109,7 @@ function ModalReply( overlay )
 	
 	function initCSS()
 	{
-		element.css('position', 'absolute');
+		element.css('position', 'fixed');
 		position( false );
 	}
 	
@@ -121,7 +121,7 @@ function ModalReply( overlay )
  			    		height: 70,
  			    		width: 230,
  			    		defaultContent: '@'+t.screenName,
- 						complete: styleTweetBox,
+ 						complete: complete,
  			    		label: "",
 						onTweet : showConfirmScreen,
  						data:{ 'in_reply_to_status_id' : t.tweetID } 
@@ -130,14 +130,17 @@ function ModalReply( overlay )
 		self.twitterProxy.getTweetBox('#reply-box', tObj);
 	}
 	
+	function complete()
+	{
+		styleTweetBox();
+	}
 	
 	function styleTweetBox()
 	{
-		var box = $(".action-screen iframe").contents().find("textarea");
-		Log(' styling retweet box css:'+box.css('font'));
-		var button = $(".action-screen iframe").contents().find("button").parent();
-		var formButton = $(".action-screen iframe").contents().find("button");
-		populateTweetBox();
+		var box = $("#reply-box iframe").contents().find("textarea");
+		Log(' styling modal reply box css:'+box.css('font'));
+		var button = $("#reply-box iframe").contents().find("button").parent();
+		var formButton = $("#reply-box iframe").contents().find("button");
 		label = $(".action-screen iframe").contents().find("label");
 		counter = $(".action-screen iframe").contents().find("#counter");
 		var fontSize = label.css('fontSize');	

@@ -107,7 +107,7 @@ function ModalTweetBox( overlay )
 	
 	function initCSS()
 	{
-		element.css('position', 'absolute');
+		element.css('position', 'fixed');
 		position( false );
 	}
 	
@@ -134,7 +134,6 @@ function ModalTweetBox( overlay )
 		var box = $(".action-screen iframe").contents().find("textarea");
 		var button = $(".action-screen iframe").contents().find("button").parent();
 		var formButton = $(".action-screen iframe").contents().find("button");
-		populateTweetBox();
 		label = $(".action-screen iframe").contents().find("label");
 		counter = $(".action-screen iframe").contents().find("#counter");
 		var fontSize = label.css('fontSize');	

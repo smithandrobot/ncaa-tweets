@@ -148,7 +148,7 @@ function FavoriteModal( overlay )
 	
 	function initCSS()
 	{
-		element.css('position', 'absolute');
+		element.css('position', 'fixed');
 		position( false );
 	}
 	
