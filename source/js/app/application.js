@@ -31,7 +31,7 @@ function Application()
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
         schedules.setTeamModel(teams)
-        checkCookiedTeam()
+        
     }
     
     function checkCookiedTeam(){
