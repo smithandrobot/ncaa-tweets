@@ -118,7 +118,93 @@ function VerizonModule()
 		e.find('.action-retweet').click(onClickReTweet);
 		e.find('.action-reply').click(onClickReply);
 	}
+
+	function styleTweetBox()
+	{
+		var box = $("#tbox iframe").contents().find("textarea");
+		var iframe = $("#tbox iframe");
+		var button = iframe.contents().find("button").parent();
+		var formButton = iframe.contents().find("button");
+		populateTweetBox();
+		label = iframe.contents().find("label");
+		counter = iframe.contents().find("#counter");
+		var fontSize = label.css('fontSize');	
+		label.css('font-size', 12);
+		label.css('color', "#fff");
+		
+		iframe.css('height', '180');
+		// iframe.css('border', '1px red solid');
+		counter.css('position', 'absolute');
+		counter.css('color', "#fff");
+		counter.css('left', '260px');
+		counter.css('top', '5px');
+		counter.css('text-align', 'right');
+		counter.css('width', 80);
+		counter.css('font-size', 12);
+		
+		box.css('background', 'transparent');
+		box.css('color', '#fff');
+		
+		button.css('background', '#D53D36');
+		button.css('border', 'none');
+		
+		formButton.css('color', '#000');
+		formButton.css('text-shadow', 'none');
+		formButton.css('font-size', '12px');
+		formButton.css('font-weight', 'bold');
+		formButton.css('text-transform', 'uppercase');
+		
+		box.focus(function() {
+			Log('focus')
+			setSelectionRange(this, 0, 0)
+			return;
+		});
+		
+		box.blur(function() {
+			Log('blur')
+			box.click(function() 
+			{
+				setSelectionRange(this, 0, 0);
+				box.unbind('click');
+			});
+			return;
+		});
+		
+		box.click(function() 
+		{
+			setSelectionRange(this, 0, 0);
+			box.unbind('click');
+		});
+		
+	}
+
+
+	function setCarotPos()
+	{
+		var box = $("#tbox iframe").contents().find("textarea");
+		setSelectionRange(box, 0 , 0 );
+	}
 	
+	
+	function populateTweetBox()
+	{
+		var textarea = $("#tbox iframe").contents().find("textarea");
+		textarea.val('#ncaatourney http://es.pn/eCYCAh');
+	}
+	
+	function setSelectionRange(input, selectionStart, selectionEnd) {
+		if (input.setSelectionRange) {
+			input.focus();
+			input.setSelectionRange(selectionStart, selectionEnd);
+		}
+		else if (input.createTextRange) {
+			var range = input.createTextRange();
+			range.collapse(true);
+			range.moveEnd('character', selectionEnd);
+			range.moveStart('character', selectionStart);
+			range.select();
+		}
+	}
 	
 	return this;
 };
