@@ -20,11 +20,13 @@ function Application()
     
     
     function onTeamModelReady(e){
+        teams.removeEventListener("onTeamModelReady", this)
+        Log('model ready')
         nav.addEventListener('onRoundSelect', onRoundSelect);
-        nav.setAvailableRounds(['round1', 'round2'])
+        nav.setAvailableRounds(['round1'])
         nav.activateRound('round1');
         
-        selector.buildList(teams.getAll())
+        selector.buildList(teams)
         selector.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
@@ -36,7 +38,7 @@ function Application()
     }
     
     function onTeamSelect(e){
-        Log('onTeamSelect: '+e.target.selected)
+        Log(e.target.selected)
 		tweetlist.selectTeam( e.target.selected );
     }
     
