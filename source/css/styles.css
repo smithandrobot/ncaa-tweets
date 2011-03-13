@@ -557,6 +557,11 @@ noscript div, .warning {
 	display: block;
 	margin-left: 68px;
 	word-wrap: break-word;
+	width:275px;
+}
+
+.tweet-text {
+    word-wrap: break-word;
 }
 
 .tweet-copy-block a{
