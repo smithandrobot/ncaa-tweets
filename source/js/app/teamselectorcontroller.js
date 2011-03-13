@@ -71,7 +71,9 @@ function TeamSelectorController()
         $('.team-column a').each(function(){
             $(this).click(function(){
                 var teamlist = self.teams.getAll();
-                self.selected = {'team':teamlist[$(this).attr('id')]}
+                var tid = $(this).attr('id');
+                self.selected = {'team':teamlist[tid]}
+                $.cookie('team', tid, { expires: 30, path: '/' });
         	    dispatchEvent("onTeamSelect", self);
                 return false;
             })
