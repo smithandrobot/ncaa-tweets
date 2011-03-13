@@ -42,7 +42,7 @@ function VerizonModule()
 	function onDataChange( e )
 	{
 		var data = e.target.getData();
-		setData(data[3])
+		setData(data[0])
 	}
 	
 	

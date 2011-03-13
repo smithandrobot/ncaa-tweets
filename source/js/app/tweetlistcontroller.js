@@ -115,7 +115,7 @@ function TweetListController()
 	
 	function onDataUpdate( e )
 	{
-		Log('updating new tweets: '+e.target.getData().length);
+		// Log('updating new tweets: '+e.target.getData().length);
 		var data = e.target.getData();
 		var total = data.length-1;
 		var i = 0;

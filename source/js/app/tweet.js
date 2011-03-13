@@ -39,7 +39,7 @@ function Tweet()
 		self.tweetText	= d.text;
 		self.htmlText 	= TweetParser.parse(d.text);
 		self.tweetID 	= d.id_str;
-		// Log(d.created_at);
+		Log(d.created_at);
 		self.time		= parseDate(d.created_at);
 		verified 	 	= d.user.verified;
 		self.screenName	= d.user.screen_name;
@@ -122,6 +122,12 @@ function Tweet()
 	
 	function onClickFavorite()
 	{
+		//var e = e.find('.action-favorite')
+		var type = $(this).text();
+		Log('type: '+type)
+		if(type == 'Favorite') $(this).find('b').text('Unfavorite');
+		if(type == 'Unfavorite') $(this).find('b').text('Favorite');
+		
 		dispatchEvent('onFavorite', self);
 	}
 	
@@ -154,6 +160,8 @@ function Tweet()
 	
 	function parseDate( d )
 	{
+
+		
 		var date = d.slice(0,-19);
 		return date;
 	}
