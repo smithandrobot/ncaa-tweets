@@ -12,6 +12,12 @@
 	display:none;
 }
 
+.modal .tweet-text
+{
+	width:230px;
+	word-wrap:break-word;
+}
+
 .modal .confirmation-screen
 {
 /*	margin-top:10px;*/
@@ -28,6 +34,7 @@
 
 .modal-dialog
 {
+	word-wrap:break-word;
 	font-family:Arial;
 	font-weight:bold;
 	font-size:14px;

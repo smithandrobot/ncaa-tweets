@@ -413,7 +413,7 @@ noscript div, .warning {
 /* @anywhere module */
 
 #atanywhere-container{
-/*    height:230px;*/
+    height:310px;
 	width:339px;
     margin:30px 0 0px 0;
     padding:10px 10px 0px 10px;
@@ -450,6 +450,7 @@ noscript div, .warning {
     font-size:25px;
     color:#ED1F24;
     float:left;
+	line-height:35px;
 /*    width:200px;*/
 }
 
