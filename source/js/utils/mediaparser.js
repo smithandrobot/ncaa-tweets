@@ -35,9 +35,11 @@ function MediaParser()
 			if(slug) 
 			{
 				imgData = domains[i].process(slug[0], slug[1]);
-
+				return true;
 			}
 		}
+		
+		return slug;
 	};
 	
 	

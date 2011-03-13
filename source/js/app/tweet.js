@@ -68,7 +68,11 @@ function Tweet()
 		element.find('.tweet-profile-image a img').attr('src', profileImg);
 		element.find('.tweet-text').html(self.htmlText);
 		
-		mediaParser.getImage(self.tweetText);
+		if(!mediaParser.getImage(self.tweetText))
+		{
+			element.find('.tweet-attachment').remove();
+		};
+		
 		decorate(element);
 
 		return element;

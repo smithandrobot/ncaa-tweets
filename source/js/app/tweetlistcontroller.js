@@ -65,6 +65,7 @@ function TweetListController()
 	
 	function selectTeam( team )
 	{
+		Log('team selected! '+team.team.displayName)
 		var obj 	= team.team;
 		var hState 	= (obj.name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
 		var f 		= 'http://tweetriver.com/mm-2011-'+obj.shortName+'-curated.json';
