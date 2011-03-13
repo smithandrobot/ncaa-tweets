@@ -127,10 +127,12 @@ function GameController(gameData, model)
             if(c.customData == undefined){
                 c.customData = {}
                 c.customData.hashTag = "#team"
+                c.hashTag = "#team"
                 c.customData.mentions = 0
                 c.name = c.shortName
             } else {
                 c.name = c.customData.displayName
+                c.hashTag = c.customData.hashTag
                 self.teams.setTeamColor(c.shortName, c.color)
             }
             
