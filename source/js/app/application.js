@@ -35,7 +35,7 @@ function Application()
     }
     
     function onTeamSelect(e){
-        Log(e.target.selected)
+        Log('onTeamSelect: '+e.target.selected)
 		tweetlist.selectTeam( e.target.selected );
     }
     

@@ -450,6 +450,7 @@ noscript div, .warning {
     font-size:25px;
     color:#ED1F24;
     float:left;
+	line-height:35px;
 /*    width:200px;*/
 }
 
