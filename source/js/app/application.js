@@ -9,19 +9,27 @@ function Application()
     var tweetlist = new TweetListController();
     var nav       = new NavController();
     var selector  = new TeamSelectorController();
+    var teams     = new TeamsModel();
 
     var tweetBox = $('#tbox');
 
     this.toString = toString;
-
-    nav.addEventListener('onRoundSelect', onRoundSelect);
-    nav.setAvailableRounds(['round1', 'round2'])
-    nav.activateRound('round1');
     
-    selector.addEventListener('onTeamSelect', onTeamSelect)
-    schedules.addEventListener('onTeamSelect', onTeamSelect)
-    schedules.addEventListener('onHashTagClick', onHashTagClick)
-
+    teams.addEventListener("onTeamModelReady", onTeamModelReady)
+    
+    
+    
+    function onTeamModelReady(e){
+        nav.addEventListener('onRoundSelect', onRoundSelect);
+        nav.setAvailableRounds(['round1', 'round2'])
+        nav.activateRound('round1');
+        
+        selector.buildList(teams.getAll())
+        selector.addEventListener('onTeamSelect', onTeamSelect)
+        schedules.addEventListener('onTeamSelect', onTeamSelect)
+        schedules.addEventListener('onHashTagClick', onHashTagClick)
+    }
+    
     function onRoundSelect(e) {
         schedules.loadRound(e.target.selected)
     }

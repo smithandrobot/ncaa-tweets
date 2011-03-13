@@ -13,6 +13,7 @@ function ScheduleController()
     var games = []
     var loadedRound = null
     var scheduleData = null;
+    var firstActive = null;
 
     model.addEventListener('onDataChange', onDataChange);
 
@@ -59,10 +60,17 @@ function ScheduleController()
         if (games.length == 0) {
             $('#scoreboard-loader').hide();
             $(gameList).each(function() {
-                renderGame($(this)[0])
+                var game = renderGame($(this)[0])
+                if(game.active && self.firstActive == null){
+                    self.firstActive = game;
+                }
             })
-            addScrollbar()
-
+            //addScrollbar()
+            if(self.firstActive){
+                var pos = self.firstActive.view.position();
+                //$("#schedule_list .scrollbar-pane").css('top', pos.top)
+                $("#schedule-container").scrollTop(pos.top)
+            }
         } else {
             $(gameList).each(function() {
                 updateGame($(this)[0])
@@ -78,7 +86,7 @@ function ScheduleController()
         games.push(game)
         game.addEventListener("onTeamSelect", teamClick)
         game.addEventListener('onHashTagClick', onHashTagClick)
-
+        return game
     }
 
     function updateGame(data) {

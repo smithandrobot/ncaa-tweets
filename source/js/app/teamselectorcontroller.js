@@ -4,18 +4,18 @@ function TeamSelectorController()
  {
     var self     = this;
     var selected = null;
+    var teams    = null;
 
-    buildList();
+    self.buildList = buildList;
 
-    function buildList() {
-
-        var teams = Teams.getAll();
+    function buildList(teams) {
+        self.teams = teams;
         var teamData = [];
         var columnData = []
 
         for (t in teams) {
             teamData.push({
-                'shortName': 'TEST',
+                'shortName': teams[t].shortName,
                 'name': teams[t].displayName
             })
         }
@@ -69,7 +69,7 @@ function TeamSelectorController()
     function activateLinks(){
         $('.team-column a').each(function(){
             $(this).click(function(){
-                self.selected = {'team':{shortName:$(this).attr('id')}}
+                self.selected = {'team':self.teams[$(this).attr('id')]}
         	    dispatchEvent("onTeamSelect", self);
                 return false;
             })
