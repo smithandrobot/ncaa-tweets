@@ -21,32 +21,20 @@ function Application()
     
     function onTeamModelReady(e){
         teams.removeEventListener("onTeamModelReady", this)
-        Log('model ready')
         nav.addEventListener('onRoundSelect', onRoundSelect);
         nav.setAvailableRounds(['round1', 'round2'])
         nav.activateRound('round1');
         
-        selector.buildList(teams)
         selector.addEventListener('onTeamSelect', onTeamSelect)
+        selector.buildList(teams)
+        
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
         schedules.setTeamModel(teams)
         
     }
     
-    function checkCookiedTeam(){
-        var cTeam = null
-        
-        if($.cookie('team')){
-            var teamlist = teams.getAll();
-            var tid = $.cookie('team');
-            cTeam = {'team':teamlist[tid]}
-            
-        }
-        
-        return cTeam;
-        
-    }
+    
     
     function onRoundSelect(e) {
         schedules.loadRound(e.target.selected)
