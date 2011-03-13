@@ -66,6 +66,8 @@ function Tweet()
 		element.find('.tweet-name a').text(self.screenName);
 		element.find('.tweet-profile-image a').attr('href', 'http://www.twitter.com/#!/'+self.screenName);
 		element.find('.tweet-profile-image a img').attr('src', profileImg);
+		element.find('.tweet-profile-image a img').attr('width', 48);
+		element.find('.tweet-profile-image a img').attr('height', 48);
 		element.find('.tweet-text').html(self.htmlText);
 		
 		if(!mediaParser.getImage(self.tweetText))
