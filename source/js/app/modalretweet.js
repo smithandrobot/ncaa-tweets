@@ -1,13 +1,16 @@
 function ReTweetModal( overlay ) 
 {
-	var element 	= $('#modal-retweet-template');
-	var overlay		= overlay;
-	var img			= null;
-	var rendered	= false;
-	var state		= 'closed';
+	var element 		= $('#modal-retweet-template');
+	var overlay			= overlay;
+	var img				= null;
+	var rendered		= false;
+	var state			= 'closed';
+	var tweetID			= null;
+	var self			= this;
 	
-	this.tweet		= null;
-	this.open 	 	= open;
+	this.twitterProxy 	= null;
+	this.tweet			= null;
+	this.open 	 		= open;
 	
 	overlay.addEventListener('onModalOverlayClose', onClose)
 	decorateBTNS();
@@ -16,15 +19,16 @@ function ReTweetModal( overlay )
 	
 	function open( tweet )
 	{
-		if( tweet ) setContent( tweet );
+		setContent( tweet );
+		tweetID = tweet.tweetID;
 		
 		if( state == 'closed') 
 		{
+			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
-		}
-		
+		}		
 		position();
 		state = 'open';
 	}
@@ -37,11 +41,13 @@ function ReTweetModal( overlay )
 		state = 'closed';
 	}
 	
+	
 	function setContent( t )
 	{
 		var html = t.getElement().clone();
 
 		element.find('.modal-dialog').text('Retweet this from '+t.screenName)
+		element.find('.confirmation').html('You retweeted<br/>'+t.screenName+'\'s tweet.')
 		html.find('.tweet-profile-image').remove();
 		html.find('.tweet-utility').remove();
 		html.find('.tweet-attachment').remove();
@@ -50,6 +56,26 @@ function ReTweetModal( overlay )
 		html.find('.tweet-copy-block').css('font-size', '11px');
 		$(".modal-tweet-container").html(html);
 	}
+	
+	
+	function showConfirmScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		
+		as.hide();
+		cs.show();
+	}
+	
+	
+	function showActionScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');	
+		cs.hide();
+		as.show();
+	}
+	
 	
 	function position( animate )
 	{				
@@ -71,9 +97,9 @@ function ReTweetModal( overlay )
 		}
 	}
 
+
 	function decorateBTNS()
-	{
-		
+	{		
 		var cBtn = element.find('.close-button');
 		cBtn.click(onClose);
 		cBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
@@ -81,14 +107,54 @@ function ReTweetModal( overlay )
 		var cancelBtn = element.find('.modal-cancel-button');
 		cancelBtn.click(onClose);
 		cancelBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+		// 
+		var rtBtn = element.find('.modal-retweet-button');
+		rtBtn.click(onRetweet);
+		rtBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 		
+		var okBtn = element.find('.modal-confirm-button');
+		okBtn.click(onClose);
+		okBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 	}
+	
+	
+	function onRetweet()
+	{
+		if( !canRetweet( tweetID ) ) 
+		{
+			Log('user did not validate, authorizing...');
+			return;
+		}
+		
+		var t = self.twitterProxy.twitterOBJ;
+		t.Status.retweet( tweetID );
+		showConfirmScreen();
+	}
+	
+	
+	function canRetweet()
+	{
+		var validUser = false;
+		var t = self.twitterProxy.twitterOBJ;
+		
+		if(t.isConnected())
+		{
+			validUser = true;
+		}else{		
+			t.bind("authComplete", onRetweet);
+			t.signIn();
+		}	
+		
+		return validUser;
+	}
+	
 	
 	function initCSS()
 	{
 		element.css('position', 'absolute');
 		position( false );
 	}
+	
 	
 	return this;
 };

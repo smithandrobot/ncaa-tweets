@@ -413,9 +413,11 @@ noscript div, .warning {
 /* @anywhere module */
 
 #atanywhere-container{
-    height:230px;
-    margin:30px 0 0 0;
-    padding:10px;
+/*    height:230px;*/
+	width:339px;
+    margin:30px 0 0px 0;
+    padding:10px 10px 0px 10px;
+/*	border:1px solid red;*/
 }
 
 #atanywhere-container a{
@@ -425,7 +427,9 @@ noscript div, .warning {
 #atanywhere-container .tweet-text{
     font-size:16px;
     font-weight:bold;
+	word-wrap:break-word;
 }
+
 
 /* end @anywhere module */
 
@@ -433,8 +437,8 @@ noscript div, .warning {
 
 #tweet-streams {
     width:362px;
-    margin:0px auto;
-    margin-top:50px;
+/*    margin:0px auto;*/
+/*    margin-top:50px;*/
 }
 
 #stream-header {
@@ -446,7 +450,7 @@ noscript div, .warning {
     font-size:25px;
     color:#ED1F24;
     float:left;
-    width:200px;
+/*    width:200px;*/
 }
 
 #team-selector {
@@ -461,6 +465,18 @@ noscript div, .warning {
     padding:3px 0;
     padding-right:25px;
     background: transparent url('../img/sprites.png') no-repeat -193px -370px;
+}
+
+#show-all-streams
+{
+/*	width:345px;*/
+	margin-top:-40px;
+	margin-bottom:20px;
+/*	padding-right:15px;*/
+	text-align:right;
+	font-family:arial ;
+	font-weight:bold;
+	text-shadow:none;
 }
 
 #stream-header .spirit-bubble{
@@ -511,6 +527,7 @@ noscript div, .warning {
 	width: 290px;
 	padding: 10px 0px 10px 0px;
 	border-bottom: 1px solid #333;
+	word-wrap: break-word;
 }
 
 #viewer-timeline .tweet {
@@ -544,6 +561,7 @@ noscript div, .warning {
 
 .tweet-copy-block a{
 	color:#ED1F24;
+	word-wrap: break-word;
 }
 
 .tweet-name {

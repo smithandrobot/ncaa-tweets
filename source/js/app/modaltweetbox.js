@@ -1,10 +1,9 @@
-// inherits from
-ModalReply.prototype = new EventDispatcher();
-ModalReply.constructor = ModalReply;
+ModalTweetBox.prototype = new EventDispatcher();
+ModalTweetBox.constructor = ModalTweetBox;
 
-function ModalReply( overlay ) 
+function ModalTweetBox( overlay ) 
 {
-	var element 		= $('#modal-reply-template');
+	var element 		= $('#modal-tweetbox-template');
 	var overlay			= overlay;
 	var img				= null;
 	var rendered		= false;
@@ -20,14 +19,14 @@ function ModalReply( overlay )
 	initCSS();
 	
 	
-	function open( tweet )
+	function open( h )
 	{
-		if( tweet ) setContent( tweet );
+		if( h ) setContent( h );
 		
 		if( state == 'closed') 
 		{
-			$('#reply-box').empty();
-			writeTweetBox( tweet );
+			$('#team-tweet-box').empty();
+			writeTweetBox( h );
 			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
@@ -48,8 +47,7 @@ function ModalReply( overlay )
 	
 	function setContent( t )
 	{
-		Log('status id')
-		element.find('.confirmation').html('Your reply to @'+t.screenName+'<br />was sent to twitter.')
+		element.find('.confirmation').html('Your tweet for '+t+'<br />was sent to twitter.')
 	}
 	
 	function position( animate )
@@ -114,25 +112,25 @@ function ModalReply( overlay )
 	}
 	
 	
-	function writeTweetBox( t )
+	function writeTweetBox( h )
 	{
 		
 		var tObj =	{
  			    		height: 70,
  			    		width: 230,
- 			    		defaultContent: '@'+t.screenName,
+ 			    		defaultContent: h,
  						complete: styleTweetBox,
  			    		label: "",
-						onTweet : showConfirmScreen,
- 						data:{ 'in_reply_to_status_id' : t.tweetID } 
+						onTweet : showConfirmScreen
  			  		};
 
-		self.twitterProxy.getTweetBox('#reply-box', tObj);
+		self.twitterProxy.getTweetBox('#team-tweet-box', tObj);
 	}
 	
 	
 	function styleTweetBox()
 	{
+		Log('styleTweetBox');
 		var box = $(".action-screen iframe").contents().find("textarea");
 		
 		var button = $(".action-screen iframe").contents().find("button").parent();

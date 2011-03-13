@@ -28,6 +28,9 @@ function Tweet()
 	this.following;
 	this.tweets;
 	this.largeImage;
+	this.remove = remove;
+	this.updateTime = updateTime;
+	
 	this.getElement	= function () { return element; };
 	
 	mediaParser.addEventListener('onImageData', onImageData);
@@ -37,7 +40,8 @@ function Tweet()
 		self.tweetText	= d.text;
 		self.htmlText 	= TweetParser.parse(d.text);
 		self.tweetID 	= d.id_str;
-		self.time		= parseDate(d.created_at);
+		self.timeStamp	= d.created_at;
+		self.time		= parseDate();
 		verified 	 	= d.user.verified;
 		self.screenName	= d.user.screen_name;
 		self.userName 	= d.user.name;
@@ -54,6 +58,8 @@ function Tweet()
 	{
 		element = $(Tweet.constructor.tweetTemplate);
 		element.attr('id', 'tweet-'+self.tweetID+'-'+new Date().getTime())
+		element.find('.tweet-timestamp a').text(self.time);
+		element.find('.tweet-timestamp a').attr('href', 'http://www.twitter.com/#!/'+self.screenName+'/status/'+self.tweetID);
 		element.find('.tweet-name a').attr('href', 'http://www.twitter.com/#!/'+self.screenName);
 		element.find('.tweet-name a').attr('title', self.userName);
 		element.find('.tweet-name-full').text(self.userName);
@@ -73,7 +79,7 @@ function Tweet()
 	{
  	 	var thumb		= new Image();
 		thumb.onload 	= decorateImg;
-		thumb.onerror	= removeImg
+		// thumb.onerror	= removeImg
 		thumb.src 	 	= e.target.thumb;
 		self.largeImage	= e.target.largeImage;
 		
@@ -88,9 +94,22 @@ function Tweet()
 		photo.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 	}
 	
+	function remove()
+	{
+		element.remove();
+	}
+	
+	function updateTime()
+	{
+		self.time = parseDate();
+		element.find('.tweet-timestamp a').text(self.time);
+	}
+	
 	
 	function removeImg( )
 	{
+		var height = element.height();
+		element.css('height', height);
 		element.find('.tweet-attachment').remove();
 	}
 	
@@ -107,11 +126,18 @@ function Tweet()
 	
 	function onClickReTweet()
 	{
+		Log('onClickReTweet');
 		dispatchEvent('onReTweet', self);
 	}
 	
 	function onClickFavorite()
 	{
+		//var e = e.find('.action-favorite')
+		var type = $(this).text();
+		Log('type: '+type)
+		if(type == 'Favorite') $(this).find('b').text('Unfavorite');
+		if(type == 'Unfavorite') $(this).find('b').text('Favorite');
+		
 		dispatchEvent('onFavorite', self);
 	}
 	
@@ -142,10 +168,31 @@ function Tweet()
 			);
 	}
 	
-	function parseDate( d )
+	function parseDate()
 	{
-		var date = d.slice(0,-19);
-		return date;
+		var t = TimeStamp.timeSince( self.timeStamp );
+		if(t.days > 0)
+		{
+			var d = t.days == 1 ? 'day' : 'days'
+			return t.days+' '+d+' ago';
+		}
+		
+		if(t.hours > 0)
+		{
+			var h = t.hour == 1 ? 'hour' : 'hours'
+			return t.days+' '+d+' ago';
+		}
+		
+		if(t.minutes > 0)
+		{
+			var m = t.minutes == 1 ? 'minute' : 'minutes'
+			return t.minutes+' '+m+' ago';
+		}
+		
+		if( t.seconds < 1 ) return 'less than a second ago';
+		
+		var s = t.seconds == 1 ? 'second' : 'seconds';
+		return t.seconds+' '+s+' ago';
 	}
 	
 	return this;

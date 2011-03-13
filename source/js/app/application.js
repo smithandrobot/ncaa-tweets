@@ -36,10 +36,12 @@ function Application()
     
     function onTeamSelect(e){
         Log(e.target.selected)
+		tweetlist.selectTeam( e.target.selected );
     }
     
     function onHashTagClick(e){
         Log(e.target.hashTag)
+		tweetlist.hashTagClick( e.target.hashTag );
     }
 
     function toString() {

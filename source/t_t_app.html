@@ -29,6 +29,7 @@
 		
 		<!-- Utilities -->
 		<script type="text/javascript" src="js/utils/utils.js" charset="utf-8"></script>
+		<script type="text/javascript" src="js/utils/timestamp.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/utils/log.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/utils/event.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/utils/eventmanager.js" charset="utf-8"></script>
@@ -38,8 +39,10 @@
 		
 		<!-- Application -->
         <script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/verizonmodule.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/app/twitterproxy.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/modaloverlay.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/app/modaltweetbox.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/modalphoto.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/modalretweet.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/modalreply.js" type="text/javascript" charset="utf-8"></script>
@@ -124,7 +127,7 @@
 					    <div class="tweet">
                            <div class="tweet-bg">
                                <div class="tweet-profile-image">
-                        		      <a href="http://www.twitter.com/#!/verizon'" target="_blank" ><img src="http://a2.twimg.com/profile_images/370305894/73x73_vzw_twitter_verizon_normal.gif" alt="self.userName+'" /></a>
+                        		      <a href="http://www.twitter.com/#!/verizon'" target="_blank" ><img src="http://a2.twimg.com/profile_images/370305894/73x73_vzw_twitter_verizon_normal.gif" /></a>
                          	  </div>
                                <div class="tweet-copy-block">
                          	      <div class="tweet-text">this is a tweet this is a tweet this is a tweet this is a tweet</div>
@@ -140,26 +143,12 @@
                         
                         <div id="share">
         					<div id="tbox"></div>
-        					<script type="text/javascript">
-
-        					  twttr.anywhere(function (T) {
-
-        					    T("#tbox").tweetBox({
-        					      height: 90,
-        					      width: 340,
-        						  defaultContent: "#ncaatourney http://es.pn/eCYCAh",
-          						  label: "Answer for a chance to win an iPad 2!",
-          						  complete: styleTweetBox
-        					    });
-
-        					  });
-
-        					</script>
         				</div>
         				
 					</div>
 					<div id="tweet-streams">
 				        <div id="stream-header">
+							<p id="show-all-streams" class="red">Show All Teams</p>
 				            <h2>ALL TEAMS</h2>
 				            <div id="team-selector"><a href="#">MY TEAM</a></div>
 				            <div class="spirit-bubble">go #Longhorns</div>
@@ -263,7 +252,20 @@
 							
 						</div>
 						<div class="confirmation-screen">
-							<div class="gray confirmation">You are now following<br />NAME</div>
+							<div class="gray confirmation">Your reply has been sent to Twitter</div>
+							<div class="modal-button modal-confirm-button">OKAY</div>
+						</div>
+				</div>
+				
+				<div id="modal-tweetbox-template" class="modal modal-shadow">
+						<h2>TWEET</h2>
+						<div class="close-button">close</div>
+						<div class="clear"></div>
+						<div id="team-tweet-box" class="action-screen">
+							
+						</div>
+						<div class="confirmation-screen">
+							<div class="gray confirmation">Your reply has been sent to Twitter</div>
 							<div class="modal-button modal-confirm-button">OKAY</div>
 						</div>
 				</div>

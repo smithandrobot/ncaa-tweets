@@ -9,6 +9,9 @@ function ModalFollow( overlay )
 	var rendered	= false;
 	var state		= 'closed';
 	var user		= null;
+	var self		= this;
+	
+	this.tweetProxy = null;
 	this.tweet		= null;
 	this.open 	 	= open;
 	
@@ -21,6 +24,7 @@ function ModalFollow( overlay )
 	{
 		if( tweet ) setContent( tweet );
 		user = tweet.screenName;
+		Log('follow user: '+user)
 		
 		if( state == 'closed') 
 		{
@@ -91,16 +95,13 @@ function ModalFollow( overlay )
 
 	function onFollow()
 	{
-		if( !canFollow( user ) ) return;
-		twttr.anywhere
-		(
-			function (T) 
-			{
-				var user = T.User.find( user );
-				user.follow();
-				showConfirmScreen();
-			}
-		);
+		if( !canFollow() ) return;
+		
+		var t = self.twitterProxy.twitterOBJ;
+		Log('follow user: '+user)
+		var u = t.User.find( user );
+		u.follow();
+		showConfirmScreen();
 	}
 	
 	
@@ -131,25 +132,18 @@ function ModalFollow( overlay )
 	}
 	
 	
-	function canFollow( userID )
+	function canFollow()
 	{
 		var validUser = false;
+		var t = self.twitterProxy.twitterOBJ;
 		
-		twttr.anywhere(function (T) 
-		{  
- 			if (!T.isConnected()) {
-				T.bind("authComplete", function (e, user) {
-					var user = T.User.find( userID );
-					user.follow();
-					showConfirmScreen();
-  		 		});
-
-				T.signIn();
-				Log('user is not logged in and cannot follow, opened connect dialog');
-			}else{
-				validUser = true;
-			}
-		})
+		if(t.isConnected())
+		{
+			validUser = true;
+		}else{		
+			t.bind("authComplete", onFollow);
+			t.signIn();
+		}	
 		
 		return validUser;
 	};
