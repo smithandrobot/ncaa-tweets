@@ -31,6 +31,21 @@ function Application()
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
         schedules.setTeamModel(teams)
+        checkCookiedTeam()
+    }
+    
+    function checkCookiedTeam(){
+        var cTeam = null
+        
+        if($.cookie('team')){
+            var teamlist = teams.getAll();
+            var tid = $.cookie('team');
+            cTeam = {'team':teamlist[tid]}
+            
+        }
+        
+        return cTeam;
+        
     }
     
     function onRoundSelect(e) {
