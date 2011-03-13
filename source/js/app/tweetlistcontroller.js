@@ -61,7 +61,7 @@ function TweetListController()
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
 
-	selectTeam( {team:{displayName:'ALL TEAMS', shortName:'ALL TEAMS', name:'ALL TEAMS', color:'#ED1F24'}} );
+	selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} );
 	
 	function selectTeam( team )
 	{
@@ -69,8 +69,8 @@ function TweetListController()
 		var obj 	= team.team;
 		var name 	= (team.team.displayName) ? team.team.displayName : obj.name;
 		var hState 	= (name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
-		var f 		= 'http://tweetriver.com/mm-2011-'+obj.shortName+'-curated.json';
-		f 			= 'http://tweetriver.com/smithandrobot/promoted.json';
+		var f 		= 'http://tweetriver.com/mr_mm_2011/mm-2011-'+obj.shortName+'.json';
+		//f 			= 'http://tweetriver.com/smithandrobot/promoted.json';
 		feedColor 	= obj.color;
 		
 		setFeed( f );
@@ -282,7 +282,7 @@ function TweetListController()
 	function enableShowAllTeams()
 	{
 		var s = $('#show-all-streams');
-		s.click( function(){ selectTeam( {team:{displayName:'ALL TEAMS', shortName:'ALL TEAMS', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
+		s.click( function(){ selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
 		s.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 	}
 	
