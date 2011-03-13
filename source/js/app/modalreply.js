@@ -134,7 +134,7 @@ function ModalReply( overlay )
 	function styleTweetBox()
 	{
 		var box = $(".action-screen iframe").contents().find("textarea");
-		
+		Log(' styling retweet box css:'+box.css('font'));
 		var button = $(".action-screen iframe").contents().find("button").parent();
 		var formButton = $(".action-screen iframe").contents().find("button");
 		populateTweetBox();

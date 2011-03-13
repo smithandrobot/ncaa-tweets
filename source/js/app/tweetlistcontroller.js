@@ -65,23 +65,24 @@ function TweetListController()
 	
 	function selectTeam( team )
 	{
-		Log('team selected! '+team.team.displayName)
+		Log('team selected! '+team)
 		var obj 	= team.team;
 		var name 	= (team.team.displayName) ? team.team.displayName : obj.name;
 		var hState 	= (name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
 		var f 		= 'http://tweetriver.com/mr_mm_2011/mm-2011-'+obj.shortName+'.json';
-		//f 			= 'http://tweetriver.com/smithandrobot/promoted.json';
+		// f 			= 'http://tweetriver.com/smithandrobot/promoted.json';
 		feedColor 	= obj.color;
 		
 		setFeed( f );
 		updateColors();
-		toggleStreamHeader( hState, name);
+		toggleStreamHeader( hState, team.team.hashTag);
 		setTeamName( name );
 	} 
 	
 	
 	function setFeed( feedURL )
 	{
+		$('#loadmore-count').hide();
 	   	removeScrollbar();
 		model.setStream( feedURL );
 		updateModel.setStream( feedURL );
@@ -307,7 +308,7 @@ function TweetListController()
 	{
 		if( state == 'show' )
 		{
-			$('.spirit-bubble').text('go #'+t)
+			$('.spirit-bubble').text('go '+t)
 			$('#team-selector').hide();
 			$('.spirit-bubble').show();	
 			$('#show-all-streams').show();
