@@ -130,9 +130,8 @@ function ModalTweetBox( overlay )
 	
 	function styleTweetBox()
 	{
-		Log('styleTweetBox');
+		Log('styling modal tweetbox');
 		var box = $(".action-screen iframe").contents().find("textarea");
-		
 		var button = $(".action-screen iframe").contents().find("button").parent();
 		var formButton = $(".action-screen iframe").contents().find("button");
 		populateTweetBox();
