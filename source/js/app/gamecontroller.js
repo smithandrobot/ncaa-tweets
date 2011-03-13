@@ -91,10 +91,11 @@ function GameController(gameData, model)
             }
             //c.customData = Teams.getTeam(c.id)
             c.customData = self.teams.getTeam(c.shortName)
-            //Log(c.customData)
+            
             if(c.customData == undefined){
                 c.customData = {}
                 c.customData.hashTag = "#team"
+                c.customData.mentions = 0
                 c.name = c.shortName
             } else {
                 c.name = c.customData.displayName
