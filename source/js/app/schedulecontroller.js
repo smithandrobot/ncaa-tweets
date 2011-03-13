@@ -14,10 +14,16 @@ function ScheduleController()
     var loadedRound = null
     var scheduleData = null;
     var firstActive = null;
+    var teams = null;
 
     model.addEventListener('onDataChange', onDataChange);
 
     self.loadRound = loadRound;
+    self.setTeamModel = setTeamModel;
+    
+    function setTeamModel(model){
+        self.teams = model
+    }
     
     function loadRound(round) {
         Log('Loading round: ' + round)
@@ -82,7 +88,8 @@ function ScheduleController()
     }
 
     function renderGame(data) {
-        var game = new GameController(data);
+        
+        var game = new GameController(data, self.teams);
         games.push(game)
         game.addEventListener("onTeamSelect", teamClick)
         game.addEventListener('onHashTagClick', onHashTagClick)

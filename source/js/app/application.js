@@ -28,6 +28,7 @@ function Application()
         selector.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
+        schedules.setTeamModel(teams)
     }
     
     function onRoundSelect(e) {

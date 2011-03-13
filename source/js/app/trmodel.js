@@ -46,14 +46,14 @@ function TRModel( URL )
 		Log('unable to load stream attempt: '+attempt)
 		dispatchEvent("onModelError", self);
 		setTimeout(loadCallback, attemptInterval);
-	};
+	}
 
 	function onStreamLoaded(d)
 	{
 		error = false;
 		data = d;
 		dispatchEvent("onDataChange", self);
-	};
+	}
 	
 	
 	function loadCustomCallBack( sinceID , callback)

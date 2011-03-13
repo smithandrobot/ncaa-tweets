@@ -10,6 +10,8 @@ function TeamsModel()
     
 	this.getTeam = getTeam;
 	this.getAll = getAll;
+	this.setTeamColor = setTeamColor;
+	
 	init();
 	
 	function init(){
@@ -41,9 +43,16 @@ function TeamsModel()
         
         dispatchEvent("onTeamModelReady", self);
     }
+    
+    function setTeamColor(id, color){
+        Log(team_schema[id])
+        //team_schema[id].color = color;
+    }
 	
 	function getTeam(id)
 	{
+	    id = id.toLowerCase();
+	    Log('Fetching team: ' + id)
 		return team_schema[id]
 	}
 	

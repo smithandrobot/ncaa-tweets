@@ -1,6 +1,6 @@
 GameController.prototype = new EventDispatcher();
 GameController.constructor = GameController;
-function GameController(gameData)
+function GameController(gameData, model)
  {
     var self = this;
     var selected = null;
@@ -11,18 +11,25 @@ function GameController(gameData)
     var period = null;
     var hashTag = null;
     var active = false;
+    var teams = null;
 
     self.update = update
-    init(gameData);
+    self.setTeamModel = setTeamModel;
+    init(gameData, model);
 
-    function init(data) {
+    function init(data, model) {
 
         self.id = data.id
+        self.teams = model
         var viewData = sanitizeData(data)
         self.view = createView(viewData)
         self.view.appendTo("#schedule-container");
     }
-
+    
+    function setTeamModel(model){
+        self.teams = model
+    }
+    
     function createView(viewData) {
         var template = $("#gameTemplate").tmpl(viewData);
         template.css('opacity', 0);
@@ -35,6 +42,7 @@ function GameController(gameData)
                 $(this).css('filter', '');
             }
         });
+        
         self.visitorScore = template.find('.team-visiting .team-score')
         self.homeScore = template.find('.team-home .team-score')
         self.period = template.find('.game-period')
@@ -64,6 +72,7 @@ function GameController(gameData)
     }
 
     function sanitizeData(data) {
+        
         var templateData = {
             'game': {
                 'id': data.id
@@ -71,7 +80,7 @@ function GameController(gameData)
         }
 
         templateData.date = Date.parse(data.date)
-
+        
         for (cid in data.competitor) {
             var c = data.competitor[cid]
 
@@ -81,13 +90,18 @@ function GameController(gameData)
                 templateData.visitingTeam = c
             }
             //c.customData = Teams.getTeam(c.id)
-            c.customData = {}
-            c.customData.hashTag = "#team"
-            if (c.name.length > 22) {
+            c.customData = self.teams.getTeam(c.shortName)
+            Log(c.customData)
+            if(c.customData == undefined){
+                c.customData = {}
+                c.customData.hashTag = "#team"
                 c.name = c.shortName
+            } else {
+                c.name = c.customData.displayName
             }
+            
         }
-
+        
         if (data.eventstatus.status == "FINAL") {
             templateData.game.status = "final"
             templateData.game.period = "final"
