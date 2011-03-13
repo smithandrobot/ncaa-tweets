@@ -8,6 +8,20 @@ function TeamSelectorController()
 
     self.buildList = buildList;
 
+    function checkCookiedTeam(){
+        var cTeam = null
+        
+        if($.cookie('team')){
+            var teamlist = self.teams.getAll();
+            var tid = $.cookie('team');
+            cTeam = {'team':teamlist[tid]}
+            
+        }
+        
+        return cTeam;
+        
+    }
+    
     function buildList(teams) {
         self.teams = teams;
         var teamData = [];
@@ -64,7 +78,12 @@ function TeamSelectorController()
             }
         })
         
+        var faveTeam = checkCookiedTeam()
         
+        if(faveTeam){
+            self.selected = faveTeam
+            dispatchEvent("onTeamSelect", self);
+        }
     }
     
     function activateLinks(){
