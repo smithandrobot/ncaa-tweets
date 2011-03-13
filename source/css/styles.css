@@ -381,7 +381,7 @@ noscript div, .warning {
 	font-size:17px;
 	margin-left:3px;
 /*	border:1px red solid;*/
-	margin-top:-4px;
+	
 	line-height:28px;
 }
 
@@ -390,9 +390,15 @@ noscript div, .warning {
 	font-size:13px;
 }
 
-.team-visiting .team-mentions-small
+.team-visiting .team-mentions-small,
 {
 	margin-top:-7px;
+/*	border:1px red solid;*/
+}
+
+.team-visiting .team-mentions-large
+{
+	margin-top:-3px;
 /*	border:1px red solid;*/
 }
 

@@ -35,7 +35,9 @@ EventManager = (function ()
 			e = this.events[i].eventType;
 			o =  this.events[i].observer;
 			
-			if(e == eventType && observer == o) this.events.splice(i,1);
+			if(e == eventType && observer == o) {
+			    this.events.splice(i,1)
+			};
 	    }
 		
 	};

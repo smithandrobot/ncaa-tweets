@@ -8,6 +8,10 @@ function GameController(gameData, model)
     var view = null;
     var visitorScore = 0;
     var homeScore = 0;
+    var visitorMentions = null;
+    var homeTeam = null;
+    var visitingTeam = null;
+    var homeMentions = null;
     var period = null;
     var hashTag = null;
     var active = false;
@@ -21,6 +25,7 @@ function GameController(gameData, model)
 
         self.id = data.id
         self.teams = model
+        model.addEventListener("onTeamModelReady", onTeamUpdate)
         var viewData = sanitizeData(data)
         self.view = createView(viewData)
         self.view.appendTo("#schedule-container");
@@ -28,6 +33,18 @@ function GameController(gameData, model)
     
     function setTeamModel(model){
         self.teams = model
+    }
+    
+    function onTeamUpdate(e){
+        var h = model.getTeam(self.homeTeam.shortName)
+        if(h){
+            self.homeMentions.text(h.mentions)
+        }
+        var v = model.getTeam(self.visitingTeam.shortName)
+        if(v){
+            self.visitorMentions.text(v.mentions)
+        }
+        compareMentions()
     }
     
     function createView(viewData) {
@@ -46,6 +63,8 @@ function GameController(gameData, model)
         self.visitorScore = template.find('.team-visiting .team-score')
         self.homeScore = template.find('.team-home .team-score')
         self.period = template.find('.game-period')
+        self.visitorMentions = template.find('.team-visiting .mentions')
+        self.homeMentions = template.find('.team-home .mentions')
         template.find('.home-tweet-cta').click({
             'teamId': viewData.homeTeam
         },
@@ -55,7 +74,18 @@ function GameController(gameData, model)
         },
         teamClick)
         template.find('.hashtag').click(hashTagClick)
+        compareMentions()
         return template
+    }
+    
+    function compareMentions(){
+        if(self.homeTeam.customData.mentions > self.visitingTeam.customData.mentions){
+            self.homeMentions.addClass('team-mentions-large')
+            self.homeMentions.removeClass('team-mentions-small')
+        } else if(self.homeTeam.customData.mentions < self.visitingTeam.customData.mentions){
+            self.visitorMentions.addClass('team-mentions-large')
+            self.visitorMentions.removeClass('team-mentions-small')
+        }
     }
 
     function update(data) {
@@ -86,8 +116,10 @@ function GameController(gameData, model)
 
             if (c.homeaway == "home") {
                 templateData.homeTeam = c
+                self.homeTeam = c
             } else {
                 templateData.visitingTeam = c
+                self.visitingTeam = c
             }
             //c.customData = Teams.getTeam(c.id)
             c.customData = self.teams.getTeam(c.shortName)
@@ -95,10 +127,13 @@ function GameController(gameData, model)
             if(c.customData == undefined){
                 c.customData = {}
                 c.customData.hashTag = "#team"
+                c.hashTag = "#team"
                 c.customData.mentions = 0
                 c.name = c.shortName
             } else {
                 c.name = c.customData.displayName
+                c.hashTag = c.customData.hashTag
+                self.teams.setTeamColor(c.shortName, c.color)
             }
             
         }

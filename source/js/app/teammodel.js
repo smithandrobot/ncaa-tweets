@@ -6,7 +6,9 @@ function TeamsModel()
 	var feedURL = 'mock/streams.json';
 	var model = new TRModel();
 	model.addEventListener('onDataChange', onDataChange);
-	var team_schema = []
+	var team_schema = null;
+	var INTERVAL_TIME = 1000 * 5;
+	var teamsLoaded = false;
     
 	this.getTeam = getTeam;
 	this.getAll = getAll;
@@ -16,48 +18,70 @@ function TeamsModel()
 	
 	function init(){
 	    Log('Fetching team data')
+	    self.team_schema = {}
 	    model.setStream(feedURL);
         model.loadJSON();
 	}
 	
+	function poll()
+    {
+        model.loadJSON();
+    }
+    
 	function onDataChange(e)
     {
         var data = e.target.getData()
-        for(var s in data.streams){
-            var stream = data.streams[s]
-            var breaks = stream.name.split('-')
-            
-            if(breaks.length == 3){
-                var teamData = stream.description.split('|')
-                team_schema[breaks[2]] = {
-                    'seed':$.trim(teamData[0]),
-                    'displayName':$.trim(teamData[1]),
-                    'hashTag':$.trim(teamData[2]),
-                    'shortName':breaks[2],
-                    'stream': stream.full_name + '-curated',
-                    'mentions': stream.count.total
+        
+        if(!teamsLoaded){
+            for(var s in data.streams){
+                var stream = data.streams[s]
+                var breaks = stream.name.split('-')
+
+                if(breaks.length == 3){
+                    var teamData = stream.description.split('|')
+                    self.team_schema[breaks[2]] = {
+                        'seed':$.trim(teamData[0]),
+                        'displayName':$.trim(teamData[1]),
+                        'hashTag':$.trim(teamData[2]),
+                        'shortName':breaks[2],
+                        'stream': stream.full_name + '-curated',
+                        'mentions': stream.count.total
+                    }
+
                 }
-                
+            }
+            teamsLoaded = true
+        } else {
+            for(var s in data.streams){
+                var stream = data.streams[s]
+                var breaks = stream.name.split('-')
+
+                if(breaks.length == 3){
+                    self.team_schema[breaks[2]].mentions = stream.count.total
+                }
             }
         }
         
+        
         dispatchEvent("onTeamModelReady", self);
+        clearInterval(self.interval)
+        self.interval = setInterval(poll, INTERVAL_TIME);
     }
     
     function setTeamColor(id, color){
-        Log(team_schema[id])
-        //team_schema[id].color = color;
+        id = id.toLowerCase();
+        self.team_schema[id].color = color;
+        //Log(self.team_schema[id])
     }
 	
 	function getTeam(id)
 	{
 	    id = id.toLowerCase();
-	    Log('Fetching team: ' + id)
-		return team_schema[id]
+		return self.team_schema[id]
 	}
 	
 	function getAll(){
-	    return team_schema
+	    return self.team_schema
 	}
 	
 	

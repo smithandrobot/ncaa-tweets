@@ -71,11 +71,11 @@ function ScheduleController()
                     self.firstActive = game;
                 }
             })
-            //addScrollbar()
+            addScrollbar()
             if(self.firstActive){
                 var pos = self.firstActive.view.position();
                 //$("#schedule_list .scrollbar-pane").css('top', pos.top)
-                $("#schedule-container").scrollTop(pos.top)
+                //$("#schedule-container").scrollTop(pos.top)
             }
         } else {
             $(gameList).each(function() {
@@ -130,6 +130,7 @@ function ScheduleController()
 
 
     function addScrollbar() {
+        
         $('.schedule-scrollbar').scrollbar({
             handleHeight: 151,
             arrows: false
@@ -152,7 +153,7 @@ function ScheduleController()
         
         rounds = {
             'round1': {
-                'start': new Date(2011, 2, 12, 0, 0, 0),
+                'start': new Date(2011, 2, 13, 0, 0, 0),
                 'end': new Date(2011, 2, 16, 23, 59, 0)
             },
             'round2': {
