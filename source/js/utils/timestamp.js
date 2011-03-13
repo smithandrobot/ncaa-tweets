@@ -1,5 +1,5 @@
-Timestamp = (
-function Timestamp() 
+TimeStamp = (
+function TimeStamp() 
 {
 	var DAY			= 1000*60*60*24;
 	var HOUR		= 1000*60*60;

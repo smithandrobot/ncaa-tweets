@@ -91,6 +91,7 @@ function TweetListController()
 	function poll()
 	{
 		updateModel.poll(lastID);
+		updateTweets();
 	}
 	
 	
@@ -220,6 +221,22 @@ function TweetListController()
 		{
 			t = tweets[i];
 			t.remove();
+		};
+	}
+	
+
+	function updateTweets()
+	{
+		if(!tweets) return;
+		
+		var i 	  = 0;
+		var total = tweets.length-1;
+		var t;
+
+		for(i;i<=total;i++)	
+		{
+			t = tweets[i];
+			t.updateTime();
 		};
 	}
 	
