@@ -236,7 +236,7 @@ function TweetListController()
 		for(i;i<=total;i++)	
 		{
 			t = tweets[i];
-			t.updateTime();
+			t.update();
 		};
 	}
 	

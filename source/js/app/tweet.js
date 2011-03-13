@@ -179,8 +179,8 @@ function Tweet()
 		
 		if(t.hours > 0)
 		{
-			var h = t.hour == 1 ? 'hour' : 'hours'
-			return t.days+' '+d+' ago';
+			var h = t.hours == 1 ? 'hour' : 'hours'
+			return t.hours+' '+h+' ago';
 		}
 		
 		if(t.minutes > 0)
