@@ -124,7 +124,7 @@ function FavoriteModal( overlay )
 		var t = self.twitterProxy.twitterOBJ;
 		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
 		t.Status.favorite( tweetID, callbacks );
-		// showConfirmScreen();
+		//showConfirmScreen();
 	}
 	
 	
