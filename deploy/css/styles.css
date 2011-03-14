@@ -421,6 +421,9 @@ noscript div, .warning {
 	line-height:28px;
 }
 
+.team-mentions-small { font-size: 13px; color: #555; text-shadow: #999 0px 1px 0px; }
+
+
 
 .team-mentions-large
 {

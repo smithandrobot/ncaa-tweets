@@ -149,8 +149,8 @@ function GameController(gameData, model)
 
             if (c.customData == undefined) {
                 c.customData = {}
-                c.customData.hashTag = '#mm2011'
-                c.hashTag = '#mm2011'
+                c.customData.hashTag = '#MM2011'
+                c.hashTag = '#MM2011'
                 c.customData.seed = ''
                 c.customData.mentions = 0
                 c.name = c.shortName
