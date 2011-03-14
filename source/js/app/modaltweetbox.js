@@ -91,17 +91,35 @@ function ModalTweetBox( overlay )
 	{
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
 		
+		es.hide();
 		as.hide();
 		cs.show();
 	}
 	
+	
 	function showActionScreen()
 	{
 		var cs = element.find('.confirmation-screen');
-		var as = element.find('.action-screen');	
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.hide();	
 		cs.hide();
 		as.show();
+	}
+	
+	
+	function showErrorScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.show();
+		as.hide();
+		cs.hide();
 	}
 	
 	

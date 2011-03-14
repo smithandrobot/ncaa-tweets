@@ -58,6 +58,7 @@ function TweetListController()
 	updateModel.addEventListener('onDataChange', onDataUpdate);
 	
 	enableShowAllTeams();
+	enableTweetBubble();
 	enableLoadMore();
 	
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
@@ -79,7 +80,6 @@ function TweetListController()
 		var name 	= (team.team.displayName) ? team.team.displayName : obj.name;
 		var hState 	= (name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
 		var f 		= 'http://tweetriver.com/mr_mm_2011/mm-2011-'+obj.shortName+'.json';
-		// f 			= 'http://tweetriver.com/smithandrobot/promoted.json';
 		feedColor 	= obj.color;
 		
 		setFeed( f );
@@ -287,6 +287,13 @@ function TweetListController()
 	{
 		photoModal.open( e.target );
 	}
+
+
+	function openSpiritBubble()
+	{
+ 		var t = $('.spirit-bubble').text().split(' '); 
+		modalTweetBox.open('Go '+t[1]); 
+	}
 	
 	
 	function enableShowAllTeams()
@@ -303,6 +310,13 @@ function TweetListController()
 		s.click( updateList );
 	}
 	
+	
+	function enableTweetBubble()
+	{
+		var tb = $('.spirit-bubble');
+		tb.click( openSpiritBubble );
+		tb.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
+	}
 	
 	function addListeners( t )
 	{
