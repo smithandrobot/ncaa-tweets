@@ -142,6 +142,7 @@ function TweetListController()
 			for(i;i<=total;i++)	
 			{
 				t = new Tweet();
+				t.twitterAPI = twitterProxy;
 				t.setData(data[i]);
 				newTweets.push(t)
 			}
@@ -174,6 +175,7 @@ function TweetListController()
 		for(i;i<=total;i++)	
 		{
 			t = new Tweet();
+			t.twitterAPI = twitterProxy;
 			tweets.push(t);
 			addListeners( t );
 			t.setData(data[i]);

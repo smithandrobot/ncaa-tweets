@@ -30,9 +30,11 @@ function Tweet()
 	this.largeImage;
 	this.remove = remove;
 	this.updateTime = updateTime;
+	this.twitterAPI;
 	
 	this.getElement	= function () { return element; };
-	
+	this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+	// this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
 	mediaParser.addEventListener('onImageData', onImageData);
 	
 	function setData(d)
@@ -85,7 +87,7 @@ function Tweet()
 	{
  	 	var thumb		= new Image();
 		thumb.onload 	= decorateImg;
-		// thumb.onerror	= removeImg
+		thumb.onerror	= removeImg
 		thumb.src 	 	= e.target.thumb;
 		self.largeImage	= e.target.largeImage;
 		
@@ -120,6 +122,12 @@ function Tweet()
 	}
 	
 	
+	function onLoggedStateChange( e )
+	{
+		Log('logged in state changed to: '+e.target.loggedIn);
+	}
+	
+	
 	function onClickReply()
 	{
 		dispatchEvent('onReply', self);
@@ -150,7 +158,6 @@ function Tweet()
 	
 	function onPhotoClick()
 	{
-		Log('image: '+self.largeImage);
 		dispatchEvent('onPhotoClick' , self);
 	}
 	
