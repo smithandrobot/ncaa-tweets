@@ -201,7 +201,7 @@ noscript div, .warning {
 {
 	margin-top:10px;
 	width:522px;
-	height:702px;
+	height:707px;
 	position:relative;
 }
 
@@ -209,7 +209,7 @@ noscript div, .warning {
 {
 	margin-top:10px;
 	width:522px;
-	height:702px;
+	height:707px;
 	position:relative;
 	overflow:auto;
 }
@@ -260,6 +260,10 @@ noscript div, .warning {
 .game-scheduled
 {
 	background-position:-123px -467px;	
+}
+
+.game-scheduled .team-score{
+    opacity:0;
 }
 
 .game-period
