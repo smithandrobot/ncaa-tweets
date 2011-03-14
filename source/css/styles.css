@@ -292,6 +292,17 @@ noscript div, .warning {
 
 /* Begin Game Module Text Formatting and layout*/
 
+.game-winning
+{
+	
+}
+
+.game-losing
+{
+	color:#666;
+}
+
+
 .team-ranking
 {
 	font-size:12px;
@@ -329,8 +340,8 @@ noscript div, .warning {
 .team-hashtag
 {
 
-	font-size:10px;
-	font-family:arial;
+	font-size: 10px;
+	font-family: Arial Narrow;
 	font-weight:bold;
 	margin:0px 0px 0px 33px;
 	position:relative;
@@ -374,6 +385,10 @@ noscript div, .warning {
 .team-mentions-large
 {
 	font-size:17px;
+/*	color:#ED1F24;*/
+
+	text-shadow: #000 0px -1px 0px;
+
 }
 
 .team-home .team-mentions-large
@@ -388,6 +403,8 @@ noscript div, .warning {
 .team-mentions-small
 {
 	font-size:13px;
+	color:#000;
+	text-shadow: #C1C1C1 0px 1px 0px;
 }
 
 .team-visiting .team-mentions-small,
