@@ -24,6 +24,7 @@ function FavoriteModal( overlay )
 	{
 		if( tweet ) setContent( tweet );
 		tweetID = tweet.tweetID;
+		self.tweet = tweet;
 		if( state == 'closed') 
 		{
 			showActionScreen();

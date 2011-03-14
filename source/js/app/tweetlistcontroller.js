@@ -152,6 +152,7 @@ function TweetListController()
 		updateInt = setTimeout(poll, UPDATE);
 	}
 	
+	
 	function onDataChange( e )
 	{	
 		loader.hide();
@@ -254,31 +255,26 @@ function TweetListController()
 	
 	function hashTagClick( h )
 	{
-		Log('list controller got hashtag: '+h);
 		modalTweetBox.open( h )
 	}
 	
 	function onReTweet( e )
 	{
-		Log('retweeting');
 		retweetModal.open(e.target);
 	}
 	
 	function onFavorite( e )
 	{
-		Log('favoriting');
 		favoriteModal.open(e.target);
 	}
 	
 	function onReply( e )
 	{
-		Log('onReply');
 		replyModal.open(e.target);
 	}
 	
 	function onFollow( e )
 	{
-		Log('favoriting');
 		followModal.open(e.target);
 	}
 	

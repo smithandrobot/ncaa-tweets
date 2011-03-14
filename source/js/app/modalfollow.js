@@ -23,6 +23,7 @@ function ModalFollow( overlay )
 	function open( tweet )
 	{
 		if( tweet ) setContent( tweet );
+		self.tweet = tweet;
 		user = tweet.screenName;
 		Log('follow user: '+user)
 		
@@ -59,6 +60,7 @@ function ModalFollow( overlay )
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
 		
+		self.tweet = tweet;
 		as.hide();
 		cs.show();
 	}
