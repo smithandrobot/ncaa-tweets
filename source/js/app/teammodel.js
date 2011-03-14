@@ -47,6 +47,10 @@ function TeamsModel()
                         'stream': stream.full_name + '-curated',
                         'mentions': stream.count.total
                     }
+                    
+                    if(self.team_schema[breaks[2]].shortName == 'TA&M'){
+                        self.team_schema[breaks[2]].shortName = 'TAM'
+                    }
 
                 }
             }
@@ -231,7 +235,7 @@ function TeamsModel()
                 'color': '#0060A5',
                 'name': 'Kansas Jayhawks'
             },
-            'TA&M': {
+            'TAM': {
                 'color': '#814D4C',
                 'name': 'Texas A&M Aggies'
             },

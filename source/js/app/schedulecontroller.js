@@ -50,7 +50,7 @@ function ScheduleController()
         }
         
         for(var d in r){
-            var feed = 'mock/events-' + r[d].toString('yyyyMMdd') + '.json'
+            var feed = 'events-' + r[d].toString('yyyyMMdd') + '.json'
             feedURLs.push(feed)
         }
         
@@ -66,6 +66,10 @@ function ScheduleController()
             //Log(game)
             var allow = true
             for(c in game.competitor){
+                if(game.competitor[c].shortName == "TA&M"){
+                    game.competitor[c].shortName = "TAM";
+                }
+                
                 if(!self.teams.getTeam(game.competitor[c].shortName)){
                     if(game.competitor[c].shortName != "TBA"){
                         allow = false;
