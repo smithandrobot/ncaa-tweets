@@ -8,6 +8,7 @@ function ScheduleController()
     var hashTag = null;
     var model = new TRModel();
     var feedURLs = [];
+    //var feedLocation = feedLocation
     var INTERVAL_TIME = 1000 * 5;
     var interval = null;
     var games = []
@@ -29,8 +30,7 @@ function ScheduleController()
     
     function loadRound(round) {
         getFeedsForRound(round)
-        
-        Log('Loading round: ' + round)
+        Log('Loading round: ' + round + ' from ' + feedLocation)
         games = []
         removeScrollbar();
         loadFeed();
@@ -50,7 +50,7 @@ function ScheduleController()
         }
         
         for(var d in r){
-            var feed = 'events-' + r[d].toString('yyyyMMdd') + '.json'
+            var feed = feedLocation + 'events-' + r[d].toString('yyyyMMdd') + '.json'
             feedURLs.push(feed)
         }
         
