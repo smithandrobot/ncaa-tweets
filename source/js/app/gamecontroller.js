@@ -16,6 +16,7 @@ function GameController(gameData, model)
     var hashTag = null;
     var active = false;
     var teams = null;
+    var date = null;
 
     self.update = update
     self.setTeamModel = setTeamModel;
@@ -28,7 +29,7 @@ function GameController(gameData, model)
         model.addEventListener("onTeamModelReady", onTeamUpdate)
         var viewData = sanitizeData(data)
         self.view = createView(viewData)
-        self.view.appendTo("#schedule-container");
+        //self.view.appendTo("#schedule-container");
     }
     
     function setTeamModel(model){
@@ -110,6 +111,7 @@ function GameController(gameData, model)
         }
 
         templateData.date = Date.parse(data.date)
+        self.date = templateData.date
         
         for (cid in data.competitor) {
             var c = data.competitor[cid]
@@ -172,7 +174,7 @@ function GameController(gameData, model)
     }
 
     function hashTagClick(obj) {
-        self.hashTag = $(this).text();
+        self.hashTag = "Go " + $(this).text() + "!";
         dispatchEvent("onHashTagClick", self);
         return false;
     }
