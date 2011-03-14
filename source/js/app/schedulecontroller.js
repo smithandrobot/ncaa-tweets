@@ -118,6 +118,7 @@ function ScheduleController()
             }
             
             if(streamLoadCount == 0){
+                sortGames()
                 addScrollbar()
             }
         } else {
@@ -130,7 +131,13 @@ function ScheduleController()
         
     }
     
-    
+    function sortGames(){
+        games = games.sort(function(a,b){return a.date - b.date})
+        for(g in games){
+            //Log(games[g].date)
+            games[g].view.appendTo("#schedule-container");
+        }
+    }
 
     function renderGame(data) {
         

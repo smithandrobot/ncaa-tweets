@@ -4,7 +4,7 @@
 	<property name="build" location="./build"/>
 	<property name="dist"  location="../deploy/js"/>
 	<property name="deploy"  location="../deploy"/>
-	<property name="lib.dir" location="./bin/closure-compiler" />
+	<property name="lib.dir" location="../bin/closure-compiler" />
 	<property name="user.name" location="david" />
 	<property name="jscompjar" location="${lib.dir}/compiler.jar" />
 	
@@ -16,15 +16,35 @@
 	  <filelist dir="${src}">
 		
 		<!-- Utils -->
-		<file name="utils/utils.js"/>
-		<file name="utils/log.js"/>
-		<file name="utils/event.js"/>
-		<file name="utils/eventmanager.js"/>
-		<file name="utils/eventdispatcher.js"/>
-		<file name="utils/tweetparser.js"/>
-		<file name="utils/mediaparser.js"/>
+		<file name="utils/utils.js" />
+		<file name="utils/timestamp.js" />
+		<file name="utils/log.js" />
+		<file name="utils/event.js" />
+		<file name="utils/eventmanager.js" />
+		<file name="utils/eventdispatcher.js" />
+		<file name="utils/tweetparser.js" />
+		<file name="utils/mediaparser.js" />
 		
 		<!-- Application -->
+		<file name="fx.js"  />
+        <file name="app/verizonmodule.js"  />
+		<file name="app/twitterproxy.js"  />
+        <file name="app/modaloverlay.js"  />
+        <file name="app/modaltweetbox.js"  />
+        <file name="app/modalphoto.js"  />
+        <file name="app/modalretweet.js"  />
+        <file name="app/modalreply.js"  />
+        <file name="app/modalfollow.js"  />
+        <file name="app/modalfavorite.js"  />
+        <file name="app/trmodel.js"  />
+        <file name="app/teammodel.js"  />
+        <file name="app/tweet.js"  />
+        <file name="app/application.js"  />
+        <file name="app/tweetlistcontroller.js"  />
+        <file name="app/schedulecontroller.js"  />
+        <file name="app/gamecontroller.js"  />
+        <file name="app/navcontroller.js"  />
+        <file name="app/teamselectorcontroller.js"  />
 		
 	  </filelist>
 	</concat>
@@ -45,7 +65,14 @@
 	
 	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats css/ ${deploy}/css/" />
+	</exec>
+	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats img/ ${deploy}/img/" />
+	</exec>
+	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
+		<arg line="rsync -vur --stats mock/ ${deploy}/mock/" />
+	</exec>
+	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats js/thirdparty/ ${deploy}/js/thirdparty/" />
 	</exec>
 	

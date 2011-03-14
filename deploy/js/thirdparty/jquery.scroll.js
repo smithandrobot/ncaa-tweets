@@ -57,23 +57,22 @@
 (function($, document){
 
     $.fn.scrollbar = function(opts){
-
+        
         // Extend default options
         var options = $.extend({}, $.fn.scrollbar.defaults, opts);
-
         
         //
         // append scrollbar to selected overflowed containers and return jquery object for chainability
         //
         return this.each(function(){
-
+            
             var container = $(this), 
                 
                 // properties
                 props = {
                     arrows: options.arrows
                 };
-
+                
             // set new container height if explicitly set by an option
             if(options.containerHeight){
                 container.height(options.containerHeight);
@@ -87,12 +86,12 @@
             container.children().each(function(){
                 props.contentHeight += $(this).outerHeight();
             });
-
+            
             // if the content height is lower than the container height, do nothing and return.
             if(props.contentHeight <= props.containerHeight){
                 return true;
             }
-
+            
             // create scrollbar object
             var scrollbar = new $.fn.scrollbar.Scrollbar(container, props, options);
             
@@ -170,7 +169,7 @@
         // TODO: use detach-transform-attach or DOMfragment
         //
         buildHtml: function(){
-
+            
             // build new DOM nodes 
             this.container.children().wrapAll('<div class="scrollbar-pane"/>');
             this.container.append('<div class="scrollbar-handle-container"><div class="scrollbar-handle"/></div>');
