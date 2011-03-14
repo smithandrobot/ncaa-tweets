@@ -1,0 +1,813 @@
+html {
+	background: #333;
+	color: #FFF;
+}
+
+html *:focus {
+	outline: 0;
+}
+
+body, div {
+	font-family: UnicodSans-CondensedBold, "Helvetica Neue", "Helvetica", Arial, sans;
+	font-size: 13px;
+	line-height: 1.4;
+	text-shadow: #000000 0px 0px 3px;
+	}
+	
+.warning a {
+	color: #74000e;
+	text-decoration: underline;
+}
+
+a
+{
+	text-decoration:none;
+	color:#ED1F24;
+}
+
+a.hashtag {
+    color:#000;
+    display:block;
+    width:100px;
+}
+
+a.hashtag:hover {
+    color:#ED1F24;
+}
+
+.clear { clear:both;}
+
+noscript div, .warning {
+	line-height: 50px;
+	background: #CAA642;
+	color: #333;
+	text-shadow: none;
+	font-size: 16px;
+	text-align: center;
+}
+
+
+/* Begin Common */
+
+.red
+{
+	color:#ED1F24;
+}
+
+.gray
+{
+	color:#999;
+}
+
+.rounded {
+    -moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+/* End Common */
+
+#container {
+    margin-bottom:30px;
+}
+#content
+{
+	width: 924px;
+	height: 973px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #333 url("../img/bkg.jpg") no-repeat;
+	background-position: center top;
+}
+
+#content h1
+{
+	text-indent:-999px;
+}
+#column-left, #column-right
+{
+	display:inline;
+	float: left;	
+}
+
+#column-left{
+	margin-left: 10px;
+	width: 530px;
+}
+
+#column-right {
+	margin-left: 0px;
+	width: 370px;
+}
+
+
+/* left column nav*/
+
+#tournament_nav
+{
+	margin-top:210px;
+	margin-left:-10px;
+	width:508px;
+	vertical-align:bottom;
+	text-align:center;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+#tournament_nav *
+{
+	font-style:normal;
+}
+
+#tournament_nav ul
+{
+/*	text-align:center;*/
+	width:508px;
+}
+
+#tournament_nav li
+{
+	float:left;
+	font-size:12px;
+	margin-left:10px;
+}
+
+#tournament_nav .inactive
+{
+	color:#999;
+	margin-left:10px;
+	display:inline-block;
+	vertical-align:bottom;
+/*	border:1px red solid;*/
+	line-height:28px;
+}
+
+#tournament_nav .inactive a
+{
+	color:#999;
+	cursor:default;
+}
+
+#tournament_nav .active
+{
+	display:inline-block;
+	margin-left:10px;
+	color:#ED1F24;
+	vertical-align:bottom;
+/*	border:1px red solid;*/
+	line-height:28px;
+}
+
+#tournament_nav .tournament-selected
+{
+	font-size:28px;
+	margin-left:10px;
+	display:inline-block;
+}
+
+#tournament_nav .tournament-selected a
+{
+	color:#FFF;
+}
+
+.active-under 
+{
+	display:block;
+	position:relative;
+	top:-5px;
+	width:100%;
+	height:6px;
+}
+
+.tournament-selected .active-under
+{
+	background : url('../img/sprites.png') repeat-x;
+	background-position:-41px -352px;
+}
+/* end left column nav */
+
+/* loaders */
+.please-wait {
+    width:120px;
+    margin:20px auto;
+    text-align:center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+/* end loaders */
+
+/* schedule list*/
+
+#schedule_list
+{
+	margin-top:10px;
+	width:522px;
+	height:702px;
+	position:relative;
+}
+
+#schedule-container
+{
+	margin-top:10px;
+	width:522px;
+	height:702px;
+	position:relative;
+	overflow:auto;
+}
+
+#schedule-container-top-shadow
+{
+	position:absolute;
+	width:480px;
+	height:20px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-42px -673px;
+	top:0px;
+	pointer-events: none;
+}
+
+#schedule-container-bottom-shadow
+{
+	position:relative;
+	width:480px;
+	height:20px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-42px -652px;
+	top:-20px;
+	pointer-events: none;
+}
+
+.game
+{
+	width:468px;
+	height:108px;
+	background: url("../img/sprites.png") no-repeat;
+	clear:both;
+	margin-bottom:17px;
+	margin-top:15px;
+	
+}
+
+.game-current
+{
+	background-position:-46px -1px;
+}
+
+.game-final
+{
+	background-position:-46px -126px;	
+}
+
+.game-period
+{
+	font-family:arial;
+	font-weight:bold;
+	font-size:16px;
+/*	border:1px solid green;*/
+	margin-left:35px;
+	line-height:28px;
+	width:57px;
+	text-align:center;
+}
+
+.game-final .game-period
+{
+	color:#000;
+	text-shadow: #FFF 0px 1px 0px;
+	text-transform:capitalize;	
+}
+
+
+.team-visiting
+{
+	margin-top:7px;
+	height:25px;
+/*	border:1px solid;*/
+}
+
+.team-home
+{
+	margin-top:13px;
+	height:25px;
+/*	border:1px solid;*/
+}
+
+/* Begin Game Module Text Formatting and layout*/
+
+.game-winning
+{
+	
+}
+
+.game-losing
+{
+	color:#666;
+}
+
+
+.team-ranking
+{
+	font-size:12px;
+	width:20px;
+	height:20px;
+	margin-left:19px;
+	text-align:right;
+	float:left;
+	display:block;
+}
+
+
+.team-score, .team-name
+{
+	font-size:17px;
+	float:left;
+}
+
+.team-name
+{
+	width:160px;
+	overflow:hidden;
+}
+
+
+.team-score
+{
+	margin:0px 0px 0px 0px;
+	width:30px;
+	text-align:right;
+/*	border:1px solid red;*/
+}
+
+
+.team-hashtag
+{
+
+	font-size: 10px;
+	font-family: Arial Narrow;
+	font-weight:bold;
+	margin:0px 0px 0px 33px;
+	position:relative;
+	padding:0px;
+	width:101px;
+/*	border:1px solid;*/
+	float:left;
+	text-align:center;
+	color:#000;
+	text-shadow: #FFF 0px 1px 0px;
+	line-height:22px;
+	display:block;
+}
+
+.team-visiting .team-hashtag
+{
+	margin-top : -11px;
+}
+
+.team-name
+{
+	margin-left:5px;
+}
+.team-home .team-hashtag
+{
+	margin-top : 9px;
+}
+
+
+.team-mentions-small, .team-mentions-large
+{
+	width:63px;
+	margin:0px 0px 0px 5px;
+	float:left;
+	text-align:center;
+/*	border:1px solid red;*/
+	line-height:28px;
+}
+
+
+.team-mentions-large
+{
+	font-size:17px;
+/*	color:#ED1F24;*/
+
+	text-shadow: #000 0px -1px 0px;
+
+}
+
+.team-home .team-mentions-large
+{
+	font-size:17px;
+	margin-left:3px;
+/*	border:1px red solid;*/
+	
+	line-height:28px;
+}
+
+.team-mentions-small
+{
+	font-size:13px;
+	color:#000;
+	text-shadow: #C1C1C1 0px 1px 0px;
+}
+
+.team-visiting .team-mentions-small,
+{
+	margin-top:-7px;
+/*	border:1px red solid;*/
+}
+
+.team-visiting .team-mentions-large
+{
+	margin-top:-3px;
+/*	border:1px red solid;*/
+}
+
+.team-tweets-cta
+{
+	margin-right:5px;
+	margin-top:-4px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-572px -112px;
+	width:22px;
+	height:22px;
+	float:right;
+}
+
+/* End Game Module Text Formatting and layout*/
+
+
+/* @anywhere module */
+
+#atanywhere-container{
+    height:310px;
+	width:339px;
+    margin:30px 0 0px 0;
+    padding:10px 10px 0px 10px;
+/*	border:1px solid red;*/
+}
+
+#atanywhere-container a{
+    color:#ED1F24;
+}
+
+#atanywhere-container .tweet-text{
+    font-size:16px;
+    font-weight:bold;
+	word-wrap:break-word;
+}
+
+
+/* end @anywhere module */
+
+/* tabbed tweet box */
+
+#tweet-streams {
+    width:362px;
+/*    margin:0px auto;*/
+/*    margin-top:50px;*/
+}
+
+#stream-header {
+    padding:12px;
+    background: #000 url('../img/sprites.png') no-repeat -50px -610px;
+}
+
+#stream-header h2 {
+    font-size:25px;
+    color:#ED1F24;
+    float:left;
+	line-height:35px;
+/*    width:200px;*/
+}
+
+#team-selector {
+    float:right;
+    font-size:16px;
+    margin-top:3px;
+}
+
+#team-selector a{
+    color:#fff;
+    display:block;
+    padding:3px 0;
+    padding-right:25px;
+    background: transparent url('../img/sprites.png') no-repeat -193px -370px;
+}
+
+#show-all-streams
+{
+/*	width:345px;*/
+	margin-top:-40px;
+	margin-bottom:20px;
+/*	padding-right:15px;*/
+	text-align:left;
+	font-family:arial ;
+	font-weight:bold;
+	text-shadow:none;
+}
+
+#stream-header .spirit-bubble{
+    float:right;
+    margin-top:3px;
+    display:none;
+}
+.spirit-bubble {
+    background: #CC5500 url('../img/bubble-mask.png') no-repeat;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:10px;
+    color:#000;
+    font-weight:bold;
+    text-shadow:none;
+    text-align:center;
+    line-height:20px;
+    width:107px;
+    height:29px;
+    overflow:hidden;
+}
+
+#timeline *, .tweet *{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+#timeline-container {
+    background-color:#000;
+    padding-top:10px;
+    -moz-border-radius:0px 0px 5px 5px; 
+    -webkit-border-radius: 0px 0px 5px 5px; 
+    border-radius: 0px 0px 5px 5px;
+}
+#timeline {
+    padding:10px 0;
+    height:535px;
+	position:relative;
+	
+}
+
+#timeline .tweet-bg {
+	padding: 5px 0px 5px 0px;
+/*	background: url("../img/tweet-divider-hr.png") no-repeat;
+	background-position: bottom;*/
+
+}
+
+#viewer-timeline .tweet-bg {
+	width: 290px;
+	padding: 10px 0px 10px 0px;
+	border-bottom: 1px solid #333;
+	word-wrap: break-word;
+}
+
+#viewer-timeline .tweet {
+	width: 290px;
+}
+
+.tweet-profile-image {
+	padding: 3px 10px;
+	float: left;
+	width: 48px;
+	height: 48px;
+}
+
+#viewer-timeline .tweet-profile-image img {
+	width: 32px;
+	height: 32px;
+}
+
+#viewer-timeline .tweet-profile-image {
+	padding: 0px;
+	background: none;
+	width: 32px;
+	height: 32px;
+}
+
+.tweet-copy-block {
+	display: block;
+	margin-left: 68px;
+	word-wrap: break-word;
+	width:270px;
+}
+
+.tweet-text {
+    word-wrap: break-word;
+}
+
+.tweet-copy-block a{
+	color:#ED1F24;
+	word-wrap: break-word;
+}
+
+.tweet-name {
+	font-weight: bold;	
+}
+
+.tweet-timestamp a {
+    color:#666;
+}
+.tweet-name a {
+    color:#ED1F24;
+}
+
+.tweet-name-screen {
+	font-size: 16px;
+}
+
+.tweet-name-full {
+	color: #666666;
+	font-size: 13px;
+	font-weight:normal;
+}
+
+#viewer-timeline .tweet-copy-block {
+	margin-left: 40px;
+}
+
+#viewer-timeline * {
+	font-size: 11px;
+}
+
+/* TWEET UTILITY */
+
+/* adding bg so IE behaves on fade
+
+#timeline .tweet-utility, #timeline .tweet {
+	background: #242424;
+} */
+.tweetBoxCustomButton
+{
+	width:64px;
+	height:21px;
+	background:url('../img/sprites.png');
+	background-position : -287px -317px;
+	text-indent:-9999px;
+}
+
+
+.tweet-utility {
+	margin-top: 10px;
+	font-size: 11px;
+	display: block;
+	width:270px;
+}
+
+.tweet-utility * {
+	display: inline-block;
+	vertical-align: bottom;
+	line-height: 20px;
+}
+
+.tweet-utility i {
+	background: url("../img/sprites.png");
+	height: 20px;
+}
+
+.tweet-utility b {
+	font-weight: normal;
+}
+
+.tweet-actions a {
+	margin-right: 8px;
+}
+
+.tweet-attachment {
+    float:right;
+    margin:0 20px 0px 10px;
+    overflow : hidden;
+	width:75px;
+	height:75px;
+	background-position: center center;
+}
+
+.tweet-attachment img {
+    border: 1px solid #333;
+}
+.tweet-utility a {
+	color: #666;
+}
+
+.action-favorite span i {
+	width: 18px;
+	background-position: -522px -12px;
+}
+
+.action-reply span i {
+	width: 24px;
+	background-position: -520px -42px;
+}
+
+#atanywhere-container .action-follow span i {
+	background-position: -522px -91px;
+}
+
+#atanywhere-container .action-retweet span i {
+	background-position: -551px -70px;
+}
+
+#atanywhere-container .action-favorite span i {
+	background-position: -522px -70px;
+}
+
+#atanywhere-container .action-reply span i {
+	background-position: -550px -90px;
+}
+
+.action-follow span i {
+	width: 20px;
+	background-position: -550px -42px;
+}
+
+.action-retweet span i {
+	width: 24px;
+	background-position: -550px -12px;
+}
+
+.tab {
+    float:left;
+    
+    text-align:center;
+    font-size:17px;
+    background-color:#232323;
+    margin-right:2px;
+    -moz-border-radius: 5px 5px 0px 0px; 
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.last {
+    margin:0px;
+}
+
+.tabbed-nav .active {
+    background-color:#000;
+    background: #000 url(../img/sprites.png) no-repeat  -80px -523px;
+}
+
+
+
+.tab a {
+    color:#EC1F24;
+    width:180px;
+    display:block;
+    padding:10px 0;
+}
+
+.tabbed-nav .active a {
+    color:#fff;
+}
+
+#loadmore {
+    width:330px;
+    margin:3px 10px;
+	display:none;
+}
+#loadmore a{
+    background-color:#fff;
+    display:block;
+    color:#000;
+    font-family: Helvetica, Arial, sans-serif;
+    text-align:center;
+    padding:3px;
+    text-shadow:none;
+}
+
+/* tweet box styling */
+
+#tbox {
+    margin-top:10px;
+}
+#tweet-box-container label{
+    color:#fff;
+}
+
+#tweet-box-header{
+    position:relative;
+}
+
+span#counter {
+    position:absolute;
+    top:30px;
+}
+
+/* qtip */
+
+.qtip-content {
+    text-shadow:none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size:10px;
+}
+
+.qtip-content li{
+    margin-bottom:5px;
+}
+
+.qtip-content a:hover{
+    color:#000;
+}
+
+.team-column {
+    float:left;
+    margin-right:10px;
+    width:100px;
+}
+
+#show-all  {
+    font-family:Helvetica, Arial, sans-serif;
+    margin:0 0 10px 10px;
+    display:none;
+}
