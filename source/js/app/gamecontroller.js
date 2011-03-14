@@ -32,24 +32,24 @@ function GameController(gameData, model)
         visualizeWL()
         //self.view.appendTo("#schedule-container");
     }
-    
-    function setTeamModel(model){
+
+    function setTeamModel(model) {
         self.teams = model
     }
-    
-    function onTeamUpdate(e){
+
+    function onTeamUpdate(e) {
         var h = model.getTeam(self.homeTeam.shortName)
-        if(h){
-            self.homeMentions.text(h.mentions)
+        if (h) {
+            self.homeMentions.text(addCommas(h.mentions))
         }
         var v = model.getTeam(self.visitingTeam.shortName)
-        if(v){
-            self.visitorMentions.text(v.mentions)
+        if (v) {
+            self.visitorMentions.text(addCommas(v.mentions))
         }
         compareMentions()
         visualizeWL()
     }
-    
+
     function createView(viewData) {
         var template = $("#gameTemplate").tmpl(viewData);
         template.css('opacity', 0);
@@ -62,15 +62,17 @@ function GameController(gameData, model)
                 $(this).css('filter', '');
             }
         });
-        
+
         self.visitorScore = template.find('.team-visiting .team-score')
         self.homeScore = template.find('.team-home .team-score')
-        
-        
-        
+
+
+
         self.period = template.find('.game-period')
         self.visitorMentions = template.find('.team-visiting .mentions')
         self.homeMentions = template.find('.team-home .mentions')
+        self.homeMentions.text(addCommas(self.homeMentions.text()))
+        self.visitorMentions.text(addCommas(self.visitorMentions.text()))
         template.find('.home-tweet-cta').click({
             'teamId': viewData.homeTeam
         },
@@ -83,12 +85,12 @@ function GameController(gameData, model)
         compareMentions()
         return template
     }
-    
-    function visualizeWL(){
-        if(self.visitorScore.text() > self.homeScore.text()){
+
+    function visualizeWL() {
+        if (self.visitorScore.text() > self.homeScore.text()) {
             self.view.find('.team-home .team-name').addClass('game-losing')
             self.view.find('.team-visiting .team-name').removeClass('game-losing')
-        } else if(self.visitorScore.text() < self.homeScore.text()){
+        } else if (self.visitorScore.text() < self.homeScore.text()) {
             self.view.find('.team-home .team-name').removeClass('game-losing')
             self.view.find('.team-visiting .team-name').addClass('game-losing')
         } else {
@@ -96,12 +98,12 @@ function GameController(gameData, model)
             self.view.find('.team-visiting .team-name').removeClass('game-losing')
         }
     }
-    
-    function compareMentions(){
-        if(self.homeTeam.customData.mentions > self.visitingTeam.customData.mentions){
+
+    function compareMentions() {
+        if (self.homeTeam.customData.mentions > self.visitingTeam.customData.mentions) {
             self.homeMentions.addClass('team-mentions-large')
             self.homeMentions.removeClass('team-mentions-small')
-        } else if(self.homeTeam.customData.mentions < self.visitingTeam.customData.mentions){
+        } else if (self.homeTeam.customData.mentions < self.visitingTeam.customData.mentions) {
             self.visitorMentions.addClass('team-mentions-large')
             self.visitorMentions.removeClass('team-mentions-small')
         }
@@ -121,17 +123,17 @@ function GameController(gameData, model)
     }
 
     function sanitizeData(data) {
-        
+
         var templateData = {
             'game': {
                 'id': data.id
             }
         }
-        
+
         templateData.date = Date.parse(data.date)
-        templateData.date.addHours(-4)
+        templateData.date.addHours( - 4)
         self.date = templateData.date
-        
+
         for (cid in data.competitor) {
             var c = data.competitor[cid]
 
@@ -144,11 +146,11 @@ function GameController(gameData, model)
             }
             //c.customData = Teams.getTeam(c.id)
             c.customData = self.teams.getTeam(c.shortName)
-            
-            if(c.customData == undefined){
+
+            if (c.customData == undefined) {
                 c.customData = {}
-                c.customData.hashTag = null
-                c.hashTag = null
+                c.customData.hashTag = '#mm2011'
+                c.hashTag = '#mm2011'
                 c.customData.seed = ''
                 c.customData.mentions = 0
                 c.name = c.shortName
@@ -158,14 +160,14 @@ function GameController(gameData, model)
                 c.color = c.customData.color
                 //self.teams.setTeamColor(c.shortName, c.color)
             }
-            
-            if(c.name.length > 20){
+
+            if (c.name.length > 20) {
                 c.name = c.shortName
             }
-            
+
         }
-        
-        
+
+
         if (data.eventstatus.status == "FINAL") {
             templateData.game.status = "final"
             templateData.game.period = "final"
@@ -191,19 +193,34 @@ function GameController(gameData, model)
 
     function teamClick(obj) {
         self.selected = obj.data.teamId
-        if(obj.data.teamId.name != 'TBA'){
+        if (obj.data.teamId.name != 'TBA') {
             dispatchEvent("onTeamSelect", self);
         }
-        
+
     }
 
     function hashTagClick(obj) {
-        if($(this).is(':empty')){
-            return;
+        if ($(this).text() != "#mm2011") {
+            self.hashTag = "Go " + $(this).text() + "!";
+        } else {
+            self.hashTag = "#mm2011";
         }
-        self.hashTag = "Go " + $(this).text() + "!";
+
         dispatchEvent("onHashTagClick", self);
         return false;
+    }
+
+    function addCommas(nStr)
+    {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
     }
 
     return self;
