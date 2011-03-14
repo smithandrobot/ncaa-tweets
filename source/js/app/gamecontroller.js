@@ -129,6 +129,7 @@ function GameController(gameData, model)
         }
 
         templateData.date = Date.parse(data.date)
+        templateData.date.addHours(-5)
         self.date = templateData.date
         
         for (cid in data.competitor) {
@@ -158,8 +159,8 @@ function GameController(gameData, model)
                 //self.teams.setTeamColor(c.shortName, c.color)
             }
             
-            if(c.name.length > 22){
-                c.name = c.shortName;
+            if(c.name.length > 20){
+                c.name = c.shortName
             }
             
         }
