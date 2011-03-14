@@ -136,7 +136,7 @@ function GameController(gameData, model)
             } else {
                 c.name = c.customData.displayName
                 c.hashTag = c.customData.hashTag
-                self.teams.setTeamColor(c.shortName, c.color)
+                //self.teams.setTeamColor(c.shortName, c.color)
             }
             
             if(c.name.length > 22){
