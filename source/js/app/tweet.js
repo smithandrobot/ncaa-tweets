@@ -10,6 +10,7 @@ function Tweet()
 	var rendered = false;
 	var profileImg;
 	var mediaParser = new MediaParser();
+	
 	//  Public
 	
 	this.htmlText;
@@ -128,6 +129,8 @@ function Tweet()
 		self.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
 		// this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
 	}
+	
+	
 	function onLoggedStateChange( e )
 	{
 		Log('logged in state changed to: '+e.target.loggedIn);
@@ -139,16 +142,19 @@ function Tweet()
 		dispatchEvent('onReply', self);
 	}
 	
+	
 	function onClickFollow()
 	{
 		dispatchEvent('onFollow', self);
 	}	
+	
 	
 	function onClickReTweet()
 	{
 		Log('onClickReTweet');
 		dispatchEvent('onReTweet', self);
 	}
+	
 	
 	function onClickFavorite()
 	{

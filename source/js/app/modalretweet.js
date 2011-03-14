@@ -62,7 +62,9 @@ function ReTweetModal( overlay )
 	{
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
 		
+		es.hide();
 		as.hide();
 		cs.show();
 	}
@@ -71,9 +73,24 @@ function ReTweetModal( overlay )
 	function showActionScreen()
 	{
 		var cs = element.find('.confirmation-screen');
-		var as = element.find('.action-screen');	
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.hide();	
 		cs.hide();
 		as.show();
+	}
+	
+	
+	function showErrorScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.show();
+		as.hide();
+		cs.hide();
 	}
 	
 	
@@ -127,8 +144,9 @@ function ReTweetModal( overlay )
 		}
 		
 		var t = self.twitterProxy.twitterOBJ;
-		t.Status.retweet( tweetID );
-		showConfirmScreen();
+		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
+		t.Status.retweet( tweetID , callbacks );
+		// showConfirmScreen();
 	}
 	
 	
@@ -146,6 +164,17 @@ function ReTweetModal( overlay )
 		}	
 		
 		return validUser;
+	}
+	
+	function retweetSuccess( e )
+	{
+		Log('retweet success! info follows: ')
+		{
+			for(var i in e)
+			{
+				Log('e.'+i+' = '+e[i]);
+			}
+		}
 	}
 	
 	
