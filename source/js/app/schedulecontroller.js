@@ -136,7 +136,8 @@ function ScheduleController()
     }
     
     function sortGames(){
-        games = games.sort(function(a,b){return a.date - b.date})
+        //games = games.sort(function(a,b){return a.date - b.date})
+        games = games.sort(function(a,b){return a.date>b.date ? 1 : a.date<b.date ? -1 : 0})
         for(g in games){
             //Log(games[g].date)
             games[g].view.appendTo("#schedule-container");

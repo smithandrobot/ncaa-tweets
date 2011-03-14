@@ -257,6 +257,11 @@ noscript div, .warning {
 	background-position:-46px -126px;	
 }
 
+.game-scheduled
+{
+	background-position:-123px -467px;	
+}
+
 .game-period
 {
 	font-family:arial;
@@ -274,6 +279,15 @@ noscript div, .warning {
 	color:#000;
 	text-shadow: #FFF 0px 1px 0px;
 	text-transform:capitalize;	
+}
+
+.game-scheduled .game-period
+{
+	color:#999;
+	font-size:13px;
+	text-align:left;
+	width:150px;
+	padding-left:9px;
 }
 
 

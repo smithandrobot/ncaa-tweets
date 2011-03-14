@@ -127,9 +127,9 @@ function GameController(gameData, model)
                 'id': data.id
             }
         }
-
+        
         templateData.date = Date.parse(data.date)
-        templateData.date.addHours(-5)
+        templateData.date.addHours(-4)
         self.date = templateData.date
         
         for (cid in data.competitor) {
@@ -171,8 +171,8 @@ function GameController(gameData, model)
             templateData.game.period = "final"
             self.active = false
         } else if (data.eventstatus.status == "SCHEDULED") {
-            templateData.game.status = "current"
-            templateData.game.period = templateData.date.toString("M/d");
+            templateData.game.status = "scheduled"
+            templateData.game.period = templateData.date.toString("MMM d, h:mm tt") + " EST";
             self.active = false
         } else if (data.eventstatus.status == "INTERMISSION") {
             templateData.game.status = "current"
