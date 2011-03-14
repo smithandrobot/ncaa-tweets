@@ -54,6 +54,7 @@ function TeamsModel()
 
                 }
             }
+            self.team_schema = sortTeams(self.team_schema)
             teamsLoaded = true
         } else {
             for(var s in data.streams){
@@ -386,6 +387,26 @@ function TeamsModel()
             setTeamColor(c, colorValues[c].color)
         }
         
+    }
+    
+    function sortTeams(o) {
+        var sorted = {},
+        key, a = [];
+        for (key in o) {
+            if (o.hasOwnProperty(key)) {
+                if(key != 'all' && key != 'experts' && key != 'verizon') {
+                    a.push({"sn": key, "name" : o[key].displayName});
+                }
+                    
+            }
+        }
+
+        a = a.sort(function(a,b){return a.name>b.name ? 1 : a.name<b.name ? -1 : 0})
+
+        for (key = 0; key < a.length; key++) {
+            sorted[a[key].sn] = o[a[key].sn];
+        }
+        return sorted;
     }
 	
 	return self;
