@@ -7,7 +7,8 @@ function ScheduleController()
     var selected = null;
     var hashTag = null;
     var model = new TRModel();
-    var feedURL = 'mock/full.json';
+    var scoringModel = new TRModel();
+    var feedURL = 'mock/fullcombo.json';
     var INTERVAL_TIME = 1000 * 5;
     var interval = null;
     var games = []
@@ -17,6 +18,7 @@ function ScheduleController()
     var teams = null;
 
     model.addEventListener('onDataChange', onDataChange);
+    scoringModel.addEventListener('onDataChange', onScoreChange);
 
     self.loadRound = loadRound;
     self.setTeamModel = setTeamModel;
@@ -26,6 +28,7 @@ function ScheduleController()
     }
     
     function loadRound(round) {
+        
         Log('Loading round: ' + round)
         games = []
         removeScrollbar();
@@ -57,6 +60,37 @@ function ScheduleController()
     }
 
     function onDataChange(e)
+    {
+        var data = e.target.getData()
+        self.scheduleData = data.events.event
+        
+        var gameList = getGamesForRound(self.loadedRound)
+        
+        if (games.length == 0) {
+            $('#scoreboard-loader').hide();
+            $(gameList).each(function() {
+                var game = renderGame($(this)[0])
+                if(game.active && self.firstActive == null){
+                    self.firstActive = game;
+                }
+            })
+            addScrollbar()
+            if(self.firstActive){
+                var pos = self.firstActive.view.position();
+                //$("#schedule_list .scrollbar-pane").css('top', pos.top)
+                //$("#schedule-container").scrollTop(pos.top)
+            }
+        } else {
+            $(gameList).each(function() {
+                updateGame($(this)[0])
+            })
+        }
+
+        clearInterval(self.interval)
+        self.interval = setInterval(poll, INTERVAL_TIME);
+    }
+    
+    function onScoreChange(e)
     {
         var data = e.target.getData()
         self.scheduleData = data.events.event
@@ -130,11 +164,12 @@ function ScheduleController()
 
 
     function addScrollbar() {
-        
-        $('.schedule-scrollbar').scrollbar({
+       
+        var sb = $('.schedule-scrollbar').scrollbar({
             handleHeight: 151,
             arrows: false
         });
+        
     }
 
     function removeScrollbar() {
@@ -158,10 +193,10 @@ function ScheduleController()
             },
             'round2': {
                 'start': new Date(2011, 2, 17, 0, 0, 0),
-                'end': new Date(2011, 2, 19, 23, 59, 0)
+                'end': new Date(2011, 2, 18, 23, 59, 0)
             },
             'round3': {
-                'start': new Date(2011, 2, 18, 0, 0, 0),
+                'start': new Date(2011, 2, 19, 0, 0, 0),
                 'end': new Date(2011, 2, 20, 23, 59, 0)
             },
             'regionals': {

@@ -15,7 +15,6 @@ function TeamSelectorController()
             var teamlist = self.teams.getAll();
             var tid = $.cookie('team');
             cTeam = {'team':teamlist[tid]}
-            
         }
         
         return cTeam;
@@ -87,6 +86,7 @@ function TeamSelectorController()
     }
     
     function activateLinks(){
+        $.cookie('team', null);
         $('.team-column a').each(function(){
             $(this).click(function(){
                 var teamlist = self.teams.getAll();

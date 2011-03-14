@@ -57,7 +57,7 @@
 (function($, document){
 
     $.fn.scrollbar = function(opts){
-
+        Log(opts)
         // Extend default options
         var options = $.extend({}, $.fn.scrollbar.defaults, opts);
 
