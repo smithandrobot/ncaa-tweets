@@ -29,6 +29,7 @@ a.hashtag {
     color:#000;
     display:block;
     width:100px;
+    height:30px;
 }
 
 a.hashtag:hover {

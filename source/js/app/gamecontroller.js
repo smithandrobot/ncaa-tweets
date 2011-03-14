@@ -147,8 +147,8 @@ function GameController(gameData, model)
             
             if(c.customData == undefined){
                 c.customData = {}
-                c.customData.hashTag = "&nbsp;"
-                c.hashTag = "&nbsp;"
+                c.customData.hashTag = null
+                c.hashTag = null
                 c.customData.seed = ''
                 c.customData.mentions = 0
                 c.name = c.shortName
@@ -198,6 +198,9 @@ function GameController(gameData, model)
     }
 
     function hashTagClick(obj) {
+        if($(this).is(':empty')){
+            return;
+        }
         self.hashTag = "Go " + $(this).text() + "!";
         dispatchEvent("onHashTagClick", self);
         return false;
