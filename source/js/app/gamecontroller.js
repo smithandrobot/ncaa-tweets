@@ -160,7 +160,7 @@ function GameController(gameData, model)
             }
             
             if(c.name.length > 20){
-                c.name = c.name.substring(0, 20);
+                c.name = c.shortName
             }
             
         }
