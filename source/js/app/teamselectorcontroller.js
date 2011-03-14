@@ -44,8 +44,8 @@ function TeamSelectorController()
             teamData.splice(0, 12),
             teamData.splice(0, 12),
             teamData.splice(0, 10),
-            teamData.splice(0, 11),
-            teamData.splice(0, 11)
+            teamData.splice(0, 12),
+            teamData.splice(0, 12)
         ]
 
         var teamListView = $.tmpl("columns", {
