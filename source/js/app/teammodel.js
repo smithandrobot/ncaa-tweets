@@ -96,7 +96,7 @@ function TeamsModel()
     {
         var colorValues = {
             'HAMP': {
-                'color': '#005299',
+                'color': '#4892D3',
                 'name': 'Hampton Pirates'
             },
             'PRIN': {
@@ -104,27 +104,27 @@ function TeamsModel()
                 'name': 'Princeton Tigers'
             },
             'AKR': {
-                'color': '#001D44',
+                'color': '#CAB388',
                 'name': 'Akron Zips'
             },
             'SMU': {
-                'color': '#E73139',
+                'color': '#B10000',
                 'name': 'Southern Methodist Mustangs'
             },
             'OAK': {
-                'color': '#04091C',
+                'color': '#9A803E',
                 'name': 'Oakland Golden Grizzlies'
             },
             'PITT': {
-                'color': '#00224A',
+                'color': '#CEC499',
                 'name': 'Pittsburgh Panthers'
             },
             'LIU': {
-                'color': '#000000',
+                'color': '#777777',
                 'name': 'Long Island Blackbirds'
             },
             'FSU': {
-                'color': '#7F001B',
+                'color': '#990000',
                 'name': 'Florida State Seminoles'
             },
             'CLEM': {
@@ -132,15 +132,15 @@ function TeamsModel()
                 'name': 'Clemson Tigers'
             },
             'CONN': {
-                'color': '#001D40',
+                'color': '#2154A0',
                 'name': 'Connecticut Huskies'
             },
             'TEX': {
-                'color': '#EF7321',
+                'color': '#CC5500',
                 'name': 'Texas Longhorns'
             },
             'GONZ': {
-                'color': '#37225F',
+                'color': '#5D4F97',
                 'name': 'Gonzaga Bulldogs'
             },
             'TEM': {
@@ -148,19 +148,19 @@ function TeamsModel()
                 'name': 'Temple Owls'
             },
             'ND': {
-                'color': '#00122B',
+                'color': '#C5B358',
                 'name': 'Notre Dame Fighting Irish'
             },
             'ODU': {
-                'color': '#003665',
+                'color': '#93BFEB',
                 'name': 'Old Dominion Monarchs'
             },
             'ARIZ': {
-                'color': '#002449',
+                'color': '#C41E3A',
                 'name': 'Arizona Wildcats'
             },
             'UAB': {
-                'color': '#003B28',
+                'color': '#006600',
                 'name': 'UAB Blazers'
             },
             'ILL': {
@@ -168,15 +168,15 @@ function TeamsModel()
                 'name': 'Illinois Fighting Illini'
             },
             'VAN': {
-                'color': '#000000',
+                'color': '#997F3D',
                 'name': 'Vanderbilt Commodores'
             },
             'BYU': {
-                'color': '#001C3C',
+                'color': '#1A4F86',
                 'name': 'Brigham Young Cougars'
             },
             'XAV': {
-                'color': '#004B80',
+                'color': '#3877B3',
                 'name': 'Xavier Musketeers'
             },
             'SJU': {
@@ -192,7 +192,7 @@ function TeamsModel()
                 'name': 'George Mason Patriots'
             },
             'SPC': {
-                'color': '#001555',
+                'color': '#3E81BE',
                 'name': "St. Peter's Peacocks"
             },
             'BU': {
@@ -200,23 +200,23 @@ function TeamsModel()
                 'name': 'Boston University Terriers'
             },
             'MEM': {
-                'color': '#002447',
+                'color': '#3A6ED9',
                 'name': 'Memphis Tigers'
             },
             'ORU': {
-                'color': '#002955',
+                'color': '#CFB53B',
                 'name': 'Oral Roberts Golden Eagles'
             },
             'UCLA': {
-                'color': '#004775',
+                'color': '#0073CF',
                 'name': 'UCLA Bruins'
             },
             'MIZZ': {
-                'color': '#000000',
+                'color': '#FFCC33',
                 'name': 'Missouri Tigers'
             },
             'SYR': {
-                'color': '#002045',
+                'color': '#FF7F00',
                 'name': 'Syracuse Orange'
             },
             'UALR': {
@@ -224,7 +224,7 @@ function TeamsModel()
                 'name': 'Arkansas-Little Rock Trojans'
             },
             'MARQ': {
-                'color': '#083963',
+                'color': '#FDBB30',
                 'name': 'Marquette Golden Eagles'
             },
             'KU': {
@@ -232,11 +232,11 @@ function TeamsModel()
                 'name': 'Kansas Jayhawks'
             },
             'TA&M': {
-                'color': '#6A3333',
+                'color': '#814D4C',
                 'name': 'Texas A&M Aggies'
             },
             'PUR': {
-                'color': '#211818',
+                'color': '#B1946C',
                 'name': 'Purdue Boilermakers'
             },
             'MORE': {
@@ -248,7 +248,7 @@ function TeamsModel()
                 'name': 'Kansas State Wildcats'
             },
             'DUKE': {
-                'color': '#004582',
+                'color': '#3C7FBF',
                 'name': 'Duke Blue Devils'
             },
             'USC': {
@@ -256,31 +256,31 @@ function TeamsModel()
                 'name': 'USC Trojans'
             },
             'BEL': {
-                'color': '#182142',
+                'color': '#FF0000',
                 'name': 'Belmont Bruins'
             },
             'MSU': {
-                'color': '#226B31',
+                'color': '#4F8248',
                 'name': 'Michigan State Spartans'
             },
             'MICH': {
-                'color': '#001531',
+                'color': '#F5D130',
                 'name': 'Michigan Wolverines'
             },
             'CIN': {
-                'color': '#000000',
+                'color': '#E00122',
                 'name': 'Cincinnati Bearcats'
             },
             'UNLV': {
-                'color': '#000000',
+                'color': '#FF2400',
                 'name': 'UNLV Rebels'
             },
             'WASH': {
-                'color': '#3E3468',
+                'color': '#E8D3A2',
                 'name': 'Washington Huskies'
             },
             'USU': {
-                'color': '#020767',
+                'color': '#0066CC',
                 'name': 'Utah State Aggies'
             },
             'INST': {
@@ -288,11 +288,11 @@ function TeamsModel()
                 'name': 'Indiana State Sycamores'
             },
             'LOU': {
-                'color': '#AD000A',
+                'color': '#FF0000',
                 'name': 'Louisville Cardinals'
             },
             'FLA': {
-                'color': '#002D69',
+                'color': '#FF4A00',
                 'name': 'Florida Gators'
             },
             'ALST': {
@@ -300,27 +300,27 @@ function TeamsModel()
                 'name': 'Alabama State Hornets'
             },
             'OSU': {
-                'color': '#A00612',
+                'color': '#FF2000',
                 'name': 'Ohio State Buckeyes'
             },
             'BUT': {
-                'color': '#0D1361',
+                'color': '#3877B3',
                 'name': 'Butler Bulldogs'
             },
             'WVU': {
-                'color': '#001124',
+                'color': '#FFCC00',
                 'name': 'West Virginia Mountaineers'
             },
             'UTSA': {
-                'color': '#113B7D',
+                'color': '#F47321',
                 'name': 'Texas-San Antonio Roadrunners'
             },
             'UNCA': {
-                'color': '#092575',
+                'color': '#3877B3',
                 'name': 'North Carolina-Asheville Bulldogs'
             },
             'GTWN': {
-                'color': '#001B50',
+                'color': '#999999',
                 'name': 'Georgetown Hoyas'
             },
             'WIS': {
@@ -328,7 +328,7 @@ function TeamsModel()
                 'name': 'Wisconsin Badgers'
             },
             'UNCO': {
-                'color': '#0E1831',
+                'color': '#FFCC33',
                 'name': 'Northern Colorado Bears'
             },
             'RICH': {
@@ -336,46 +336,47 @@ function TeamsModel()
                 'name': 'Richmond Spiders'
             },
             'VILL': {
-                'color': '#002D5B',
+                'color': '#B8D7E4',
                 'name': 'Villanova Wildcats'
             },
             'VCU': {
-                'color': '#929292',
+                'color': '#F8B800',
                 'name': 'Virginia Commonwealth Rams'
             },
             'WOF': {
-                'color': '#000000',
+                'color': '#CFB53B',
                 'name': 'Wofford Terriers'
             },
             'BUCK': {
-                'color': '#084280',
+                'color': '#FF9900',
                 'name': 'Bucknell Bison'
             },
             'TENN': {
-                'color': '#D37907',
+                'color': '#F77F00',
                 'name': 'Tennessee Volunteers'
             },
             'SDSU': {
-                'color': '#231F20',
+                'color': '#A81933',
                 'name': 'San Diego State Aztecs'
             },
             'UCSB': {
-                'color': '#101084',
+                'color': '#EAAF0F',
                 'name': 'UC Santa Barbara Gauchos'
             },
             'UK': {
-                'color': '#004177',
+                'color': '#3877B3',
                 'name': 'Kentucky Wildcats'
             },
             'UGA': {
-                'color': '#A0000B',
+                'color': '#FF0000',
                 'name': 'Georgia Bulldogs'
             },
             'PSU': {
-                'color': '#002148',
+                'color': '#3877B3',
                 'name': 'Penn State Nittany Lions'
             }
         }
+        
         
         for(c in colorValues){
             setTeamColor(c, colorValues[c].color)
