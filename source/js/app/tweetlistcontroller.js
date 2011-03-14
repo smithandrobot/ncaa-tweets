@@ -4,6 +4,8 @@ TweetListController.constructor = TweetListController;
 function TweetListController() 
 {
 	var UPDATE		= 1000*10;
+	var startUpTimer= 1000;
+	var autoStartInt= null;
 	var feed		= null;
 	var feedURL		= null;
 	var feedColor	= null;
@@ -60,11 +62,17 @@ function TweetListController()
 	
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
-
-	selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} );
+	
+	autoStartInt = setTimeout(autoStart, startUpTimer);
+	
+	function autoStart()
+	{
+		selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} );
+	}
 	
 	function selectTeam( team )
 	{
+		clearInterval(autoStartInt);
 		Log('team selected! '+team)
 		var obj 	= team.team;
 		var name 	= (team.team.displayName) ? team.team.displayName : obj.name;
