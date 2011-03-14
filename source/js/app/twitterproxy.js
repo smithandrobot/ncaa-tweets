@@ -8,20 +8,41 @@ function TwitterProxy()
 	this.isConnected 	= isConnected;
 	this.twitterOBJ 	= null;
 	this.getTweetBox	= getTweetBox;
+	this.loggedIn		= false;
 	
 	twttr.anywhere( init );
 		
 	function init( t )
 	{
 		twitterOBJ = t;
+
 		self.twitterOBJ = t;
 		dispatchEvent('onReady', self);
+
+		twitterOBJ.bind("authComplete", signIn);
+		twitterOBJ.bind("signOut", signOut);
+		
+		if( isConnected() ) signIn();
 	}
+
 
 	function isConnected()
 	{
 		Log('self.twitterOBJ: isConnected');
 		return twitterOBJ.isConnected();
+	}
+	
+	
+	function signIn()
+	{
+		self.loggedIn = true;
+		dispatchEvent('onLoggedInStateChanged', self);
+	}
+	
+	function signOut()
+	{
+		self.loggedIn = false;
+		dispatchEvent('onLoggedInStateChanged', self);
 	}
 	
 	

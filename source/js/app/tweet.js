@@ -28,11 +28,13 @@ function Tweet()
 	this.following;
 	this.tweets;
 	this.largeImage;
-	this.remove = remove;
-	this.updateTime = updateTime;
+	this.remove 		= remove;
+	this.updateTime 	= updateTime;
+	this.setTwitterAPI	= setTwitterAPI;
+	this.twitterAPI;
 	
 	this.getElement	= function () { return element; };
-	
+
 	mediaParser.addEventListener('onImageData', onImageData);
 	
 	function setData(d)
@@ -85,7 +87,7 @@ function Tweet()
 	{
  	 	var thumb		= new Image();
 		thumb.onload 	= decorateImg;
-		// thumb.onerror	= removeImg
+		thumb.onerror	= removeImg
 		thumb.src 	 	= e.target.thumb;
 		self.largeImage	= e.target.largeImage;
 		
@@ -120,6 +122,18 @@ function Tweet()
 	}
 	
 	
+	function setTwitterAPI( t )
+	{
+		self.twitterAPI = t;
+		self.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+		// this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+	}
+	function onLoggedStateChange( e )
+	{
+		Log('logged in state changed to: '+e.target.loggedIn);
+	}
+	
+	
 	function onClickReply()
 	{
 		dispatchEvent('onReply', self);
@@ -150,7 +164,6 @@ function Tweet()
 	
 	function onPhotoClick()
 	{
-		Log('image: '+self.largeImage);
 		dispatchEvent('onPhotoClick' , self);
 	}
 	
