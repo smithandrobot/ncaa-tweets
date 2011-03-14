@@ -291,7 +291,7 @@ function TweetListController()
 	function openSpiritBubble()
 	{
  		var t = $('.spirit-bubble').text(); 
-		modalTweetBox.open('Go '+t); 
+		modalTweetBox.open(t); 
 	}
 	
 	

@@ -239,7 +239,7 @@ noscript div, .warning {
 #timeline-container-top-shadow
 {
 	position:absolute;
-	width:350px;
+	width:347px;
 	height:20px;
 	background: url("../img/sprites.png") no-repeat;
 	background-position:-32px -625px;
@@ -573,7 +573,7 @@ noscript div, .warning {
 
 #timeline-container {
     background-color:#000;
-    padding-top:25px;
+    padding-top:15px;
     -moz-border-radius:0px 0px 5px 5px; 
     -webkit-border-radius: 0px 0px 5px 5px; 
     border-radius: 0px 0px 5px 5px;
@@ -801,6 +801,7 @@ noscript div, .warning {
 {
     width:330px;
     margin:3px 10px;
+    margin-top:15px;
 	display:none;
 }
 

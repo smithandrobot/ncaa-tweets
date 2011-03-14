@@ -200,12 +200,7 @@ function GameController(gameData, model)
     }
 
     function hashTagClick(obj) {
-        if ($(this).text() != "#mm2011") {
-            self.hashTag = "Go " + $(this).text() + "!";
-        } else {
-            self.hashTag = "#mm2011";
-        }
-
+        self.hashTag = $(this).text();
         dispatchEvent("onHashTagClick", self);
         return false;
     }
