@@ -40,10 +40,10 @@ function TeamSelectorController()
         $.template("columns", columns);
 
         var columnList = [
-            teamData.splice(0, 10),
-            teamData.splice(0, 12),
-            teamData.splice(0, 12),
-            teamData.splice(0, 10),
+            teamData.splice(0, 11),
+            teamData.splice(0, 11),
+            teamData.splice(0, 11),
+            teamData.splice(0, 11),
             teamData.splice(0, 12),
             teamData.splice(0, 12)
         ]
@@ -63,7 +63,7 @@ function TeamSelectorController()
             },
             style: {
                 tip: 'bottomRight',
-                width: 700,
+                width: 870,
                 border: {
                     width: 0,
                     radius: 5,
@@ -72,7 +72,7 @@ function TeamSelectorController()
             },
             position: {
                 corner: {
-                    target: 'topMiddle',
+                    target: 'topRight',
                     tooltip: 'bottomRight'
                 }
             }

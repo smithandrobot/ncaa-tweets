@@ -814,7 +814,8 @@ span#counter {
 .qtip-content {
     text-shadow:none;
     font-family: Helvetica, Arial, sans-serif;
-    font-size:10px;
+    font-size:9px;
+    padding-left:5px;
 }
 
 .qtip-content li{
@@ -828,7 +829,7 @@ span#counter {
 .team-column {
     float:left;
     margin-right:10px;
-    width:100px;
+    width:130px;
 }
 
 #show-all  {
