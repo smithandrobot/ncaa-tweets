@@ -130,6 +130,7 @@ function GameController(gameData, model)
                 c.customData = {}
                 c.customData.hashTag = "#team"
                 c.hashTag = "#team"
+                c.customData.seed = ''
                 c.customData.mentions = 0
                 c.name = c.shortName
             } else {
