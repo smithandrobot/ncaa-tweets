@@ -298,9 +298,9 @@ function TweetListController()
 	function enableShowAllTeams()
 	{
 		var s = $('#show-all-streams');
-		s.click( function(){ selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
+		s.click( function(){ $.cookie('team', null); selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
 		s.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
-		$.cookie('team', null);
+		
 	}
 	
 	function enableLoadMore()

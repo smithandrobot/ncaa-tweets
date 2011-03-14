@@ -236,6 +236,28 @@ noscript div, .warning {
 	pointer-events: none;
 }
 
+#timeline-container-top-shadow
+{
+	position:absolute;
+	width:350px;
+	height:20px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-32px -625px;
+	top:10px;
+	pointer-events: none;
+}
+
+#timeline-container-bottom-shadow
+{
+	position:relative;
+	width:350px;
+	height:20px;
+	background: url("../img/sprites.png") no-repeat;
+	background-position:-32px -604px;
+	top:-20px;
+	pointer-events: none;
+}
+
 .game
 {
 	width:468px;
@@ -471,6 +493,11 @@ noscript div, .warning {
 	word-wrap:break-word;
 }
 
+#atanywhere-container .tweet{
+    min-height:110px;
+}
+
+
 
 /* end @anywhere module */
 
@@ -546,10 +573,11 @@ noscript div, .warning {
 
 #timeline-container {
     background-color:#000;
-    padding-top:10px;
+    padding-top:25px;
     -moz-border-radius:0px 0px 5px 5px; 
     -webkit-border-radius: 0px 0px 5px 5px; 
     border-radius: 0px 0px 5px 5px;
+    position:relative;
 }
 #timeline {
     padding:10px 0;
@@ -814,7 +842,8 @@ span#counter {
 .qtip-content {
     text-shadow:none;
     font-family: Helvetica, Arial, sans-serif;
-    font-size:10px;
+    font-size:9px;
+    padding-left:5px;
 }
 
 .qtip-content li{
@@ -828,7 +857,7 @@ span#counter {
 .team-column {
     float:left;
     margin-right:10px;
-    width:100px;
+    width:130px;
 }
 
 #show-all  {
