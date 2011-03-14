@@ -423,6 +423,8 @@ noscript div, .warning {
 
 .team-mentions-small { font-size: 13px; color: #555; text-shadow: #999 0px 1px 0px; }
 
+.team-mentions-large { font-size: 17px; text-shadow: black 0px -1px 0px; color: #FC6; }
+
 
 
 .team-mentions-large
