@@ -47,7 +47,7 @@ function ReTweetModal( overlay )
 		var html = t.getElement().clone();
 
 		element.find('.modal-dialog').text('Retweet this from '+t.screenName)
-		element.find('.confirmation').html('You retweeted<br/>'+t.screenName+'\'s tweet.')
+		element.find('.confirmation').html('You retweeted<br/>'+t.screenName+'\'s Tweet.')
 		html.find('.tweet-profile-image').remove();
 		html.find('.tweet-utility').remove();
 		html.find('.tweet-attachment').remove();
@@ -164,17 +164,6 @@ function ReTweetModal( overlay )
 		}	
 		
 		return validUser;
-	}
-	
-	function retweetSuccess( e )
-	{
-		Log('retweet success! info follows: ')
-		{
-			for(var i in e)
-			{
-				Log('e.'+i+' = '+e[i]);
-			}
-		}
 	}
 	
 	

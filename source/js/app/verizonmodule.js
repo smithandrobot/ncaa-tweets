@@ -46,7 +46,7 @@ function VerizonModule()
 		
 		if(data.length <= 0) 
 		{
-			element.find('.tweet-text').html('<p>Loading Verizon tweets...</p>');
+			element.find('.tweet-text').html('<p>Loading Verizon Tweets...</p>');
 			return;
 		}
 		
