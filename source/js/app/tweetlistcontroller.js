@@ -4,7 +4,7 @@ TweetListController.constructor = TweetListController;
 function TweetListController() 
 {
 	var UPDATE		= 1000*10;
-	var startUpTimer= 1000;
+	var startUpTimer= 500;
 	var autoStartInt= null;
 	var feed		= null;
 	var feedURL		= null;
