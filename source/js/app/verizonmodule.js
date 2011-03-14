@@ -13,7 +13,7 @@ function VerizonModule()
 	var questionModel 	= new TRModel();
 	var questionSinceID = null;
 	var sinceID			= null;
-	var feedServer 		= 'http://tr-cache-2.appspot.com/smithandrobot/';
+	var feedServer 		= 'http://tweetriver.com/mr_mm_2011/';
 	var tweet			= null;
 	var qInterval		= null;
 	var tInterval		= null;
@@ -25,11 +25,12 @@ function VerizonModule()
 	/* INITIALIZE */
 	
 	model.addEventListener('onDataChange', onDataChange);
-	model.setStream( feedServer + 'actionscript.json' );
+	Log(feedServer + 'mm-2011-verizon.json')
+	model.setStream( feedServer + 'mm-2011-verizon.json' );
 	model.load();
 	
 	questionModel.addEventListener('onDataChange', onQuestionData);
-	questionModel.setStream( feedServer + 'questions.json' );
+	questionModel.setStream( feedServer + 'mm-2011-verizon-questions.json' );
 	questionModel.load();
 	
 
@@ -42,6 +43,13 @@ function VerizonModule()
 	function onDataChange( e )
 	{
 		var data = e.target.getData();
+		
+		if(data.length <= 0) 
+		{
+			element.find('.tweet-text').html('<p>Loading Verizon tweets...</p>');
+			return;
+		}
+		
 		setData(data[0])
 	}
 	
@@ -50,6 +58,7 @@ function VerizonModule()
 	{
 		var data = e.target.getData();
 		var label = $("#tbox iframe").contents().find("label");
+		
 		label.text(data[0].text);
 		clearInterval(qInterval);
 		qInterval = setTimeout(questionModel.load, UPDATE)
