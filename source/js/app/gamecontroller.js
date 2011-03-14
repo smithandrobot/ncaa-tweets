@@ -29,6 +29,7 @@ function GameController(gameData, model)
         model.addEventListener("onTeamModelReady", onTeamUpdate)
         var viewData = sanitizeData(data)
         self.view = createView(viewData)
+        visualizeWL()
         //self.view.appendTo("#schedule-container");
     }
     
@@ -46,6 +47,7 @@ function GameController(gameData, model)
             self.visitorMentions.text(v.mentions)
         }
         compareMentions()
+        visualizeWL()
     }
     
     function createView(viewData) {
@@ -63,6 +65,9 @@ function GameController(gameData, model)
         
         self.visitorScore = template.find('.team-visiting .team-score')
         self.homeScore = template.find('.team-home .team-score')
+        
+        
+        
         self.period = template.find('.game-period')
         self.visitorMentions = template.find('.team-visiting .mentions')
         self.homeMentions = template.find('.team-home .mentions')
@@ -77,6 +82,19 @@ function GameController(gameData, model)
         template.find('.hashtag').click(hashTagClick)
         compareMentions()
         return template
+    }
+    
+    function visualizeWL(){
+        if(self.visitorScore.text() > self.homeScore.text()){
+            self.view.find('.team-home .team-name').addClass('game-losing')
+            self.view.find('.team-visiting .team-name').removeClass('game-losing')
+        } else if(self.visitorScore.text() < self.homeScore.text()){
+            self.view.find('.team-home .team-name').removeClass('game-losing')
+            self.view.find('.team-visiting .team-name').addClass('game-losing')
+        } else {
+            self.view.find('.team-home .team-name').removeClass('game-losing')
+            self.view.find('.team-visiting .team-name').removeClass('game-losing')
+        }
     }
     
     function compareMentions(){
@@ -95,7 +113,7 @@ function GameController(gameData, model)
         self.homeScore.text(viewData.homeTeam.score)
         self.period.text(viewData.game.period)
         self.view.data(viewData)
-
+        visualizeWL()
         if (viewData.game.status == "final") {
             self.view.addClass('game-final')
         }
