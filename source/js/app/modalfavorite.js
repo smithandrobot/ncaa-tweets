@@ -59,7 +59,9 @@ function FavoriteModal( overlay )
 	{
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
 		
+		es.hide();
 		as.hide();
 		cs.show();
 	}
@@ -68,9 +70,24 @@ function FavoriteModal( overlay )
 	function showActionScreen()
 	{
 		var cs = element.find('.confirmation-screen');
-		var as = element.find('.action-screen');	
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.hide();	
 		cs.hide();
 		as.show();
+	}
+	
+	
+	function showErrorScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.show();
+		as.hide();
+		cs.hide();
 	}
 	
 	
@@ -105,8 +122,9 @@ function FavoriteModal( overlay )
 		}
 		
 		var t = self.twitterProxy.twitterOBJ;
-		t.Status.favorite( tweetID );
-		showConfirmScreen();
+		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
+		t.Status.favorite( tweetID, callbacks );
+		// showConfirmScreen();
 	}
 	
 	

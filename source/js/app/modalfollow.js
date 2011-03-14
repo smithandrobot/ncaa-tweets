@@ -59,18 +59,35 @@ function ModalFollow( overlay )
 	{
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
 		
-		self.tweet = tweet;
+		es.hide();
 		as.hide();
 		cs.show();
 	}
 	
+	
 	function showActionScreen()
 	{
 		var cs = element.find('.confirmation-screen');
-		var as = element.find('.action-screen');	
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.hide();	
 		cs.hide();
 		as.show();
+	}
+	
+	
+	function showErrorScreen()
+	{
+		var cs = element.find('.confirmation-screen');
+		var as = element.find('.action-screen');
+		var es = element.find('.error-screen');
+		
+		es.show();
+		as.hide();
+		cs.hide();
 	}
 	
 	
@@ -101,9 +118,10 @@ function ModalFollow( overlay )
 		
 		var t = self.twitterProxy.twitterOBJ;
 		Log('follow user: '+user)
+		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
 		var u = t.User.find( user );
-		u.follow();
-		showConfirmScreen();
+		u.follow(callbacks);
+		// showConfirmScreen();
 	}
 	
 	

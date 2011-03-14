@@ -49,6 +49,16 @@
 	font-size:14px;
 	font-weight:bold;
 }
+
+.modal .error-screen *
+{
+	width:100%;
+	text-align:center;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+}
+
 .modal-tweet-container
 {
 	margin-top:10px;
