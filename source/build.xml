@@ -75,6 +75,9 @@
 	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats js/thirdparty/ ${deploy}/js/thirdparty/" />
 	</exec>
+	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
+		<arg line="rsync -vur --stats fonts/ ${deploy}/fonts/" />
+	</exec>
 	
 	<delete dir="${build}"/>
 	

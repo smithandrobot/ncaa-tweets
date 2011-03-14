@@ -128,8 +128,8 @@ function GameController(gameData, model)
             
             if(c.customData == undefined){
                 c.customData = {}
-                c.customData.hashTag = "#team"
-                c.hashTag = "#team"
+                c.customData.hashTag = "&nbsp;"
+                c.hashTag = "&nbsp;"
                 c.customData.seed = ''
                 c.customData.mentions = 0
                 c.name = c.shortName
