@@ -190,7 +190,10 @@ function GameController(gameData, model)
 
     function teamClick(obj) {
         self.selected = obj.data.teamId
-        dispatchEvent("onTeamSelect", self);
+        if(obj.data.teamId.name != 'TBA'){
+            dispatchEvent("onTeamSelect", self);
+        }
+        
     }
 
     function hashTagClick(obj) {

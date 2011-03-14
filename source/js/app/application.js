@@ -1,9 +1,12 @@
+var a;
+
 $(document).ready(function() {
-    var a = new Application();
+    a = new Application();
 });
 
 function Application()
  {
+    
     var server    = 'http://tr-cache-2.appspot.com/massrelevance/';
     var schedules = new ScheduleController();
     var tweetlist = new TweetListController();
@@ -23,7 +26,7 @@ function Application()
         teams.removeEventListener("onTeamModelReady", this)
         nav.addEventListener('onRoundSelect', onRoundSelect);
         nav.setAvailableRounds(['round1', 'round2'])
-        nav.activateRound('round1');
+        
         
         selector.addEventListener('onTeamSelect', onTeamSelect)
         selector.buildList(teams)
@@ -31,9 +34,9 @@ function Application()
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
         schedules.setTeamModel(teams)
+        nav.activateRound('round1');
         
     }
-    
     
     
     function onRoundSelect(e) {
