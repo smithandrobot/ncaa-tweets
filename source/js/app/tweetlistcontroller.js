@@ -63,8 +63,7 @@ function TweetListController()
 	
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
-	
-	
+
 	autoStartInt = setTimeout(autoStart, startUpTimer);
 	
 	function autoStart()
@@ -75,7 +74,7 @@ function TweetListController()
 	function selectTeam( team )
 	{
 		clearInterval(autoStartInt);
-		Log('team selected! '+team)
+
 		var obj 	= team.team;
 		var name 	= (team.team.displayName) ? team.team.displayName : obj.name;
 		var hState 	= (name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
@@ -291,8 +290,8 @@ function TweetListController()
 
 	function openSpiritBubble()
 	{
- 		var t = $('.spirit-bubble').text().split(' '); 
-		modalTweetBox.open('Go '+t[1]); 
+ 		var t = $('.spirit-bubble').text(); 
+		modalTweetBox.open('Go '+t); 
 	}
 	
 	
@@ -332,7 +331,7 @@ function TweetListController()
 	{
 		if( state == 'show' )
 		{
-			$('.spirit-bubble').text('go '+t)
+			$('.spirit-bubble').text(t)
 			$('#team-selector').hide();
 			$('.spirit-bubble').show();	
 			$('#show-all-streams').show();

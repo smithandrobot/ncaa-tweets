@@ -134,7 +134,7 @@ function ModalTweetBox( overlay )
 	{
 		
 		var tObj =	{
- 			    		height: 70,
+ 			    		height: 80,
  			    		width: 230,
  			    		defaultContent: h,
  						complete: styleTweetBox,
@@ -157,15 +157,16 @@ function ModalTweetBox( overlay )
 		var fontSize = label.css('fontSize');	
 		label.css('font-size', 12);
 		label.css('color', "#fff");
-		counter.css('position', 'absolute');
+		// counter.css('position', 'absolute');
 		counter.css('color', "#fff");
-		counter.css('left', '260px');
-		counter.css('top', '5px');
+		counter.css('left', '100px');
+		// counter.css('top', '0px');
 		counter.css('text-align', 'right');
 		counter.css('width', 80);
 		counter.css('font-size', 12);
 		box.css('background', 'transparent');
 		box.css('color', '#fff');
+		box.css('font-size', '11px');
 		button.css('background', '#D53D36');
 		button.css('border', 'none');
 		formButton.css('color', '#000');
