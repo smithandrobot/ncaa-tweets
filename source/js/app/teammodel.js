@@ -3,7 +3,7 @@ TeamsModel.constructor = TeamsModel;
 function TeamsModel() 
 {
 	var self = this;
-	var feedURL = 'mock/streams.json';
+	var feedURL = 'http://tweetriver.com/mr_mm_2011.json';
 	var model = new TRModel();
 	model.addEventListener('onDataChange', onDataChange);
 	var team_schema = null;
@@ -20,12 +20,12 @@ function TeamsModel()
 	    Log('Fetching team data')
 	    self.team_schema = {}
 	    model.setStream(feedURL);
-        model.loadJSON();
+        model.load(null, 'jsonp');
 	}
 	
 	function poll()
     {
-        model.loadJSON();
+        model.load(null, 'jsonp');
     }
     
 	function onDataChange(e)
@@ -57,7 +57,11 @@ function TeamsModel()
                 var breaks = stream.name.split('-')
 
                 if(breaks.length == 3){
-                    self.team_schema[breaks[2]].mentions = stream.count.total
+                    var team = self.team_schema[breaks[2]]
+                    if(team){
+                        team.mentions = stream.count.total
+                    }
+                    
                 }
             }
         }

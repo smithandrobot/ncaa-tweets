@@ -136,7 +136,12 @@ function GameController(gameData, model)
                 self.teams.setTeamColor(c.shortName, c.color)
             }
             
+            if(c.name.length > 22){
+                c.name = c.shortName;
+            }
+            
         }
+        
         
         if (data.eventstatus.status == "FINAL") {
             templateData.game.status = "final"

@@ -72,7 +72,7 @@ function TRModel( URL )
 		aObj.success 	= onStreamLoaded;
 		aObj.error 		= onStreamError;
 		aObj.jsonpCallback  = callbackName;
-		
+		Log(aObj)
  		$.ajax(aObj); 
 	}
 	

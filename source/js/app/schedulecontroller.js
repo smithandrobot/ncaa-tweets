@@ -7,8 +7,7 @@ function ScheduleController()
     var selected = null;
     var hashTag = null;
     var model = new TRModel();
-    var scoringModel = new TRModel();
-    var feedURL = 'mock/fullcombo.json';
+    var feedURLs = [];
     var INTERVAL_TIME = 1000 * 5;
     var interval = null;
     var games = []
@@ -16,9 +15,10 @@ function ScheduleController()
     var scheduleData = null;
     var firstActive = null;
     var teams = null;
+    var scroller = null;
+    var streamLoadCount = 0;
 
     model.addEventListener('onDataChange', onDataChange);
-    scoringModel.addEventListener('onDataChange', onScoreChange);
 
     self.loadRound = loadRound;
     self.setTeamModel = setTeamModel;
@@ -28,6 +28,7 @@ function ScheduleController()
     }
     
     function loadRound(round) {
+        getFeedsForRound(round)
         
         Log('Loading round: ' + round)
         games = []
@@ -35,6 +36,23 @@ function ScheduleController()
         loadFeed();
         $('#scoreboard-loader').show();
         self.loadedRound = round
+        
+    }
+    
+    function getFeedsForRound(round){
+        var dates = getRoundDates(round)
+        var r = [dates.start.clone()]
+        feedURLs = []
+        while(dates.start < dates.end){
+            dates.start.add({ days: 1})
+            var d = dates.start.clone()
+            r.push(d)
+        }
+        
+        for(var d in r){
+            var feed = 'mock/events-' + r[d].toString('yyyyMMdd') + '.json'
+            feedURLs.push(feed)
+        }
         
     }
 
@@ -45,10 +63,20 @@ function ScheduleController()
         var roundDates = getRoundDates(round)
         for(var g in self.scheduleData){
             var game = self.scheduleData[g]
-            var gDate = Date.parse(game.date)
-            if(gDate.between(roundDates.start, roundDates.end)){
+            //Log(game)
+            var allow = true
+            for(c in game.competitor){
+                if(!self.teams.getTeam(game.competitor[c].shortName)){
+                    if(game.competitor[c].shortName != "TBA"){
+                        allow = false;
+                    }
+                    
+                }
+            }
+            if(allow){
                 eligibleGames.push(game)
             }
+            
         }
         
         return eligibleGames
@@ -56,7 +84,12 @@ function ScheduleController()
 
     function poll()
     {
-        model.loadJSON();
+        getFeedsForRound(self.loadedRound)
+        for(var f in feedURLs){
+            model.setStream(feedURLs[f]);
+            model.loadJSON();
+        }
+        Log('Polling scores..')
     }
 
     function onDataChange(e)
@@ -66,7 +99,10 @@ function ScheduleController()
         
         var gameList = getGamesForRound(self.loadedRound)
         
-        if (games.length == 0) {
+
+        
+        if (streamLoadCount > 0) {
+            streamLoadCount--;
             $('#scoreboard-loader').hide();
             $(gameList).each(function() {
                 var game = renderGame($(this)[0])
@@ -74,52 +110,27 @@ function ScheduleController()
                     self.firstActive = game;
                 }
             })
-            addScrollbar()
+            
             if(self.firstActive){
                 var pos = self.firstActive.view.position();
                 //$("#schedule_list .scrollbar-pane").css('top', pos.top)
                 //$("#schedule-container").scrollTop(pos.top)
             }
+            
+            if(streamLoadCount == 0){
+                addScrollbar()
+            }
         } else {
+            
             $(gameList).each(function() {
                 updateGame($(this)[0])
             })
         }
 
-        clearInterval(self.interval)
-        self.interval = setInterval(poll, INTERVAL_TIME);
+        
     }
     
-    function onScoreChange(e)
-    {
-        var data = e.target.getData()
-        self.scheduleData = data.events.event
-        
-        var gameList = getGamesForRound(self.loadedRound)
-        
-        if (games.length == 0) {
-            $('#scoreboard-loader').hide();
-            $(gameList).each(function() {
-                var game = renderGame($(this)[0])
-                if(game.active && self.firstActive == null){
-                    self.firstActive = game;
-                }
-            })
-            addScrollbar()
-            if(self.firstActive){
-                var pos = self.firstActive.view.position();
-                //$("#schedule_list .scrollbar-pane").css('top', pos.top)
-                //$("#schedule-container").scrollTop(pos.top)
-            }
-        } else {
-            $(gameList).each(function() {
-                updateGame($(this)[0])
-            })
-        }
-
-        clearInterval(self.interval)
-        self.interval = setInterval(poll, INTERVAL_TIME);
-    }
+    
 
     function renderGame(data) {
         
@@ -155,17 +166,21 @@ function ScheduleController()
 
     function loadFeed()
     {
-
-        model.setStream(feedURL);
-        model.loadJSON();
-
+        streamLoadCount = feedURLs.length
+        for(var f in feedURLs){
+            model.setStream(feedURLs[f]);
+            model.loadJSON();
+        }
+        
+        clearInterval(self.interval)
+        self.interval = setInterval(poll, INTERVAL_TIME);
     }
 
 
 
     function addScrollbar() {
        
-        var sb = $('.schedule-scrollbar').scrollbar({
+        scroller = $('.schedule-scrollbar').scrollbar({
             handleHeight: 151,
             arrows: false
         });
@@ -188,28 +203,28 @@ function ScheduleController()
         
         rounds = {
             'round1': {
-                'start': new Date(2011, 2, 13, 0, 0, 0),
-                'end': new Date(2011, 2, 16, 23, 59, 0)
+                'start': new Date(2011, 2, 15),
+                'end': new Date(2011, 2, 16)
             },
             'round2': {
-                'start': new Date(2011, 2, 17, 0, 0, 0),
-                'end': new Date(2011, 2, 18, 23, 59, 0)
+                'start': new Date(2011, 2, 17),
+                'end': new Date(2011, 2, 18)
             },
             'round3': {
-                'start': new Date(2011, 2, 19, 0, 0, 0),
-                'end': new Date(2011, 2, 20, 23, 59, 0)
+                'start': new Date(2011, 2, 19),
+                'end': new Date(2011, 2, 20)
             },
             'regionals': {
-                'start': new Date(2011, 2, 24, 0, 0, 0),
-                'end': new Date(2011, 2, 27, 23, 59, 0)
+                'start': new Date(2011, 2, 24),
+                'end': new Date(2011, 2, 27)
             },
             'finals': {
-                'start': new Date(2011, 3, 2, 0, 0, 0),
-                'end': new Date(2011, 3, 2, 23, 59, 0)
+                'start': new Date(2011, 3, 2),
+                'end': new Date(2011, 3, 2)
             },
             'championship': {
-                'start': new Date(2011, 3, 4, 0, 0, 0),
-                'end': new Date(2011, 3, 4, 23, 59, 0)
+                'start': new Date(2011, 3, 4),
+                'end': new Date(2011, 3, 4)
             }
             
         }
