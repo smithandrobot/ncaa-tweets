@@ -140,12 +140,14 @@ function Tweet()
 	function onClickReply()
 	{
 		dispatchEvent('onReply', self);
+		pageTracker._trackPageview('/reply/');
 	}
 	
 	
 	function onClickFollow()
 	{
 		dispatchEvent('onFollow', self);
+		pageTracker._trackPageview('/followed/');
 	}	
 	
 	
@@ -153,6 +155,7 @@ function Tweet()
 	{
 		Log('onClickReTweet');
 		dispatchEvent('onReTweet', self);
+		pageTracker._trackPageview('/retweeted/');
 	}
 	
 	
@@ -165,6 +168,7 @@ function Tweet()
 		if(type == 'Unfavorite') $(this).find('b').text('Favorite');
 		
 		dispatchEvent('onFavorite', self);
+		pageTracker._trackPageview('/favorited/');
 	}
 	
 	
