@@ -27,6 +27,7 @@ function TeamSelectorController()
         var columnData = []
         
         var teamlist = self.teams.getAll();
+        //teamlist = teamlist.sort(function(a,b){return a.name - b.name})
         for (t in teamlist) {
             teamData.push({
                 'shortName': teamlist[t].shortName,
@@ -40,11 +41,11 @@ function TeamSelectorController()
 
         var columnList = [
             teamData.splice(0, 10),
+            teamData.splice(0, 12),
+            teamData.splice(0, 12),
             teamData.splice(0, 10),
-            teamData.splice(0, 10),
-            teamData.splice(0, 10),
-            teamData.splice(0, 13),
-            teamData.splice(0, 13)
+            teamData.splice(0, 12),
+            teamData.splice(0, 12)
         ]
 
         var teamListView = $.tmpl("columns", {
