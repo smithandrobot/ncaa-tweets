@@ -15,12 +15,14 @@ function TwitterProxy()
 	function init( t )
 	{
 		twitterOBJ = t;
-		// twitterOBJ
+
 		self.twitterOBJ = t;
 		dispatchEvent('onReady', self);
 
 		twitterOBJ.bind("authComplete", signIn);
 		twitterOBJ.bind("signOut", signOut);
+		
+		if( isConnected() ) signIn();
 	}
 
 

@@ -28,13 +28,13 @@ function Tweet()
 	this.following;
 	this.tweets;
 	this.largeImage;
-	this.remove = remove;
-	this.updateTime = updateTime;
+	this.remove 		= remove;
+	this.updateTime 	= updateTime;
+	this.setTwitterAPI	= setTwitterAPI;
 	this.twitterAPI;
 	
 	this.getElement	= function () { return element; };
-	this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
-	// this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+
 	mediaParser.addEventListener('onImageData', onImageData);
 	
 	function setData(d)
@@ -122,6 +122,12 @@ function Tweet()
 	}
 	
 	
+	function setTwitterAPI( t )
+	{
+		self.twitterAPI = t;
+		self.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+		// this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+	}
 	function onLoggedStateChange( e )
 	{
 		Log('logged in state changed to: '+e.target.loggedIn);

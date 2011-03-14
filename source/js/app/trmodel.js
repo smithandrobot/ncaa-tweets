@@ -4,48 +4,51 @@ TRModel.constructor.id = 0;
 
 function TRModel( URL )
 {	
-	var self = this;
-	var pollInterval = 200;
-	var stream = URL;
-	var data;
-	var loaded = false;
-	var date = new Date();
-	var type;
-	var maxAttempts = 5;
-	var attempt = 0;
+	var self 			= this;
+	var pollInterval 	= 1000;
+	var stream 			= URL;
+	var data			= null;
+	var loaded 			= false;
+	var date 			= new Date();
+	var type			= null;
+	var maxAttempts 	= 5;
+	var attempt 		= 0;
 	var attemptInterval = 1000*1;
-	var errorPoll;
-	var error = false;
-	var loadCallback;
+	var error 			= false;
+	var loadCallback	= null;
+	var attemptInt		= null;
 	
-	this.name  = 'model'
-	this.id = "TR_MODEL_"+(++TRModel.constructor.id);
+	this.name  		= 'model'
+	this.id 		= "TR_MODEL_"+(++TRModel.constructor.id);
 
-	this.getStream = function() { return stream; };
-	this.setStream = function( s ) { stream = s; };
-	this.getData = function() { return data; };
-	this.setType = function(t) { type = t; };
-	this.getType = function() { return type; };
+	this.getStream 	= function() { return stream; };
+	this.setStream 	= function( s ) { stream = s; };
+	this.getData 	= function() { return data; };
+	this.setType 	= function(t) { type = t; };
+	this.getType 	= function() { return type; };
 	
-	this.load = loadCustomCallBack;
-	this.loadJSON = loadJSON;
-	this.toString = function() { return "TRModel: "+this.id};
-	this.poll = poll;
+	this.load 		= loadCustomCallBack;
+	this.loadJSON 	= loadJSON;
+	this.toString 	= function() { return "TRModel: "+this.id};
+	this.poll 		= poll;
 	this.trCallback = trCallback;
+	
 	
 	function onStreamError (xmlhttp, txtstatus, errorThrown)
 	{
 		error = true;
 		++attempt;
-		if(attempt == maxAttempts) 
+		if(attempt >= maxAttempts) 
 		{
-			//Log('attempt: '+attempt+' stopping further attempts');
+			Log('attempt: '+attempt+' stopping further attempts in stream: '+stream);
+			clearInterval(attemptInt);
+			dispatchEvent("onModelError", self);
 			return;
 		}
 		
-		Log('unable to load stream attempt: '+attempt)
-		dispatchEvent("onModelError", self);
-		setTimeout(loadCallback, attemptInterval);
+		Log('unable to load stream attempt: '+attempt+' stream: '+stream);
+		clearInterval(attemptInt);
+		attemptInt = setTimeout(loadCallback, attemptInterval);
 	}
 
 	function onStreamLoaded(d)
@@ -58,20 +61,19 @@ function TRModel( URL )
 	
 	function loadCustomCallBack( sinceID , callback)
 	{
-		var aObj = {};
-		var callbackName = 'trCallback_'+String(self.id)+'_x';
-		var since = ( sinceID ) ? '?since_id='+sinceID : '';
-        loadCallback = loadCustomCallBack
+		var aObj 			 = {};
+		var callbackName 	 = 'trCallback_'+String(self.id)+'_x';
+		var since 			 = ( sinceID ) ? '?since_id='+sinceID : '';
+        loadCallback 		 = loadCustomCallBack
 		window[callbackName] = self.trCallback;
 		
-		aObj.url 		= stream+since;
+		aObj.url 			 = stream+since;
 		if( callback ) aObj.jsonp = callback;
-		aObj.cache 		= true;
-		aObj.dataType 	= 'jsonp';
-		//aObj.data 		= {req_time : Math.floor(date.getTime()/1000)};
-		aObj.success 	= onStreamLoaded;
-		aObj.error 		= onStreamError;
-		aObj.jsonpCallback  = callbackName;
+		aObj.cache 			 = true;
+		aObj.dataType 		 = 'jsonp';
+		aObj.success 		 = onStreamLoaded;
+		aObj.error 			 = onStreamError;
+		aObj.jsonpCallback   = callbackName;
 		
  		$.ajax(aObj); 
 	}
@@ -79,7 +81,6 @@ function TRModel( URL )
 	
 	function loadJSON()
 	{
-
 	    loadCallback = loadJSON
 		var aObj 		= {};		
 		aObj.url 		= stream
@@ -91,17 +92,9 @@ function TRModel( URL )
 	}
 
 	
-	function poll( sinceID )
-	{
-		loadCustomCallBack( sinceID )
-		//$.ajax({ url: url, dataType: 'jsonp', success: onStreamLoaded, error: onStreamError });
-	}
-	
-	
-	function trCallback( d )
-	{
-		//Log('trcallback data: '+d);
-	}
+	function poll( sinceID ) { loadCustomCallBack( sinceID ) };
+		
+	function trCallback( d ) { }
 		
 	return this;
 };

@@ -63,6 +63,7 @@ function TweetListController()
 	Tweet.constructor.tweetTemplate = $('#template-tweet').html();
 	$('#template-tweet').remove();
 	
+	
 	autoStartInt = setTimeout(autoStart, startUpTimer);
 	
 	function autoStart()
@@ -127,7 +128,7 @@ function TweetListController()
 	
 	function onDataUpdate( e )
 	{
-		// Log('updating new tweets: '+e.target.getData().length);
+		Log('updating new tweets: '+e.target.getData().length);
 		var data = e.target.getData();
 		var total = data.length-1;
 		var i = 0;
@@ -142,7 +143,7 @@ function TweetListController()
 			for(i;i<=total;i++)	
 			{
 				t = new Tweet();
-				t.twitterAPI = twitterProxy;
+				t.setTwitterAPI(twitterProxy);
 				t.setData(data[i]);
 				newTweets.push(t)
 			}
@@ -170,12 +171,14 @@ function TweetListController()
 		tweets 	  = new Array();
 		
 		element.css('opacity', 0);
+
 		$('#loadmore-count').hide();
+		$('#loadmore').show(); // need to show the container only once
 		
 		for(i;i<=total;i++)	
 		{
 			t = new Tweet();
-			t.twitterAPI = twitterProxy;
+			t.setTwitterAPI(twitterProxy);
 			tweets.push(t);
 			addListeners( t );
 			t.setData(data[i]);

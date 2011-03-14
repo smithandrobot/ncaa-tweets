@@ -750,11 +750,18 @@ noscript div, .warning {
     color:#fff;
 }
 
-#loadmore {
+#loadmore 
+{
     width:330px;
     margin:3px 10px;
 	display:none;
 }
+
+
+#loadmore-count {
+	display:none;
+}
+
 #loadmore a{
     background-color:#fff;
     display:block;
