@@ -35,6 +35,8 @@ function Tweet()
 	this.twitterAPI;
 	this.favoriteType;
 	this.followType;
+	this.toggleFavorite = toggleFavorite;
+	this.toggleFollow 	= toggleFollow;
 	
 	this.getElement	= function () { return element; };
 
@@ -180,7 +182,8 @@ function Tweet()
 	{
 		var type = element.find('.action-favorite').text();
 		var t = (type == 'Favorite') ? 'Unfavorite' : 'Favorite';
-		$(this).find('b').text(t);
+	// 	Log('toggleFavorite: '+type+', '+t);
+		element.find('.action-favorite b').text(t);
 	}
 	
 	

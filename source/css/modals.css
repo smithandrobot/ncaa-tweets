@@ -41,7 +41,7 @@
 	text-shadow:none;
 }
 
-.modal .confirmation-screen *
+.modal .confirmation-screen
 {
 	width:100%;
 	text-align:center;
@@ -50,7 +50,7 @@
 	font-weight:bold;
 }
 
-.modal .error-screen *
+.modal .error,.confirmation
 {
 	width:100%;
 	text-align:center;
@@ -126,6 +126,8 @@
 {
 	background-position:-305px -398px;
 	margin:10px 0px 0px 87px;
+	width:64px;
+	height:21px;
 	float:none;	
 }
 
