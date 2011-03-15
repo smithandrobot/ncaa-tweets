@@ -12,6 +12,7 @@ body, div {
 	font-size: 13px;
 	line-height: 1.4;
 	text-shadow: #000000 0px 0px 3px;
+	
 	}
 	
 .warning a {
@@ -67,9 +68,7 @@ noscript div, .warning {
 }
 /* End Common */
 
-#container {
-    margin-bottom:30px;
-}
+
 #content
 {
 	width: 924px;
@@ -109,7 +108,7 @@ noscript div, .warning {
 
 #tournament_nav
 {
-	margin-top:240px;
+	margin-top:250px;
 	margin-left:-10px;
 	width:508px;
 	vertical-align:bottom;
@@ -480,9 +479,9 @@ noscript div, .warning {
 /* @anywhere module */
 
 #atanywhere-container{
-    height:310px;
+    height:330px;
 	width:339px;
-    margin:30px 0 0px 0;
+    margin:10px 0 0px 0;
     padding:10px 10px 0px 10px;
 /*	border:1px solid red;*/
 }
@@ -497,12 +496,13 @@ noscript div, .warning {
 
 #atanywhere-container .tweet-text{
     font-size:16px;
-    font-weight:bold;
+    font-weight:normal;
+    line-height:110%;
 	word-wrap:break-word;
 }
 
 #atanywhere-container .tweet{
-    min-height:110px;
+    min-height:115px;
 }
 
 

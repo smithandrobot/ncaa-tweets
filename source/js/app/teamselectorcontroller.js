@@ -55,9 +55,7 @@ function TeamSelectorController()
         $('#team-selector a').qtip({
             content: teamListView,
             show: 'mouseover',
-            hide: {
-                fixed: true
-            },
+            hide: { when: 'mouseout', fixed: true, delay:500 },
             api : {
                 onRender:activateLinks
             },
