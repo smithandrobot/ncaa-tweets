@@ -160,6 +160,7 @@ function Tweet()
 	function onClickReTweet()
 	{
 		Log('onClickReTweet');
+
 		dispatchEvent('onReTweet', self);
 		pageTracker._trackPageview('/retweeted/');
 	}
@@ -167,11 +168,8 @@ function Tweet()
 	
 	function onClickFavorite()
 	{
-		//var e = e.find('.action-favorite')
 		var type = $(this).text();
 		self.favoriteType = type;
-		//if(type == 'Favorite') $(this).find('b').text('Unfavorite');
-		//if(type == 'Unfavorite') $(this).find('b').text('Favorite');
 		
 		dispatchEvent('onFavorite', self);
 		pageTracker._trackPageview('/favorited/');
@@ -182,14 +180,16 @@ function Tweet()
 	{
 		var type = element.find('.action-favorite').text();
 		var t = (type == 'Favorite') ? 'Unfavorite' : 'Favorite';
-	// 	Log('toggleFavorite: '+type+', '+t);
 		element.find('.action-favorite b').text(t);
 	}
 	
 	
 	function toggleFollow( type )
 	{
-		Log('onFollowToggle: '+e.type)
+		var type = element.find('.action-follow').text();
+		var t = (type == 'Follow') ? 'Unfollow' : 'Follow';
+		Log('toggleFavorite: '+type+', '+t);
+		element.find('.action-follow b').text(t);
 	}
 	
 	

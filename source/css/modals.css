@@ -147,6 +147,12 @@
 	float:left;	
 }
 
+.modal-unfollow-button
+{
+	background-position:-386px -365px;
+	float:left;	
+}
+
 .modal-retweet-button
 {
 
