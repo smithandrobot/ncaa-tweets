@@ -10,6 +10,7 @@ function ModalFollow( overlay )
 	var state		= 'closed';
 	var user		= null;
 	var self		= this;
+	var followType	= null;
 	
 	this.tweetProxy = null;
 	this.tweet		= null;
@@ -22,13 +23,15 @@ function ModalFollow( overlay )
 	
 	function open( tweet )
 	{
-		if( tweet ) setContent( tweet );
+
 		self.tweet = tweet;
+		followType = tweet.followType;
+		if( tweet ) setContent( tweet );	
 		user = tweet.screenName;
-		Log('follow user: '+user)
+		Log('follow user: '+user+ ' followType: '+followType)
 		
 		if( state == 'closed') 
-		{
+		{	
 			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
@@ -50,9 +53,41 @@ function ModalFollow( overlay )
 	function setContent( t )
 	{
 		var html = t.getElement().clone();
-
-		element.find('.modal-dialog').append().html('Start following<br /><span class="red">'+t.screenName+'</span>');
-		element.find('.confirmation').append().html('You are now following<br /><span class="red">'+t.screenName+'</span>');
+		var type = (followType == 'Follow') ? 'Follow' : 'Unfollow';
+		var dialog;
+		var confirmatin;
+		
+		if(type == 'Follow')
+		{
+			dialog = 'Start following<br /><span class="red">'+t.screenName+'</span>';
+		}else{
+			dialog = 'Unfollow<br /><span class="red">'+t.screenName+'</span>';			
+		}
+		
+		if(type == 'Follow')
+		{
+			confirmation = 'You are now following<br /><span class="red">'+t.screenName+'</span>'
+		}else{
+			confirmation = 'You have unfollowed<br /><span class="red">'+t.screenName+'</span>';			
+		}
+		
+		element.find('.modal-dialog').append().html(dialog);
+		element.find('.confirmation').append().html(confirmation);
+		
+		var button		= element.find('#follow-type');
+		
+		if(type == 'Follow') 
+		{
+			button.removeClass('modal-unfollow-button');
+			button.addClass('modal-follow-button');
+		}
+		
+		if(type == 'Unfollow') 
+		{
+			button.removeClass('modal-follow-button');
+			button.addClass('modal-unfollow-button');
+		}
+		
 	}
 	
 	function showConfirmScreen()
@@ -60,6 +95,8 @@ function ModalFollow( overlay )
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
 		var es = element.find('.error-screen');
+		
+		self.tweet.toggleFollow();
 		
 		es.hide();
 		as.hide();
@@ -117,13 +154,15 @@ function ModalFollow( overlay )
 		if( !canFollow() ) return;
 		
 		var t = self.twitterProxy.twitterOBJ;
-		Log('follow user: '+user)
+		Log(followType+' user: '+user)
 		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
 		var u = t.User.find( user );
-		u.follow(callbacks);
-		//if(self.tweet.favoriteType == 'Follow') u.follow(callbacks);
-		//if(self.tweet.favoriteType == 'Unfollow') u.unfavorite(callbacks);
-		// showConfirmScreen();
+		if(followType == 'Follow')
+		{
+			u.follow(callbacks);
+		}else{
+			u.unfollow(callbacks);
+		}
 	}
 	
 	

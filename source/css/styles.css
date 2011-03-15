@@ -693,6 +693,12 @@ noscript div, .warning {
 #timeline .tweet-utility, #timeline .tweet {
 	background: #242424;
 } */
+
+#template-tweet
+{
+	display:none;
+}
+
 .tweetBoxCustomButton
 {
 	width:64px;
