@@ -1,6 +1,9 @@
 from fabric.api import run, env, local, sudo
 from fabric.contrib import files, project
 
+# AKIAJ4EO6O6USEUIZFYQ 
+# cwdn44hghyiERlkOEZGLIqSb5jpqw0oSnI9goZSj
+
 env.roledefs = {
     'dev':  ['review.smithandrobot.com']
 }
@@ -19,3 +22,6 @@ def deploy(**kwargs):
 def server():
     print "Go to http://localhost:8000"
     local('cd source && python -m SimpleHTTPServer')
+    
+    
+    
