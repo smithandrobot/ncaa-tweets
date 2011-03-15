@@ -132,8 +132,10 @@ function VerizonModule()
 	
 	function toggleFavorite( )
 	{
+
 		var type = element.find('.action-favorite').text();
 		var t = (type == 'Favorite') ? 'Unfavorite' : 'Favorite';
+		Log('toggle favorites '+type+' '+t);
 		element.find('.action-favorite b').text(t);
 	}
 	
@@ -142,7 +144,6 @@ function VerizonModule()
 	{
 		var type = element.find('.action-follow').text();
 		var t = (type == 'Follow') ? 'Unfollow' : 'Follow';
-		Log('toggleFavorite: '+type+', '+t);
 		element.find('.action-follow b').text(t);
 	}
 	

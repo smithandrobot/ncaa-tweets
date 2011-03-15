@@ -83,7 +83,7 @@ function FavoriteModal( overlay )
 		var es = element.find('.error-screen');
 		var type		= (favoriteType == 'Favorite') ? 'Favorited' : 'Unfavorited';
 		$('#modal-favorite-template .confirmation').text('You '+type+' this Tweet.');
-		
+		Log('showConfirmScreen: '+self.tweet.toggleFavorite)
 		self.tweet.toggleFavorite();
 		
 		es.hide();
