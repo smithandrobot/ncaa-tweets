@@ -225,6 +225,7 @@ function VerizonModule()
 	
 	function populateTweetBox()
 	{
+		/* */
 		var textarea = $("#tbox iframe").contents().find("textarea");
 		textarea.val('#MM2011 http://es.pn/fSkTTb');
 	}
