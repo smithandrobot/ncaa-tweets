@@ -78,7 +78,7 @@ function TweetListController()
 		var obj 	= team.team;
 		var name 	= (team.team.displayName) ? team.team.displayName : obj.name;
 		var hState 	= (name.indexOf("ALL TEAMS") == -1) ? 'show': 'hide';
-		var f 		= 'http://tweetriver.com/mr_mm_2011/mm-2011-'+obj.shortName+'.json';
+		var f 		= 'http://tweetriver.com/mr_mm_2011/mm-2011-'+obj.shortName+'-curated.json';
 		feedColor 	= obj.color;
 		
 		setFeed( f );
