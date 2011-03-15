@@ -59,6 +59,8 @@ function VerizonModule()
 		var data = e.target.getData();
 		var label = $("#tbox iframe").contents().find("label");
 		
+		if(data.length <= 0)  return;
+		
 		label.text(data[0].text);
 		clearInterval(qInterval);
 		qInterval = setTimeout(questionModel.load, UPDATE)

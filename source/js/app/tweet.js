@@ -33,6 +33,8 @@ function Tweet()
 	this.updateTime 	= updateTime;
 	this.setTwitterAPI	= setTwitterAPI;
 	this.twitterAPI;
+	this.favoriteType;
+	this.followType;
 	
 	this.getElement	= function () { return element; };
 
@@ -146,6 +148,8 @@ function Tweet()
 	
 	function onClickFollow()
 	{
+		var type = $(this).text();
+		self.followType = type;
 		dispatchEvent('onFollow', self);
 		pageTracker._trackPageview('/followed/');
 	}	
@@ -163,12 +167,26 @@ function Tweet()
 	{
 		//var e = e.find('.action-favorite')
 		var type = $(this).text();
-		Log('type: '+type)
-		if(type == 'Favorite') $(this).find('b').text('Unfavorite');
-		if(type == 'Unfavorite') $(this).find('b').text('Favorite');
+		self.favoriteType = type;
+		//if(type == 'Favorite') $(this).find('b').text('Unfavorite');
+		//if(type == 'Unfavorite') $(this).find('b').text('Favorite');
 		
 		dispatchEvent('onFavorite', self);
 		pageTracker._trackPageview('/favorited/');
+	}
+	
+	
+	function toggleFavorite( type )
+	{
+		var type = $(this).text();
+		var t = (type == 'Favorite') ? 'Unfavorite' : 'Favorite';
+		$(this).find('b').text(t);
+	}
+	
+	
+	function toggleFollow( type )
+	{
+		Log('onFollowToggle: '+e.type)
 	}
 	
 	

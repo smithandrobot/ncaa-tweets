@@ -10,6 +10,7 @@ function FavoriteModal( overlay )
 	var state			= 'closed';
 	var tweetID			= null;
 	var self			= this;
+	var favoriteType	= null;
 	
 	this.tweet			= null;
 	this.open 	 		= open;
@@ -22,9 +23,12 @@ function FavoriteModal( overlay )
 	
 	function open( tweet )
 	{
+		tweetID 	 = tweet.tweetID;
+		favoriteType = tweet.favoriteType;
 		if( tweet ) setContent( tweet );
-		tweetID = tweet.tweetID;
+		
 		self.tweet = tweet;
+		
 		if( state == 'closed') 
 		{
 			showActionScreen();
@@ -49,9 +53,23 @@ function FavoriteModal( overlay )
 	
 	function setContent( t )
 	{
-		var html = t.getElement().clone();
+		var html 		= t.getElement().clone();
+		var buttonClass = (favoriteType == 'Favorite') ? 'modal-favorite-button' : 'modal-unfavorite-button';
+		var type		= (favoriteType == 'Favorite') ? 'Favorite' : 'Unfavorite';
+		var button		= element.find('#favorite-type');
+		
+		if(type == 'Favorite') 
+		{
+			button.removeClass('modal-unfavorite-button');
+			button.addClass('modal-favorite-button');
+		}
+		
+		if(type == 'Unfavorite') 
+		{
+			button.removeClass('modal-favorite-button');
+			button.addClass('modal-unfavorite-button');
+		}
 
-		element.find('.modal-dialog').append().html('Favorite this tweet from<br /><span class="red">'+t.screenName+'</span>')
 	}
 	
 	
@@ -61,6 +79,8 @@ function FavoriteModal( overlay )
 		var as = element.find('.action-screen');
 		var es = element.find('.error-screen');
 		
+		self.tweet.toggleFavorite();
+		
 		es.hide();
 		as.hide();
 		cs.show();
@@ -69,6 +89,8 @@ function FavoriteModal( overlay )
 	
 	function showActionScreen()
 	{
+		Log('favorite type: '+favoriteType);
+		
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
 		var es = element.find('.error-screen');
