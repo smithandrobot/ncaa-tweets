@@ -298,7 +298,7 @@ function TweetListController()
 	function enableShowAllTeams()
 	{
 		var s = $('#show-all-streams');
-		s.click( function(){ $.cookie('team', null); selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
+		s.click( function(){ $.cookie('team', null, {path:'/'}); selectTeam( {team:{displayName:'ALL TEAMS', shortName:'all', name:'ALL TEAMS', color:'#ED1F24'}} ); } );
 		s.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 		
 	}
@@ -350,6 +350,7 @@ function TweetListController()
 		$('.spirit-bubble').css('background-color', feedColor);
 		$('#loadmore a').css('background-color', feedColor);
 		$('#stream-header h2').css('color', feedColor);
+		$('#stream-header .meta').css('color', feedColor);
 	}
 	
 	
@@ -376,15 +377,15 @@ function TweetListController()
 		var orgSize = 25;
 		var maxWidth = 220;
 		var nameElement = $('#stream-header h2');
-		nameElement.css('font-size', orgSize);
+		//nameElement.css('font-size', orgSize);
 		nameElement.text( n );
 		
 		Log('name width: '+nameElement.width());
-		while(nameElement.width() > maxWidth)
+		/*while(nameElement.width() > maxWidth)
 		{
 		    orgSize -= 1;
 			nameElement.css('font-size', orgSize);
-		}
+		}*/
 	}
 	
 	
