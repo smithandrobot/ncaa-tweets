@@ -125,6 +125,9 @@ function GameController(gameData, model)
         visualizeWL()
         if (viewData.game.status == "final") {
             self.view.addClass('game-final')
+        } else if (viewData.game.status == "current") {
+            self.view.addClass('game-current')
+            self.view.removeClass('game-scheduled')
         }
 
     }
