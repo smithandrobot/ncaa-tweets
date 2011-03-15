@@ -70,9 +70,6 @@
 		<arg line="rsync -vur --stats img/ ${deploy}/img/" />
 	</exec>
 	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
-		<arg line="rsync -vur --stats mock/ ${deploy}/mock/" />
-	</exec>
-	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats js/thirdparty/ ${deploy}/js/thirdparty/" />
 	</exec>
 	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">

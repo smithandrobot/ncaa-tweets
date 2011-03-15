@@ -37,8 +37,6 @@ def production():
                 
             filename = root + '/' + f
             remotename = 'marchmadness2011/%s' % filename.replace('%s/' % basedir, '')
-            print remotename
-            continue
             modify_time = os.stat(filename)[ST_MTIME]
             key = bucket.get_key(remotename)
             
