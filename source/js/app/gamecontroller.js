@@ -149,8 +149,8 @@ function GameController(gameData, model)
 
             if (c.customData == undefined) {
                 c.customData = {}
-                c.customData.hashTag = '#mm2011'
-                c.hashTag = '#mm2011'
+                c.customData.hashTag = '#MM2011'
+                c.hashTag = '#MM2011'
                 c.customData.seed = ''
                 c.customData.mentions = 0
                 c.name = c.shortName
@@ -200,12 +200,7 @@ function GameController(gameData, model)
     }
 
     function hashTagClick(obj) {
-        if ($(this).text() != "#mm2011") {
-            self.hashTag = "Go " + $(this).text() + "!";
-        } else {
-            self.hashTag = "#mm2011";
-        }
-
+        self.hashTag = $(this).text();
         dispatchEvent("onHashTagClick", self);
         return false;
     }
