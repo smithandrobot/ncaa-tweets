@@ -428,7 +428,13 @@ noscript div, .warning {
 
 .team-mentions-large { font-size: 17px; text-shadow: black 0px -1px 0px; color: #FC6; }
 
+.team-visiting .team-mentions-small {
+color: #444;
+}
 
+.team-home .team-mentions-small {
+color: #333;
+}
 
 .team-mentions-large
 {

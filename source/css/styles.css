@@ -428,7 +428,13 @@ noscript div, .warning {
 
 .team-mentions-large { font-size: 17px; text-shadow: black 0px -1px 0px; color: #FC6; }
 
+.team-visiting .team-mentions-small {
+color: #444;
+}
 
+.team-home .team-mentions-small {
+color: #333;
+}
 
 .team-mentions-large
 {
@@ -523,20 +529,24 @@ noscript div, .warning {
 }
 
 #stream-header h2 {
-    font-size:25px;
+    font-size:12px;
+    font-family: Arial, Helvetica, sans-serif;
     color:#ED1F24;
     float:left;
+    width:230px;
+    display:block;
 /*    width:200px;*/
 }
 
 #stream-header p.meta {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:10px;
+    
+    font-size:18px;
     margin:0px;
+    color:#ED1F24;
     padding:0px;
-    width:150px;
-    margin-top:-10px;
-    clear:both;
+    float:left;
+    width:230px;
+    text-transform:uppercase;
 }
 
 #team-selector {
@@ -556,8 +566,9 @@ noscript div, .warning {
 #show-all-streams
 {
 /*	width:345px;*/
-	margin-top:-40px;
-	margin-bottom:20px;
+    margin-left:10px;
+    margin-top:-10px;
+	margin-bottom:5px;
 /*	padding-right:15px;*/
 	text-align:left;
 	font-family:arial ;
