@@ -131,7 +131,12 @@
 
 .modal-favorite-button
 {
-	background-position:-305px -431px;
+	background-position:-386px -395px;
+}
+
+.modal-unfavorite-button
+{
+	background-position:-466px -364px;
 }
 
 .modal-follow-button

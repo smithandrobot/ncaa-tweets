@@ -12,6 +12,7 @@ body, div {
 	font-size: 13px;
 	line-height: 1.4;
 	text-shadow: #000000 0px 0px 3px;
+	
 	}
 	
 .warning a {
@@ -67,9 +68,7 @@ noscript div, .warning {
 }
 /* End Common */
 
-#container {
-    margin-bottom:30px;
-}
+
 #content
 {
 	width: 924px;
@@ -598,7 +597,7 @@ noscript div, .warning {
 }
 #timeline {
     padding:10px 0;
-    height:535px;
+    height:550px;
 	position:relative;
 	
 }

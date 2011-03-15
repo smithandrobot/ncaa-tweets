@@ -58,6 +58,8 @@ function FavoriteModal( overlay )
 		var type		= (favoriteType == 'Favorite') ? 'Favorite' : 'Unfavorite';
 		var button		= element.find('#favorite-type');
 		
+		$('#modal-favorite-template .modal-dialog').text(type+' this tweet?');
+		
 		if(type == 'Favorite') 
 		{
 			button.removeClass('modal-unfavorite-button');
@@ -78,6 +80,8 @@ function FavoriteModal( overlay )
 		var cs = element.find('.confirmation-screen');
 		var as = element.find('.action-screen');
 		var es = element.find('.error-screen');
+		var type		= (favoriteType == 'Favorite') ? 'Favorited' : 'Unfavorited';
+		$('#modal-favorite-template .confirmation').text('You '+type+' this Tweet.');
 		
 		self.tweet.toggleFavorite();
 		
@@ -145,7 +149,12 @@ function FavoriteModal( overlay )
 		
 		var t = self.twitterProxy.twitterOBJ;
 		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
-		t.Status.favorite( tweetID, callbacks );
+		if(favoriteType == 'Favorite')
+		{
+			t.Status.favorite( tweetID, callbacks );
+		}else{
+			t.Status.unfavorite( tweetID, callbacks );
+		}
 		//showConfirmScreen();
 	}
 	

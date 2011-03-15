@@ -167,7 +167,7 @@ function Tweet()
 	{
 		//var e = e.find('.action-favorite')
 		var type = $(this).text();
-		self.favoriteType = type;
+		self.favoriteType = 'Unfavorite';//type;
 		//if(type == 'Favorite') $(this).find('b').text('Unfavorite');
 		//if(type == 'Unfavorite') $(this).find('b').text('Favorite');
 		
@@ -176,9 +176,9 @@ function Tweet()
 	}
 	
 	
-	function toggleFavorite( type )
+	function toggleFavorite( )
 	{
-		var type = $(this).text();
+		var type = element.find('.action-favorite').text();
 		var t = (type == 'Favorite') ? 'Unfavorite' : 'Favorite';
 		$(this).find('b').text(t);
 	}
