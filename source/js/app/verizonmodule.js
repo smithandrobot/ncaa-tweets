@@ -21,6 +21,8 @@ function VerizonModule()
 
 	this.twitterProxy 	  = null;
 	this.twitterReady  	  = twitterReady;
+	this.toggleFavorite   = toggleFavorite;
+	this.toggleFollow 	  = toggleFollow;
 	this.getElement		  = function () { return element.find('.tweet-text'); };
 	/* INITIALIZE */
 	
@@ -106,6 +108,9 @@ function VerizonModule()
 	
 	function onClickFollow()
 	{
+		var type = $(this).text();
+		self.followType = type;
+		pageTracker._trackPageview('/followed/');
 		dispatchEvent('onFollow', self);
 	}	
 	
@@ -118,7 +123,27 @@ function VerizonModule()
 	
 	function onClickFavorite()
 	{
+		var type = $(this).text();
+		self.favoriteType = type;
 		dispatchEvent('onFavorite', self);
+		pageTracker._trackPageview('/favorited/');
+	}
+	
+	
+	function toggleFavorite( )
+	{
+		var type = element.find('.action-favorite').text();
+		var t = (type == 'Favorite') ? 'Unfavorite' : 'Favorite';
+		element.find('.action-favorite b').text(t);
+	}
+	
+	
+	function toggleFollow( type )
+	{
+		var type = element.find('.action-follow').text();
+		var t = (type == 'Follow') ? 'Unfollow' : 'Follow';
+		Log('toggleFavorite: '+type+', '+t);
+		element.find('.action-follow b').text(t);
 	}
 	
 	
