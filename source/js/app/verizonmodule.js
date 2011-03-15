@@ -59,6 +59,8 @@ function VerizonModule()
 		var data = e.target.getData();
 		var label = $("#tbox iframe").contents().find("label");
 		
+		if(data.length <= 0)  return;
+		
 		label.text(data[0].text);
 		clearInterval(qInterval);
 		qInterval = setTimeout(questionModel.load, UPDATE)
@@ -198,7 +200,7 @@ function VerizonModule()
 	function populateTweetBox()
 	{
 		var textarea = $("#tbox iframe").contents().find("textarea");
-		textarea.val('#ncaatourney http://es.pn/eCYCAh');
+		textarea.val('#MM2011 http://es.pn/eCYCAh');
 	}
 	
 	function setSelectionRange(input, selectionStart, selectionEnd) {

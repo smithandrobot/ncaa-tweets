@@ -486,6 +486,10 @@ noscript div, .warning {
 /*	border:1px solid red;*/
 }
 
+#atanywhere-container .tweet
+{
+	min-height:110px;
+}
 #atanywhere-container a{
     color:#ED1F24;
 }

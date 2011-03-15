@@ -121,6 +121,8 @@ function ModalFollow( overlay )
 		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
 		var u = t.User.find( user );
 		u.follow(callbacks);
+		//if(self.tweet.favoriteType == 'Follow') u.follow(callbacks);
+		//if(self.tweet.favoriteType == 'Unfollow') u.unfavorite(callbacks);
 		// showConfirmScreen();
 	}
 	
