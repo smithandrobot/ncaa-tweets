@@ -334,11 +334,11 @@ function TweetListController()
 			$('.spirit-bubble').text(t)
 			$('#team-selector').hide();
 			$('.spirit-bubble').show();	
-			$('#show-all-streams').show();
+			$('#show-all-streams').css('text-indent', 0);
 		}else{
 			$('.spirit-bubble').hide();
 			$('#team-selector').show();
-			$('#show-all-streams').hide();
+			$('#show-all-streams').css('text-indent', -9000);
 		}
 	}
 	

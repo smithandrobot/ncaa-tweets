@@ -519,6 +519,7 @@ color: #333;
 
 #tweet-streams {
     width:362px;
+    margin-top:-20px;
 /*    margin:0px auto;*/
 /*    margin-top:50px;*/
 }
@@ -526,6 +527,9 @@ color: #333;
 #stream-header {
     padding:12px;
     background: #000 url('../img/sprites.png') no-repeat -50px -595px;
+    -moz-border-radius:5px 5px 0px 0px; 
+    -webkit-border-radius: 5px 5px 0px 0px; 
+    border-radius: 5px 5px 0px 0px;
 }
 
 #stream-header h2 {
@@ -544,7 +548,6 @@ color: #333;
     margin:0px;
     color:#ED1F24;
     padding:0px;
-    float:left;
     width:230px;
     text-transform:uppercase;
 }
@@ -567,13 +570,13 @@ color: #333;
 {
 /*	width:345px;*/
     margin-left:10px;
-    margin-top:-10px;
 	margin-bottom:5px;
 /*	padding-right:15px;*/
 	text-align:left;
 	font-family:arial ;
 	font-weight:bold;
 	text-shadow:none;
+	text-indent:-9000px;
 }
 
 #stream-header .spirit-bubble{
