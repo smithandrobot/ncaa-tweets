@@ -58,6 +58,7 @@ function Tweet()
 		self.tweets		= d.user.statuses_count;
 		self.orderID	= d.order_id;
 		profileImg	 	= d.user.profile_image_url;
+		
 	};
 	
 	
@@ -131,7 +132,9 @@ function Tweet()
 	{
 		self.twitterAPI = t;
 		self.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
-		// this.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
+		
+		checkIfFollowing( self.screenName );
+		checkIfFavorited( self.tweetID );
 	}
 	
 	
@@ -190,6 +193,29 @@ function Tweet()
 		var t = (type == 'Follow') ? 'Unfollow' : 'Follow';
 		Log('toggleFavorite: '+type+', '+t);
 		element.find('.action-follow b').text(t);
+	}
+	
+	function checkIfFavorited( id )
+	{
+		Log('not connected: '+self.twitterAPI);
+		if(!self.twitterAPI.isConnected())
+		{
+			Log('not connected');
+			return;
+		}
+	}
+	
+	function checkIfFollowing( )
+	{
+		Log('not connected: '+self.twitterAPI);
+		// if(!self.twitterAPI.isConnected())
+		// {
+		// 	Log('not connected');
+		// 	return;
+		// }
+		// 
+		// var following = self.twitterAPI.User.find(self.screenName).isFollowing()
+		// Log('i am folowing this user: '+following)
 	}
 	
 	

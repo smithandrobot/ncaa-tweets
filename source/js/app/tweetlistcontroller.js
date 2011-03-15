@@ -356,7 +356,7 @@ function TweetListController()
 	
 	function addScrollbar()
 	{
-		$('.team-tweets-css-scrollbar').scrollbar({handleHeight:60, arrows:false});
+		var s = $('.team-tweets-css-scrollbar').scrollbar({handleHeight:60, arrows:false});
 	}
 	
 	function removeScrollbar()
