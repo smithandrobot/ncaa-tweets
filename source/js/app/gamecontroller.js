@@ -88,12 +88,12 @@ function GameController(gameData, model)
     }
 
     function visualizeWL() {
-        if (self.visitorScore.text() < self.homeScore.text()) {
+        if (parseInt(self.visitorScore.text()) > parseInt(self.homeScore.text())) {
             self.view.find('.team-home .team-name').addClass('game-losing')
             self.view.find('.team-visiting .team-name').removeClass('game-losing')
             self.view.find('.team-home .team-score').addClass('game-losing')
             self.view.find('.team-visiting .team-score').removeClass('game-losing')
-        } else if (self.visitorScore.text() > self.homeScore.text()) {
+        } else if (parseInt(self.visitorScore.text()) < parseInt(self.homeScore.text())) {
             self.view.find('.team-home .team-name').removeClass('game-losing')
             self.view.find('.team-visiting .team-name').addClass('game-losing')
             self.view.find('.team-home .team-score').removeClass('game-losing')
