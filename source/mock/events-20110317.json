@@ -373,9 +373,9 @@
             }],
             "eventstatus": {
                 "statusText": "SCHEDULED: March 17, 2011, 7:20 PM EDT",
-                "curPeriod": "1",
+                "curPeriod": "0",
                 "clock": "0:00",
-                "status": "IN PROGRESS"
+                "status": "SCHEDULED"
             },
             "season": "2011",
             "date": "2011-03-17T23:20:00Z",

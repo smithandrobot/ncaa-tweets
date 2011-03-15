@@ -103,8 +103,6 @@ function ScheduleController()
         
         var gameList = getGamesForRound(self.loadedRound)
         
-
-        
         if (streamLoadCount > 0) {
             streamLoadCount--;
             $('#scoreboard-loader').hide();
@@ -119,14 +117,15 @@ function ScheduleController()
             
             if(streamLoadCount == 0){
                 sortGames()
-                addScrollbar()
+                
                 if(self.firstActive){
                     var pos = self.firstActive.view.position();
-                    
-                    //$("#schedule_list .scrollbar-pane").css('top', pos.top)
-                    //$("#schedule_list .scrollbar-pane").scrollTop(pos.top)
+                    self.firstActive = null
+                    addScrollbar(pos.top)
+                } else {
+                    addScrollbar(0)
                 }
-                //addScrollbar()
+                
             }
         } else {
             
@@ -193,12 +192,17 @@ function ScheduleController()
 
 
 
-    function addScrollbar() {
-       
+    function addScrollbar(scrollTop) {
+        
+        var st = 0
+        
+        if(scrollTop){
+            st = scrollTop
+        }
         var s = $('.schedule-scrollbar').scrollbar({
             handleHeight: 151,
             arrows: false,
-            scrollTop:1250
+            scrollTop:st
         });
         self.scrollbar = s.scrollbar.Scrollbar.prototype
     }
