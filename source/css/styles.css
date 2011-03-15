@@ -104,6 +104,10 @@ noscript div, .warning {
     margin:0px auto;
 }
 
+#footer a {
+    border:none;
+}
+
 /* left column nav*/
 
 #tournament_nav
