@@ -34,21 +34,21 @@
  *    |  |                 |  +------+   |
  *    |  |                 |  | +--+ |   |
  *    |  |                 |  | |  | |   |
- *    |  |                 |  | | <-------------- handle
- *    |  |                 |  | |  | |   |
- *    |  |                 |  | |  | |   |
- *    |  |                 |  | |  | |   |
- *    |  |                 |  | +--+ |   |
- *    |  |                 |  |      |   |
- *    |  |                 |  |   <-------------- handle container
- *    |  |                 |  |      |   |
+ *    |  |                 |  | | <-------------- handle
+ *    |  |                 |  | |  | |   |
+ *    |  |                 |  | |  | |   |
+ *    |  |                 |  | |  | |   |
+ *    |  |                 |  | +--+ |   |
+ *    |  |                 |  |      |   |
+ *    |  |                 |  |   <-------------- handle container
+ *    |  |                 |  |      |   |
  *    |  |         <----------------------------- pane
- *    |  |                 |  |      |   |
- *    |  |                 |  |      |   |
- *    |  |                 |  +------+   |
- *    |  |                 |  |      |   |
- *    |  |                 |  |   <-------------- handle arrow down
- *    |  +-----------------+  +------+   |
+ *    |  |                 |  |      |   |
+ *    |  |                 |  |      |   |
+ *    |  |                 |  +------+   |
+ *    |  |                 |  |      |   |
+ *    |  |                 |  |   <-------------- handle arrow down
+ *    |  +-----------------+  +------+   |
  *    |                                  |
  *    +----------------------------------|
  *
@@ -57,22 +57,23 @@
 (function($, document){
 
     $.fn.scrollbar = function(opts){
-        
+
         // Extend default options
         var options = $.extend({}, $.fn.scrollbar.defaults, opts);
+
         
         //
         // append scrollbar to selected overflowed containers and return jquery object for chainability
         //
         return this.each(function(){
-            
+
             var container = $(this), 
                 
                 // properties
                 props = {
                     arrows: options.arrows
                 };
-                
+
             // set new container height if explicitly set by an option
             if(options.containerHeight){
                 container.height(options.containerHeight);
@@ -86,12 +87,12 @@
             container.children().each(function(){
                 props.contentHeight += $(this).outerHeight();
             });
-            
+
             // if the content height is lower than the container height, do nothing and return.
             if(props.contentHeight <= props.containerHeight){
                 return true;
             }
-            
+
             // create scrollbar object
             var scrollbar = new $.fn.scrollbar.Scrollbar(container, props, options);
             
@@ -118,7 +119,8 @@
         scrollStep:        20,         // handle increment between two mousedowns on arrows [px]
         
         scrollSpeedArrows: 40,         // speed of handle while mousedown within the handle container [milli sec]
-        scrollStepArrows:  3           // handle increment between two mousedowns within the handle container [px]
+        scrollStepArrows:  3,           // handle increment between two mousedowns within the handle container [px]
+        scrollTop: 0
     };
 
 
@@ -169,7 +171,7 @@
         // TODO: use detach-transform-attach or DOMfragment
         //
         buildHtml: function(){
-            
+
             // build new DOM nodes 
             this.container.children().wrapAll('<div class="scrollbar-pane"/>');
             this.container.append('<div class="scrollbar-handle-container"><div class="scrollbar-handle"/></div>');
@@ -179,7 +181,7 @@
 
             // save height of container to re-set it after some DOM manipulations
             var height = this.container.height();
-
+            
             // set scrollbar-object properties
             this.pane =            this.container.find('.scrollbar-pane');
             this.handle =          this.container.find('.scrollbar-handle');
@@ -187,17 +189,20 @@
             this.handleArrows =    this.container.find('.scrollbar-handle-up, .scrollbar-handle-down');
             this.handleArrowUp =   this.container.find('.scrollbar-handle-up');
             this.handleArrowDown = this.container.find('.scrollbar-handle-down');
+            
+            var paneHeight = this.pane.height()
+            this.handleInitTop = (this.opts.scrollTop/paneHeight)*height+this.handleContainer.height()
 
             // set some default CSS attributes (may be overwritten by CSS definitions in an external CSS file)
             this.pane.defaultCss({
-                'top':      0,
+                'top':      this.opts.scrollTop*-1,
                 'left':     0
             });
             this.handleContainer.defaultCss({
                 'right':    0
             });
             this.handle.defaultCss({
-                'top':      0,
+                'top':      this.handleInitTop,
                 'right':    0
             });
             this.handleArrows.defaultCss({
@@ -241,6 +246,7 @@
         // calculate positions and dimensions of handle and arrow-handles
         //
         initHandle: function(){
+            
             this.props.handleContainerHeight = this.handleContainer.height();
             this.props.contentHeight = this.pane.height();
 
@@ -261,7 +267,7 @@
             this.props.handleContentRatio = (this.props.contentHeight - this.props.containerHeight) / (this.props.handleContainerHeight - this.props.handleHeight);
 
             // initial position of handle at top
-            this.handle.top = 0;
+            this.handle.top = this.handleInitTop;
         },
 
 
@@ -312,7 +318,6 @@
         startOfHandleMove: function(ev){
             ev.preventDefault();
             ev.stopPropagation();
-
             // set start position of mouse
             this.mouse.start = this.mousePosition(ev);
 
