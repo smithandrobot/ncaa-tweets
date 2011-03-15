@@ -519,6 +519,7 @@ color: #333;
 
 #tweet-streams {
     width:362px;
+    margin-top:-20px;
 /*    margin:0px auto;*/
 /*    margin-top:50px;*/
 }
@@ -526,23 +527,29 @@ color: #333;
 #stream-header {
     padding:12px;
     background: #000 url('../img/sprites.png') no-repeat -50px -595px;
+    -moz-border-radius:5px 5px 0px 0px; 
+    -webkit-border-radius: 5px 5px 0px 0px; 
+    border-radius: 5px 5px 0px 0px;
 }
 
 #stream-header h2 {
-    font-size:25px;
+    font-size:12px;
+    font-family: Arial, Helvetica, sans-serif;
     color:#ED1F24;
     float:left;
+    width:230px;
+    display:block;
 /*    width:200px;*/
 }
 
 #stream-header p.meta {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:10px;
+    
+    font-size:18px;
     margin:0px;
+    color:#ED1F24;
     padding:0px;
-    width:150px;
-    margin-top:-10px;
-    clear:both;
+    width:230px;
+    text-transform:uppercase;
 }
 
 #team-selector {
@@ -562,13 +569,14 @@ color: #333;
 #show-all-streams
 {
 /*	width:345px;*/
-	margin-top:-40px;
-	margin-bottom:20px;
+    margin-left:10px;
+	margin-bottom:5px;
 /*	padding-right:15px;*/
 	text-align:left;
 	font-family:arial ;
 	font-weight:bold;
 	text-shadow:none;
+	text-indent:-9000px;
 }
 
 #stream-header .spirit-bubble{
@@ -699,6 +707,12 @@ color: #333;
 #timeline .tweet-utility, #timeline .tweet {
 	background: #242424;
 } */
+
+#template-tweet
+{
+	display:none;
+}
+
 .tweetBoxCustomButton
 {
 	width:64px;
