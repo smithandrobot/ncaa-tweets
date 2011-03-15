@@ -31,8 +31,9 @@ function FavoriteModal( overlay )
 		
 		if( state == 'closed') 
 		{
+			// showErrorScreen();
 			showActionScreen();
-			// showConfirmScreen();
+			//showConfirmScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
@@ -140,7 +141,7 @@ function FavoriteModal( overlay )
 
 	function onFavorite()
 	{
-		Log('onFavorite');
+
 		if( !canFavorite( tweetID ) ) 
 		{
 			Log('user did not validate, authorizing...');
@@ -149,12 +150,14 @@ function FavoriteModal( overlay )
 		
 		var t = self.twitterProxy.twitterOBJ;
 		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
+		
 		if(favoriteType == 'Favorite')
 		{
 			t.Status.favorite( tweetID, callbacks );
 		}else{
 			t.Status.unfavorite( tweetID, callbacks );
 		}
+		
 		//showConfirmScreen();
 	}
 	
@@ -190,7 +193,7 @@ function FavoriteModal( overlay )
 		okBtn.click(onClose);
 		okBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} );
 		
-		var fvtBtn = element.find('.modal-favorite-button');
+		var fvtBtn = element.find('#favorite-type');
 		fvtBtn.click(onFavorite);
 		fvtBtn.hover(function() {$(this).css('cursor','pointer')}, function() {$(this).css('cursor','auto')} )
 	}
