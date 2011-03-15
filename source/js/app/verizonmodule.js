@@ -200,7 +200,7 @@ function VerizonModule()
 	function populateTweetBox()
 	{
 		var textarea = $("#tbox iframe").contents().find("textarea");
-		textarea.val('#ncaatourney http://es.pn/eCYCAh');
+		textarea.val('#MM2011 http://es.pn/eCYCAh');
 	}
 	
 	function setSelectionRange(input, selectionStart, selectionEnd) {
