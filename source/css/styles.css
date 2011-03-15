@@ -479,6 +479,11 @@ color: #333;
 	float:right;
 }
 
+.team-tweets-cta:hover
+{
+	cursor:pointer;
+}
+
 /* End Game Module Text Formatting and layout*/
 
 
@@ -893,6 +898,24 @@ span#counter {
     color:#000;
 }
 
+.hovercard {
+    font-family:Arial, Helvetica, sans-serif;
+    display:block;
+    color:#fff;
+    background:transparent url('../img/tipbg.png') no-repeat center 10px;
+    width:214px;
+    height:81px;
+    font-size:11px;
+    padding-top:30px;
+}
+
+a.hovercard:hover {
+    color:#ED1F24;
+}
+
+.tweet-cta-tip {
+    color:#fff;
+}
 .team-column {
     float:left;
     margin-right:10px;

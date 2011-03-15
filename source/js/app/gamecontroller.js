@@ -83,6 +83,7 @@ function GameController(gameData, model)
         teamClick)
         template.find('.hashtag').click(hashTagClick)
         compareMentions()
+        setTips(template, viewData);
         return template
     }
 
@@ -121,7 +122,61 @@ function GameController(gameData, model)
         }
 
     }
-
+    
+    function setTips(template, viewData){
+        tipContent = '<div class="hovercard" tid="v">Click to view Tweets for<br/> ' + template.find('.team-visiting .team-name').text() + '</div>'
+        tipObj = {
+            content: tipContent,
+            show: 'mouseover',
+            hide: { when: 'mouseout', fixed: true, delay:250 },
+            style: {
+                tip: false,
+                cursor:'pointer',
+                width: 250,
+                height: 79,
+                'background':'none',
+                color:'#fff',
+                'text-align':'center',
+                'font-size':'11px',
+                'padding-right':'10px',
+                border:'none',
+                classes: {
+                    content:'.tweet-cta-tip'
+                }
+            },
+            position: {
+                corner: {
+                    target: 'topMiddle',
+                    tooltip: 'bottomMiddle'
+                }, 
+                adjust: { x: 12, y: 0 }
+            },
+            api: {
+                onRender:function(){
+                    var tid=this.elements.content.find('*[tid]').attr('tid')
+                    if(tid == 'v'){
+                        var t = self.visitingTeam
+                    } else {
+                        var t = self.homeTeam
+                    }
+                    this.elements.content.click({
+                        'teamId': t
+                    },
+                    teamClick)
+                }
+            }
+        }
+        if(self.visitingTeam.name != "TBA"){
+            template.find('.visiting-tweet-cta').qtip(tipObj)
+        } else {
+            template.find('.visiting-tweet-cta').hide()
+        }
+        
+        tipObj.content = '<div class="hovercard" tid="h">Click to view Tweets for<br/> ' + template.find('.team-home .team-name').text() + '</div>'
+        template.find('.home-tweet-cta').qtip(tipObj)
+    }
+    
+    
     function sanitizeData(data) {
 
         var templateData = {
@@ -198,6 +253,7 @@ function GameController(gameData, model)
         }
 
     }
+    
 
     function hashTagClick(obj) {
         self.hashTag = $(this).text();
