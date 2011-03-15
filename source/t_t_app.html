@@ -10,6 +10,9 @@
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 		<link rel="stylesheet" href="css/scrollbar.css" type="text/css" />
 		<link rel="stylesheet" href="css/modals.css" type="text/css" />
+		<!--[if IE 7]>
+        <link rel="stylesheet" href="css/ie7.css" type="text/css" />
+        <![endif]-->
 
 				<!-- Third Party -->        
         <script src="http://platform.twitter.com/anywhere.js?id=bP6BLolQNtOorD6JNa8fQ&amp;v=1"></script>
@@ -204,7 +207,7 @@
 				</div><!-- END COLUMN RIGHT -->
 			</div><!-- END CONTENT -->
 			<div id="map"></div>
-			<div id="footer"><img src="img/foot2.jpg" width="924" height="140" alt="Foot"></div>
+			<div id="footer"><a href="#" target="_blank"><img src="img/foot2.jpg" width="924" height="140" alt="Foot" /></a></div>
 			<div class="clear"></div>
 
 			<div id="modal-templates">
@@ -333,7 +336,7 @@
 					<div class="team-score">${visitingTeam.score}</div>
 					<div class="team-hashtag"><a href="#" class="hashtag">${visitingTeam.customData.hashTag}</a></div>
 					<div class="team-mentions-small mentions">${visitingTeam.customData.mentions}</div>
-					<div class="team-tweets-cta visiting-tweet-cta" title="Click to see tweets for this team"></div>
+					<div class="team-tweets-cta visiting-tweet-cta" ></div>
 					<div class="clear"></div>
 				</div>
 				<div class="team-home">
@@ -342,7 +345,7 @@
 					<div class="team-score">${homeTeam.score}</div>
 					<div class="team-hashtag"><a href="#" class="hashtag">${homeTeam.customData.hashTag}</a></div>
 					<div class="team-mentions-small mentions">${homeTeam.customData.mentions}</div>
-					<div class="team-tweets-cta home-tweet-cta" title="Click to see tweets for this team"></div>
+					<div class="team-tweets-cta home-tweet-cta" ></div>
 					<div class="clear"></div>
 				</div>
 			</div>
