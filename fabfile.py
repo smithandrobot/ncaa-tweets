@@ -12,9 +12,9 @@ def build():
     print "Build complete."
     
 def deploy(**kwargs):
-    build()
+    # build()
     print "Deploying...."
-    project.rsync_project(remote_dir="/var/www/vhosts/ncaa/", local_dir='deploy/')
+    project.rsync_project(remote_dir="/var/www/vhosts/ncaa/", local_dir='source/')
 
 def server():
     print "Go to http://localhost:8000"

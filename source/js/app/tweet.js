@@ -167,7 +167,7 @@ function Tweet()
 	{
 		//var e = e.find('.action-favorite')
 		var type = $(this).text();
-		self.favoriteType = 'Unfavorite';//type;
+		self.favoriteType = type;
 		//if(type == 'Favorite') $(this).find('b').text('Unfavorite');
 		//if(type == 'Unfavorite') $(this).find('b').text('Favorite');
 		
