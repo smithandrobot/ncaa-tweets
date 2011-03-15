@@ -65,7 +65,14 @@
         <script src="js/app/navcontroller.js" type="text/javascript" charset="utf-8"></script>
         <script src="js/app/teamselectorcontroller.js" type="text/javascript" charset="utf-8"></script>
         
-        
+		<script type="text/javascript" charset="utf-8">
+		function trackClick()
+		{
+			pageTracker._trackEvent('banner click', 'click', 'click on banner', 'banner click');
+			window.open("http://www.verizonwireless.com/4glte");
+		}
+
+		</script>
 		<!-- analytics -->
 
 	</head>
@@ -213,7 +220,7 @@
 				</div><!-- END COLUMN RIGHT -->
 			</div><!-- END CONTENT -->
 			<div id="map"></div>
-			<div id="footer"><a href="http://www.verizonwireless.com/4glte" target="_blank"><img src="img/foot2.jpg" width="924" height="140" alt="Foot" /></a></div>
+			<div id="footer"><a href="#verizon" onclick="trackClick(); return false;" target="_blank"><img src="img/foot2.jpg" width="924" height="140" alt="Foot" /></a></div>
 			<div class="clear"></div>
 
 			<div id="modal-templates">

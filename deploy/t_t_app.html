@@ -37,16 +37,13 @@
 		<!-- analytics -->
 		<script type="text/javascript">
 		
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-9835910-5']);
-		  _gaq.push(['_trackPageview']);
+		function trackClick()
+		{
+			pageTracker._trackEvent('banner click', 'click', 'click on banner', 'banner click');
+			window.open("http://www.verizonwireless.com/4glte");
+		}
 		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		
+		</script>
 		</script>
 	</head>
 	<body>
@@ -192,7 +189,7 @@
 				</div><!-- END COLUMN RIGHT -->
 			</div><!-- END CONTENT -->
 			<div id="map"></div>
-			<div id="footer"><a href="http://www.verizonwireless.com/4glte" target="_blank"><img src="img/foot2.jpg" width="924" height="140" alt="Foot" /></a></div>
+			<div id="footer"><a href="#verizon" onclick="trackClick(); return false;" target="_blank"><img src="img/foot2.jpg" width="924" height="140" alt="Foot" /></a></div>
 			<div class="clear"></div>
 
 			<div id="modal-templates">
