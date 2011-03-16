@@ -48,7 +48,7 @@ function VerizonModule()
 		
 		if(data.length <= 0) 
 		{
-			element.find('.tweet-text').html('<p>Loading Verizon Tweets...</p>');
+			element.find('.tweet-text').html('<p>Loading Verizon Tweet...</p>');
 			return;
 		}
 		
@@ -63,7 +63,8 @@ function VerizonModule()
 		
 		if(data.length <= 0)  return;
 		
-		label.text(data[0].text);
+		var newText = data[0].text.replace(/#mm2011/i, '');
+		label.text(newText);
 		clearInterval(qInterval);
 		qInterval = setTimeout(questionModel.load, UPDATE)
 	}
