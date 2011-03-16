@@ -37,7 +37,7 @@ TweetParser = (function TweetParser()
 		
         for (var i = 0; i<= total; i++)
         {
-            replaceString = "<a href='http://search.twitter.com/search?q=" + hashArray[i].replace("#", "%23") + "' target='_blank'>" + hashArray[i] + "</a>";
+            replaceString = "<a href='http://twitter.com/search?q=" + hashArray[i] + "' target='_blank'>" + hashArray[i] + "</a>";
             str = str.replace(hashArray[i], replaceString);
         }
 
