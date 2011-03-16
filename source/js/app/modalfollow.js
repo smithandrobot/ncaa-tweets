@@ -139,7 +139,7 @@ function ModalFollow( overlay )
 		
 		var propObject = {};
 		propObject.left = left;
-		propObject.top = top;
+		propObject.top = (self.tweet.verizonModule) ? 100 : top;
 		if(animate)
 		{ 
 			element.animate(propObject, 250);
@@ -189,7 +189,6 @@ function ModalFollow( overlay )
 	function initCSS()
 	{
 		element.css('position', 'fixed');
-		position( false );
 	}
 	
 	

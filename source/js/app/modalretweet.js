@@ -21,15 +21,16 @@ function ReTweetModal( overlay )
 	{
 		setContent( tweet );
 		tweetID = tweet.tweetID;
-		
+		this.tweet = tweet;
 		if( state == 'closed') 
 		{
 			showActionScreen();
 			element.css('z-index', overlay.z+1)
 			element.fadeIn(250);
 			overlay.open();
-		}		
-		position();
+		}
+				
+		position( );
 		state = 'open';
 	}
 	
@@ -105,7 +106,7 @@ function ReTweetModal( overlay )
 		
 		var propObject = {};
 		propObject.left = left;
-		propObject.top = top;
+		propObject.top = (self.tweet.verizonModule) ? 100 : top;
 		if(animate)
 		{ 
 			element.animate(propObject, 250);
@@ -170,7 +171,7 @@ function ReTweetModal( overlay )
 	function initCSS()
 	{
 		element.css('position', 'fixed');
-		position( false );
+		// position( false );
 	}
 	
 	

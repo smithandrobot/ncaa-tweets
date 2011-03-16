@@ -61,7 +61,7 @@ function ModalTweetBox( overlay )
 		
 		var propObject = {};
 		propObject.left = left;
-		propObject.top = top;
+		propObject.top = (self.tweet.verizonModule) ? 100 : top;
 		if(animate)
 		{ 
 			element.animate(propObject, 250);
@@ -126,7 +126,7 @@ function ModalTweetBox( overlay )
 	function initCSS()
 	{
 		element.css('position', 'fixed');
-		position( false );
+		// position( false );
 	}
 	
 	

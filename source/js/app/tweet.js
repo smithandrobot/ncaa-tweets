@@ -37,6 +37,7 @@ function Tweet()
 	this.followType;
 	this.toggleFavorite = toggleFavorite;
 	this.toggleFollow 	= toggleFollow;
+	this.verizonModule	= false;
 	
 	this.getElement	= function () { return element; };
 
@@ -197,17 +198,14 @@ function Tweet()
 	
 	function checkIfFavorited( id )
 	{
-		Log('not connected: '+self.twitterAPI);
 		if(!self.twitterAPI.isConnected())
 		{
-			Log('not connected');
 			return;
 		}
 	}
 	
 	function checkIfFollowing( )
 	{
-		Log('not connected: '+self.twitterAPI);
 		// if(!self.twitterAPI.isConnected())
 		// {
 		// 	Log('not connected');
