@@ -37,6 +37,7 @@ function Tweet()
 	this.followType;
 	this.toggleFavorite = toggleFavorite;
 	this.toggleFollow 	= toggleFollow;
+	this.verizonModule	= false;
 	
 	this.getElement	= function () { return element; };
 
@@ -141,6 +142,11 @@ function Tweet()
 	function onLoggedStateChange( e )
 	{
 		Log('logged in state changed to: '+e.target.loggedIn);
+		if(e.target.loggedIn)
+		{
+			checkIfFavorited();
+			checkIfFollowing();
+		}
 	}
 	
 	
@@ -188,7 +194,7 @@ function Tweet()
 	
 	
 	function toggleFollow( type )
-	{
+	{ 
 		var type = element.find('.action-follow').text();
 		var t = (type == 'Follow') ? 'Unfollow' : 'Follow';
 		Log('toggleFavorite: '+type+', '+t);
@@ -197,7 +203,6 @@ function Tweet()
 	
 	function checkIfFavorited( id )
 	{
-		Log('not connected: '+self.twitterAPI);
 		if(!self.twitterAPI.isConnected())
 		{
 			Log('not connected');
@@ -207,26 +212,43 @@ function Tweet()
 	
 	function checkIfFollowing( )
 	{
-		Log('not connected: '+self.twitterAPI);
-		// if(!self.twitterAPI.isConnected())
-		// {
-		// 	Log('not connected');
-		// 	return;
-		// }
-		// 
-		// var following = self.twitterAPI.User.find(self.screenName).isFollowing()
-		// Log('i am folowing this user: '+following)
+		Log('self.screenName: '+self.screenName);
+		if(!self.twitterAPI.isConnected())
+		{
+			Log('checkIfFollowing not connected');
+			return;
+		}else{
+			Log('connected');
+		}
+		
+		//var u = t.User.find( user );
+
+		// var callbacks = {succes:onFavoriteResponse, error:onFavoriteResponseError};
+		// var following = self.twitterAPI.twitterOBJ.User.find(self.screenName).isFollowing(callbacks);
+		// Log('i am folowing '+self.screenName+': '+following);
+
 	}
 	
 	
+	function onFavoriteResponse(e)
+	{
+		Log('favorite response: '+e)
+		toggleFavorite();
+	}
+
+	function onFavoriteResponseError()
+	{
+		Log('error trying to find out if follwing user: '+self.screenName)
+	}
+		
 	function onPhotoClick()
 	{
 		dispatchEvent('onPhotoClick' , self);
 	}
 	
 	
-	function onTweetOver() {e.find('.tweet-utility').fadeTo('fast', 1); };
-	function onTweetOut() { e.find('.tweet-utility').fadeTo('fast', .2); };
+	function onTweetOver() { e.find('.tweet-utility').fadeTo('fast', 1);  };
+	function onTweetOut()  { e.find('.tweet-utility').fadeTo('fast', .2); };
 
 	
 	

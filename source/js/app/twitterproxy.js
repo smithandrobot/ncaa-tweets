@@ -28,7 +28,6 @@ function TwitterProxy()
 
 	function isConnected()
 	{
-		Log('self.twitterOBJ: isConnected: ');
 		if(!twitterOBJ) return false;
 		return twitterOBJ.isConnected();
 	}

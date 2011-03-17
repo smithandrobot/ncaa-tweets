@@ -23,7 +23,7 @@ function ModalReply( overlay )
 	function open( tweet )
 	{
 		if( tweet ) setContent( tweet );
-		
+		self.tweet = tweet;
 		if( state == 'closed') 
 		{
 			$('#reply-box').empty();
@@ -63,7 +63,7 @@ function ModalReply( overlay )
 		
 		var propObject = {};
 		propObject.left = left;
-		propObject.top = top;
+		propObject.top = (self.tweet.verizonModule) ? 100 : top;
 		if(animate)
 		{ 
 			element.animate(propObject, 250);
@@ -128,7 +128,6 @@ function ModalReply( overlay )
 	function initCSS()
 	{
 		element.css('position', 'fixed');
-		position( false );
 	}
 	
 	

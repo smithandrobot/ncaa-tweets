@@ -23,6 +23,7 @@ function VerizonModule()
 	this.twitterReady  	  = twitterReady;
 	this.toggleFavorite   = toggleFavorite;
 	this.toggleFollow 	  = toggleFollow;
+	this.verizonModule	  = true;
 	this.getElement		  = function () { return element.find('.tweet-text'); };
 	/* INITIALIZE */
 	

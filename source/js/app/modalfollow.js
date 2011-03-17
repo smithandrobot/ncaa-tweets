@@ -139,7 +139,7 @@ function ModalFollow( overlay )
 		
 		var propObject = {};
 		propObject.left = left;
-		propObject.top = top;
+		propObject.top = (self.tweet.verizonModule) ? 100 : top;
 		if(animate)
 		{ 
 			element.animate(propObject, 250);
@@ -154,9 +154,11 @@ function ModalFollow( overlay )
 		if( !canFollow() ) return;
 		
 		var t = self.twitterProxy.twitterOBJ;
-		Log(followType+' user: '+user)
 		var callbacks = {success: showConfirmScreen, error: showErrorScreen };
 		var u = t.User.find( user );
+		
+		var following = t.currentUser.isFollowing( user, function( r ){Log(' following result: '+r)} );
+		// Log('you are following : '+following);
 		if(followType == 'Follow')
 		{
 			u.follow(callbacks);
@@ -189,7 +191,6 @@ function ModalFollow( overlay )
 	function initCSS()
 	{
 		element.css('position', 'fixed');
-		position( false );
 	}
 	
 	

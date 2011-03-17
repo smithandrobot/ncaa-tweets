@@ -103,6 +103,8 @@ function ScheduleController()
         
         var gameList = getGamesForRound(self.loadedRound)
         
+
+        
         if (streamLoadCount > 0) {
             streamLoadCount--;
             $('#scoreboard-loader').hide();
@@ -113,19 +115,15 @@ function ScheduleController()
                 }
             })
             
-            
+            if(self.firstActive){
+                var pos = self.firstActive.view.position();
+                //$("#schedule_list .scrollbar-pane").css('top', pos.top)
+                //$("#schedule-container").scrollTop(pos.top)
+            }
             
             if(streamLoadCount == 0){
                 sortGames()
-                
-                if(self.firstActive){
-                    var pos = self.firstActive.view.position();
-                    self.firstActive = null
-                    addScrollbar(pos.top)
-                } else {
-                    addScrollbar(0)
-                }
-                
+                addScrollbar()
             }
         } else {
             
@@ -192,19 +190,13 @@ function ScheduleController()
 
 
 
-    function addScrollbar(scrollTop) {
-        
-        var st = 0
-        
-        if(scrollTop){
-            st = scrollTop
-        }
-        var s = $('.schedule-scrollbar').scrollbar({
+    function addScrollbar() {
+       
+        scroller = $('.schedule-scrollbar').scrollbar({
             handleHeight: 151,
-            arrows: false,
-            scrollTop:st
+            arrows: false
         });
-        self.scrollbar = s.scrollbar.Scrollbar.prototype
+        
     }
 
     function removeScrollbar() {

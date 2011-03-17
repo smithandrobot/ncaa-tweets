@@ -126,7 +126,7 @@ function ModalTweetBox( overlay )
 	function initCSS()
 	{
 		element.css('position', 'fixed');
-		position( false );
+		// position( false );
 	}
 	
 	
