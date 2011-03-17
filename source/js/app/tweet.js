@@ -133,15 +133,11 @@ function Tweet()
 	{
 		self.twitterAPI = t;
 		self.twitterAPI.addEventListener('onLoggedInStateChanged', onLoggedStateChange);
-		
-		checkIfFollowing( self.screenName );
-		checkIfFavorited( self.tweetID );
 	}
 	
 	
 	function onLoggedStateChange( e )
 	{
-		Log('logged in state changed to: '+e.target.loggedIn);
 		if(e.target.loggedIn)
 		{
 			checkIfFavorited();
@@ -168,8 +164,6 @@ function Tweet()
 	
 	function onClickReTweet()
 	{
-		Log('onClickReTweet');
-
 		dispatchEvent('onReTweet', self);
 		pageTracker._trackPageview('/retweeted/');
 	}
@@ -197,49 +191,9 @@ function Tweet()
 	{ 
 		var type = element.find('.action-follow').text();
 		var t = (type == 'Follow') ? 'Unfollow' : 'Follow';
-		Log('toggleFavorite: '+type+', '+t);
 		element.find('.action-follow b').text(t);
 	}
-	
-	function checkIfFavorited( id )
-	{
-		if(!self.twitterAPI.isConnected())
-		{
-			Log('not connected');
-			return;
-		}
-	}
-	
-	function checkIfFollowing( )
-	{
-		Log('self.screenName: '+self.screenName);
-		if(!self.twitterAPI.isConnected())
-		{
-			Log('checkIfFollowing not connected');
-			return;
-		}else{
-			Log('connected');
-		}
-		
-		//var u = t.User.find( user );
 
-		// var callbacks = {succes:onFavoriteResponse, error:onFavoriteResponseError};
-		// var following = self.twitterAPI.twitterOBJ.User.find(self.screenName).isFollowing(callbacks);
-		// Log('i am folowing '+self.screenName+': '+following);
-
-	}
-	
-	
-	function onFavoriteResponse(e)
-	{
-		Log('favorite response: '+e)
-		toggleFavorite();
-	}
-
-	function onFavoriteResponseError()
-	{
-		Log('error trying to find out if follwing user: '+self.screenName)
-	}
 		
 	function onPhotoClick()
 	{
