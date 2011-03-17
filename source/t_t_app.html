@@ -68,7 +68,7 @@
 		<script type="text/javascript" charset="utf-8">
 		function trackClick()
 		{
-			pageTracker._trackEvent('banner click', 'click', 'click on banner', 'banner click');
+			_gaq.push(['_trackEvent', 'Clicks', 'Banner Click', 'Verizon Banner Click']);
 			window.open("http://www.verizonwireless.com/4glte");
 		}
 
@@ -367,11 +367,17 @@
 			pageTracker._trackPageview();
 			} catch(err) {}
 		</script>
-		<SCRIPT language='JavaScript1.1' SRC="http://ad.doubleclick.net/adj/N2998.ESPN/B5321894.11;sz=1x1;pc=[TPAS_ID];click=;ord=[timestamp]?">
+
+		<!-- tracking from Moxie -->
+		<SCRIPT LANGUAGE="JavaScript">
+			ord=Math.random();
+			ord=ord*10000000000000000000;
+			document.write('<SCR' + 'IPT LANGUAGE="JavaScript" SRC="http://ad.doubleclick.net/ad/N2998.ESPN/B5321894.11;sz=1x1;pc=;ord='+ord+'?"><\/SCR' + 'IPT>');
 		</SCRIPT>
 		<NOSCRIPT>
-		<A HREF="http://ad.doubleclick.net/jump/N2998.ESPN/B5321894.11;sz=1x1;pc=[TPAS_ID];ord=[timestamp]?">
-		<IMG SRC="http://ad.doubleclick.net/ad/N2998.ESPN/B5321894.11;sz=1x1;pc=[TPAS_ID];ord=[timestamp]?" BORDER=0 WIDTH=1 HEIGHT=1 ALT="Advertisement"></A>
+			<A HREF="http://ad.doubleclick.net/jump/N2998.ESPN/B5321894.11;sz=1x1;pc=;ord=?">
+			<IMG SRC="http://ad.doubleclick.net/ad/N2998.ESPN/B5321894.11;sz=1x1;pc=;ord=?" BORDER=0 WIDTH=1 HEIGHT=1 ALT="Advertisement"></A>
 		</NOSCRIPT>
+		<!-- END tracking from Moxie -->
 	</body>
 </html>

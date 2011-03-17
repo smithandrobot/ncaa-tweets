@@ -177,10 +177,10 @@ function TweetListController()
 		for(i;i<=total;i++)	
 		{
 			t = new Tweet();
-			t.setTwitterAPI(twitterProxy);
 			tweets.push(t);
 			addListeners( t );
 			t.setData(data[i]);
+			t.setTwitterAPI(twitterProxy);
 			element.append(t.getHTML());
 		};
 
