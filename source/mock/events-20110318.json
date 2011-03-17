@@ -1,1 +1,571 @@
-{"events":{"event":[{"eventType":"NCAA Tournament","competitor":[{"shortName":"TEX","name":"Texas Longhorns","homeaway":"home","rank":null,"color":"#EF7321","id":"251","score":"0"},{"shortName":"OAK","name":"Oakland Golden Grizzlies","homeaway":"away","rank":null,"color":"#04091C","id":"2473","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 12:15 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T16:15:00Z","id":"310770251","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT TULSA OK","venue":"Bank of Oklahoma Center","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"MICH","name":"Michigan Wolverines","homeaway":"home","rank":null,"color":"#001531","id":"130","score":"0"},{"shortName":"TENN","name":"Tennessee Volunteers","homeaway":"away","rank":null,"color":"#D37907","id":"2633","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 12:40 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T16:40:00Z","id":"310770130","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT CHARLOTTE NC","venue":"Time Warner Cable Arena","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"ND","name":"Notre Dame Fighting Irish","homeaway":"home","rank":null,"color":"#00122B","id":"87","score":"0"},{"shortName":"AKR","name":"Akron Zips","homeaway":"away","rank":null,"color":"#001D44","id":"2006","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 1:40 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T17:40:00Z","id":"310770087","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO","venue":"United Center","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"GMU","name":"George Mason Patriots","homeaway":"home","rank":null,"color":"#016600","id":"2244","score":"0"},{"shortName":"VILL","name":"Villanova Wildcats","homeaway":"away","rank":null,"color":"#002D5B","id":"222","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 2:10 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T18:10:00Z","id":"310772244","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND","venue":"Quicken Loans Arena","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"ARIZ","name":"Arizona Wildcats","homeaway":"home","rank":null,"color":"#002449","id":"12","score":"0"},{"shortName":"MEM","name":"Memphis Tigers","homeaway":"away","rank":null,"color":"#002447","id":"235","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 2:45 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T18:45:00Z","id":"310770012","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT TULSA OK","venue":"Bank of Oklahoma Center","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"DUKE","name":"Duke Blue Devils","homeaway":"home","rank":null,"color":"#004582","id":"150","score":"0"},{"shortName":"HAMP","name":"Hampton Pirates","homeaway":"away","rank":null,"color":"#005299","id":"2261","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 3:10 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T19:10:00Z","id":"310770150","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT CHARLOTTE NC","venue":"Time Warner Cable Arena","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"TA&M","name":"Texas A&M Aggies","homeaway":"home","rank":null,"color":"#6A3333","id":"245","score":"0"},{"shortName":"FSU","name":"Florida State Seminoles","homeaway":"away","rank":null,"color":"#7F001B","id":"52","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 4:10 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T20:10:00Z","id":"310770245","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO","venue":"United Center","source":"basic","seasonType":"3"},{"eventType":"Post Season","competitor":[{"shortName":"OSU","name":"Ohio State Buckeyes","homeaway":"home","rank":null,"color":"#A00612","id":"194","score":"0"},{"shortName":"TBA","name":"TBA null","homeaway":"away","rank":null,"color":"-","id":"0","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 4:40 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T20:40:00Z","id":"310770194","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND","venue":"-","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"KU","name":"Kansas Jayhawks","homeaway":"home","rank":null,"color":"#0060A5","id":"2305","score":"0"},{"shortName":"BU","name":"Boston University Terriers","homeaway":"away","rank":null,"color":"#CC0000","id":"104","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 6:50 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T22:50:00Z","id":"310772305","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT TULSA OK","venue":"Bank of Oklahoma Center","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"UNC","name":"North Carolina Tar Heels","homeaway":"home","rank":null,"color":"#99BFE5","id":"153","score":"0"},{"shortName":"LIU","name":"Long Island Blackbirds","homeaway":"away","rank":null,"color":"#000000","id":"2341","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 7:15 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T23:15:00Z","id":"310770153","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CHARLOTTE NC","venue":"Time Warner Cable Arena","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"PUR","name":"Purdue Boilermakers","homeaway":"home","rank":null,"color":"#211818","id":"2509","score":"0"},{"shortName":"SPC","name":"St. Peter's Peacocks","homeaway":"away","rank":null,"color":"#001555","id":"2612","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 7:20 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T23:20:00Z","id":"310772509","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO","venue":"United Center","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"XAV","name":"Xavier Musketeers","homeaway":"home","rank":null,"color":"#004B80","id":"2752","score":"0"},{"shortName":"MARQ","name":"Marquette Golden Eagles","homeaway":"away","rank":null,"color":"#083963","id":"269","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 7:27 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-18T23:27:00Z","id":"310772752","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND","venue":"Quicken Loans Arena","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"UNLV","name":"UNLV Rebels","homeaway":"home","rank":null,"color":"#000000","id":"2439","score":"0"},{"shortName":"ILL","name":"Illinois Fighting Illini","homeaway":"away","rank":null,"color":"#F77329","id":"356","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 9:20 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-19T01:20:00Z","id":"310772439","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT TULSA OK","venue":"Bank of Oklahoma Center","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"WASH","name":"Washington Huskies","homeaway":"home","rank":null,"color":"#3E3468","id":"264","score":"0"},{"shortName":"UGA","name":"Georgia Bulldogs","homeaway":"away","rank":null,"color":"#A0000B","id":"61","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 9:45 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-19T01:45:00Z","id":"310770264","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CHARLOTTE NC","venue":"Time Warner Cable Arena","source":"basic","seasonType":"3"},{"eventType":"Post Season","competitor":[{"shortName":"GTWN","name":"Georgetown Hoyas","homeaway":"home","rank":null,"color":"#001B50","id":"46","score":"0"},{"shortName":"TBA","name":"TBA null","homeaway":"away","rank":null,"color":"-","id":"0","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 9:50 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-19T01:50:00Z","id":"310770046","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO","venue":"-","source":"basic","seasonType":"3"},{"eventType":"NCAA Tournament","competitor":[{"shortName":"SYR","name":"Syracuse Orange","homeaway":"home","rank":null,"color":"#002045","id":"183","score":"0"},{"shortName":"INST","name":"Indiana State Sycamores","homeaway":"away","rank":null,"color":"#00669A","id":"282","score":"0"}],"eventstatus":{"statusText":"SCHEDULED: March 18, 2011, 9:57 PM EDT","curPeriod":"0","clock":"0:00","status":"SCHEDULED"},"season":"2011","date":"2011-03-19T01:57:00Z","id":"310770183","statSource":"null","note":"MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND","venue":"Quicken Loans Arena","source":"basic","seasonType":"3"}],"xsi:noNamespaceSchemaLocation":"http://a.espncdn.com/xsd/Events.xsd","links":{"link":["http://scores.espn.go.com/ncb/recap?gameId=","http://sports.espn.go.com/ncb/clubhouse?teamId="]},"xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","league":"NCAA","sport":"Basketball"}}
+{
+    "events": {
+        "event": [{
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "TEX",
+                "name": "Texas Longhorns",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#EF7321",
+                "id": "251",
+                "score": "0"
+            },
+            {
+                "shortName": "OAK",
+                "name": "Oakland Golden Grizzlies",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#04091C",
+                "id": "2473",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 12:15 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T16:15:00Z",
+            "id": "310770251",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT TULSA OK",
+            "venue": "Bank of Oklahoma Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "MICH",
+                "name": "Michigan Wolverines",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#001531",
+                "id": "130",
+                "score": "0"
+            },
+            {
+                "shortName": "TENN",
+                "name": "Tennessee Volunteers",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#D37907",
+                "id": "2633",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 12:40 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T16:40:00Z",
+            "id": "310770130",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT CHARLOTTE NC",
+            "venue": "Time Warner Cable Arena",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "ND",
+                "name": "Notre Dame Fighting Irish",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#00122B",
+                "id": "87",
+                "score": "0"
+            },
+            {
+                "shortName": "AKR",
+                "name": "Akron Zips",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#001D44",
+                "id": "2006",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 1:40 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T17:40:00Z",
+            "id": "310770087",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO",
+            "venue": "United Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "GMU",
+                "name": "George Mason Patriots",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#016600",
+                "id": "2244",
+                "score": "0"
+            },
+            {
+                "shortName": "VILL",
+                "name": "Villanova Wildcats",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#002D5B",
+                "id": "222",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 2:10 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T18:10:00Z",
+            "id": "310772244",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND",
+            "venue": "Quicken Loans Arena",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "ARIZ",
+                "name": "Arizona Wildcats",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#002449",
+                "id": "12",
+                "score": "0"
+            },
+            {
+                "shortName": "MEM",
+                "name": "Memphis Tigers",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#002447",
+                "id": "235",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 2:45 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T18:45:00Z",
+            "id": "310770012",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT TULSA OK",
+            "venue": "Bank of Oklahoma Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "DUKE",
+                "name": "Duke Blue Devils",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#004582",
+                "id": "150",
+                "score": "0"
+            },
+            {
+                "shortName": "HAMP",
+                "name": "Hampton Pirates",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#005299",
+                "id": "2261",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 3:10 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T19:10:00Z",
+            "id": "310770150",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - WEST REGION - 2nd ROUND AT CHARLOTTE NC",
+            "venue": "Time Warner Cable Arena",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "TA&M",
+                "name": "Texas A&M Aggies",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#6A3333",
+                "id": "245",
+                "score": "0"
+            },
+            {
+                "shortName": "FSU",
+                "name": "Florida State Seminoles",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#7F001B",
+                "id": "52",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 4:10 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T20:10:00Z",
+            "id": "310770245",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO",
+            "venue": "United Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "Post Season",
+            "competitor": [{
+                "shortName": "OSU",
+                "name": "Ohio State Buckeyes",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#A00612",
+                "id": "194",
+                "score": "0"
+            },
+            {
+                "shortName": "TBA",
+                "name": "TBA null",
+                "homeaway": "away",
+                "rank": null,
+                "color": "-",
+                "id": "0",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 4:40 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T20:40:00Z",
+            "id": "310770194",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND",
+            "venue": "-",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "KU",
+                "name": "Kansas Jayhawks",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#0060A5",
+                "id": "2305",
+                "score": "0"
+            },
+            {
+                "shortName": "BU",
+                "name": "Boston University Terriers",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#CC0000",
+                "id": "104",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 6:50 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T22:50:00Z",
+            "id": "310772305",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT TULSA OK",
+            "venue": "Bank of Oklahoma Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "UNC",
+                "name": "North Carolina Tar Heels",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#99BFE5",
+                "id": "153",
+                "score": "0"
+            },
+            {
+                "shortName": "LIU",
+                "name": "Long Island Blackbirds",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#000000",
+                "id": "2341",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 7:15 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T23:15:00Z",
+            "id": "310770153",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CHARLOTTE NC",
+            "venue": "Time Warner Cable Arena",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "PUR",
+                "name": "Purdue Boilermakers",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#211818",
+                "id": "2509",
+                "score": "0"
+            },
+            {
+                "shortName": "SPC",
+                "name": "St. Peter's Peacocks",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#001555",
+                "id": "2612",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 7:20 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T23:20:00Z",
+            "id": "310772509",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO",
+            "venue": "United Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "XAV",
+                "name": "Xavier Musketeers",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#004B80",
+                "id": "2752",
+                "score": "0"
+            },
+            {
+                "shortName": "MARQ",
+                "name": "Marquette Golden Eagles",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#083963",
+                "id": "269",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 7:27 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-18T23:27:00Z",
+            "id": "310772752",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND",
+            "venue": "Quicken Loans Arena",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "UNLV",
+                "name": "UNLV Rebels",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#000000",
+                "id": "2439",
+                "score": "0"
+            },
+            {
+                "shortName": "ILL",
+                "name": "Illinois Fighting Illini",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#F77329",
+                "id": "356",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 9:20 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-19T01:20:00Z",
+            "id": "310772439",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT TULSA OK",
+            "venue": "Bank of Oklahoma Center",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "WASH",
+                "name": "Washington Huskies",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#3E3468",
+                "id": "264",
+                "score": "0"
+            },
+            {
+                "shortName": "UGA",
+                "name": "Georgia Bulldogs",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#A0000B",
+                "id": "61",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 9:45 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "IN PROGRESS"
+            },
+            "season": "2011",
+            "date": "2011-03-19T01:45:00Z",
+            "id": "310770264",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CHARLOTTE NC",
+            "venue": "Time Warner Cable Arena",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "Post Season",
+            "competitor": [{
+                "shortName": "GTWN",
+                "name": "Georgetown Hoyas",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#001B50",
+                "id": "46",
+                "score": "0"
+            },
+            {
+                "shortName": "TBA",
+                "name": "TBA null",
+                "homeaway": "away",
+                "rank": null,
+                "color": "-",
+                "id": "0",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 9:50 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-19T01:50:00Z",
+            "id": "310770046",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - SOUTHWEST REGION - 2nd ROUND AT CHICAGO",
+            "venue": "-",
+            "source": "basic",
+            "seasonType": "3"
+        },
+        {
+            "eventType": "NCAA Tournament",
+            "competitor": [{
+                "shortName": "SYR",
+                "name": "Syracuse Orange",
+                "homeaway": "home",
+                "rank": null,
+                "color": "#002045",
+                "id": "183",
+                "score": "0"
+            },
+            {
+                "shortName": "INST",
+                "name": "Indiana State Sycamores",
+                "homeaway": "away",
+                "rank": null,
+                "color": "#00669A",
+                "id": "282",
+                "score": "0"
+            }],
+            "eventstatus": {
+                "statusText": "SCHEDULED: March 18, 2011, 9:57 PM EDT",
+                "curPeriod": "0",
+                "clock": "0:00",
+                "status": "SCHEDULED"
+            },
+            "season": "2011",
+            "date": "2011-03-19T01:57:00Z",
+            "id": "310770183",
+            "statSource": "null",
+            "note": "MEN'S BASKETBALL CHAMPIONSHIP - EAST REGION - 2nd ROUND AT CLEVELAND",
+            "venue": "Quicken Loans Arena",
+            "source": "basic",
+            "seasonType": "3"
+        }],
+        "xsi:noNamespaceSchemaLocation": "http://a.espncdn.com/xsd/Events.xsd",
+        "links": {
+            "link": ["http://scores.espn.go.com/ncb/recap?gameId=", "http://sports.espn.go.com/ncb/clubhouse?teamId="]
+        },
+        "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "league": "NCAA",
+        "sport": "Basketball"
+    }
+}
