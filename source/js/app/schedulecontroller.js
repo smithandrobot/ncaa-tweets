@@ -115,16 +115,16 @@ function ScheduleController()
                 }
             })
             
-            if(self.firstActive){
-                var pos = self.firstActive.view.position();
-                //$("#schedule_list .scrollbar-pane").css('top', pos.top)
-                //$("#schedule-container").scrollTop(pos.top)
-            }
             
             if(streamLoadCount == 0){
                 sortGames()
-                addScrollbar()
+                var pos = 0;
+                if(self.firstActive){
+                    pos = self.firstActive.view.position().top;
+                }
+                addScrollbar(pos)
             }
+            
         } else {
             
             $(gameList).each(function() {
@@ -190,11 +190,12 @@ function ScheduleController()
 
 
 
-    function addScrollbar() {
-       
+    function addScrollbar(top) {
+        Log(top)
         scroller = $('.schedule-scrollbar').scrollbar({
             handleHeight: 151,
-            arrows: false
+            arrows: false,
+            scrollTop: top
         });
         
     }

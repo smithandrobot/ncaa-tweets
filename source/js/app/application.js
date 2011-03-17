@@ -25,7 +25,7 @@ function Application()
     function onTeamModelReady(e){
         teams.removeEventListener("onTeamModelReady", this)
         nav.addEventListener('onRoundSelect', onRoundSelect);
-        nav.setAvailableRounds(['round1', 'round2'])
+        nav.setAvailableRounds(['round1', 'round2', 'round3'])
         
         
         selector.addEventListener('onTeamSelect', onTeamSelect)
