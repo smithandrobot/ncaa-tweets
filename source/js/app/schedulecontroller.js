@@ -33,9 +33,11 @@ function ScheduleController()
         Log('Loading round: ' + round + ' from ' + feedLocation)
         games = []
         removeScrollbar();
+        this.firstActive = null
         loadFeed();
         $('#scoreboard-loader').show();
         self.loadedRound = round
+        
         
     }
     
@@ -114,7 +116,6 @@ function ScheduleController()
                     self.firstActive = game;
                 }
             })
-            
             
             if(streamLoadCount == 0){
                 sortGames()

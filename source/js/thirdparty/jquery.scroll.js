@@ -190,19 +190,18 @@
             this.handleArrowUp =   this.container.find('.scrollbar-handle-up');
             this.handleArrowDown = this.container.find('.scrollbar-handle-down');
             
-            var paneHeight = this.pane.height()
-            this.handleInitTop = (this.opts.scrollTop/paneHeight)*height+this.handleContainer.height()
+            
 
             // set some default CSS attributes (may be overwritten by CSS definitions in an external CSS file)
             this.pane.defaultCss({
-                'top':      this.opts.scrollTop*-1,
+                'top':      0,
                 'left':     0
             });
             this.handleContainer.defaultCss({
                 'right':    0
             });
             this.handle.defaultCss({
-                'top':      this.handleInitTop,
+                'top':      0,
                 'right':    0
             });
             this.handleArrows.defaultCss({
@@ -249,6 +248,8 @@
             
             this.props.handleContainerHeight = this.handleContainer.height();
             this.props.contentHeight = this.pane.height();
+            
+            var startPct = this.opts.scrollTop/(this.pane.height()-this.container.height())
 
            // height of handle
             this.props.handleHeight = this.opts.handleHeight == 'auto' ? Math.max(Math.ceil(this.props.containerHeight * this.props.handleContainerHeight / this.props.contentHeight), this.opts.handleMinHeight) : this.opts.handleHeight;
@@ -262,12 +263,17 @@
                 min: 0,
                 max: this.props.handleContainerHeight - this.props.handleHeight
             };
+            
+            var handleInitTop = startPct <= 1 ?  this.props.handleTop.max*startPct : this.props.handleTop.max
 
             // ratio of handle-container-height to content-container-height (to calculate position of content related to position of handle)
             this.props.handleContentRatio = (this.props.contentHeight - this.props.containerHeight) / (this.props.handleContainerHeight - this.props.handleHeight);
 
             // initial position of handle at top
-            this.handle.top = this.handleInitTop;
+            this.handle.top = handleInitTop;
+            
+            this.setHandlePosition()
+            this.setContentPosition()
         },
 
 
@@ -387,6 +393,7 @@
             this.pane.top = -1 * this.props.handleContentRatio * this.handle.top;
 
             this.pane[0].style.top = this.pane.top + 'px';
+
         },
 
 
