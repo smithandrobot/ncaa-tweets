@@ -34,7 +34,7 @@ function Application()
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
         schedules.setTeamModel(teams)
-        nav.activateRound('round2');
+        nav.activateRound('round3');
         
     }
     
