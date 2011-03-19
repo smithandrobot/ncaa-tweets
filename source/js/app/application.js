@@ -13,6 +13,7 @@ function Application()
     var nav       = new NavController();
     var selector  = new TeamSelectorController();
     var teams     = new TeamsModel();
+    var count     = new TweetCountController();
 
     var tweetBox = $('#tbox');
 
@@ -30,6 +31,8 @@ function Application()
         
         selector.addEventListener('onTeamSelect', onTeamSelect)
         selector.buildList(teams)
+        
+        count.populate(teams)
         
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)

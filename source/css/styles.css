@@ -937,3 +937,58 @@ a.hovercard:hover {
     margin:0 0 10px 10px;
     display:none;
 }
+
+#overall-statistics {
+    width:924px;
+    margin:100px auto;
+    margin-bottom:0px;
+    position:relative;
+    clear:both;
+    height:324px;
+    background: transparent url('../img/map-list-lockup.png') no-repeat bottom center;
+    padding-bottom:30px;
+}
+
+#grand-total{
+    position:absolute;
+    top:30px;
+    left:100px;
+}
+
+#grand-total h1 {
+    font-size:24px;
+}
+#overall-count {
+    position:relative;
+    top:5px;
+    left:673px;
+    width:230px;
+}
+
+#overall-count h3{
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+#overall-count .count-scrollbar{
+    position:relative;
+    height:230px;
+    overflow:auto;
+    
+}
+
+.team-count {
+    width:200px;
+    margin-left:5px;
+}
+.team-count span.mentions {
+    float:right;
+}
+.team-count a span.name {
+    color:#fff;
+}
+
+#map {
+    
+    
+}

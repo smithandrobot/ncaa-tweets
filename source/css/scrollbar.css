@@ -36,16 +36,20 @@
 
 /* --------- */
 
-.team-tweets-css-scrollbar .scrollbar-pane {
+.team-tweets-css-scrollbar .scrollbar-pane,
+.count-scrollbar .scrollbar-pane {
     margin-right: 15px;
 }
 
-.team-tweets-css-scrollbar .scrollbar-handle-container {
+.team-tweets-css-scrollbar .scrollbar-handle-container,
+.count-scrollbar .scrollbar-handle-container {
     background: transparent;
+    background-image:none;
     width: 30px;
 }
 
-.team-tweets-css-scrollbar .scrollbar-handle {
+.team-tweets-css-scrollbar .scrollbar-handle,
+.count-scrollbar .scrollbar-handle {
     width: 8px;
 	margin-right: 7px;
 	background: #ED1F24;
@@ -54,14 +58,16 @@
 }
 
 
-.team-tweets-css-scrollbar .scrollbar-handle-up {
+.team-tweets-css-scrollbar .scrollbar-handle-up,
+.count-scrollbar .scrollbar-handle-up {
     width: 24px;
     height: 6px;
     background: transparent;
 }
 
 
-.team-tweets-css-scrollbar .scrollbar-handle-down {
+.team-tweets-css-scrollbar .scrollbar-handle-down,
+.count-scrollbar .scrollbar-handle-down {
     width: 24px;
     height: 6px;
     background: transparent;
