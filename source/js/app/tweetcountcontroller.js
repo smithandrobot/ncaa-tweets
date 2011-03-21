@@ -5,45 +5,191 @@ function TweetCountController()
     var self     = this;
     self.teams   = null;
     self.counts  = null;
+    self.totalcount = null;
+    self.heatfactor = 1.3;
     
     self.populate = populate
     
     function populate(teams){
         self.teams = teams;
-        self.counts = []
-        totalcount = 0
-        var teamlist = teams.getAll()
-        for(t in teamlist){
-            var team = teamlist[t]
-            var mentions = parseInt(team.mentions)
-            totalcount += mentions
-            self.counts.push({
-                'name'      : team.displayName,
-                'mentions'  : mentions,
-                'shortName' :team.shortName
-            })
-        }
-        self.counts = self.counts.sort(function(a,b){return b.mentions - a.mentions})
+        teams.addEventListener("onTeamModelReady", onTeamDataUpdate)
         
-        $("#grand-total h1").text(Utils.addCommas(totalcount))
+        getCounts();
         
-        var counttemplate = '<li class="team-count"><a href="#" tid="${shortName}"><span class="name">${name}</span><span class="mentions">${mentions}</span></a></li>'
+        $("#grand-total h1").text(Utils.addCommas(self.totalcount))
+        
+        var counttemplate = '<li class="team-count" tid="${shortName}"><span class="name">${name}</span> <span class="mentions">${Utils.addCommas(mentions)}</span></li>'
+        
+        var hotSpotTemplate = '<div class="map-hotspot" tid="${shortName}" style="top:${coords.y}px;left:${coords.x}px;"></div>'
+        var glowTemplate = '<div class="map-glow" style="top:${coords.y}px;left:${coords.x}px;"><img src="img/campus-glow.png"  height ="${gfactor.h}" width="${gfactor.w}"/></div>'
 
         $.template("counts", counttemplate);
+        $.template("hotSpots", hotSpotTemplate);
+        $.template("glowSpots", glowTemplate);
+        
         var teamListView = $.tmpl("counts", self.counts);
-        Log(teamListView)
+        
+        
         $('#overall-count ul').append(teamListView)
+        $('.team-count').first().addClass('mentions-first')
+        $('.team-count').first().next().addClass('mentions-second')
+        $('.team-count').first().next().next().addClass('mentions-third')
+        $('.team-count').first().next().next().next().addClass('mentions-fourth')
+        $('.team-count').first().next().next().next().next().addClass('mentions-fifth')
         $('.count-scrollbar').scrollbar({
             handleHeight: 60,
             arrows: false
         });
+        
+        var topCount = self.counts[0].mentions
+        var positions = []
+        var hsPositions = []
+        
+        for(c in self.counts){
+            var team = self.teams.getTeam(self.counts[c].shortName)
+            if(team.coords){
+                var coords = {
+                    'x' : Math.round(team.coords.x)-4,
+                    'y' : Math.round(team.coords.y)-3
+                }
+                hsPositions.push({'coords':coords, 'shortName': self.counts[c].shortName})
+            } else {
+                Log("missing coords: " + self.counts[c].shortName)
+            }
+            
+        }
+        
+        for(c in self.counts){
+            var team = self.teams.getTeam(self.counts[c].shortName)
+            if(team.coords){
+                var scaleFactor = (((team.mentions/topCount)*self.heatFactor)+.25)
+                var coords = team.coords
+                var gfactor = {'w':Math.floor(84*scaleFactor), 'h':Math.floor(47*scaleFactor)}
+                coords.x = coords.x - gfactor.w/2
+                coords.y = coords.y - gfactor.h/2
+                positions.push({'coords':coords, 'hsfactor': {}, 'gfactor':gfactor})
+            } else {
+                Log("missing coords: " + self.counts[c].shortName)
+            }
+            
+        }
+        
+        var hotSpots = $.tmpl("hotSpots", hsPositions);
+        var glowSpots = $.tmpl("glowSpots", positions);
+        
+        $("#map").append('<div id="glow-container"></div>')
+        $("#map").append('<div id="hotspot-container"></div>')
+        $("#hotspot-container").append(hotSpots)
+        $("#glow-container").append(glowSpots)
+        
+        for(c in self.counts){
+            setTip(self.counts[c].shortName, self.counts[c].mentions)
+        }
+        
+        $('.team-count').each(function(){
+            $(this).click(function(){
+                self.selected = {'team': self.teams.getTeam($(this).attr('tid'))}
+                dispatchEvent("onTeamSelect", self);
+
+                scrollToTweets()
+            })
+        })
+    }
     
-    $('#map').after('<div class="coords">coordinates</div>')
-    $('#map').click(function(event){
-        var x = event.pageX - 251
-        var y = event.pageY - 1076
-        $('.coords').html(",coords:{'x':" + x + ", 'y':" + y + "}")
-    })
+    function getCounts(){
+        self.counts = []
+        self.totalcount = 0
+        var teamlist = self.teams.getAll()
+        for(t in teamlist){
+            var team = teamlist[t]
+            var mentions = parseInt(team.mentions)
+            self.totalcount += mentions
+            self.counts.push({
+                'name'      : team.displayName,
+                'mentions'  : mentions,
+                'shortName' : team.shortName
+            })
+        }
+        self.counts = self.counts.sort(function(a,b){return b.mentions - a.mentions})
+        for(c in self.counts){
+            var team = self.counts[c]
+            //team.mentions = Utils.addCommas(team.mentions)
+        }
+        return self.counts
+    }
+    
+    function setTip(t, mentions){
+        var team = self.teams.getTeam(t)
+        tipContent = '<div class="hovercard no-arrow" tid="' + team.shortName + '">' + team.displayName + '<br />' + Utils.addCommas(mentions) + ' Mentions</div>'
+        tipObj = {
+            content: tipContent,
+            show: 'mouseover',
+            hide: {
+                when: 'mouseout',
+                fixed: false
+            },
+            style: {
+                tip: false,
+                cursor: 'pointer',
+                width: 250,
+                height: 79,
+                'background': 'none',
+                color: '#fff',
+                'text-align': 'center',
+                'font-size': '11px',
+                'padding-right': '10px',
+                border: 'none',
+                classes: {
+                    content: '.tweet-cta-tip'
+                }
+            },
+            position: {
+                corner: {
+                    target: 'topMiddle',
+                    tooltip: 'bottomMiddle'
+                },
+                adjust: {
+                    x: 12,
+                    y: 0
+                }
+            },
+            api: {
+                onRender: function() {
+                    var tid = this.elements.content.find('*[tid]').attr('tid')
+                    $("#hotspot-container").find('div[tid="'+tid+'"]').click({
+                        'teamId': self.teams.getTeam(tid)
+                    },
+                    teamClick)
+                }
+            }
+        }
+        $("#hotspot-container").find('div[tid="'+t+'"]').qtip(tipObj)
+    }
+    
+    function teamClick(obj) {
+        self.selected = {'team': obj.data.teamId}
+        if (obj.data.teamId.name != 'TBA') {
+            dispatchEvent("onTeamSelect", self);
+        }
+        
+        scrollToTweets()
+        
+
+    }
+    
+    function scrollToTweets(){
+        var target_offset = $("#tweet-streams").offset();
+        var target_top = target_offset.top;
+        $('html, body').animate({scrollTop:target_top}, 500);
+    }
+    
+    function onTeamDataUpdate(e){
+        getCounts()
+        for(c in self.counts){
+            var team = self.counts[c]
+            $('a[tid="'+team.shortName+'"]').find('.mentions').text(Utils.addCommas(team.mentions))
+        }
+        $("#grand-total h1").text(Utils.addCommas(self.totalcount))
     }
     
     return self

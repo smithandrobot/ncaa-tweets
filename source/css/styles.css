@@ -14,7 +14,12 @@ body, div {
 	text-shadow: #000000 0px 0px 3px;
 	
 	}
-	
+
+body {
+    
+	background: #333 url("../img/footer-bkg.png") repeat-x;
+	background-position: bottom;
+}	
 .warning a {
 	color: #74000e;
 	text-decoration: underline;
@@ -102,6 +107,7 @@ noscript div, .warning {
 #footer {
     width:924px;
     margin:0px auto;
+    padding-bottom:20px;
 }
 
 #footer a {
@@ -920,6 +926,10 @@ span#counter {
     padding-top:30px;
 }
 
+.no-arrow{
+    background:transparent url('../img/tipbg-noarrow.png') no-repeat center 10px;
+}
+
 a.hovercard:hover {
     color:#ED1F24;
 }
@@ -952,13 +962,17 @@ a.hovercard:hover {
 
 #grand-total{
     position:absolute;
-    top:30px;
-    left:100px;
+    top:0px;
+    left:280px;
+    text-align:center;
 }
 
 #grand-total h1 {
-    font-size:24px;
+    font-size:30px;
+    margin-bottom:0px;
+    line-height:30px;
 }
+
 #overall-count {
     position:relative;
     top:5px;
@@ -981,22 +995,76 @@ a.hovercard:hover {
 .team-count {
     width:200px;
     margin-left:5px;
+    font-size:13px;
+    cursor:pointer;
 }
+
 .team-count span.mentions {
-    float:right;
-}
-.team-count a span.name {
     color:#fff;
 }
 
+.team-count span.name {
+    color:#ED1F24;
+}
+
+.mentions-first span.name {
+    font-size:18px;
+}
+
+.mentions-second span.name {
+    font-size:17px;
+}
+
+.mentions-third span.name {
+    font-size:16px;
+}
+
+.mentions-fourth span.name {
+    font-size:15px;
+}
+
+.mentions-fifth span.name {
+    font-size:14px;
+}
+
 #map {
-   border: 1px solid #999; 
    width:700px;
    height:350px;
    position:absolute;
 }
 
+#glow-container {
+    position:absolute;
+    z-index:50;
+}
+
+#hotspot-container{
+    position:absolute;
+    z-index:51; 
+}
+
+.map-hotspot{
+    background:transparent url('../img/campus-hotspot.png') no-repeat;
+    width:8px;
+    height:6px;
+    position:absolute;
+    cursor:pointer;
+}
+
+.map-glow{
+    position:absolute;
+}
+
 .coords {
     position:absolute;
     font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.count-shadow {
+    background:transparent url('../img/mention-list-fade-out.png');
+    width:229px;
+    height:19px;
+    position:absolute;
+    top:245px;
+    pointer-events: none;
 }
