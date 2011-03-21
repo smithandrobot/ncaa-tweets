@@ -63,9 +63,15 @@ function ScheduleController()
         var eligibleGames = []
         
         var roundDates = getRoundDates(round)
+        if(!$.isArray(self.scheduleData)){
+            self.scheduleData = [self.scheduleData]
+        }
+        
         for(var g in self.scheduleData){
             var game = self.scheduleData[g]
-            //Log(game)
+            if(game == undefined){
+                continue
+            }
             var allow = true
             for(c in game.competitor){
                 if(game.competitor[c].shortName == "TA&M"){
@@ -101,22 +107,24 @@ function ScheduleController()
     function onDataChange(e)
     {
         var data = e.target.getData()
+
         self.scheduleData = data.events.event
         
-        var gameList = getGamesForRound(self.loadedRound)
         
-
+        var gameList = getGamesForRound(self.loadedRound)
         
         if (streamLoadCount > 0) {
             streamLoadCount--;
             $('#scoreboard-loader').hide();
+            //Log(data.events.event)
             $(gameList).each(function() {
+                
                 var game = renderGame($(this)[0])
                 if(game.active && self.firstActive == null){
                     self.firstActive = game;
                 }
             })
-            
+            //Log("slc: " + streamLoadCount)
             if(streamLoadCount == 0){
                 sortGames()
                 var pos = 0;

@@ -23,7 +23,7 @@ function GameController(gameData, model)
     init(gameData, model);
 
     function init(data, model) {
-
+        
         self.id = data.id
         self.teams = model
         model.addEventListener("onTeamModelReady", onTeamUpdate)
@@ -202,6 +202,7 @@ function GameController(gameData, model)
         }
 
         templateData.date = Date.parse(data.date)
+        
         templateData.date.addHours( - 4)
         self.date = templateData.date
 
