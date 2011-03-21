@@ -37,6 +37,13 @@ function TweetCountController()
             handleHeight: 60,
             arrows: false
         });
+    
+    $('#map').append('<div></div>')
+    $('#map').click(function(event){
+        var x = event.pageX - 251
+        var y = event.pageY - 1076
+        $('#map div').html(",coords:{'x':" + x + ", 'y':" + y + "}")
+    })
     }
     
     return self

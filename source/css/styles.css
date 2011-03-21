@@ -990,6 +990,12 @@ a.hovercard:hover {
 }
 
 #map {
-    
-    
+   border: 1px solid #999; 
+   width:700px;
+   height:350px;
+   position:absolute;
+}
+
+#map div {
+    font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
