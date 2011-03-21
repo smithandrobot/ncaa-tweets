@@ -228,8 +228,12 @@ function ScheduleController()
                 'start': new Date(2011, 2, 19),
                 'end': new Date(2011, 2, 20)
             },
-            'regionals': {
+            'regsemis': {
                 'start': new Date(2011, 2, 24),
+                'end': new Date(2011, 2, 25)
+            },
+            'regfinals': {
+                'start': new Date(2011, 2, 26),
                 'end': new Date(2011, 2, 27)
             },
             'finals': {

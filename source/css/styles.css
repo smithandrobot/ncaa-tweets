@@ -113,12 +113,13 @@ noscript div, .warning {
 #tournament_nav
 {
 	margin-top:250px;
-	margin-left:-10px;
+	margin-left:0px;
 	width:508px;
 	vertical-align:bottom;
 	text-align:center;
 	white-space:nowrap;
 	overflow:hidden;
+	text-transform:uppercase;
 }
 
 #tournament_nav *
@@ -142,7 +143,7 @@ noscript div, .warning {
 #tournament_nav .inactive
 {
 	color:#999;
-	margin-left:10px;
+	margin-left:15px;
 	display:inline-block;
 	vertical-align:bottom;
 /*	border:1px red solid;*/
@@ -158,17 +159,17 @@ noscript div, .warning {
 #tournament_nav .active
 {
 	display:inline-block;
-	margin-left:10px;
+	margin-left:15px;
 	color:#ED1F24;
 	vertical-align:bottom;
 /*	border:1px red solid;*/
-	line-height:28px;
+	line-height:21px;
 }
 
 #tournament_nav .tournament-selected
 {
-	font-size:28px;
-	margin-left:10px;
+	font-size:18px;
+	margin-left:15px;
 	display:inline-block;
 }
 

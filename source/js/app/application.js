@@ -26,7 +26,7 @@ function Application()
     function onTeamModelReady(e){
         teams.removeEventListener("onTeamModelReady", this)
         nav.addEventListener('onRoundSelect', onRoundSelect);
-        nav.setAvailableRounds(['round1', 'round2', 'round3'])
+        nav.setAvailableRounds(['round1', 'round2', 'round3', 'regsemis', 'regfinals', 'finals', 'championship'])
         
         
         selector.addEventListener('onTeamSelect', onTeamSelect)
@@ -37,7 +37,7 @@ function Application()
         schedules.addEventListener('onTeamSelect', onTeamSelect)
         schedules.addEventListener('onHashTagClick', onHashTagClick)
         schedules.setTeamModel(teams)
-        nav.activateRound('round2');
+        nav.activateRound('regsemis');
         
     }
     
