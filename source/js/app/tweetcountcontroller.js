@@ -38,11 +38,11 @@ function TweetCountController()
             arrows: false
         });
     
-    $('#map').append('<div></div>')
+    $('#map').after('<div class="coords">coordinates</div>')
     $('#map').click(function(event){
         var x = event.pageX - 251
         var y = event.pageY - 1076
-        $('#map div').html(",coords:{'x':" + x + ", 'y':" + y + "}")
+        $('.coords').html(",coords:{'x':" + x + ", 'y':" + y + "}")
     })
     }
     

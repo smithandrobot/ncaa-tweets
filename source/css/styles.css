@@ -996,6 +996,7 @@ a.hovercard:hover {
    position:absolute;
 }
 
-#map div {
+.coords {
+    position:absolute;
     font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
