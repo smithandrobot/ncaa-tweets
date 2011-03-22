@@ -99,6 +99,7 @@ function TweetCountController()
     function getCounts(){
         self.counts = []
         self.totalcount = 0
+        
         var teamlist = self.teams.getAll()
         for(t in teamlist){
             var team = teamlist[t]
@@ -115,7 +116,7 @@ function TweetCountController()
             var team = self.counts[c]
             //team.mentions = Utils.addCommas(team.mentions)
         }
-        return self.counts
+        //return self.counts
     }
     
     function setTip(t, mentions){
@@ -185,10 +186,12 @@ function TweetCountController()
     
     function onTeamDataUpdate(e){
         getCounts()
+        Log('got counts')
         for(c in self.counts){
             var team = self.counts[c]
             $('a[tid="'+team.shortName+'"]').find('.mentions').text(Utils.addCommas(team.mentions))
         }
+        Log("total: " + Utils.addCommas(self.totalcount))
         $("#grand-total h1").text(Utils.addCommas(self.totalcount))
     }
     
