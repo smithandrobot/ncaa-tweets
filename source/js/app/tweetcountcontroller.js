@@ -186,12 +186,10 @@ function TweetCountController()
     
     function onTeamDataUpdate(e){
         getCounts()
-        Log('got counts')
         for(c in self.counts){
             var team = self.counts[c]
             $('a[tid="'+team.shortName+'"]').find('.mentions').text(Utils.addCommas(team.mentions))
         }
-        Log("total: " + Utils.addCommas(self.totalcount))
         $("#grand-total h1").text(Utils.addCommas(self.totalcount))
     }
     
