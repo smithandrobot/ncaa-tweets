@@ -982,14 +982,18 @@ a.hovercard:hover {
 
 #overall-count h3{
     font-size:15px;
-    margin-bottom:10px;
+    margin-bottom:5px;
 }
 
 #overall-count .count-scrollbar{
     position:relative;
     height:230px;
     overflow:auto;
-    
+    padding-top:10px;
+}
+
+#overall-count .count-scrollbar ul{
+    margin-top:10px;
 }
 
 .team-count {
@@ -1065,6 +1069,6 @@ a.hovercard:hover {
     width:229px;
     height:19px;
     position:absolute;
-    top:245px;
+    top:250px;
     pointer-events: none;
 }

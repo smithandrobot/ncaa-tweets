@@ -44,6 +44,7 @@ function TeamsModel()
                         'displayName':$.trim(teamData[1]),
                         'hashTag':$.trim(teamData[2]),
                         'shortName':breaks[2],
+                        'tourneyStatus': teamData[3] == undefined ? "IN" : "OUT",
                         'stream': stream.full_name + '-curated',
                         'mentions': stream.count.total
                     }
@@ -227,7 +228,7 @@ function TeamsModel()
             'XAV': {
                 'color': '#3877B3',
                 'name': 'Xavier Musketeers',
-				'coords':{'x':470, 'y':127}
+				'coords':{'x':473, 'y':125}
             },
             'SJU': {
                 'color': '#CC0033',

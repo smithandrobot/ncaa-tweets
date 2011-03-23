@@ -1,3 +1,13 @@
 *.pyc
 .*
 deploy/js/application.min.js
+/checker.py
+/source/colorsheet.html
+/source/hexgrabber.py
+/source/mock/events-20110319.json
+/source/mock/events-20110320.json
+/source/mock/events-20110323.json
+/source/mock/events-20110324.json
+/source/mock/events-20110325.json
+/source/mock/events-20110326.json
+/source/mock/events-20110327.json

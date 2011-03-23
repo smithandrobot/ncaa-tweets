@@ -31,7 +31,7 @@ function Application()
         
         selector.addEventListener('onTeamSelect', onTeamSelect)
         selector.buildList(teams)
-        count.heatFactor = 1.8
+        count.heatFactor = .75
         count.populate(teams)
         
         schedules.addEventListener('onTeamSelect', onTeamSelect)
