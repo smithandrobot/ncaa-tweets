@@ -23,6 +23,11 @@ def dev():
     print "Deploying...."
     project.rsync_project(remote_dir="/var/www/vhosts/ncaa/", local_dir='source/')
     
+def dev_build():
+    build()
+    print "Deploying...."
+    project.rsync_project(remote_dir="/var/www/vhosts/ncaa/", local_dir='deploy/')
+    
 def production():
 
     conn = S3Connection('AKIAJ4EO6O6USEUIZFYQ', 'cwdn44hghyiERlkOEZGLIqSb5jpqw0oSnI9goZSj') 

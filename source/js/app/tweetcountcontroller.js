@@ -81,7 +81,7 @@ function TweetCountController()
     for(c in self.counts){
       var team = self.teams.getTeam(self.counts[c].shortName)
       if(self.filterFinalists && team.tourneyStatus == "OUT"){
-        Log("Filtered: " + team.displayName)
+        //Log("Filtered: " + team.displayName)
         continue;
       }
       if(team.coords){

@@ -7,14 +7,14 @@
 	<property name="lib.dir" location="../bin/closure-compiler" />
 	<property name="user.name" location="david" />
 	<property name="jscompjar" location="${lib.dir}/compiler.jar" />
-	
-	<taskdef name="jscomp" 
+
+	<taskdef name="jscomp"
 		classname="com.google.javascript.jscomp.ant.CompileTask"
 		classpath="${jscompjar}"/>
-		
+
 	<concat destfile="${build}/js/project.js">
 	  <filelist dir="${src}">
-		
+
 		<!-- Utils -->
 		<file name="utils/utils.js" />
 		<file name="utils/timestamp.js" />
@@ -24,7 +24,7 @@
 		<file name="utils/eventdispatcher.js" />
 		<file name="utils/tweetparser.js" />
 		<file name="utils/mediaparser.js" />
-		
+
 		<!-- Application -->
 		<file name="fx.js"  />
         <file name="app/verizonmodule.js"  />
@@ -45,7 +45,8 @@
         <file name="app/gamecontroller.js"  />
         <file name="app/navcontroller.js"  />
         <file name="app/teamselectorcontroller.js"  />
-		
+        <file name="app/tweetcountcontroller.js"  />
+
 	  </filelist>
 	</concat>
 
@@ -53,7 +54,7 @@
 	<echo message="Init..." />
 	<tstamp/>
 	<mkdir dir="${build}"/>
-	
+
 	<echo message="compressing / minifying javaScript..." />
 	<jscomp compilationLevel="simple" warning="quiet"
 	  debug="true" output="${dist}/application.min.js">
@@ -62,7 +63,7 @@
 	  </sources>
 	</jscomp>
 
-	
+
 	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats css/ ${deploy}/css/" />
 	</exec>
@@ -75,7 +76,7 @@
 	<exec dir="./" executable="rsync" searchpath="true" resolveexecutable="true" os="Mac OS X" failonerror="false">
 		<arg line="rsync -vur --stats fonts/ ${deploy}/fonts/" />
 	</exec>
-	
+
 	<delete dir="${build}"/>
-	
+
 </project>

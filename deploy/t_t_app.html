@@ -13,7 +13,7 @@
 		<!--[if IE 7]>
         <link rel="stylesheet" href="css/ie7.css" type="text/css" />
         <![endif]-->
-				<!-- Third Party -->        
+				<!-- Third Party -->
         <script src="http://platform.twitter.com/anywhere.js?id=yzCvEtdRlp6xQGmryHhTAQ&amp;v=1"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery-1.5.min.js" charset="utf-8"></script>
 		<script type="text/javascript" src="js/thirdparty/jquery.scroll.js" charset="utf-8"></script>
@@ -21,7 +21,7 @@
 		<script src="js/thirdparty/jquery.qtip-1.0.0-rc3.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/thirdparty/date.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/thirdparty/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
-		
+
 		<script type="text/javascript">
 		//<![CDATA[
 			var myfont_webfont_test = false;
@@ -31,10 +31,10 @@
 		//]]>
 		</script>
 		<script type="text/javascript" src="js/thirdparty/MyFontsWebfontsOrderM2771673.js"></script>
-		
+
 		<!-- Utilities -->
 		<script type="text/javascript" src="js/application.min.js" charset="utf-8"></script>
-		
+
 		<script type="text/javascript" charset="utf-8">
 		function trackClick()
 		{
@@ -47,7 +47,7 @@
 	</head>
 	<body>
 		<!--[if IE 6]>
-	<script type="text/javascript"> 
+	<script type="text/javascript">
 		document.write("<div class='warning'><b>This page cannot load properly because your browser (version 6) needs to be <a href='http://www.microsoft.com/windows/internet-explorer' target='_top'>updated</a>.</b></div>");</script>
 	<![endif]-->
 		<div id="container">
@@ -62,33 +62,37 @@
 				<h1>
 					Verizon Tournament of Tweets
 				</h1>
-				
+
 				<!-- BEGIN COLUMN LEFT -->
-				
+
 				<div id="column-left">
 					<div id="tournament_nav">
 							<span class="inactive" >
-								<a href="#" id="round1">1st ROUND</a>
+								<a href="#" id="round1">1st</a>
 								<div class="active-under"></div>
 							</span>
 							<span class="inactive" >
-								<a href="#" id="round2">2nd ROUND</a>
+								<a href="#" id="round2">2nd</a>
 								<div class="active-under"></div>
 							</span>
 							<span class="inactive" >
-								<a href="#" id="round3">3rd ROUND</a>
+								<a href="#" id="round3">3rd</a>
 								<div class="active-under"></div>
 							</span>
 							<span class="inactive" >
-								<a href="#" id="regionals">REGIONALS</a>
+								<a href="#" id="regsemis">Regionals</a>
 								<div class="active-under"></div>
 							</span>
 							<span class="inactive" >
-								<a href="#" id="finals">FINALS</a>
+								<a href="#" id="regfinals">Regional Finals</a>
 								<div class="active-under"></div>
 							</span>
 							<span class="inactive" >
-								<a href="#" id="championship">CHAMPIONSHIP</a>
+								<a href="#" id="finals">Semi-finals</a>
+								<div class="active-under"></div>
+							</span>
+							<span class="inactive" >
+								<a href="#" id="championship">Championship</a>
 								<div class="active-under"></div>
 							</span>
 						<div class="clear"></div>
@@ -100,14 +104,14 @@
 						<div id="schedule-container-bottom-shadow"></div>
 					</div>
 				</div>
-				
+
 				<!-- END COLUMN LEFT -->
-				
+
 				<!-- BEGIN COLUMN RIGHT -->
-				
+
 				<div id="column-right">
 					<div id="atanywhere-container">
-					    <h3 class="red">JOIN MESSAGING MANIA</h3>
+					    <h3 class="red">&nbsp;</h3>
 					    <!-- start canned tweet -->
 					    <div class="tweet">
                            <div class="tweet-bg">
@@ -116,20 +120,20 @@
                          	  </div>
                                <div class="tweet-copy-block">
                          	      <div class="tweet-text">Loading...</div>
-                        	          
+
                         		      <div class="tweet-utility">
                         		          <span class="tweet-actions"><a href="#favorite" class="action-favorite" title="Retweet"><span><i><!--icon--></i><b>Favorite</b></span></a><a href="#retweet" class="action-retweet" title="Retweet"><span><i><!--icon--></i><b>Retweet</b></span></a><a href="#reply" class="action-reply" title="Reply"><span><i><!--icon--></i><b>Reply</b></span></a><a href="#follow" class="action-follow" title="Follow"><span><i><!--icon--></i><b>Follow</b></span></a></span>
                         		      </div>
                         	      </div>
                            </div>
                         </div>
-                        
+
                         <!-- end canned tweet -->
-                        
+
                         <div id="share">
         					<div id="tbox"></div>
         				</div>
-        				
+
 					</div>
 					<div id="tweet-streams">
 				        <p id="show-all-streams" class="red">Show All Teams</p>
@@ -148,8 +152,8 @@
         							<a id="loadmore-count" class="rounded" href="#null">3 New Tweets</a>
         						</div>
         						<div id="main-timeline" class="timeline-all">
-        						    
-        						    
+
+
         						    <!-- start canned tweet -->
         						    <div id="template-tweet" class="tweet">
                                        <div class="tweet-bg">
@@ -171,7 +175,7 @@
                                        </div>
 
                                     </div>
-                                   
+
                                     <!-- end canned tweet -->
         							<div id="tweet-team-loader" class="please-wait"><img src="img/ajax-loader.gif" width="32" height="32" alt=""><br>Waiting for Tweets</div>
         						</div>
@@ -181,19 +185,34 @@
 				    </div>
 				</div><!-- END COLUMN RIGHT -->
 			</div><!-- END CONTENT -->
-			<div id="map"></div>
-			<div id="footer"><a href="#verizon" onclick="trackClick(); return false;" target="_blank"><img src="img/foot2.jpg" width="924" height="140" alt="Foot" /></a></div>
+                        	<div id="overall-statistics">
+			    <div id="grand-total">
+			     <h1></h1>
+			     <p>TOURNAMENT TWEETS</p>
+			    </div>
+			    <div id="map">
+
+			    </div>
+			    <div id="overall-count">
+			        <h3>MOST MENTIONED TEAMS ON TWITTER</h3>
+			    <div class="count-scrollbar">
+			        <ul></ul>
+			    </div>
+			    <div class="count-shadow"></div>
+			    </div>
+			</div>
+			<div id="footer"><a href="#verizon" onclick="trackClick(); return false;" target="_blank"><img src="img/footer-branding.png" width="924" height="135" alt="Foot" /></a></div>
 			<div class="clear"></div>
 
 			<div id="modal-templates">
-				
+
 				<div id="modal-photo-template" class="modal-photo modal-shadow">
 					<div class="photo-tweet">
 						<div class="close-button">close</div>
 					</div>
 					<div class="photo-tweet-image"><img src="./img/ajax-loader.gif" /></div>
 				</div>
-				
+
 				<div id="modal-retweet-template" class="modal modal-shadow">
 						<h2>RETWEET</h2>
 						<div class="close-button">close</div>
@@ -216,7 +235,7 @@
 							<div class="modal-button modal-confirm-button">OKAY</div>
 						</div>
 				</div>
-				
+
 				<div id="modal-favorite-template" class="modal modal-shadow">
 						<h2>FAVORITE</h2>
 						<div class="close-button">close</div>
@@ -238,13 +257,13 @@
 							<div class="modal-button modal-confirm-button">OKAY</div>
 						</div>
 				</div>
-				
+
 				<div id="modal-reply-template" class="modal modal-shadow">
 						<h2>REPLY</h2>
 						<div class="close-button">close</div>
 						<div class="clear"></div>
 						<div id="reply-box" class="action-screen">
-							
+
 						</div>
 						<div class="confirmation-screen">
 							<div class="gray confirmation">Your reply has been sent to Twitter</div>
@@ -259,13 +278,13 @@
 							<div class="modal-button modal-confirm-button">OKAY</div>
 						</div>
 				</div>
-				
+
 				<div id="modal-tweetbox-template" class="modal modal-shadow">
 						<h2>TWEET</h2>
 						<div class="close-button">close</div>
 						<div class="clear"></div>
 						<div id="team-tweet-box" class="action-screen">
-							
+
 						</div>
 						<div class="confirmation-screen">
 							<div class="gray confirmation">Your reply has been sent to Twitter</div>
@@ -276,7 +295,7 @@
 							<div class="modal-button modal-confirm-button">OKAY</div>
 						</div>
 				</div>
-				
+
 				<div id="modal-follow-template" class="modal modal-shadow">
 						<h2>FOLLOW</h2>
 						<div class="close-button">close</div>
@@ -298,7 +317,7 @@
 							<div class="modal-button modal-confirm-button">OKAY</div>
 						</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 		<script id="gameTemplate" type="text/x-jquery-tmpl">
           <div id="game-${game.id}" class="game game-${game.status}">
@@ -325,11 +344,11 @@
 				</div>
 			</div>
         </script>
-		<script type="text/javascript"> 
+		<script type="text/javascript">
 			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-			</script> 
-			<script type="text/javascript"> 
+			</script>
+			<script type="text/javascript">
 			try {
 			var pageTracker = _gat._getTracker("UA-9835910-5");
 			pageTracker._trackPageview();
