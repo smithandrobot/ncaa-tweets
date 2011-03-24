@@ -14,7 +14,12 @@ body, div {
 	text-shadow: #000000 0px 0px 3px;
 	
 	}
-	
+
+body {
+    
+	background: #333 url("../img/footer-bkg.png") repeat-x;
+	background-position: bottom;
+}	
 .warning a {
 	color: #74000e;
 	text-decoration: underline;
@@ -102,6 +107,7 @@ noscript div, .warning {
 #footer {
     width:924px;
     margin:0px auto;
+    padding-bottom:20px;
 }
 
 #footer a {
@@ -113,12 +119,13 @@ noscript div, .warning {
 #tournament_nav
 {
 	margin-top:250px;
-	margin-left:-10px;
+	margin-left:0px;
 	width:508px;
 	vertical-align:bottom;
 	text-align:center;
 	white-space:nowrap;
 	overflow:hidden;
+	text-transform:uppercase;
 }
 
 #tournament_nav *
@@ -142,7 +149,7 @@ noscript div, .warning {
 #tournament_nav .inactive
 {
 	color:#999;
-	margin-left:10px;
+	margin-left:15px;
 	display:inline-block;
 	vertical-align:bottom;
 /*	border:1px red solid;*/
@@ -158,17 +165,17 @@ noscript div, .warning {
 #tournament_nav .active
 {
 	display:inline-block;
-	margin-left:10px;
+	margin-left:15px;
 	color:#ED1F24;
 	vertical-align:bottom;
 /*	border:1px red solid;*/
-	line-height:28px;
+	line-height:21px;
 }
 
 #tournament_nav .tournament-selected
 {
-	font-size:28px;
-	margin-left:10px;
+	font-size:18px;
+	margin-left:15px;
 	display:inline-block;
 }
 
@@ -919,6 +926,10 @@ span#counter {
     padding-top:30px;
 }
 
+.no-arrow{
+    background:transparent url('../img/tipbg-noarrow.png') no-repeat center 10px;
+}
+
 a.hovercard:hover {
     color:#ED1F24;
 }
@@ -936,4 +947,128 @@ a.hovercard:hover {
     font-family:Helvetica, Arial, sans-serif;
     margin:0 0 10px 10px;
     display:none;
+}
+
+#overall-statistics {
+    width:924px;
+    margin:100px auto;
+    margin-bottom:0px;
+    position:relative;
+    clear:both;
+    height:324px;
+    background: transparent url('../img/map-list-lockup.png') no-repeat bottom center;
+    padding-bottom:30px;
+}
+
+#grand-total{
+    position:absolute;
+    top:0px;
+    left:280px;
+    text-align:center;
+}
+
+#grand-total h1 {
+    font-size:30px;
+    margin-bottom:0px;
+    line-height:30px;
+}
+
+#overall-count {
+    position:relative;
+    top:5px;
+    left:673px;
+    width:230px;
+}
+
+#overall-count h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+#overall-count .count-scrollbar{
+    position:relative;
+    height:230px;
+    overflow:auto;
+    padding-top:10px;
+}
+
+#overall-count .count-scrollbar ul{
+    margin-top:10px;
+}
+
+.team-count {
+    width:200px;
+    margin-left:5px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.team-count span.mentions {
+    color:#fff;
+}
+
+.team-count span.name {
+    color:#ED1F24;
+}
+
+.mentions-first span.name {
+    font-size:18px;
+}
+
+.mentions-second span.name {
+    font-size:17px;
+}
+
+.mentions-third span.name {
+    font-size:16px;
+}
+
+.mentions-fourth span.name {
+    font-size:15px;
+}
+
+.mentions-fifth span.name {
+    font-size:14px;
+}
+
+#map {
+   width:700px;
+   height:350px;
+   position:absolute;
+}
+
+#glow-container {
+    position:absolute;
+    z-index:50;
+}
+
+#hotspot-container{
+    position:absolute;
+    z-index:51; 
+}
+
+.map-hotspot{
+    background:transparent url('../img/campus-hotspot.png') no-repeat;
+    width:8px;
+    height:6px;
+    position:absolute;
+    cursor:pointer;
+}
+
+.map-glow{
+    position:absolute;
+}
+
+.coords {
+    position:absolute;
+    font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.count-shadow {
+    background:transparent url('../img/mention-list-fade-out.png');
+    width:229px;
+    height:19px;
+    position:absolute;
+    top:250px;
+    pointer-events: none;
 }
