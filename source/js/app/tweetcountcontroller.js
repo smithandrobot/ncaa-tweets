@@ -20,7 +20,7 @@ function TweetCountController()
 
     $("#grand-total h1").text(Utils.addCommas(self.totalcount))
 
-    var counttemplate = '<li class="team-count" tid="${shortName}"><span class="name">${name}</span> '
+    var counttemplate = '<li class="team-count ${tourneyStatus}" tid="${shortName}"><span class="name">${name}</span> '
     counttemplate += '<span class="mentions">${Utils.addCommas(mentions)}</span></li>'
 
     var hotSpotTemplate = '<div class="map-hotspot" tid="${shortName}" style="top:${coords.y}px;left:${coords.x}px;"></div>'
@@ -81,7 +81,6 @@ function TweetCountController()
     for(c in self.counts){
       var team = self.teams.getTeam(self.counts[c].shortName)
       if(self.filterFinalists && team.tourneyStatus == "OUT"){
-        //Log("Filtered: " + team.displayName)
         continue;
       }
       if(team.coords){
@@ -132,12 +131,14 @@ function TweetCountController()
       var teamlist = self.teams.getAll()
       for(t in teamlist){
         var team = teamlist[t]
+
         var mentions = parseInt(team.mentions)
         self.totalcount += mentions
         self.counts.push({
           'name'      : team.displayName,
               'mentions'  : mentions,
-              'shortName' : team.shortName
+              'shortName' : team.shortName,
+              'tourneyStatus' : team.tourneyStatus.toLowerCase()
               })
       }
     self.counts = self.counts.sort(function(a,b){return b.mentions - a.mentions})

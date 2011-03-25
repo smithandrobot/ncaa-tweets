@@ -1,6 +1,6 @@
 TeamsModel.prototype = new EventDispatcher();
 TeamsModel.constructor = TeamsModel;
-function TeamsModel() 
+function TeamsModel()
 {
 	var self = this;
 	var feedURL = 'http://tweetriver.com/mr_mm_2011.json';
@@ -9,29 +9,29 @@ function TeamsModel()
 	var team_schema = null;
 	var INTERVAL_TIME = 1000 * 5;
 	var teamsLoaded = false;
-    
+
 	this.getTeam = getTeam;
 	this.getAll = getAll;
 	this.setTeamColor = setTeamColor;
-	
+
 	init();
-	
+
 	function init(){
 	    Log('Fetching team data')
 	    self.team_schema = {}
 	    model.setStream(feedURL);
         model.load(null, 'jsonp');
 	}
-	
+
 	function poll()
     {
         model.load(null, 'jsonp');
     }
-    
+
 	function onDataChange(e)
     {
         var data = e.target.getData()
-        
+
         if(!teamsLoaded){
             for(var s in data.streams){
                 var stream = data.streams[s]
@@ -44,11 +44,11 @@ function TeamsModel()
                         'displayName':$.trim(teamData[1]),
                         'hashTag':$.trim(teamData[2]),
                         'shortName':breaks[2],
-                        'tourneyStatus': teamData[3] == undefined ? "IN" : "OUT",
+                        'tourneyStatus': teamData[3] == undefined ? "IN" : checkStatusOverride(breaks[2]),
                         'stream': stream.full_name + '-curated',
                         'mentions': stream.count.total
                     }
-                    
+
                     if(self.team_schema[breaks[2]].shortName == 'TA&M'){
                         self.team_schema[breaks[2]].shortName = 'TAM'
                     }
@@ -67,62 +67,62 @@ function TeamsModel()
                     if(team){
                         team.mentions = stream.count.total
                     }
-                    
+
                 }
             }
         }
-        
+
         updateColors();
         setTeamLocations()
         dispatchEvent("onTeamModelReady", self);
         clearInterval(self.interval)
         self.interval = setInterval(poll, INTERVAL_TIME);
     }
-    
-    
-    
+
+
+
     function setTeamColor(id, color){
         id = id.toLowerCase();
         if(self.team_schema[id]){
             self.team_schema[id].color = color;
         }
-        
+
     }
-    
+
     function setTeamLocations(){
         var teams = getTeamMeta()
-        
+
         for(t in teams){
             var team = teams[t]
             var sn = t.toLowerCase()
             if(self.team_schema[sn] != undefined){
                 self.team_schema[sn].coords = team.coords
             }
-            
+
         }
     }
-	
+
 	function getTeam(id)
 	{
 	    id = id.toLowerCase();
 		return self.team_schema[id]
 	}
-	
+
 	function getAll(){
 	    return self.team_schema
 	}
-	
+
 	function updateColors()
     {
-        
+
         var colorValues = getTeamMeta()
-        
+
         for(c in colorValues){
             setTeamColor(c, colorValues[c].color)
         }
-        
+
     }
-    
+
     function getTeamMeta(){
         return {
             'HAMP': {
@@ -163,7 +163,8 @@ function TeamsModel()
             'FSU': {
                 'color': '#990000',
                 'name': 'Florida State Seminoles',
-				'coords':{'x':529, 'y':224}
+				'coords':{'x':529, 'y':224},
+              'statusOverride':'IN'
             },
             'CLEM': {
                 'color': '#F35B0F',
@@ -173,7 +174,8 @@ function TeamsModel()
             'CONN': {
                 'color': '#2154A0',
                 'name': 'Connecticut Huskies',
-				'coords':{'x':566, 'y':91}
+				'coords':{'x':566, 'y':91},
+              'statusOverride':'IN'
             },
             'TEX': {
                 'color': '#CC5500',
@@ -203,7 +205,8 @@ function TeamsModel()
             'ARIZ': {
                 'color': '#C41E3A',
                 'name': 'Arizona Wildcats',
-				'coords':{'x':117, 'y':201}
+				'coords':{'x':117, 'y':201},
+              'statusOverride':'IN'
             },
             'UAB': {
                 'color': '#006600',
@@ -223,7 +226,8 @@ function TeamsModel()
             'BYU': {
                 'color': '#1A4F86',
                 'name': 'Brigham Young Cougars',
-				'coords':{'x':166, 'y':122}
+				'coords':{'x':166, 'y':122},
+              'statusOverride':'IN'
             },
             'XAV': {
                 'color': '#3877B3',
@@ -238,7 +242,8 @@ function TeamsModel()
             'UNC': {
                 'color': '#99BFE5',
                 'name': 'North Carolina Tar Heels',
-				'coords':{'x':555, 'y':153}
+				'coords':{'x':555, 'y':153},
+              'statusOverride':'IN'
             },
             'GMU': {
                 'color': '#016600',
@@ -288,12 +293,14 @@ function TeamsModel()
             'MARQ': {
                 'color': '#FDBB30',
                 'name': 'Marquette Golden Eagles',
-				'coords':{'x':416, 'y':96}
+				'coords':{'x':416, 'y':96},
+              'statusOverride':'IN'
             },
             'KU': {
                 'color': '#0060A5',
                 'name': 'Kansas Jayhawks',
-				'coords':{'x':343, 'y':136}
+				'coords':{'x':343, 'y':136},
+              'statusOverride':'IN'
             },
             'TAM': {
                 'color': '#814D4C',
@@ -318,7 +325,8 @@ function TeamsModel()
             'DUKE': {
                 'color': '#3C7FBF',
                 'name': 'Duke Blue Devils',
-				'coords':{'x':562, 'y':151}
+				'coords':{'x':562, 'y':151},
+              'statusOverride':'IN'
             },
             'USC': {
                 'color': '#A50010',
@@ -368,7 +376,8 @@ function TeamsModel()
             'FLA': {
                 'color': '#FF4A00',
                 'name': 'Florida Gators',
-				'coords':{'x':571, 'y':237}
+				'coords':{'x':571, 'y':237},
+              'statusOverride':'IN'
             },
             'ALST': {
                 'color': '#E9A900',
@@ -378,12 +387,14 @@ function TeamsModel()
             'OSU': {
                 'color': '#FF2000',
                 'name': 'Ohio State Buckeyes',
-				'coords':{'x':477, 'y':117}
+				'coords':{'x':477, 'y':117},
+              'statusOverride':'IN'
             },
             'BUT': {
                 'color': '#3877B3',
                 'name': 'Butler Bulldogs',
-				'coords':{'x':446, 'y':121}
+				'coords':{'x':446, 'y':121},
+              'statusOverride':'IN'
             },
             'WVU': {
                 'color': '#FFCC00',
@@ -408,7 +419,8 @@ function TeamsModel()
             'WIS': {
                 'color': '#C32122',
                 'name': 'Wisconsin Badgers',
-				'coords':{'x':403, 'y':98}
+				'coords':{'x':403, 'y':98},
+              'statusOverride':'IN'
             },
             'UNCO': {
                 'color': '#FFCC33',
@@ -418,7 +430,8 @@ function TeamsModel()
             'RICH': {
                 'color': '#9E0712',
                 'name': 'Richmond Spiders',
-				'coords':{'x':551, 'y':133}
+				'coords':{'x':551, 'y':133},
+              'statusOverride':'IN'
             },
             'VILL': {
                 'color': '#B8D7E4',
@@ -428,7 +441,8 @@ function TeamsModel()
             'VCU': {
                 'color': '#F8B800',
                 'name': 'Virginia Commonwealth Rams',
-				'coords':{'x':554, 'y':136}
+				'coords':{'x':554, 'y':136},
+              'statusOverride':'IN'
             },
             'WOF': {
                 'color': '#CFB53B',
@@ -448,7 +462,8 @@ function TeamsModel()
             'SDSU': {
                 'color': '#A81933',
                 'name': 'San Diego State Aztecs',
-				'coords':{'x':47, 'y':187}
+				'coords':{'x':47, 'y':187},
+              'statusOverride':'IN'
             },
             'UCSB': {
                 'color': '#EAAF0F',
@@ -458,7 +473,8 @@ function TeamsModel()
             'UK': {
                 'color': '#3877B3',
                 'name': 'Kentucky Wildcats',
-				'coords':{'x':473, 'y':136}
+				'coords':{'x':473, 'y':136},
+              'statusOverride':'IN'
             },
             'UGA': {
                 'color': '#FF0000',
@@ -472,7 +488,18 @@ function TeamsModel()
             }
         }
     }
-    
+
+  function checkStatusOverride(id) {
+    var meta = getTeamMeta()
+    var team = meta[id.toUpperCase()]
+    if(!team) {
+      return "OUT";
+    }
+
+    return team.statusOverride != undefined ? team.statusOverride : "OUT";
+
+  }
+
     function sortTeams(o) {
         var sorted = {},
         key, a = [];
@@ -481,7 +508,7 @@ function TeamsModel()
                 if(key != 'all' && key != 'experts' && key != 'verizon') {
                     a.push({"sn": key, "name" : o[key].displayName});
                 }
-                    
+
             }
         }
 
@@ -492,9 +519,9 @@ function TeamsModel()
         }
         return sorted;
     }
-	
+
 	return self;
-	
+
 }
 
 

@@ -12,14 +12,14 @@ body, div {
 	font-size: 13px;
 	line-height: 1.4;
 	text-shadow: #000000 0px 0px 3px;
-	
+
 	}
 
 body {
-    
+
 	background: #333 url("../img/footer-bkg.png") repeat-x;
 	background-position: bottom;
-}	
+}
 .warning a {
 	color: #74000e;
 	text-decoration: underline;
@@ -67,7 +67,7 @@ noscript div, .warning {
 }
 
 .rounded {
-    -moz-border-radius: 5px; 
+    -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
@@ -91,7 +91,7 @@ noscript div, .warning {
 #column-left, #column-right
 {
 	display:inline;
-	float: left;	
+	float: left;
 }
 
 #column-left{
@@ -184,7 +184,7 @@ noscript div, .warning {
 	color:#FFF;
 }
 
-.active-under 
+.active-under
 {
 	display:block;
 	position:relative;
@@ -280,7 +280,7 @@ noscript div, .warning {
 	clear:both;
 	margin-bottom:17px;
 	margin-top:15px;
-	
+
 }
 
 .game-current
@@ -290,12 +290,12 @@ noscript div, .warning {
 
 .game-final
 {
-	background-position:-46px -126px;	
+	background-position:-46px -126px;
 }
 
 .game-scheduled
 {
-	background-position:-123px -467px;	
+	background-position:-123px -467px;
 }
 
 .game-scheduled .team-score{
@@ -318,7 +318,7 @@ noscript div, .warning {
 {
 	color:#000;
 	text-shadow: #FFF 0px 1px 0px;
-	text-transform:capitalize;	
+	text-transform:capitalize;
 }
 
 .game-scheduled .game-period
@@ -349,7 +349,7 @@ noscript div, .warning {
 
 .game-winning
 {
-	
+
 }
 
 .game-losing
@@ -461,7 +461,7 @@ color: #333;
 	font-size:17px;
 	margin-left:3px;
 /*	border:1px red solid;*/
-	
+
 	line-height:28px;
 }
 
@@ -543,8 +543,8 @@ color: #333;
 #stream-header {
     padding:12px;
     background: #000 url('../img/sprites.png') no-repeat -50px -595px;
-    -moz-border-radius:5px 5px 0px 0px; 
-    -webkit-border-radius: 5px 5px 0px 0px; 
+    -moz-border-radius:5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
     border-radius: 5px 5px 0px 0px;
 }
 
@@ -560,7 +560,7 @@ color: #333;
 }
 
 #stream-header p.meta {
-    
+
     font-size:18px;
     margin:0px;
     color:#ED1F24;
@@ -623,8 +623,8 @@ color: #333;
 
 #timeline-container {
     background-color:#000;
-    -moz-border-radius:0px 0px 5px 5px; 
-    -webkit-border-radius: 0px 0px 5px 5px; 
+    -moz-border-radius:0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
     border-radius: 0px 0px 5px 5px;
     position:relative;
 }
@@ -632,7 +632,7 @@ color: #333;
     padding:10px 0;
     height:550px;
 	position:relative;
-	
+
 }
 
 #timeline .tweet-bg {
@@ -689,7 +689,7 @@ color: #333;
 }
 
 .tweet-name {
-	font-weight: bold;	
+	font-weight: bold;
 }
 
 .tweet-timestamp a {
@@ -825,12 +825,12 @@ color: #333;
 
 .tab {
     float:left;
-    
+
     text-align:center;
     font-size:17px;
     background-color:#232323;
     margin-right:2px;
-    -moz-border-radius: 5px 5px 0px 0px; 
+    -moz-border-radius: 5px 5px 0px 0px;
     -webkit-border-radius: 5px 5px 0px 0px;
     border-radius: 5px 5px 0px 0px;
 }
@@ -857,7 +857,7 @@ color: #333;
     color:#fff;
 }
 
-#loadmore 
+#loadmore
 {
     width:330px;
     margin:3px 10px;
@@ -965,6 +965,7 @@ a.hovercard:hover {
     top:0px;
     left:280px;
     text-align:center;
+color:#ED1F24;
 }
 
 #grand-total h1 {
@@ -978,6 +979,7 @@ a.hovercard:hover {
     top:5px;
     left:673px;
     width:230px;
+
 }
 
 #overall-count h3{
@@ -1044,7 +1046,7 @@ a.hovercard:hover {
 
 #hotspot-container{
     position:absolute;
-    z-index:51; 
+    z-index:51;
 }
 
 .map-hotspot{
@@ -1071,4 +1073,19 @@ a.hovercard:hover {
     position:absolute;
     top:250px;
     pointer-events: none;
+}
+
+#overall-count .out .name {
+   color:#666;
+}
+
+#map-title{
+   position:absolute;
+left:20px;
+}
+
+#map-title h1 {
+   font-size:24px;
+   width:200px;
+   line-height:24px;
 }
