@@ -70,6 +70,7 @@ function TeamsModel()
 
                 }
             }
+
         }
 
         updateColors();
@@ -490,6 +491,8 @@ function TeamsModel()
     }
 
   function checkStatusOverride(id) {
+    //force "OUT"
+    return "OUT"
     var meta = getTeamMeta()
     var team = meta[id.toUpperCase()]
     if(!team) {
