@@ -490,6 +490,7 @@ function TeamsModel()
         }
     }
 
+
   function checkStatusOverride(id) {
     //force "OUT"
     return "OUT"
